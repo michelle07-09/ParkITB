@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "secondary-fixed": "#c6c6c6",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary-fixed": "#5d5f5f",
+                    "on-surface-variant": "#474747",
+                    "surface-container": "#eeeeee",
+                    "secondary": "#5d5e5f",
+                    "surface-dim": "#dadada",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#3a3c3c",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-primary": "#c8c6c6",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-primary": "#e4e2e1",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-low": "#f3f3f3",
+                    "on-primary-fixed-variant": "#e4e2e1",
+                    "outline-variant": "#c6c6c6",
+                    "on-background": "#1a1c1c",
+                    "on-tertiary-container": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "primary-container": "#3b3b3b",
+                    "on-secondary-fixed-variant": "#3a3c3c",
+                    "on-error-container": "#410002",
+                    "on-secondary-container": "#1a1c1c",
+                    "tertiary-container": "#737575",
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary-fixed": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e2e2e2",
+                    "surface": "#f9f9f9",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#d4d4d4",
+                    "outline": "#777777",
+                    "primary": "#000000",
+                    "primary-fixed-dim": "#474747",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2f3131",
+                    "background": "#f9f9f9",
+                    "on-tertiary": "#e2e2e2",
+                    "tertiary-fixed-dim": "#454747",
+                    "secondary-fixed-dim": "#ababab",
+                    "on-surface": "#1a1c1c",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "surface-container-highest": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased flex justify-center">
+<!-- Mobile Screen Wrapper -->
+<div class="w-[390px] min-h-[844px] bg-surface relative flex flex-col pb-24 overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-[#F9F9F9] dark:bg-[#1A1C1C] rounded-none w-full sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-4 h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#000000] dark:text-[#FFFFFF]" data-icon="local_parking">local_parking</span>
+<h1 class="font-['Inter'] font-bold text-xl uppercase tracking-tighter text-[#000000] dark:text-[#FFFFFF]">ParkITB</h1>
+</div>
+<div class="active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#1A1C1C] dark:text-[#E2E2E2]" data-icon="notifications">notifications</span>
+</div>
+</div>
+<div class="bg-[#EEEEEE] dark:bg-[#2A2A2A] h-[1px] w-full"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 py-6 flex flex-col gap-8">
+<!-- Page Header -->
+<section class="flex flex-col gap-1">
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest text-secondary">[Transaction Log]</span>
+<h2 class="text-3xl font-black uppercase tracking-tighter leading-none">History</h2>
+</section>
+<!-- Summary Bento Grid -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 flex flex-col justify-between h-32">
+<span class="text-[11px] font-bold uppercase tracking-widest text-secondary">Total Spend</span>
+<div class="flex flex-col">
+<span class="text-2xl font-black leading-none">$248.50</span>
+<span class="text-[10px] text-outline mt-1">[Last 30 Days]</span>
+</div>
+</div>
+<div class="bg-surface-container p-5 flex flex-col justify-between h-32">
+<span class="text-[11px] font-bold uppercase tracking-widest text-secondary">Sessions</span>
+<div class="flex flex-col">
+<span class="text-2xl font-black leading-none">14</span>
+<span class="text-[10px] text-outline mt-1">[Completed]</span>
+</div>
+</div>
+</section>
+<!-- Transaction List -->
+<section class="flex flex-col gap-4">
+<div class="flex justify-between items-end border-b-2 border-primary pb-2">
+<h3 class="font-bold text-sm uppercase tracking-tighter">Activity Feed</h3>
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+</div>
+<!-- Transaction Item 1 -->
+<div class="bg-surface-container-lowest p-4 flex flex-col gap-3 group active:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Oct 24, 2023</span>
+<span class="text-lg font-bold">North Plaza B2</span>
+</div>
+<span class="text-lg font-black">-$12.00</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="text-[11px] font-medium uppercase">02h 15m</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="payments">payments</span>
+<span class="text-[11px] font-medium uppercase">Visa **** 4242</span>
+</div>
+</div>
+</div>
+<!-- Transaction Item 2 -->
+<div class="bg-surface-container p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Oct 21, 2023</span>
+<span class="text-lg font-bold">Main St. Garage</span>
+</div>
+<span class="text-lg font-black">-$45.50</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-highest px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="text-[11px] font-medium uppercase">08h 00m</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[11px] font-medium uppercase">Apple Pay</span>
+</div>
+</div>
+</div>
+<!-- Transaction Item 3 -->
+<div class="bg-surface-container-lowest p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Oct 18, 2023</span>
+<span class="text-lg font-bold">East Terminal</span>
+</div>
+<span class="text-lg font-black">-$8.25</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="text-[11px] font-medium uppercase">01h 10m</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="payments">payments</span>
+<span class="text-[11px] font-medium uppercase">Mastercard **** 8812</span>
+</div>
+</div>
+</div>
+<!-- Transaction Item 4 -->
+<div class="bg-surface-container p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Oct 15, 2023</span>
+<span class="text-lg font-bold">Downtown Lot A</span>
+</div>
+<span class="text-lg font-black">-$22.00</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-highest px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="text-[11px] font-medium uppercase">04h 30m</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="payments">payments</span>
+<span class="text-[11px] font-medium uppercase">Visa **** 4242</span>
+</div>
+</div>
+</div>
+<!-- Load More / Export CTA -->
+<button class="bg-primary text-on-primary w-full py-4 text-xs font-black uppercase tracking-[0.2em] mt-4 hover:opacity-90 active:scale-95 transition-all">
+                    Export [CSV/PDF]
+                </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-[390px] flex justify-around items-center px-4 py-3 pb-safe bg-[#FFFFFF] dark:bg-[#121212] shadow-[0_-4px_24px_rgba(26,28,28,0.04)] z-50 border-t border-[#EEEEEE] dark:border-[#2A2A2A]">
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest">Parking</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#000000] dark:text-[#FFFFFF] font-bold hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-['Inter'] text-[11px] font-bold uppercase tracking-widest">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

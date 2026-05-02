@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB - Membership</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#5f5e5e",
+                      "on-primary-container": "#ffffff",
+                      "secondary-fixed": "#c6c6c6",
+                      "inverse-on-surface": "#f1f1f1",
+                      "tertiary-fixed": "#5d5f5f",
+                      "on-surface-variant": "#474747",
+                      "surface-container": "#eeeeee",
+                      "secondary": "#5d5e5f",
+                      "surface-dim": "#dadada",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#3a3c3c",
+                      "surface-bright": "#f9f9f9",
+                      "inverse-primary": "#c8c6c6",
+                      "on-tertiary-fixed": "#ffffff",
+                      "on-primary": "#e4e2e1",
+                      "surface-variant": "#e2e2e2",
+                      "surface-container-low": "#f3f3f3",
+                      "on-primary-fixed-variant": "#e4e2e1",
+                      "outline-variant": "#c6c6c6",
+                      "on-background": "#1a1c1c",
+                      "on-tertiary-container": "#ffffff",
+                      "surface-tint": "#5f5e5e",
+                      "primary-container": "#3b3b3b",
+                      "on-secondary-fixed-variant": "#3a3c3c",
+                      "on-error-container": "#410002",
+                      "on-secondary-container": "#1a1c1c",
+                      "tertiary-container": "#737575",
+                      "surface-container-high": "#e8e8e8",
+                      "on-primary-fixed": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#e2e2e2",
+                      "surface": "#f9f9f9",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#d4d4d4",
+                      "outline": "#777777",
+                      "primary": "#000000",
+                      "primary-fixed-dim": "#474747",
+                      "error-container": "#ffdad6",
+                      "inverse-surface": "#2f3131",
+                      "background": "#f9f9f9",
+                      "on-tertiary": "#e2e2e2",
+                      "tertiary-fixed-dim": "#454747",
+                      "secondary-fixed-dim": "#ababab",
+                      "on-surface": "#1a1c1c",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "surface-container-highest": "#e2e2e2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "0px"
+              },
+              "fontFamily": {
+                      "headline": ["Inter"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .canvas { width: 390px; height: 844px; margin: 0 auto; position: relative; overflow-y: auto; overflow-x: hidden; }
+        /* Image Placeholder "X" style */
+        .image-placeholder { position: relative; border: 1px solid #BDBDBD; }
+        .image-placeholder::before, .image-placeholder::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top right, transparent 49.5%, #BDBDBD 49.5%, #BDBDBD 50.5%, transparent 50.5%),
+                        linear-gradient(to top left, transparent 49.5%, #BDBDBD 49.5%, #BDBDBD 50.5%, transparent 50.5%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex items-center justify-center min-h-screen bg-surface-container">
+<main class="canvas bg-surface shadow-2xl">
+<!-- TopAppBar (From JSON) -->
+<header class="bg-[#F9F9F9] dark:bg-[#1A1C1C] text-[#000000] dark:text-[#FFFFFF] rounded-none w-full sticky top-0 z-50 flat no shadows">
+<div class="flex justify-between items-center w-full px-4 h-16">
+<div class="flex items-center gap-2 active:opacity-80 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-[#000000] dark:text-[#FFFFFF]">local_parking</span>
+<span class="font-['Inter'] font-bold text-xl uppercase tracking-tighter">ParkITB</span>
+</div>
+<div class="active:opacity-80 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-[#000000] dark:text-[#FFFFFF]">notifications</span>
+</div>
+</div>
+<div class="bg-[#EEEEEE] dark:bg-[#2A2A2A] h-[1px] w-full"></div>
+</header>
+<!-- Content Area -->
+<div class="px-4 pt-6 pb-32 flex flex-col gap-8">
+<!-- Section Header -->
+<section class="flex flex-col gap-1">
+<span class="text-[0.6875rem] font-medium uppercase tracking-widest text-on-surface-variant">[MEMBERSHIP STATUS]</span>
+<h1 class="text-3xl font-extrabold tracking-tighter text-on-surface">Member Access</h1>
+</section>
+<!-- Membership Status Card -->
+<section class="bg-surface-container-lowest p-6 border-l-4 border-primary flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="text-[0.75rem] font-bold text-primary">[GOLD TIER]</span>
+<h2 class="text-2xl font-black text-on-surface mt-1">Premium Plan</h2>
+</div>
+<div class="h-12 w-12 image-placeholder bg-surface-container-low"></div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-[0.75rem] font-medium text-on-surface-variant uppercase tracking-wider">[ACTIVE PERIOD TEXT]</p>
+<p class="text-lg font-bold text-on-surface">Oct 2023 — Oct 2024</p>
+<p class="text-[0.75rem] text-on-surface-variant mt-2 italic">Status: Verified Member Since 2021</p>
+</div>
+<!-- Renewal Button -->
+<button class="w-full bg-primary py-4 px-6 text-on-primary font-bold text-sm uppercase tracking-widest active:scale-95 transition-transform">
+                    [RENEWAL BUTTON]
+                </button>
+</section>
+<!-- Membership Tier List -->
+<section class="flex flex-col gap-4">
+<div class="flex items-end justify-between">
+<h3 class="text-xl font-bold tracking-tight text-on-surface">[MEMBERSHIP TIER LIST]</h3>
+<span class="text-[0.6875rem] font-medium text-on-surface-variant">COMPARE PLANS</span>
+</div>
+<!-- Tier Items -->
+<div class="flex flex-col">
+<!-- Silver Tier -->
+<div class="bg-surface-container-low p-5 flex items-center justify-between group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">workspace_premium</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Silver Tier</span>
+<span class="text-[0.75rem] text-on-surface-variant italic">15% Discount on hourly rates</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</div>
+<!-- Gold Tier (Current) -->
+<div class="bg-surface-container p-5 flex items-center justify-between border-y border-outline-variant/20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-on-surface">Gold Tier</span>
+<span class="bg-primary text-on-primary text-[10px] px-1 font-bold">ACTIVE</span>
+</div>
+<span class="text-[0.75rem] text-on-surface-variant italic">Priority booking &amp; Valet included</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">check_circle</span>
+</div>
+<!-- Platinum Tier -->
+<div class="bg-surface-container-low p-5 flex items-center justify-between group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">diamond</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Platinum Tier</span>
+<span class="text-[0.75rem] text-on-surface-variant italic">Unlimited free parking city-wide</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Usage Summary Bento Grid Style -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-highest p-4 flex flex-col gap-2">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">SAVINGS</span>
+<span class="text-2xl font-black text-on-surface">$142.50</span>
+<span class="text-[10px] text-on-surface-variant italic">Total this year</span>
+</div>
+<div class="bg-surface-container-highest p-4 flex flex-col gap-2">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">HOURS</span>
+<span class="text-2xl font-black text-on-surface">482</span>
+<span class="text-[10px] text-on-surface-variant italic">Parked time</span>
+</div>
+</section>
+<!-- Card Decorative Element -->
+<div class="w-full h-32 bg-surface-container overflow-hidden">
+<img alt="abstract monochrome geometric background" class="w-full h-full object-cover grayscale opacity-20 contrast-125" data-alt="monochrome architectural detail with sharp shadows and geometric concrete forms in high contrast grayscale style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-ceeI1EPRl-sOwAzHaGdQwNzlH94d-_T_fsIRVF1N8DN87PPSf8gnkEDiKAO_gaVqwkOo4xzpt9RX5DgqsAEOzwd-nfuqZmK6a7cXZFiAwiyx4phrsRu6tcd2CC2F0941g7GbS5JSxDW25g0in0n6vwQK7w6w-Ysl6Twpi0pNaWiu0nqC3eLHqPYtBFWVs3y9zZNV7Ne6DmHRs3oYswfJzmEKmP6PIdiP843HWJf0nxRaDzzyKLZM4W7h9BgFBUTu1A-ESiEAnSfV"/>
+</div>
+</div>
+<!-- BottomNavBar (From JSON) -->
+<!-- Profile is active for Membership page -->
+<nav class="fixed bottom-0 w-[390px] bg-[#FFFFFF] dark:bg-[#121212] flex justify-around items-center px-4 py-3 pb-safe z-50 shadow-[0_-4px_24px_rgba(26,28,28,0.04)] border-t border-[#EEEEEE] dark:border-[#2A2A2A]">
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] font-medium uppercase tracking-widest text-[11px] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] transition-colors duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] font-medium uppercase tracking-widest text-[11px] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] transition-colors duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span>Parking</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] font-medium uppercase tracking-widest text-[11px] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] transition-colors duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined">history</span>
+<span>History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#000000] dark:text-[#FFFFFF] font-bold uppercase tracking-widest text-[11px] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] transition-colors duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span>Profile</span>
+</a>
+</nav>
+</main>
+</body></html>

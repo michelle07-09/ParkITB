@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB - Virtual Key</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#abc7ff",
+                    "secondary-container": "#5fa6fd",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "on-surface": "#191c1e",
+                    "error": "#ba1a1a",
+                    "outline": "#747780",
+                    "surface-dim": "#d9dadc",
+                    "secondary-fixed-dim": "#a4c9ff",
+                    "on-tertiary-fixed": "#291800",
+                    "on-secondary-container": "#003a6d",
+                    "tertiary-fixed": "#ffddb4",
+                    "on-surface-variant": "#43474f",
+                    "primary": "#002653",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#8aa8e0",
+                    "background": "#f8f9fb",
+                    "on-secondary-fixed-variant": "#004884",
+                    "on-tertiary-container": "#e4980e",
+                    "primary-fixed": "#d7e3ff",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8f9fb",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#563600",
+                    "surface-variant": "#e1e2e4",
+                    "tertiary": "#392200",
+                    "primary-container": "#1a3c6e",
+                    "surface-tint": "#405e92",
+                    "secondary-fixed": "#d4e3ff",
+                    "inverse-primary": "#abc7ff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#001c39",
+                    "inverse-on-surface": "#f0f1f3",
+                    "surface-container-high": "#e7e8ea",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c4c6d0",
+                    "surface-container": "#edeef0",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "secondary": "#005fac",
+                    "on-primary-fixed": "#001b3f",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface": "#f8f9fb",
+                    "on-primary-fixed-variant": "#264679"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(225, 226, 228, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 py-4 w-full bg-[#f8f9fb] dark:bg-slate-950 docked full-width top-0 sticky z-50 tonal-shift-no-borders">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#1A3C6E] dark:text-blue-400 text-2xl" data-icon="account_balance">account_balance</span>
+<h1 class="font-['Inter'] font-bold text-2xl tracking-tight text-[#1A3C6E] dark:text-blue-400">ParkITB</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity cursor-pointer" data-icon="notifications">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a young male university student with a clean haircut and neutral expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD2cpZ7cL0t-lcWZveXpBbvMr-0ponagJ7m30o66zVnUf0I6sgEWYd9CkQFw3E9mP2gYXQxfHJU7iVCvVuMTxFIw1jGdNoTwcrIKPcsFnobP8L2vKokYwZg-y5EI3SkiBv6VRLuFn2oI2Z0IwetWm1U1VIiDMfcO-6Vpe6gptd2TCbOpOybznBIhxgruuTRaEVLBWDZkw-KddOQzq4TJw3I3_e3ShCI9J7TusiLBb9Ogm5N02ASEss6XzsKdUVC6JlIaoiKk1mDEqJ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col px-6 pt-8 pb-32 max-w-lg mx-auto w-full">
+<!-- Screen Header -->
+<div class="mb-10">
+<h2 class="text-[2rem] font-bold leading-[120%] tracking-tight text-primary">Virtual Key</h2>
+<p class="text-on-surface-variant text-sm mt-1">Ganesha Campus Digital Access</p>
+</div>
+<!-- Virtual Key Pill Section -->
+<div class="flex flex-col items-center justify-center space-y-12 py-8">
+<!-- Animated Aura Effect -->
+<div class="relative flex items-center justify-center">
+<div class="absolute w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+<!-- The Main Pill Toggle -->
+<div class="relative z-10 w-[120px] h-[240px] bg-surface-container-high rounded-full p-2 flex flex-col justify-between shadow-inner">
+<!-- Top Icon -->
+<div class="flex justify-center pt-4">
+<span class="material-symbols-outlined text-outline-variant text-3xl" data-icon="lock_open">lock_open</span>
+</div>
+<!-- Toggle Handle (Locked State) -->
+<div class="w-full aspect-square bg-primary rounded-full shadow-lg flex items-center justify-center transition-all duration-300 transform">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<!-- Bottom Label -->
+<div class="flex flex-col items-center pb-6">
+<span class="text-[10px] font-bold tracking-widest uppercase text-primary mb-1">Status</span>
+<span class="text-primary font-bold text-xs">TERKUNCI</span>
+</div>
+</div>
+</div>
+<!-- Lock Indicator Badge -->
+<div class="bg-tertiary-fixed rounded-full px-4 py-1.5 flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-lg" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-on-tertiary-fixed text-[0.75rem] font-semibold tracking-wide uppercase">Secured by ITB-Sys</span>
+</div>
+</div>
+<!-- Condition Note Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_8px_32px_rgba(0,38,83,0.04)] mb-8 border border-outline-variant/10">
+<div class="flex gap-4">
+<div class="bg-tertiary-container/10 p-3 rounded-lg h-fit">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="info">info</span>
+</div>
+<div>
+<h3 class="text-primary font-semibold text-base mb-2">Access Requirement</h3>
+<p class="text-on-surface-variant text-sm leading-[150%]">Your virtual key is currently deactivated. This feature is only unlockable after a successful parking payment or for active Gold Membership holders.</p>
+</div>
+</div>
+<button class="w-full mt-6 bg-primary text-white font-semibold py-3.5 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="text-sm">Verify Membership</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Last Updated Timestamp -->
+<div class="mt-auto text-center">
+<div class="inline-flex items-center gap-2 text-outline text-[0.75rem] font-medium tracking-tight">
+<span class="material-symbols-outlined text-sm" data-icon="update">update</span>
+<span>Last updated: Oct 24, 2023 at 14:32 WIB</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pt-3 pb-8 bg-white dark:bg-slate-900 docked full-width bottom-0 rounded-t-3xl shadow-[0_-8px_32px_rgba(0,38,83,0.06)]">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Home</span>
+</a>
+<!-- Parking (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-[#1A3C6E] dark:text-blue-400 font-bold" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="local_parking" style="font-variation-settings: 'FILL' 1;">local_parking</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Parking</span>
+</a>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="history">history</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">History</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Profile</span>
+</a>
+</nav>
+</body></html>

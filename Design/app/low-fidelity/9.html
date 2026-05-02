@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#5f5e5e",
+                        "on-primary-container": "#ffffff",
+                        "secondary-fixed": "#c6c6c6",
+                        "inverse-on-surface": "#f1f1f1",
+                        "tertiary-fixed": "#5d5f5f",
+                        "on-surface-variant": "#474747",
+                        "surface-container": "#eeeeee",
+                        "secondary": "#5d5e5f",
+                        "surface-dim": "#dadada",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#3a3c3c",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-primary": "#c8c6c6",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-primary": "#e4e2e1",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-low": "#f3f3f3",
+                        "on-primary-fixed-variant": "#e4e2e1",
+                        "outline-variant": "#c6c6c6",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-tint": "#5f5e5e",
+                        "primary-container": "#3b3b3b",
+                        "on-secondary-fixed-variant": "#3a3c3c",
+                        "on-error-container": "#410002",
+                        "on-secondary-container": "#1a1c1c",
+                        "tertiary-container": "#737575",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-fixed": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#e2e2e2",
+                        "surface": "#f9f9f9",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#d4d4d4",
+                        "outline": "#777777",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#474747",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2f3131",
+                        "background": "#f9f9f9",
+                        "on-tertiary": "#e2e2e2",
+                        "tertiary-fixed-dim": "#454747",
+                        "secondary-fixed-dim": "#ababab",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-container-highest": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center">
+<!-- Mobile Screen Wrapper: 390x844px -->
+<div class="w-[390px] h-[844px] bg-surface relative flex flex-col overflow-hidden shadow-2xl">
+<!-- TopAppBar -->
+<header class="bg-[#F9F9F9] dark:bg-[#1A1C1C] rounded-none w-full sticky top-0 z-50 flex justify-between items-center px-4 h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#000000] dark:text-[#FFFFFF]">arrow_back</span>
+<span class="font-['Inter'] font-bold text-xl uppercase tracking-tighter text-[#000000] dark:text-[#FFFFFF]">TOP-UP</span>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#000000] dark:text-[#FFFFFF]">notifications</span>
+</div>
+<div class="absolute bottom-0 left-0 bg-[#EEEEEE] dark:bg-[#2A2A2A] h-[1px] w-full"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto px-4 pt-8 pb-32 space-y-10">
+<!-- Balance Display: Architectural Bento Style -->
+<section class="space-y-4">
+<div class="flex items-baseline justify-between">
+<span class="text-[0.75rem] font-medium tracking-[0.2em] uppercase text-on-surface-variant">[Current Balance]</span>
+<span class="text-[0.6875rem] text-outline italic">Updated 2m ago</span>
+</div>
+<div class="bg-surface-container-lowest p-8 border-l-4 border-primary">
+<div class="text-[3.5rem] font-extrabold tracking-tighter leading-none mb-1">
+                        $142.00
+                    </div>
+<p class="text-[0.875rem] text-secondary font-medium">Available for Parking</p>
+</div>
+</section>
+<!-- Nominal Input Field: Asymmetric Layout -->
+<section class="space-y-6">
+<div class="flex items-center gap-2">
+<div class="w-8 h-[2px] bg-primary"></div>
+<span class="text-[1.125rem] font-bold uppercase tracking-tight">[Select Amount]</span>
+</div>
+<!-- Quick Select Grid -->
+<div class="grid grid-cols-3 gap-3">
+<button class="bg-surface-container-high py-4 text-center font-bold text-primary active:bg-primary active:text-on-primary transition-colors">
+                        $10
+                    </button>
+<button class="bg-primary py-4 text-center font-bold text-on-primary">
+                        $25
+                    </button>
+<button class="bg-surface-container-high py-4 text-center font-bold text-primary active:bg-primary active:text-on-primary transition-colors">
+                        $50
+                    </button>
+</div>
+<!-- Custom Input -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="text-xl font-bold text-primary">$</span>
+</div>
+<input class="w-full h-16 pl-10 pr-4 bg-surface-container-highest border-none focus:ring-2 focus:ring-primary text-xl font-bold placeholder:text-outline-variant placeholder:font-normal" placeholder="Other amount" type="number"/>
+</div>
+</section>
+<!-- Payment Method Selector: Structural Tonal Depth -->
+<section class="space-y-6">
+<div class="flex items-center gap-2">
+<div class="w-8 h-[2px] bg-primary"></div>
+<span class="text-[1.125rem] font-bold uppercase tracking-tight">[Payment Method]</span>
+</div>
+<div class="space-y-1">
+<!-- Method 1 -->
+<div class="bg-surface-container-low p-4 flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-4">
+<div class="w-12 h-8 border border-outline-variant flex items-center justify-center bg-surface-container-lowest">
+<span class="material-symbols-outlined text-secondary">credit_card</span>
+</div>
+<div>
+<p class="text-[0.875rem] font-bold">VISA •••• 4242</p>
+<p class="text-[0.75rem] text-secondary uppercase tracking-widest">Expires 12/26</p>
+</div>
+</div>
+<div class="w-5 h-5 border-2 border-primary flex items-center justify-center">
+<div class="w-2.5 h-2.5 bg-primary"></div>
+</div>
+</div>
+<!-- Method 2 -->
+<div class="bg-surface-container p-4 flex items-center justify-between opacity-70">
+<div class="flex items-center gap-4">
+<div class="w-12 h-8 border border-outline-variant flex items-center justify-center bg-surface-container-lowest">
+<span class="material-symbols-outlined text-secondary">account_balance_wallet</span>
+</div>
+<div>
+<p class="text-[0.875rem] font-bold">Apple Pay</p>
+<p class="text-[0.75rem] text-secondary uppercase tracking-widest">Connected</p>
+</div>
+</div>
+<div class="w-5 h-5 border-2 border-outline-variant"></div>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-4 border border-dashed border-outline-variant text-secondary text-[0.75rem] font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">add</span>
+                    Add New Method
+                </button>
+</section>
+<!-- Final Action: Primary CTA -->
+<div class="pt-4">
+<button class="w-full bg-primary py-5 text-on-primary font-black text-lg uppercase tracking-[0.2em] shadow-[0_24px_48px_rgba(0,0,0,0.12)] active:opacity-90">
+                    Confirm Top-Up
+                </button>
+<p class="text-center text-[0.6875rem] text-outline mt-4 px-6">
+                    By confirming, you agree to our [Terms of Service]. Funds are non-refundable.
+                </p>
+</div>
+</main>
+<!-- BottomNavBar (The Anchor) -->
+<nav class="fixed bottom-0 w-[390px] flex justify-around items-center px-4 py-3 pb-safe bg-[#FFFFFF] dark:bg-[#121212] z-50 shadow-[0_-4px_24px_rgba(26,28,28,0.04)] border-t border-[#EEEEEE] dark:border-[#2A2A2A]">
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest">Parking</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#000000] dark:text-[#FFFFFF] font-bold hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

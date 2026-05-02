@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#abc7ff",
+                        "secondary-container": "#5fa6fd",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "outline": "#747780",
+                        "surface-dim": "#d9dadc",
+                        "secondary-fixed-dim": "#a4c9ff",
+                        "on-tertiary-fixed": "#291800",
+                        "on-secondary-container": "#003a6d",
+                        "tertiary-fixed": "#ffddb4",
+                        "on-surface-variant": "#43474f",
+                        "primary": "#002653",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#8aa8e0",
+                        "background": "#f8f9fb",
+                        "on-secondary-fixed-variant": "#004884",
+                        "on-tertiary-container": "#e4980e",
+                        "primary-fixed": "#d7e3ff",
+                        "inverse-surface": "#2e3132",
+                        "surface-bright": "#f8f9fb",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#563600",
+                        "surface-variant": "#e1e2e4",
+                        "tertiary": "#392200",
+                        "primary-container": "#1a3c6e",
+                        "surface-tint": "#405e92",
+                        "secondary-fixed": "#d4e3ff",
+                        "inverse-primary": "#abc7ff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#001c39",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-container-high": "#e7e8ea",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c4c6d0",
+                        "surface-container": "#edeef0",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "secondary": "#005fac",
+                        "on-primary-fixed": "#001b3f",
+                        "surface-container-highest": "#e1e2e4",
+                        "surface": "#f8f9fb",
+                        "on-primary-fixed-variant": "#264679"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .balance-card-gradient {
+            background: linear-gradient(135deg, #1A3C6E 0%, #2D7DD2 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#f8f9fb] text-[#1A3C6E] font-['Inter'] font-bold text-2xl tracking-tight flex justify-between items-center px-6 py-4 w-full sticky top-0 z-50 transition-opacity hover:opacity-80">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#1A3C6E]" data-icon="account_balance">account_balance</span>
+<span>ParkITB</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="notifications">notifications</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="portrait of a young professional woman with a friendly expression in a soft studio lighting setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsak_nMeR5xskQYGRG7lP_ldtogoH0HeQJ6d2iIkhGbzkITrhyeGsDAX5c9Ugr8BaQOD-6ekYxaC8rFYZ289UKno9pHhqmunfjgbStv0Uu0rGqpEAO16Y9ZsMhRHwSGv8bUU9QpHGPCeeOtIOa2VyrZFkENhYOpVO4CZcrNFWCBYYanaG0wbvilML6s4mJ0xONi3euVgfpHXiSlLj4L0v9F25n05yj8mR_kvhDxCi9_3TziATbLuAIn3P2j_LE-qJEOe6-PG5igikb"/>
+</div>
+</div>
+</header>
+<main class="px-6 space-y-6 max-w-2xl mx-auto">
+<!-- Greeting Section -->
+<section class="mt-4">
+<p class="text-on-surface-variant font-medium text-sm tracking-wide uppercase">Selamat datang,</p>
+<h1 class="text-3xl font-bold text-on-surface tracking-tight">Michelle</h1>
+</section>
+<!-- Balance Card -->
+<div class="balance-card-gradient rounded-xl p-6 relative overflow-hidden shadow-lg">
+<div class="absolute -right-8 -bottom-8 opacity-10 rotate-12">
+<span class="material-symbols-outlined text-[160px] text-white" data-icon="account_balance">account_balance</span>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div class="space-y-1">
+<span class="text-white/70 text-xs font-semibold uppercase tracking-[0.1em]">Total Saldo</span>
+<h2 class="text-3xl font-bold text-white tracking-tight">Rp 85.000</h2>
+</div>
+<button class="bg-white/20 hover:bg-white/30 transition-colors px-4 py-2 rounded-full flex items-center gap-2 border border-white/30 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-sm" data-icon="add_circle">add_circle</span>
+<span class="text-white font-semibold text-sm">Top Up</span>
+</button>
+</div>
+<div class="pt-4 border-t border-white/10 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed"></div>
+<span class="text-white/80 text-[10px] font-medium tracking-wider uppercase">Active Member</span>
+</div>
+<span class="text-white/60 text-[10px] font-mono tracking-widest">**** 4432</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid: Key Toggle & Active Parking -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Virtual Key Toggle -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-[0_8px_32px_rgba(0,38,83,0.04)] flex flex-col justify-between min-h-[160px]">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary p-2 bg-primary-fixed/30 rounded-lg" data-icon="key">key</span>
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">Virtual Key</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-sm font-semibold text-on-surface">Vehicle Access</h3>
+<div class="bg-surface-container-low rounded-full p-1.5 flex items-center justify-between">
+<div class="bg-error px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-white text-sm" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="text-white text-[10px] font-bold tracking-widest uppercase">LOCKED</span>
+</div>
+<div class="pr-4">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Parking Empty State -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-[0_8px_32px_rgba(0,38,83,0.04)] flex flex-col items-center justify-center text-center gap-4 min-h-[160px]">
+<div class="relative w-16 h-16 bg-surface-container-low rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl" data-icon="local_parking">local_parking</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-surface-container-high rounded-full border-2 border-white"></div>
+</div>
+<p class="text-on-surface-variant text-xs font-medium italic">Belum ada parkir aktif</p>
+</div>
+</div>
+<!-- Slot Availability Section -->
+<section class="space-y-4 pb-8">
+<div class="flex justify-between items-end px-1">
+<h3 class="text-lg font-bold text-on-surface tracking-tight">Ketersediaan Slot</h3>
+<span class="text-[10px] font-bold text-secondary tracking-widest uppercase cursor-pointer hover:underline">Lihat Detail</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_8px_32px_rgba(0,38,83,0.04)] space-y-6">
+<!-- Zone Barat: Green 70% -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-2 h-6 bg-[#2D9CDB] rounded-full"></div>
+<span class="font-semibold text-sm">Parkir Barat</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">142/200</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-emerald-500 rounded-full transition-all duration-1000" style="width: 70%"></div>
+</div>
+<p class="text-[10px] text-emerald-600 font-bold uppercase tracking-wider">Aman &amp; Terbuka</p>
+</div>
+<!-- Zone Timur: Amber 40% -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-2 h-6 bg-[#F2994A] rounded-full"></div>
+<span class="font-semibold text-sm">Parkir Timur</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">32/80</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim rounded-full" style="width: 40%"></div>
+</div>
+<p class="text-[10px] text-on-tertiary-container font-bold uppercase tracking-wider">Mulai Padat</p>
+</div>
+<!-- Zone Selatan: Red 10% -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-2 h-6 bg-error rounded-full"></div>
+<span class="font-semibold text-sm">Parkir Selatan</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">12/120</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 10%"></div>
+</div>
+<p class="text-[10px] text-error font-bold uppercase tracking-wider">Hampir Penuh</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pt-3 pb-6 bg-white dark:bg-slate-900 shadow-[0_-8px_32px_rgba(0,38,83,0.06)] rounded-t-3xl">
+<!-- Home Active -->
+<a class="flex flex-col items-center justify-center text-[#1A3C6E] dark:text-blue-400 font-bold group scale-100 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="local_parking">local_parking</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Parking</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="history">history</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Profile</span>
+</a>
+</nav>
+</body></html>

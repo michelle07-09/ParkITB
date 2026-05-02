@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "secondary-fixed": "#c6c6c6",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary-fixed": "#5d5f5f",
+                    "on-surface-variant": "#474747",
+                    "surface-container": "#eeeeee",
+                    "secondary": "#5d5e5f",
+                    "surface-dim": "#dadada",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#3a3c3c",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-primary": "#c8c6c6",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-primary": "#e4e2e1",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-low": "#f3f3f3",
+                    "on-primary-fixed-variant": "#e4e2e1",
+                    "outline-variant": "#c6c6c6",
+                    "on-background": "#1a1c1c",
+                    "on-tertiary-container": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "primary-container": "#3b3b3b",
+                    "on-secondary-fixed-variant": "#3a3c3c",
+                    "on-error-container": "#410002",
+                    "on-secondary-container": "#1a1c1c",
+                    "tertiary-container": "#737575",
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary-fixed": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e2e2e2",
+                    "surface": "#f9f9f9",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#d4d4d4",
+                    "outline": "#777777",
+                    "primary": "#000000",
+                    "primary-fixed-dim": "#474747",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2f3131",
+                    "background": "#f9f9f9",
+                    "on-tertiary": "#e2e2e2",
+                    "tertiary-fixed-dim": "#454747",
+                    "secondary-fixed-dim": "#ababab",
+                    "on-surface": "#1a1c1c",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "surface-container-highest": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "0px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .wireframe-x {
+            background-image: linear-gradient(to top right, transparent calc(50% - 1px), #BDBDBD, transparent calc(50% + 1px)),
+                              linear-gradient(to bottom right, transparent calc(50% - 1px), #BDBDBD, transparent calc(50% + 1px));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased flex items-center justify-center min-h-screen">
+<!-- Mobile Container (390x844px context) -->
+<main class="w-[390px] h-[844px] bg-surface relative flex flex-col overflow-hidden">
+<!-- Background Tonal Layers (Precision Brutalism) -->
+<div class="absolute inset-0 z-0">
+<div class="absolute top-0 left-0 w-full h-1/2 bg-surface-container-low"></div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-surface"></div>
+</div>
+<!-- Content Shell -->
+<div class="relative z-10 flex flex-col h-full px-6 pt-24 pb-12">
+<!-- Branding Section (Asymmetric) -->
+<div class="mb-auto">
+<div class="mb-4">
+<span class="text-[0.6875rem] font-bold tracking-[0.2em] text-primary uppercase">[ Identity ]</span>
+</div>
+<!-- App Logo Placeholder -->
+<div class="w-24 h-24 bg-surface-container-lowest border border-outline-variant/20 flex items-center justify-center wireframe-x mb-8">
+<span class="text-on-surface-variant font-black text-2xl material-symbols-outlined" data-icon="local_parking">local_parking</span>
+</div>
+<!-- Headline -->
+<h1 class="text-[3.5rem] font-black leading-[0.9] tracking-tighter text-primary mb-6">
+                    PARK<br/>ITB
+                </h1>
+<!-- Tagline Text -->
+<div class="flex flex-col gap-2">
+<div class="h-[2px] w-12 bg-primary"></div>
+<p class="text-lg font-medium leading-tight text-on-surface max-w-[240px]">
+                        Seamless parking infrastructure for the next generation of urban mobility.
+                    </p>
+</div>
+</div>
+<!-- Onboarding Visual/Informational Grid -->
+<div class="grid grid-cols-2 gap-4 mb-16">
+<div class="col-span-2 p-6 bg-surface-container-highest flex flex-col justify-between aspect-square">
+<span class="text-[0.6875rem] font-bold tracking-[0.2em] text-primary uppercase">[ Visualization ]</span>
+<div class="w-full h-32 border border-outline-variant/20 wireframe-x"></div>
+<p class="text-[0.75rem] font-medium leading-relaxed text-on-surface-variant">
+                        Precision navigation and real-time bay availability across ITB campus zones.
+                    </p>
+</div>
+</div>
+<!-- Action Area -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end mb-2">
+<span class="text-[0.6875rem] font-bold tracking-[0.2em] text-primary uppercase">[ Interaction ]</span>
+<span class="text-[0.6875rem] font-medium text-on-surface-variant">Ver. 2.0.4</span>
+</div>
+<!-- Get Started Button -->
+<button class="bg-primary text-on-primary w-full py-5 flex items-center justify-between px-6 group active:opacity-80 transition-opacity">
+<span class="font-bold text-sm tracking-widest uppercase">Get Started</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+<!-- Secondary Action -->
+<button class="bg-transparent border border-primary text-primary w-full py-5 flex items-center justify-center group active:bg-surface-container-high transition-colors">
+<span class="font-bold text-sm tracking-widest uppercase">Sign In</span>
+</button>
+</div>
+<!-- Footer micro-copy -->
+<div class="mt-8 text-center">
+<p class="text-[0.6875rem] text-on-surface-variant/60 font-medium">
+                    © 2024 PRECISION BRUTALISM SYSTEMS
+                </p>
+</div>
+</div>
+<!-- Decorative Architectural Element -->
+<div class="absolute top-0 right-0 h-full w-[1px] bg-outline-variant/10 mr-12"></div>
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-outline-variant/10 mb-20"></div>
+</main>
+</body></html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile - ParkITB</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#abc7ff",
+                    "secondary-container": "#5fa6fd",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "on-surface": "#191c1e",
+                    "error": "#ba1a1a",
+                    "outline": "#747780",
+                    "surface-dim": "#d9dadc",
+                    "secondary-fixed-dim": "#a4c9ff",
+                    "on-tertiary-fixed": "#291800",
+                    "on-secondary-container": "#003a6d",
+                    "tertiary-fixed": "#ffddb4",
+                    "on-surface-variant": "#43474f",
+                    "primary": "#002653",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#8aa8e0",
+                    "background": "#f8f9fb",
+                    "on-secondary-fixed-variant": "#004884",
+                    "on-tertiary-container": "#e4980e",
+                    "primary-fixed": "#d7e3ff",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8f9fb",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#563600",
+                    "surface-variant": "#e1e2e4",
+                    "tertiary": "#392200",
+                    "primary-container": "#1a3c6e",
+                    "surface-tint": "#405e92",
+                    "secondary-fixed": "#d4e3ff",
+                    "inverse-primary": "#abc7ff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#001c39",
+                    "inverse-on-surface": "#f0f1f3",
+                    "surface-container-high": "#e7e8ea",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c4c6d0",
+                    "surface-container": "#edeef0",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "secondary": "#005fac",
+                    "on-primary-fixed": "#001b3f",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface": "#f8f9fb",
+                    "on-primary-fixed-variant": "#264679"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 py-4 w-full bg-[#f8f9fb] dark:bg-slate-950 docked full-width top-0 sticky z-50 tonal-shift-no-borders bg-[#f2f4f6] dark:bg-slate-900">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#1A3C6E] dark:text-blue-400" data-icon="account_balance">account_balance</span>
+<h1 class="font-['Inter'] font-bold text-2xl tracking-tight text-[#1A3C6E] dark:text-blue-400">ParkITB</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400" data-icon="notifications">notifications</span>
+</div>
+</header>
+<main class="px-6 pt-8 max-w-2xl mx-auto">
+<!-- Hero Profile Section -->
+<section class="relative mb-10 overflow-hidden">
+<div class="flex flex-col items-center">
+<!-- Avatar with Asymmetric Decorative Ring -->
+<div class="relative mb-6">
+<div class="absolute inset-0 bg-secondary-container opacity-20 rounded-full blur-2xl scale-150"></div>
+<div class="w-28 h-28 bg-primary rounded-full flex items-center justify-center text-on-primary text-3xl font-bold shadow-xl border-4 border-surface-container-lowest relative z-10">
+                        M
+                    </div>
+<div class="absolute -bottom-2 -right-2 bg-tertiary-fixed-dim p-2 rounded-full border-4 border-surface shadow-md z-20">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="text-center">
+<h2 class="text-3xl font-bold text-primary tracking-tight mb-1">Michelle</h2>
+<p class="text-on-surface-variant font-medium tracking-wide uppercase text-xs opacity-70">Student ID: 135xxxx</p>
+</div>
+</div>
+</section>
+<!-- Balance Card (Design System "The Digital Architect" Pattern) -->
+<div class="mb-10">
+<div class="bg-gradient-to-br from-primary to-primary-container rounded-xl p-6 shadow-[0_8px_32px_rgba(0,38,83,0.12)] relative overflow-hidden">
+<!-- Subtle Texture Overlay -->
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAS3wJXG8WrIm9J8gqUFWAXEng5-50MA4T6PBp4Hojynpm_swCwToc5w5Nt7jOCPgJB3DET0apZTdnU88czthVpIHMyE-F1rzujxxXV-SW9CnvE8Mmr4FAFn90BELGQGDYU_YtI-g9zqqrwOVB72NJKbHb5JCICyJKueWHorxtqxqjbPSHMMasg8QHvfAHbOHseLi1pE1vDBWs6em9WymCeLKHFAsZPM8YezY7ptOOs41QkLZZRNB708mm4mFLOGtc8l6ko_xw1GvG0');"></div>
+<div class="relative z-10 flex justify-between items-start">
+<div>
+<p class="text-[10px] text-on-primary-container font-bold uppercase tracking-[0.1em] mb-1">Vehicle Registered</p>
+<p class="text-2xl font-bold text-white tracking-tight">D 1234 ABC</p>
+</div>
+<div class="bg-surface-container-lowest/10 backdrop-blur-md px-3 py-1 rounded-full">
+<p class="text-[10px] text-white font-bold">SILVER TIER</p>
+</div>
+</div>
+<div class="mt-8 relative z-10 flex justify-between items-end">
+<div>
+<p class="text-[10px] text-on-primary-container font-bold uppercase tracking-[0.1em] mb-1">Account Balance</p>
+<p class="text-3xl font-bold text-white tabular-nums">Rp 150.000</p>
+</div>
+<span class="material-symbols-outlined text-on-primary-container/40 text-4xl" data-icon="contactless">contactless</span>
+</div>
+</div>
+</div>
+<!-- Settings Section -->
+<div class="space-y-2">
+<h3 class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-2 mb-4">Pengaturan Akun</h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<!-- Menu Item 1 -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+</div>
+<span class="font-semibold text-primary">Kendaraan Saya</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Menu Item 2 -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<span class="font-semibold text-primary">Metode Pembayaran</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Menu Item 3 -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</div>
+<span class="font-semibold text-primary">Keamanan</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Menu Item 4 -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</div>
+<span class="font-semibold text-primary">Bantuan</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Danger Zone / Logout -->
+<div class="mt-8 mb-12">
+<button class="w-full flex items-center justify-center gap-2 p-4 text-error font-bold rounded-xl border border-error/10 hover:bg-error/5 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Keluar
+            </button>
+<p class="text-center text-[10px] text-outline mt-6 uppercase tracking-widest font-medium">ParkITB v2.4.1 (Academic Release)</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pt-3 pb-6 bg-white dark:bg-slate-900 rounded-t-3xl shadow-[0_-8px_32px_rgba(0,38,83,0.06)]">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Home</span>
+</a>
+<!-- Parking -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined" data-icon="local_parking">local_parking</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Parking</span>
+</a>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">History</span>
+</a>
+<!-- Profile (Active) -->
+<a class="flex flex-col items-center justify-center text-[#1A3C6E] dark:text-blue-400 font-bold scale-110 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB - Payment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#5f5e5e",
+                        "on-primary-container": "#ffffff",
+                        "secondary-fixed": "#c6c6c6",
+                        "inverse-on-surface": "#f1f1f1",
+                        "tertiary-fixed": "#5d5f5f",
+                        "on-surface-variant": "#474747",
+                        "surface-container": "#eeeeee",
+                        "secondary": "#5d5e5f",
+                        "surface-dim": "#dadada",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#3a3c3c",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-primary": "#c8c6c6",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-primary": "#e4e2e1",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-low": "#f3f3f3",
+                        "on-primary-fixed-variant": "#e4e2e1",
+                        "outline-variant": "#c6c6c6",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-tint": "#5f5e5e",
+                        "primary-container": "#3b3b3b",
+                        "on-secondary-fixed-variant": "#3a3c3c",
+                        "on-error-container": "#410002",
+                        "on-secondary-container": "#1a1c1c",
+                        "tertiary-container": "#737575",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-fixed": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#e2e2e2",
+                        "surface": "#f9f9f9",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#d4d4d4",
+                        "outline": "#777777",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#474747",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2f3131",
+                        "background": "#f9f9f9",
+                        "on-tertiary": "#e2e2e2",
+                        "tertiary-fixed-dim": "#454747",
+                        "secondary-fixed-dim": "#ababab",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-container-highest": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .qris-pattern {
+            background-image: radial-gradient(#000 1px, transparent 1px);
+            background-size: 8px 8px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex justify-center items-start bg-surface-container min-h-screen">
+<!-- Mobile Canvas (390x844) -->
+<div class="w-[390px] min-h-[844px] bg-surface relative flex flex-col overflow-hidden">
+<!-- TopAppBar (From JSON) -->
+<header class="bg-[#F9F9F9] text-[#000000] font-['Inter'] font-bold text-xl uppercase tracking-tighter rounded-none w-full sticky top-0 z-50 flex justify-between items-center px-4 h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">local_parking</span>
+<span class="text-xl font-black text-[#000000]">ParkITB</span>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#000000]">notifications</span>
+</div>
+</header>
+<!-- Separation Line (From JSON) -->
+<div class="bg-[#EEEEEE] h-[1px] w-full"></div>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 py-6 pb-32 space-y-8">
+<!-- Header Section -->
+<section class="space-y-1">
+<span class="text-[0.6875rem] font-medium uppercase tracking-[0.2em] text-on-surface-variant">[Payment Checkout]</span>
+<h1 class="text-2xl font-black tracking-tight text-on-surface">Secure Your Spot</h1>
+</section>
+<!-- Estimated Fee Display (Bento Style Card) -->
+<section class="bg-surface-container-lowest p-6 border-l-4 border-primary">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-[0.75rem] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Estimated Fee</p>
+<h2 class="text-4xl font-black tracking-tighter text-primary">Rp 15.000</h2>
+</div>
+<div class="bg-surface-container p-2">
+<span class="material-symbols-outlined">payments</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-surface-container flex justify-between text-sm">
+<span class="text-on-surface-variant font-medium">Duration: ~3 Hours</span>
+<span class="text-on-surface-variant font-medium">Zone: Gate A</span>
+</div>
+</section>
+<!-- QRIS Code Placeholder Section -->
+<section class="space-y-4">
+<div class="flex items-center gap-2">
+<div class="h-[2px] w-4 bg-primary"></div>
+<span class="text-xs font-black uppercase tracking-widest text-on-surface">Scan to Pay</span>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col items-center justify-center border border-outline-variant/20">
+<!-- QRIS Placeholder Box -->
+<div class="w-48 h-48 border-2 border-primary p-2 flex items-center justify-center relative">
+<div class="w-full h-full bg-surface-container-highest qris-pattern opacity-10"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl mb-2">qr_code_2</span>
+<span class="text-[0.6875rem] font-bold uppercase tracking-widest">[QRIS Code]</span>
+</div>
+</div>
+<!-- Corner Accents -->
+<div class="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-primary"></div>
+<div class="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-primary"></div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
+</div>
+<p class="mt-4 text-[0.75rem] text-center text-on-surface-variant font-medium max-w-[200px]">
+                        Scan the code above using any supported e-wallet or banking app
+                    </p>
+</div>
+</section>
+<!-- Payment Method Selector -->
+<section class="space-y-4">
+<div class="flex items-center gap-2">
+<div class="h-[2px] w-4 bg-primary"></div>
+<span class="text-xs font-black uppercase tracking-widest text-on-surface">Payment Method</span>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<!-- QRIS Option (Active) -->
+<button class="flex items-center justify-between p-4 bg-primary text-on-primary w-full text-left transition-opacity active:opacity-90">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<div>
+<p class="text-sm font-bold uppercase tracking-tight">QRIS Payment</p>
+<p class="text-[10px] opacity-70">Gopay, OVO, ShopeePay, Dana</p>
+</div>
+</div>
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+<!-- E-Money Option -->
+<button class="flex items-center justify-between p-4 bg-surface-container-low text-on-surface w-full text-left hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined">credit_card</span>
+<div>
+<p class="text-sm font-bold uppercase tracking-tight">E-Money / Flazz</p>
+<p class="text-[10px] text-on-surface-variant">Tap card at the terminal</p>
+</div>
+</div>
+<div class="w-4 h-4 border border-outline-variant"></div>
+</button>
+<!-- Balance Option -->
+<button class="flex items-center justify-between p-4 bg-surface-container-low text-on-surface w-full text-left hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<div>
+<p class="text-sm font-bold uppercase tracking-tight">ParkITB Balance</p>
+<p class="text-[10px] text-on-surface-variant">Available: Rp 42.500</p>
+</div>
+</div>
+<div class="w-4 h-4 border border-outline-variant"></div>
+</button>
+</div>
+</section>
+<!-- Action Button -->
+<div class="pt-4">
+<button class="w-full bg-primary text-on-primary py-5 text-sm font-black uppercase tracking-[0.3em] flex items-center justify-center gap-2 active:opacity-80 transition-opacity">
+                    Confirm &amp; Park
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar (From JSON) -->
+<nav class="fixed bottom-0 w-[390px] flex justify-around items-center px-4 py-3 pb-safe bg-[#FFFFFF] shadow-[0_-4px_24px_rgba(26,28,28,0.04)] border-t border-[#EEEEEE] z-50">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] font-medium uppercase tracking-widest text-[11px] font-['Inter'] hover:bg-[#F3F3F3] scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="mt-1">Home</span>
+</a>
+<!-- Parking (Active - closest to Payment/Checkout intent) -->
+<a class="flex flex-col items-center justify-center text-[#000000] font-bold uppercase tracking-widest text-[11px] font-['Inter'] hover:bg-[#F3F3F3] scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+<span class="mt-1">Parking</span>
+</a>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] font-medium uppercase tracking-widest text-[11px] font-['Inter'] hover:bg-[#F3F3F3] scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="mt-1">History</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] font-medium uppercase tracking-widest text-[11px] font-['Inter'] hover:bg-[#F3F3F3] scale-95 duration-100" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="mt-1">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

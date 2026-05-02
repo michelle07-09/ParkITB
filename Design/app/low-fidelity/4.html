@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "secondary-fixed": "#c6c6c6",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary-fixed": "#5d5f5f",
+                    "on-surface-variant": "#474747",
+                    "surface-container": "#eeeeee",
+                    "secondary": "#5d5e5f",
+                    "surface-dim": "#dadada",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#3a3c3c",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-primary": "#c8c6c6",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-primary": "#e4e2e1",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-low": "#f3f3f3",
+                    "on-primary-fixed-variant": "#e4e2e1",
+                    "outline-variant": "#c6c6c6",
+                    "on-background": "#1a1c1c",
+                    "on-tertiary-container": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "primary-container": "#3b3b3b",
+                    "on-secondary-fixed-variant": "#3a3c3c",
+                    "on-error-container": "#410002",
+                    "on-secondary-container": "#1a1c1c",
+                    "tertiary-container": "#737575",
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary-fixed": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e2e2e2",
+                    "surface": "#f9f9f9",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#d4d4d4",
+                    "outline": "#777777",
+                    "primary": "#000000",
+                    "primary-fixed-dim": "#474747",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2f3131",
+                    "background": "#f9f9f9",
+                    "on-tertiary": "#e2e2e2",
+                    "tertiary-fixed-dim": "#454747",
+                    "secondary-fixed-dim": "#ababab",
+                    "on-surface": "#1a1c1c",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "surface-container-highest": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "0px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #F9F9F9;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .mobile-canvas {
+            width: 390px;
+            height: 844px;
+            background-color: #F9F9F9;
+            position: relative;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Custom image placeholder X pattern */
+        .image-placeholder {
+            position: relative;
+            background-color: #EEEEEE;
+            border: 1px solid #BDBDBD;
+        }
+        .image-placeholder::before,
+        .image-placeholder::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top right, transparent calc(50% - 0.5px), #BDBDBD, transparent calc(50% + 0.5px));
+        }
+        .image-placeholder::after {
+            background: linear-gradient(to top left, transparent calc(50% - 0.5px), #BDBDBD, transparent calc(50% + 0.5px));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body>
+<div class="mobile-canvas">
+<!-- TopAppBar (Suppressed but using logic for styling back action if needed) -->
+<header class="bg-[#F9F9F9] text-[#000000] font-['Inter'] font-bold text-xl uppercase tracking-tighter rounded-none w-full sticky top-0 z-50 flex justify-between items-center px-4 h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#000000]" data-icon="arrow_back">arrow_back</span>
+<span>[Back]</span>
+</div>
+<div class="text-[#000000] font-black">ParkITB</div>
+<div class="w-10"></div> <!-- Spacer -->
+</header>
+<main class="flex-1 px-6 pt-12 flex flex-col gap-10">
+<!-- Header Section -->
+<section class="flex flex-col gap-2">
+<div class="text-[0.75rem] font-medium tracking-[0.2em] uppercase text-on-surface-variant">[New Account]</div>
+<h1 class="text-[2.75rem] font-black leading-none tracking-tighter uppercase text-primary">Join the<br/>Network.</h1>
+</section>
+<!-- Registration Form -->
+<form class="flex flex-col gap-8">
+<!-- Name Input -->
+<div class="flex flex-col gap-3">
+<label class="text-[0.6875rem] font-bold uppercase tracking-widest text-on-surface">Full Name</label>
+<div class="bg-surface-container-highest h-14 w-full flex items-center px-4">
+<input class="bg-transparent border-none w-full focus:ring-0 text-primary font-medium placeholder:text-outline p-0" placeholder="[Name Input]" type="text"/>
+</div>
+</div>
+<!-- Email Input -->
+<div class="flex flex-col gap-3">
+<label class="text-[0.6875rem] font-bold uppercase tracking-widest text-on-surface">Email Address</label>
+<div class="bg-surface-container-highest h-14 w-full flex items-center px-4">
+<input class="bg-transparent border-none w-full focus:ring-0 text-primary font-medium placeholder:text-outline p-0" placeholder="[Email Input]" type="email"/>
+</div>
+</div>
+<!-- Vehicle Plate Input -->
+<div class="flex flex-col gap-3">
+<label class="text-[0.6875rem] font-bold uppercase tracking-widest text-on-surface">Vehicle Plate</label>
+<div class="bg-surface-container-highest h-14 w-full flex items-center px-4 gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="directions_car">directions_car</span>
+<input class="bg-transparent border-none w-full focus:ring-0 text-primary font-medium placeholder:text-outline p-0 uppercase" placeholder="[Vehicle Plate Input Field]" type="text"/>
+</div>
+</div>
+<!-- Spacer -->
+<div class="pt-4"></div>
+<!-- Register Button -->
+<button class="bg-primary text-on-primary h-16 w-full font-black text-lg uppercase tracking-widest active:opacity-80 transition-opacity" type="submit">
+                    [Register Button]
+                </button>
+</form>
+<!-- Secondary Action -->
+<div class="mt-auto pb-12 flex flex-col items-center gap-4">
+<div class="w-full h-[1px] bg-surface-container"></div>
+<p class="text-[0.75rem] text-on-surface-variant">Already have an account?</p>
+<button class="text-primary font-bold text-[0.875rem] uppercase tracking-widest underline decoration-2 underline-offset-4">
+                    [Sign In]
+                </button>
+</div>
+</main>
+<!-- Decorative Architectural Element -->
+<div class="absolute top-0 right-0 p-8 pointer-events-none opacity-10">
+<div class="w-32 h-32 image-placeholder" data-alt="architectural line drawing of a city grid with abstract geometric shapes in grayscale"></div>
+</div>
+</div>
+</body></html>

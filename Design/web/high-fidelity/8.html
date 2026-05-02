@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#004080",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#d5ecf8",
+                        "tertiary": "#00295d",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-bright": "#f3faff",
+                        "outline": "#737781",
+                        "on-primary-container": "#83aef5",
+                        "on-secondary-container": "#6c5000",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#071e27",
+                        "on-tertiary-container": "#82acff",
+                        "on-surface-variant": "#424750",
+                        "secondary": "#785900",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c3c6d2",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "surface": "#f3faff",
+                        "surface-container-low": "#e6f6ff",
+                        "inverse-on-surface": "#dff4ff",
+                        "surface-dim": "#c7dde9",
+                        "primary": "#002a58",
+                        "surface-container-highest": "#cfe6f2",
+                        "tertiary-container": "#003e87",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f3faff",
+                        "on-primary-fixed-variant": "#0e4686",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-variant": "#cfe6f2",
+                        "inverse-surface": "#1e333c",
+                        "tertiary-fixed-dim": "#adc7ff",
+                        "secondary-fixed": "#ffdf9e",
+                        "on-secondary-fixed": "#261a00",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "surface-tint": "#305ea0",
+                        "secondary-container": "#fdc003",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "surface-container": "#dbf1fe",
+                        "secondary-fixed-dim": "#fabd00",
+                        "on-background": "#071e27",
+                        "primary-fixed": "#d6e3ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#001a41"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Sidebar (SideNavBar) -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-100 dark:bg-slate-900 border-r border-slate-200/50 dark:border-slate-800/50 flex flex-col p-4 gap-2 z-40">
+<div class="mb-8 px-4">
+<div class="text-lg font-bold text-blue-900 dark:text-blue-50">Developer Console</div>
+<div class="text-xs font-medium text-slate-500">System Administrator</div>
+</div>
+<nav class="flex-grow space-y-1">
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer text-sm font-medium">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-900 dark:text-blue-200 rounded-lg shadow-sm font-semibold cursor-pointer text-sm font-medium">
+<span class="material-symbols-outlined">directions_car</span>
+                Vehicles
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer text-sm font-medium">
+<span class="material-symbols-outlined">receipt_long</span>
+                Transactions
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer text-sm font-medium">
+<span class="material-symbols-outlined">payments</span>
+                Revenue
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer text-sm font-medium">
+<span class="material-symbols-outlined">group</span>
+                Users
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer text-sm font-medium">
+<span class="material-symbols-outlined">settings_input_component</span>
+                System
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer text-sm font-medium">
+<span class="material-symbols-outlined">assessment</span>
+                Reports
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer text-sm font-medium">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </div>
+</nav>
+<div class="mt-auto border-t border-slate-200/50 pt-4 space-y-1">
+<div class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 text-sm font-medium cursor-pointer">
+<span class="material-symbols-outlined">help</span>
+                Help Center
+            </div>
+<div class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/20 text-sm font-medium cursor-pointer">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </div>
+<button class="mt-4 w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-2.5 rounded-xl font-semibold shadow-sm hover:opacity-90 transition-opacity text-sm">
+                Export System Logs
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen relative flex">
+<!-- Center Panel: Monitoring & Table -->
+<div class="flex-grow p-8 flex flex-col gap-8 transition-all duration-500 pr-96">
+<!-- Header Section -->
+<header class="flex flex-col gap-6">
+<div class="flex justify-between items-end">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-primary">Vehicle Monitoring</h1>
+<p class="text-on-surface-variant font-medium mt-1">Live tracking and access control management.</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container-low px-6 py-3 rounded-xl flex items-center gap-4">
+<span class="flex items-center gap-2 text-primary font-bold">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                LIVE
+                            </span>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<span class="text-sm font-semibold uppercase tracking-wider text-on-surface-variant">North Gate Active</span>
+</div>
+</div>
+</div>
+<!-- Filters & Stats Bar -->
+<div class="grid grid-cols-12 gap-4">
+<!-- Live Stats Chips -->
+<div class="col-span-12 lg:col-span-5 flex gap-3">
+<div class="flex-1 bg-primary text-on-primary p-4 rounded-xl flex flex-col justify-between">
+<span class="text-xs font-bold uppercase tracking-widest opacity-70">Inside</span>
+<span class="text-3xl font-extrabold tracking-tighter">247</span>
+</div>
+<div class="flex-1 bg-surface-container-highest p-4 rounded-xl flex flex-col justify-between border-l-4 border-primary">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">In Today</span>
+<span class="text-3xl font-extrabold tracking-tighter text-primary">892</span>
+</div>
+<div class="flex-1 bg-secondary-container p-4 rounded-xl flex flex-col justify-between">
+<span class="text-xs font-bold uppercase tracking-widest text-on-secondary-container">Out Today</span>
+<span class="text-3xl font-extrabold tracking-tighter text-on-secondary-container">645</span>
+</div>
+</div>
+<!-- Filter Controls -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-low p-2 rounded-xl flex items-center gap-2">
+<div class="flex-grow relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Search plate number..." type="text"/>
+</div>
+<select class="bg-surface-container-lowest border-none rounded-lg px-4 py-2 text-sm font-medium text-on-surface-variant focus:ring-2 focus:ring-primary/20">
+<option>All Gates</option>
+<option>North Gate</option>
+<option>South Gate</option>
+<option>West Wing</option>
+</select>
+<select class="bg-surface-container-lowest border-none rounded-lg px-4 py-2 text-sm font-medium text-on-surface-variant focus:ring-2 focus:ring-primary/20">
+<option>Vehicle Type</option>
+<option>Car</option>
+<option>Motorcycle</option>
+<option>Commercial</option>
+</select>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                            Today
+                        </button>
+</div>
+</div>
+</header>
+<!-- Main Table Section -->
+<section class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-[0.1em] text-on-surface-variant">Vehicle Details</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-[0.1em] text-on-surface-variant">Owner</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-[0.1em] text-on-surface-variant">Entry Time</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-[0.1em] text-on-surface-variant">Gate</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-[0.1em] text-on-surface-variant">Status</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-[0.1em] text-on-surface-variant">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="bg-primary-container/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">directions_car</span>
+</div>
+<div>
+<div class="font-bold text-on-surface">B 1234 ITB</div>
+<div class="text-xs text-on-surface-variant">Black Tesla Model 3</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-semibold">Dr. Ahmad Faisal</div>
+<div class="text-xs text-on-surface-variant">Faculty Staff</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-medium">08:42:15 AM</div>
+<div class="text-xs text-on-surface-variant">2 mins ago</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium">North Entrance</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">Parked</span>
+</td>
+<td class="px-6 py-5">
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="bg-primary-container/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">motorcycle</span>
+</div>
+<div>
+<div class="font-bold text-on-surface">D 8888 PL</div>
+<div class="text-xs text-on-surface-variant">Honda Vario 160</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-semibold">Siti Aminah</div>
+<div class="text-xs text-on-surface-variant">Student</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-medium">08:40:02 AM</div>
+<div class="text-xs text-on-surface-variant">4 mins ago</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium">West Wing Gate</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">Parked</span>
+</td>
+<td class="px-6 py-5">
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="bg-primary-container/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+</div>
+<div>
+<div class="font-bold text-on-surface">B 9000 XYZ</div>
+<div class="text-xs text-on-surface-variant">Logistics Truck</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-semibold">Vendor: JNE Express</div>
+<div class="text-xs text-on-surface-variant">Guest / Logistics</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-medium">08:35:44 AM</div>
+<div class="text-xs text-on-surface-variant">9 mins ago</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium">Loading Dock B</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-wider">Exiting</span>
+</td>
+<td class="px-6 py-5">
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors cursor-pointer group border-l-4 border-error">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="bg-error-container/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-error">directions_car</span>
+</div>
+<div>
+<div class="font-bold text-error">F 4422 GHI</div>
+<div class="text-xs text-on-surface-variant">Silver Toyota Avanza</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-semibold">Unknown</div>
+<div class="text-xs text-on-surface-variant">No Registered RFID</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-medium">08:30:12 AM</div>
+<div class="text-xs text-on-surface-variant">14 mins ago</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium">South Gate</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-error-container text-on-error-container text-xs font-bold uppercase tracking-wider">Flagged</span>
+</td>
+<td class="px-6 py-5">
+<button class="p-2 hover:bg-error/10 rounded-full text-error transition-colors">
+<span class="material-symbols-outlined">warning</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-surface-container-low/50 flex justify-between items-center">
+<span class="text-sm text-on-surface-variant font-medium">Showing 1-10 of 247 vehicles</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-on-primary text-sm font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Detail Side Panel (Slides In Logic represented by fixed pos) -->
+<aside class="w-96 fixed right-0 top-0 h-screen bg-surface-container-lowest shadow-2xl border-l border-outline-variant/20 flex flex-col z-50">
+<!-- Panel Header -->
+<div class="p-6 border-b border-surface-container-low flex justify-between items-center">
+<h3 class="text-xl font-bold text-primary">Vehicle Profile</h3>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Panel Content (Scrollable) -->
+<div class="flex-grow overflow-y-auto p-6 space-y-8">
+<!-- Plate Display -->
+<div class="bg-primary-container text-on-primary-container p-6 rounded-2xl text-center">
+<div class="text-3xl font-black tracking-widest border-2 border-dashed border-on-primary-container/30 py-4 px-2 rounded-lg">
+                        B 1234 ITB
+                    </div>
+<p class="mt-4 text-sm font-medium opacity-80">Registered Staff Vehicle</p>
+</div>
+<!-- Live Photo Placeholder -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Entry Capture</span>
+<span class="text-[10px] text-on-surface-variant/60 font-mono">NORTH_GATE_CAM_04</span>
+</div>
+<div class="aspect-video bg-surface-container-low rounded-xl overflow-hidden relative group">
+<img alt="car capture" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Close-up of a sleek black Tesla Model 3 front grill and license plate at a parking gate entrance under bright morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBycQhx9locOv850AhZr7wxZAaYkjNY6NqyFTYfHsU39MmL5f1NfhKXHArRq8ie4EyG1PwXQUL8ECsKcuZglRxSnZl5THrCmdVrVt8zGln_4efgBju_sM06_L1yYH_ODC3EQyLW73xzDNDgwyWkdypXlcQ_f0R5ms_4-ke29k1LbrMz4VOJQU-5qkV3VkriDv0zIXTM341Y4e0ys1-9OSMh0R2Ucquf0LTyuSinCseMZldB7SBrvrbrL9ns5eke9Fpf26xLrSMP00M"/>
+<div class="absolute inset-0 border-2 border-primary/20 pointer-events-none rounded-xl"></div>
+<div class="absolute top-2 left-2 bg-primary/80 backdrop-blur-md px-2 py-1 rounded text-[10px] text-white font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">lda</span>
+                            LPR ACTIVE
+                        </div>
+</div>
+</div>
+<!-- Info Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low/50 p-4 rounded-xl">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant block mb-1">Make / Model</span>
+<span class="text-sm font-semibold text-primary">Tesla Model 3</span>
+</div>
+<div class="bg-surface-container-low/50 p-4 rounded-xl">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant block mb-1">Color</span>
+<span class="text-sm font-semibold text-primary">Obsidian Black</span>
+</div>
+<div class="bg-surface-container-low/50 p-4 rounded-xl">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant block mb-1">Permit Class</span>
+<span class="text-sm font-semibold text-primary">A-1 Priority</span>
+</div>
+<div class="bg-surface-container-low/50 p-4 rounded-xl">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant block mb-1">RFID Serial</span>
+<span class="text-sm font-semibold text-primary">ITB-7742-XP</span>
+</div>
+</div>
+<!-- Timeline -->
+<div class="space-y-4">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Movement Timeline</span>
+<div class="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant/30">
+<!-- Timeline Item -->
+<div class="relative">
+<div class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-primary border-4 border-surface-container-lowest ring-2 ring-primary/20"></div>
+<div>
+<div class="text-sm font-bold text-primary">Entered North Gate</div>
+<div class="text-xs text-on-surface-variant">08:42:15 AM — Today</div>
+</div>
+</div>
+<!-- Timeline Item -->
+<div class="relative">
+<div class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-outline-variant border-4 border-surface-container-lowest"></div>
+<div>
+<div class="text-sm font-bold text-on-surface">Exited West Wing</div>
+<div class="text-xs text-on-surface-variant">17:05:33 PM — Yesterday</div>
+</div>
+</div>
+<!-- Timeline Item -->
+<div class="relative">
+<div class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-outline-variant border-4 border-surface-container-lowest"></div>
+<div>
+<div class="text-sm font-bold text-on-surface">Entered South Gate</div>
+<div class="text-xs text-on-surface-variant">07:55:12 AM — Yesterday</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel Footer Actions -->
+<div class="p-6 bg-surface-container-low/30 border-t border-surface-container-low flex gap-3">
+<button class="flex-1 bg-surface-container-lowest border border-outline-variant/50 text-on-surface-variant py-3 rounded-xl text-sm font-bold hover:bg-surface transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">print</span>
+                    Print Log
+                </button>
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">history</span>
+                    All History
+                </button>
+</div>
+</aside>
+<!-- Floating Status Indicators (Subtle Backdrop elements) -->
+<div class="fixed bottom-8 left-[calc(16rem+2rem)] flex gap-4 z-30">
+<div class="bg-white/90 backdrop-blur-xl shadow-xl px-4 py-2 rounded-full border border-primary/10 flex items-center gap-3">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+<span class="text-xs font-bold text-primary uppercase tracking-tighter">System Health: Optimal</span>
+</div>
+<div class="bg-white/90 backdrop-blur-xl shadow-xl px-4 py-2 rounded-full border border-primary/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm text-amber-500">router</span>
+<span class="text-xs font-bold text-primary uppercase tracking-tighter">14 Gate Modules Online</span>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#acabab",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary": "#3a3c3c",
+                    "surface-variant": "#e2e2e2",
+                    "on-error-container": "#410002",
+                    "outline": "#777777",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#e3e2e2",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed": "#5d5e5f",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#474747",
+                    "tertiary-container": "#747575",
+                    "primary-fixed-dim": "#474746",
+                    "on-secondary-container": "#1b1c1c",
+                    "primary-container": "#3c3b3b",
+                    "secondary-container": "#d5d4d4",
+                    "primary": "#000000",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5f5e5e",
+                    "secondary": "#5e5e5e",
+                    "outline-variant": "#c6c6c6",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eeeeee",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3b3b3c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e3e2e2",
+                    "on-primary-fixed-variant": "#e5e2e1",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-surface": "#1a1c1c",
+                    "on-primary-fixed": "#ffffff",
+                    "tertiary-fixed-dim": "#464747",
+                    "on-tertiary-container": "#ffffff",
+                    "secondary-fixed": "#c7c6c6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#e5e2e1",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Top Navigation Bar - Role: Satpam Mapping -->
+<nav class="bg-[#e2e2e2] dark:bg-zinc-800 text-black dark:text-white font-['Inter'] font-bold tracking-tight uppercase docked full-width top-0 tonal shift no borders flex justify-between items-center w-full px-6 h-16 fixed z-50">
+<div class="text-xl font-black text-black dark:text-white tracking-tighter">ParkITB</div>
+<div class="hidden md:flex items-center space-x-8 h-full">
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors duration-150 h-full flex items-center px-2" href="#">Dashboard</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors duration-150 h-full flex items-center px-2" href="#">Vehicles</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors duration-150 h-full flex items-center px-2" href="#">Transactions</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined border-b-4 border-black dark:border-white text-black dark:text-white pb-1" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-zinc-600 dark:text-zinc-400" data-icon="schedule">schedule</button>
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center border border-outline">
+<img alt="Satpam Profile" data-alt="close-up portrait of a security officer in a clean gray uniform, professional and alert expression, neutral lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf2syyGHTOmdzsxjCVzpLPd0tl2pZ6aqVL0KfCTXq6X0eawJnaiOmfXVr6a1BTFvMNaCMambKbbSNhl0yW8hTcqGXEcJ5pZ3aSVg3-jcrNtntIs0y8_5dlvonIRn87limgho5OlHHzJ1jaJbevc66J05MjuPYkCUSpt_vm9B4souwXYaeR-yeSeZkXAwwc3KmEBXgsI00h6fNm_8xroXucvcUmXK_QjAlJbI74FoI-92B9BKDHXexPPti3fn2rwCKOwPF4Fsw-r-yx"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-6 max-w-6xl mx-auto">
+<!-- Header Section with Bulk Action -->
+<header class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<span class="text-label-sm uppercase font-bold tracking-widest text-secondary mb-2 block">Security Portal</span>
+<h1 class="text-5xl font-black tracking-tighter uppercase leading-none">Notifications &amp; Alerts</h1>
+</div>
+<button class="bg-primary text-on-primary-container px-6 py-3 font-bold uppercase tracking-tight hover:bg-primary-container transition-colors active:scale-95">
+                Tandai semua selesai
+            </button>
+</header>
+<!-- Notification List Grouped -->
+<div class="space-y-16">
+<!-- Group: Hari ini -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<h2 class="text-2xl font-black uppercase tracking-tighter">Hari ini</h2>
+<div class="h-[2px] flex-grow bg-surface-container-highest"></div>
+<span class="text-sm font-mono font-bold text-outline">03 ALERTS</span>
+</div>
+<div class="space-y-[2px]">
+<!-- Item 1: KRITIS -->
+<div class="bg-surface-container-lowest group hover:bg-surface-container-low transition-colors p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
+<div class="bg-primary text-white p-3 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-1">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Gate ID</p>
+<p class="font-black">UTARA-GATE-01</p>
+</div>
+<div class="md:col-span-2">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Message</p>
+<p class="font-medium">Percobaan akses ilegal - Plat nomor tidak terdaftar terdeteksi 3x.</p>
+</div>
+<div class="md:col-span-1">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Time</p>
+<p class="font-mono text-sm">14:22:05</p>
+</div>
+</div>
+<button class="w-full md:w-auto border-2 border-primary px-4 py-2 text-xs font-black uppercase tracking-tighter hover:bg-primary hover:text-white transition-all">
+                            Tandai selesai
+                        </button>
+</div>
+<!-- Item 2: PERINGATAN -->
+<div class="bg-surface-container-lowest group hover:bg-surface-container-low transition-colors p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
+<div class="bg-secondary text-white p-3 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="error_outline">error_outline</span>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-1">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Gate ID</p>
+<p class="font-black">BARAT-EXIT-03</p>
+</div>
+<div class="md:col-span-2">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Message</p>
+<p class="font-medium">Antrian melebihi kapasitas - Sensor deteksi &gt; 5 kendaraan.</p>
+</div>
+<div class="md:col-span-1">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Time</p>
+<p class="font-mono text-sm">11:05:42</p>
+</div>
+</div>
+<button class="w-full md:w-auto border-2 border-primary px-4 py-2 text-xs font-black uppercase tracking-tighter hover:bg-primary hover:text-white transition-all">
+                            Tandai selesai
+                        </button>
+</div>
+<!-- Item 3: INFO -->
+<div class="bg-surface-container-lowest group hover:bg-surface-container-low transition-colors p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
+<div class="bg-outline-variant text-black p-3 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-1">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Gate ID</p>
+<p class="font-black">SYSTEM-LOG</p>
+</div>
+<div class="md:col-span-2">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Message</p>
+<p class="font-medium">Sinkronisasi database kendaraan dosen berhasil diselesaikan.</p>
+</div>
+<div class="md:col-span-1">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Time</p>
+<p class="font-mono text-sm">08:00:00</p>
+</div>
+</div>
+<button class="w-full md:w-auto border-2 border-primary px-4 py-2 text-xs font-black uppercase tracking-tighter hover:bg-primary hover:text-white transition-all">
+                            Tandai selesai
+                        </button>
+</div>
+</div>
+</section>
+<!-- Group: Kemarin -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<h2 class="text-2xl font-black uppercase tracking-tighter text-outline">Kemarin</h2>
+<div class="h-[2px] flex-grow bg-surface-container-highest"></div>
+<span class="text-sm font-mono font-bold text-outline">01 ALERT</span>
+</div>
+<div class="space-y-[2px]">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest opacity-60 group hover:opacity-100 transition-all p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
+<div class="bg-secondary text-white p-3 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="report">report</span>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-1">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Gate ID</p>
+<p class="font-black">TIMUR-GATE-02</p>
+</div>
+<div class="md:col-span-2">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Message</p>
+<p class="font-medium text-secondary">Maintenance rutin pada palang pintu elektrik diperlukan.</p>
+</div>
+<div class="md:col-span-1">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Time</p>
+<p class="font-mono text-sm">17:45:12</p>
+</div>
+</div>
+<button class="w-full md:w-auto border-2 border-primary px-4 py-2 text-xs font-black uppercase tracking-tighter hover:bg-primary hover:text-white transition-all">
+                            Tandai selesai
+                        </button>
+</div>
+</div>
+</section>
+<!-- Group: Minggu ini -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<h2 class="text-2xl font-black uppercase tracking-tighter text-outline">Minggu ini</h2>
+<div class="h-[2px] flex-grow bg-surface-container-highest"></div>
+<span class="text-sm font-mono font-bold text-outline">02 ALERTS</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-surface-container-highest">
+<!-- Bento-style Card 1 -->
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<div>
+<div class="flex justify-between items-start mb-6">
+<div class="bg-primary text-white p-4">
+<span class="material-symbols-outlined" data-icon="emergency" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+<span class="font-mono text-xs font-bold text-outline">Senin, 12 Feb</span>
+</div>
+<h3 class="text-xl font-black uppercase tracking-tight mb-2">Kegagalan Sistem Kamera</h3>
+<p class="text-on-surface-variant mb-8 text-sm">Kamera LPR pada Gate Timur tidak merespon selama 15 menit. Restart manual diperlukan.</p>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant pt-6">
+<span class="text-xs font-bold tracking-widest uppercase">Gate: TIMUR-GATE-02</span>
+<button class="bg-surface-container text-black px-4 py-2 text-xs font-black uppercase tracking-tighter hover:bg-primary hover:text-white transition-all">Tandai selesai</button>
+</div>
+</div>
+<!-- Bento-style Card 2 -->
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<div>
+<div class="flex justify-between items-start mb-6">
+<div class="bg-outline-variant text-black p-4">
+<span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span>
+</div>
+<span class="font-mono text-xs font-bold text-outline">Minggu, 11 Feb</span>
+</div>
+<h3 class="text-xl font-black uppercase tracking-tight mb-2">Update Konfigurasi Gate</h3>
+<p class="text-on-surface-variant mb-8 text-sm">Perubahan jam operasional pada hari libur nasional telah diterapkan ke seluruh gate.</p>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant pt-6">
+<span class="text-xs font-bold tracking-widest uppercase">Gate: GLOBAL-ALL</span>
+<button class="bg-surface-container text-black px-4 py-2 text-xs font-black uppercase tracking-tighter hover:bg-primary hover:text-white transition-all">Tandai selesai</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Pagination/Footer Actions -->
+<footer class="mt-16 flex items-center justify-center gap-2">
+<button class="w-10 h-10 border-2 border-primary flex items-center justify-center font-black">1</button>
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center font-bold hover:bg-surface-container transition-colors">2</button>
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center font-bold hover:bg-surface-container transition-colors">3</button>
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center font-bold hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</footer>
+</main>
+<!-- Mobile Bottom Navigation Shell (Relevance Check: Satpam) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-surface-container-highest flex justify-around items-center h-16 px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-outline">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-black">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Alerts</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-outline">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Vehicles</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-outline">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#191c1e",
+                    "on-secondary-fixed-variant": "#004884",
+                    "on-surface-variant": "#43474f",
+                    "surface": "#f8f9fb",
+                    "primary-fixed-dim": "#abc7ff",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#405e92",
+                    "tertiary": "#392200",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-container": "#563600",
+                    "outline": "#747780",
+                    "secondary-fixed": "#d4e3ff",
+                    "inverse-primary": "#abc7ff",
+                    "error-container": "#ffdad6",
+                    "primary": "#002653",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary-container": "#003a6d",
+                    "surface-bright": "#f8f9fb",
+                    "primary-fixed": "#d7e3ff",
+                    "on-tertiary-container": "#e4980e",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#5fa6fd",
+                    "outline-variant": "#c4c6d0",
+                    "surface-dim": "#d9dadc",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "background": "#f8f9fb",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f0f1f3",
+                    "surface-container-high": "#e7e8ea",
+                    "primary-container": "#1a3c6e",
+                    "on-secondary-fixed": "#001c39",
+                    "secondary": "#005fac",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#264679",
+                    "surface-container-highest": "#e1e2e4",
+                    "tertiary-fixed": "#ffddb4",
+                    "on-primary-fixed": "#001b3f",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#291800",
+                    "on-surface": "#191c1e",
+                    "surface-container": "#edeef0",
+                    "surface-variant": "#e1e2e4",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#8aa8e0",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "secondary-fixed-dim": "#a4c9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-[#f8f9fb] dark:bg-slate-950 flex items-center justify-between px-6 h-16 w-full sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<button class="hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors p-2 rounded-full flex items-center justify-center active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined text-[#1A3C6E] dark:text-blue-400">arrow_back</span>
+</button>
+<h1 class="font-['Inter'] font-bold text-2xl tracking-tight text-[#1A3C6E] dark:text-blue-400">Settings</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined text-slate-500">more_vert</span>
+</button>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-6 pb-32 pt-8">
+<!-- Editorial Header Section -->
+<div class="mb-10">
+<h2 class="text-[2rem] font-bold leading-[120%] tracking-tight text-primary mb-2">Kendaraan Saya</h2>
+<p class="text-on-surface-variant body-md max-w-sm">Kelola daftar kendaraan Anda untuk kemudahan akses parkir otomatis di seluruh area kampus.</p>
+</div>
+<!-- Bento Grid Layout for Vehicles -->
+<div class="space-y-4">
+<!-- Primary Vehicle Card -->
+<div class="relative overflow-hidden group">
+<div class="bg-primary-container p-6 rounded-xl flex flex-col gap-6 shadow-[0_8px_32px_rgba(0,38,83,0.06)] relative z-10">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-4">
+<div class="bg-primary p-3 rounded-xl">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-on-primary-container font-semibold title-sm uppercase tracking-wider">Honda Civic RS</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-widest">Primary</span>
+</div>
+<p class="text-[2.25rem] font-bold leading-[110%] text-white tracking-tighter">D 1234 ABC</p>
+</div>
+</div>
+<button class="text-on-primary-container hover:text-white transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<div class="flex items-center justify-between border-t border-white/10 pt-4">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-medium tracking-wide text-on-primary-container/60">Status Verifikasi</span>
+<span class="text-white text-sm font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary-container">verified</span> Terverifikasi
+                            </span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] uppercase font-medium tracking-wide text-on-primary-container/60">Terakhir Digunakan</span>
+<span class="text-white text-sm font-medium">Hari ini, 08:45</span>
+</div>
+</div>
+</div>
+<!-- Abstract decorative element -->
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-secondary rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
+</div>
+<!-- Secondary Vehicle Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex items-center justify-between shadow-sm border border-outline-variant/15 group hover:bg-surface-container-low transition-colors duration-300">
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-high p-3 rounded-xl group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container text-3xl">motorcycle</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-on-surface font-semibold title-sm uppercase tracking-wider">Yamaha MT-25</span>
+</div>
+<p class="text-xl font-bold text-primary tracking-tight">D 8888 XYZ</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high text-outline transition-all">
+<span class="material-symbols-outlined">settings_backup_restore</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-error-container text-error transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Tertiary Vehicle Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex items-center justify-between shadow-sm border border-outline-variant/15 group hover:bg-surface-container-low transition-colors duration-300">
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-high p-3 rounded-xl group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container text-3xl">directions_car</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-on-surface font-semibold title-sm uppercase tracking-wider">Toyota Fortuner</span>
+</div>
+<p class="text-xl font-bold text-primary tracking-tight">B 1010 RRS</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high text-outline transition-all">
+<span class="material-symbols-outlined">settings_backup_restore</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-error-container text-error transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Add New Vehicle Button -->
+<button class="mt-8 w-full py-5 rounded-xl border-2 border-dashed border-outline-variant hover:border-primary hover:bg-primary/5 transition-all group flex flex-col items-center justify-center gap-2">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">add</span>
+</div>
+<span class="font-bold text-primary tracking-tight">Tambah Kendaraan Baru</span>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-medium">Maksimal 5 Kendaraan</span>
+</button>
+<!-- Information Card -->
+<div class="mt-12 bg-tertiary-container/10 p-6 rounded-xl border border-tertiary/10">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-tertiary-container">info</span>
+<div>
+<h4 class="text-on-tertiary-container font-bold mb-1">Ketentuan Plat Nomor</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                        Pastikan plat nomor sesuai dengan STNK yang berlaku. Perubahan data kendaraan membutuhkan waktu verifikasi maksimal 1x24 jam oleh tim operasional parkir.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0_-8px_32px_rgba(0,38,83,0.06)] border-t border-[#c4c6d0]/15 rounded-t-3xl">
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Parking</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1A3C6E] text-white rounded-2xl p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

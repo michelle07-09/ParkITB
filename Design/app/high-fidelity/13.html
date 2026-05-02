@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Keamanan - The Digital Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed-variant": "#004884",
+                        "on-surface-variant": "#43474f",
+                        "surface": "#f8f9fb",
+                        "primary-fixed-dim": "#abc7ff",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#405e92",
+                        "tertiary": "#392200",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-container": "#563600",
+                        "outline": "#747780",
+                        "secondary-fixed": "#d4e3ff",
+                        "inverse-primary": "#abc7ff",
+                        "error-container": "#ffdad6",
+                        "primary": "#002653",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-container": "#003a6d",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed": "#d7e3ff",
+                        "on-tertiary-container": "#e4980e",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#5fa6fd",
+                        "outline-variant": "#c4c6d0",
+                        "surface-dim": "#d9dadc",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "background": "#f8f9fb",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-container": "#1a3c6e",
+                        "on-secondary-fixed": "#001c39",
+                        "secondary": "#005fac",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#264679",
+                        "surface-container-highest": "#e1e2e4",
+                        "tertiary-fixed": "#ffddb4",
+                        "on-primary-fixed": "#001b3f",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#291800",
+                        "on-surface": "#191c1e",
+                        "surface-container": "#edeef0",
+                        "surface-variant": "#e1e2e4",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#8aa8e0",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "secondary-fixed-dim": "#a4c9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-[#f8f9fb] dark:bg-slate-950 flex items-center justify-between px-6 h-16 w-full sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors p-2 rounded-full active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined text-[#1A3C6E] dark:text-blue-400">arrow_back</span>
+</button>
+<h1 class="font-['Inter'] font-bold text-2xl tracking-tight text-[#1A3C6E] dark:text-blue-400">Settings</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#1A3C6E] dark:text-blue-400">security</span>
+</div>
+</header>
+<main class="max-w-md mx-auto px-6 pt-8 space-y-8">
+<!-- Hero Status Card: Editorial Style -->
+<section class="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#002653] to-[#1a3c6e] p-8 text-on-primary shadow-lg shadow-primary/10">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<span class="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-on-primary-container">Security Health</span>
+<div class="flex items-end gap-2">
+<span class="text-4xl font-bold tracking-tight">Excellent</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim mb-1" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<p class="text-xs text-on-primary/70 mt-2 max-w-[200px]">Your account is protected by industry-leading institutional standards.</p>
+</div>
+</section>
+<!-- Bento Grid: Main Actions -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Biometrics Card -->
+<div class="col-span-2 bg-surface-container-lowest p-6 rounded-xl flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-4">
+<div class="bg-secondary-container/20 p-3 rounded-xl">
+<span class="material-symbols-outlined text-secondary">fingerprint</span>
+</div>
+<div>
+<h3 class="text-on-surface font-semibold text-sm">Biometrics</h3>
+<p class="text-[0.7rem] text-on-surface-variant">FaceID or Fingerprint</p>
+</div>
+</div>
+<!-- Virtual Key Pill Toggle -->
+<button class="w-12 h-6 bg-secondary rounded-full relative flex items-center px-1 transition-all">
+<div class="w-4 h-4 bg-white rounded-full shadow-sm ml-auto"></div>
+</button>
+</div>
+<!-- Change Password -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between aspect-square hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="bg-primary-container/10 w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">lock_reset</span>
+</div>
+<div>
+<h3 class="text-on-surface font-semibold text-sm">Change Password</h3>
+<p class="text-[0.65rem] text-on-surface-variant mt-1 leading-relaxed">Update your access credentials</p>
+</div>
+</div>
+<!-- 2FA -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between aspect-square hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="bg-tertiary-container/10 w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-tertiary-container">enhanced_encryption</span>
+</div>
+<div>
+<h3 class="text-on-surface font-semibold text-sm">Two-Factor</h3>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+<p class="text-[0.65rem] text-on-surface-variant">Enabled</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Sessions: List Section with Depth -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-[0.75rem] font-bold uppercase tracking-widest text-outline">Active Sessions</h2>
+<span class="text-[0.65rem] font-semibold text-secondary px-2 py-1 bg-secondary-container/20 rounded-full">3 Devices</span>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm">
+<!-- Session Item 1 -->
+<div class="flex items-center gap-4 p-5">
+<div class="bg-surface-container-high p-2.5 rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant">smartphone</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="text-sm font-semibold">iPhone 15 Pro</h4>
+<span class="text-[0.6rem] text-on-tertiary-container font-bold px-2 py-0.5 bg-tertiary-fixed rounded-full">Current</span>
+</div>
+<p class="text-[0.7rem] text-outline mt-0.5">Bandung, Indonesia • Active now</p>
+</div>
+</div>
+<div class="h-px bg-outline-variant/10 mx-5"></div>
+<!-- Session Item 2 -->
+<div class="flex items-center gap-4 p-5">
+<div class="bg-surface-container-high p-2.5 rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant">laptop_mac</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-semibold">MacBook Pro M3</h4>
+<p class="text-[0.7rem] text-outline mt-0.5">Jakarta, Indonesia • 2 hours ago</p>
+</div>
+<button class="text-error text-xs font-medium px-3 py-1.5 rounded-lg hover:bg-error-container/20 transition-colors">Logout</button>
+</div>
+</div>
+</section>
+<!-- Advanced Options: Subtle Nesting -->
+<div class="bg-surface-container-low rounded-2xl p-2">
+<button class="w-full flex items-center justify-between p-4 rounded-xl hover:bg-surface-container-high transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">history</span>
+<span class="text-sm font-medium">Security Log</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-xl hover:bg-surface-container-high transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">contact_support</span>
+<span class="text-sm font-medium">Emergency Freeze</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-t border-[#c4c6d0]/15 shadow-[0_-8px_32px_rgba(0,38,83,0.06)] rounded-t-3xl">
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Parking</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1A3C6E] text-white rounded-2xl p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

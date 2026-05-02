@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB — Active Incidents</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2f3131",
+                        "secondary-fixed-dim": "#acabab",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-on-surface": "#f1f1f1",
+                        "tertiary": "#3a3c3c",
+                        "surface-variant": "#e2e2e2",
+                        "on-error-container": "#410002",
+                        "outline": "#777777",
+                        "surface-dim": "#dadada",
+                        "on-tertiary": "#e3e2e2",
+                        "surface": "#f9f9f9",
+                        "tertiary-fixed": "#5d5e5f",
+                        "surface-container-high": "#e8e8e8",
+                        "on-surface-variant": "#474747",
+                        "tertiary-container": "#747575",
+                        "primary-fixed-dim": "#474746",
+                        "on-secondary-container": "#1b1c1c",
+                        "primary-container": "#3c3b3b",
+                        "secondary-container": "#d5d4d4",
+                        "primary": "#000000",
+                        "background": "#f9f9f9",
+                        "surface-tint": "#5f5e5e",
+                        "secondary": "#5e5e5e",
+                        "outline-variant": "#c6c6c6",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eeeeee",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3b3b3c",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#e3e2e2",
+                        "on-primary-fixed-variant": "#e5e2e1",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-surface": "#1a1c1c",
+                        "on-primary-fixed": "#ffffff",
+                        "tertiary-fixed-dim": "#464747",
+                        "on-tertiary-container": "#ffffff",
+                        "secondary-fixed": "#c7c6c6",
+                        "surface-container-highest": "#e2e2e2",
+                        "primary-fixed": "#5f5e5e",
+                        "on-primary-container": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#e5e2e1",
+                        "surface-container-low": "#f3f3f3",
+                        "on-secondary-fixed": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Architectural Brutalism Specifics */
+        * { border-radius: 0 !important; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f9f9f9; }
+        ::-webkit-scrollbar-thumb { background: #000000; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Top Navigation Bar (Satpam Role Context) -->
+<header class="bg-[#e2e2e2] dark:bg-zinc-800 flex justify-between items-center w-full px-6 h-16 fixed top-0 z-50">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-black dark:text-white tracking-tighter uppercase">ParkITB</span>
+<nav class="hidden md:flex gap-6 h-full items-center">
+<a class="font-['Inter'] font-bold tracking-tight uppercase transition-colors duration-150 border-b-4 border-black dark:border-white text-black dark:text-white pb-1" href="#">Dashboard</a>
+<a class="font-['Inter'] font-bold tracking-tight uppercase transition-colors duration-150 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700" href="#">Vehicles</a>
+<a class="font-['Inter'] font-bold tracking-tight uppercase transition-colors duration-150 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700" href="#">Transactions</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-black dark:text-white">notifications</button>
+<button class="material-symbols-outlined text-black dark:text-white">schedule</button>
+<div class="w-8 h-8 bg-black flex items-center justify-center overflow-hidden">
+<img alt="Satpam Profile" data-alt="close-up portrait of a security guard in a dark uniform looking professional against a neutral gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd9XlvvOjUDCRf9IKs5GmBEVwtzOqXyMosJ04ARFQa5M3h6sY8hLnNDTJ_F-G_gEnhlbWOIKgXT8Xy7xugJXwjpVZjrXCY16Ke9PVSb7Nf6dutE_jcjHzFrF0f1X-5nbATJ0tvyT6eloPjLPvGycyIEQbtbrULIPN5VbaqbKveyijXKoUSnM647fvuMxKSO4r1JGNufWXI2Qpa2y1tnIcrUH41ccCTG5kMuhHrxYUpcbM6SYfwnOVs0esH2Vi2nvuUZK1xHlp7FG0o"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-12 px-6 max-w-7xl mx-auto">
+<!-- Header & Statistics Section (Asymmetric Bento) -->
+<section class="grid grid-cols-12 gap-6 mb-12">
+<div class="col-span-12 lg:col-span-8 flex flex-col justify-end">
+<h1 class="text-5xl font-black tracking-tighter uppercase mb-2">ACTIVE INCIDENTS</h1>
+<p class="text-on-surface-variant max-w-xl font-medium uppercase tracking-widest text-xs">Real-time surveillance &amp; gate response system portal for site security personnel.</p>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-primary text-white p-8 flex flex-col justify-between aspect-video lg:aspect-auto">
+<span class="text-xs font-bold uppercase tracking-[0.2em]">Total Critical</span>
+<div class="flex items-baseline gap-2">
+<span class="text-7xl font-black italic">03</span>
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="h-1 bg-white w-1/3 mt-4"></div>
+</div>
+</section>
+<!-- Filter Tabs -->
+<div class="flex flex-wrap gap-2 mb-8 bg-surface-container-low p-2">
+<button class="px-6 py-3 bg-primary text-white text-xs font-black uppercase tracking-widest transition-transform scale-95 active:scale-100">Semua</button>
+<button class="px-6 py-3 bg-surface-container-high text-on-surface text-xs font-black uppercase tracking-widest hover:bg-surface-container-highest transition-transform scale-95 active:scale-100">Kritis</button>
+<button class="px-6 py-3 bg-surface-container-high text-on-surface text-xs font-black uppercase tracking-widest hover:bg-surface-container-highest transition-transform scale-95 active:scale-100">Peringatan</button>
+<button class="px-6 py-3 bg-surface-container-high text-on-surface text-xs font-black uppercase tracking-widest hover:bg-surface-container-highest transition-transform scale-95 active:scale-100">Selesai</button>
+</div>
+<!-- Incident Table Container -->
+<div class="bg-surface-container-lowest overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest">
+<th class="p-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">No</th>
+<th class="p-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Waktu</th>
+<th class="p-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Gate</th>
+<th class="p-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Jenis Insiden</th>
+<th class="p-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Severity</th>
+<th class="p-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Status</th>
+<th class="p-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Row 1: KRITIS -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-5 text-sm font-bold">001</td>
+<td class="p-5 text-sm font-medium">14:02:11</td>
+<td class="p-5 text-sm font-bold">UTARA-G1</td>
+<td class="p-5 text-sm font-medium">Plat tidak terbaca</td>
+<td class="p-5">
+<span class="px-3 py-1 bg-primary text-white text-[10px] font-black uppercase tracking-tighter">KRITIS</span>
+</td>
+<td class="p-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Menunggu</span>
+</div>
+</td>
+<td class="p-5 text-right">
+<button class="bg-primary text-white px-4 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-primary-container transition-colors">Tangani</button>
+</td>
+</tr>
+<!-- Row 2: KRITIS -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-5 text-sm font-bold">002</td>
+<td class="p-5 text-sm font-medium">13:58:45</td>
+<td class="p-5 text-sm font-bold">SELATAN-G2</td>
+<td class="p-5 text-sm font-medium">Koneksi IoT terputus</td>
+<td class="p-5">
+<span class="px-3 py-1 bg-primary text-white text-[10px] font-black uppercase tracking-tighter">KRITIS</span>
+</td>
+<td class="p-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Menunggu</span>
+</div>
+</td>
+<td class="p-5 text-right">
+<button class="bg-primary text-white px-4 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-primary-container transition-colors">Tangani</button>
+</td>
+</tr>
+<!-- Row 3: PERINGATAN -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-5 text-sm font-bold">003</td>
+<td class="p-5 text-sm font-medium">13:45:20</td>
+<td class="p-5 text-sm font-bold">TIMUR-G1</td>
+<td class="p-5 text-sm font-medium">Palang gagal terbuka</td>
+<td class="p-5">
+<span class="px-3 py-1 bg-secondary text-white text-[10px] font-black uppercase tracking-tighter">PERINGATAN</span>
+</td>
+<td class="p-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-secondary"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Proses</span>
+</div>
+</td>
+<td class="p-5 text-right">
+<button class="bg-primary text-white px-4 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-primary-container transition-colors">Tangani</button>
+</td>
+</tr>
+<!-- Row 4: INFO -->
+<tr class="hover:bg-surface-container transition-colors opacity-60">
+<td class="p-5 text-sm font-bold">004</td>
+<td class="p-5 text-sm font-medium">13:10:05</td>
+<td class="p-5 text-sm font-bold">BARAT-G3</td>
+<td class="p-5 text-sm font-medium">Sensor suhu tinggi</td>
+<td class="p-5">
+<span class="px-3 py-1 bg-outline-variant text-black text-[10px] font-black uppercase tracking-tighter">INFO</span>
+</td>
+<td class="p-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-outline-variant"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Selesai</span>
+</div>
+</td>
+<td class="p-5 text-right">
+<button class="bg-surface-container text-outline px-4 py-2 text-[10px] font-black uppercase tracking-widest cursor-not-allowed">Detail</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Spatial Layout (Architectural Detail) -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-outline-variant/30 pt-12">
+<div>
+<p class="text-[10px] font-black uppercase tracking-[0.3em] mb-4">System Integrity</p>
+<div class="flex items-center gap-4">
+<span class="text-4xl font-black tracking-tighter">99.8%</span>
+<div class="flex-1 h-px bg-black"></div>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-black uppercase tracking-[0.3em] mb-4">Active Gates</p>
+<div class="flex items-center gap-4">
+<span class="text-4xl font-black tracking-tighter">12/12</span>
+<div class="flex-1 h-px bg-black"></div>
+</div>
+</div>
+<div class="flex flex-col justify-end">
+<p class="text-[10px] font-medium uppercase tracking-widest text-on-surface-variant text-right">
+                    PARKITB INCIDENT MONITORING — VERSION 4.0.1<br/>
+                    ALL SYSTEMS OPERATIONAL
+                </p>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only on Dashboard/Home equivalent) -->
+<button class="fixed bottom-8 right-8 bg-black text-white p-6 shadow-2xl flex items-center justify-center hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

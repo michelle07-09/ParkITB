@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#191c1e",
+                    "on-secondary-fixed-variant": "#004884",
+                    "on-surface-variant": "#43474f",
+                    "surface": "#f8f9fb",
+                    "primary-fixed-dim": "#abc7ff",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#405e92",
+                    "tertiary": "#392200",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-container": "#563600",
+                    "outline": "#747780",
+                    "secondary-fixed": "#d4e3ff",
+                    "inverse-primary": "#abc7ff",
+                    "error-container": "#ffdad6",
+                    "primary": "#002653",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary-container": "#003a6d",
+                    "surface-bright": "#f8f9fb",
+                    "primary-fixed": "#d7e3ff",
+                    "on-tertiary-container": "#e4980e",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#5fa6fd",
+                    "outline-variant": "#c4c6d0",
+                    "surface-dim": "#d9dadc",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "background": "#f8f9fb",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f0f1f3",
+                    "surface-container-high": "#e7e8ea",
+                    "primary-container": "#1a3c6e",
+                    "on-secondary-fixed": "#001c39",
+                    "secondary": "#005fac",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#264679",
+                    "surface-container-highest": "#e1e2e4",
+                    "tertiary-fixed": "#ffddb4",
+                    "on-primary-fixed": "#001b3f",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#291800",
+                    "on-surface": "#191c1e",
+                    "surface-container": "#edeef0",
+                    "surface-variant": "#e1e2e4",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#8aa8e0",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "secondary-fixed-dim": "#a4c9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .noise-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+        }
+        .custom-shadow {
+            box-shadow: 0 8px 32px rgba(0, 38, 83, 0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-[#f8f9fb] dark:bg-slate-950 flex items-center justify-between px-6 h-16 w-full fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1A3C6E] dark:text-blue-400 cursor-pointer">arrow_back</span>
+<h1 class="font-['Inter'] font-bold text-2xl tracking-tight text-[#1A3C6E] dark:text-blue-400">Settings</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border-2 border-primary-container">
+<img alt="Profile" data-alt="professional portrait of a young man with a neutral expression and clean studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcyLyI1CV5Lk27NXllkbqNRAmGZI7aLO2wq6u9STk7e2thZ0KMYHmQtK86G6Is5fw8W3dBKzqg0bH84OUeYt5NXn5s0Hn0iX__Q2ZnhQ2V5aunkTgQYY32Dq7Il5SM7FcCem1HdVE7TzSePRXMSRoWhsKmaAdFecqwMEoFkkf9jNru45Xk-nCyu86bsTI1ms9tlRu2Xa7LOk8PQgjdyGN4S-tmWGr2q8DCvAwzb6smJRPd_uiTqbUzRDyZSWbfsT8pENK_NHvdeo8_"/>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-8">
+<!-- Section Header: Institutional Prestige Style -->
+<section>
+<p class="font-label text-[10px] font-medium tracking-[0.2em] uppercase text-outline mb-1">PAYMENT ECOSYSTEM</p>
+<h2 class="text-3xl font-bold text-primary tracking-tight">Metode Pembayaran</h2>
+</section>
+<!-- Balance Card: Signature Component -->
+<div class="relative overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-[#002653] to-[#1a3c6e] p-8 text-white shadow-[0_8px_32px_rgba(0,38,83,0.15)]">
+<div class="absolute inset-0 noise-overlay pointer-events-none"></div>
+<div class="relative z-10 flex justify-between items-start mb-12">
+<div>
+<p class="font-label text-[10px] font-medium tracking-[0.1em] uppercase text-primary-fixed opacity-70">AVAILABLE BALANCE</p>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-lg font-medium text-primary-fixed opacity-80">Rp</span>
+<h3 class="text-4xl font-bold tracking-tight">450.000</h3>
+</div>
+</div>
+<div class="bg-tertiary-fixed px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-[18px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="text-[10px] font-bold text-on-tertiary-fixed uppercase tracking-wider">Gold Tier</span>
+</div>
+</div>
+<div class="relative z-10 flex justify-between items-end">
+<div class="flex flex-col gap-1">
+<p class="font-label text-[10px] font-medium tracking-[0.1em] uppercase text-primary-fixed opacity-70">PARKITB VIRTUAL ACCOUNT</p>
+<p class="font-mono text-sm tracking-widest">8801 • 0123 • 4567 • 8901</p>
+</div>
+<button class="bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-xl px-4 py-2 text-xs font-semibold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+                    Top Up
+                </button>
+</div>
+</div>
+<!-- Asymmetric Payment Method Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<!-- QRIS: Large Featured Card -->
+<div class="md:col-span-12 bg-surface-container-lowest p-6 rounded-xl shadow-[0_8px_32px_rgba(0,38,83,0.04)] border border-outline-variant/15 flex items-center justify-between group cursor-pointer hover:bg-primary-container/5 transition-colors">
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">qr_code_2</span>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-primary">QRIS Pembayaran</h4>
+<p class="text-sm text-on-surface-variant">Pay instantly with any digital wallet</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-transform group-hover:translate-x-1">chevron_right</span>
+</div>
+<!-- Bank Transfer: Sub-grid -->
+<div class="md:col-span-7 space-y-4">
+<p class="font-label text-[11px] font-bold tracking-widest text-outline uppercase ml-1">LINKED ACCOUNTS</p>
+<!-- Bank Item 1 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-[0_4px_12px_rgba(0,38,83,0.02)] border border-outline-variant/15 flex items-center gap-4 cursor-pointer hover:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-lg bg-[#0047AB] flex items-center justify-center overflow-hidden">
+<span class="text-white font-black text-xs">BNI</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">BNI Direct Transfer</p>
+<p class="text-xs text-on-surface-variant">**** 4492</p>
+</div>
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Bank Item 2 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-[0_4px_12px_rgba(0,38,83,0.02)] border border-outline-variant/15 flex items-center gap-4 cursor-pointer hover:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-lg bg-[#F26522] flex items-center justify-center overflow-hidden">
+<span class="text-white font-black text-xs">BRI</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Bank BRI</p>
+<p class="text-xs text-on-surface-variant">**** 9012</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-xl">radio_button_unchecked</span>
+</div>
+</div>
+<!-- Credit Cards: Editorial Depth Section -->
+<div class="md:col-span-5 space-y-4">
+<p class="font-label text-[11px] font-bold tracking-widest text-outline uppercase ml-1">CARDS</p>
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/10 flex flex-col justify-between aspect-[1.6/1] overflow-hidden relative group cursor-pointer">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-8 -mt-8"></div>
+<div class="flex justify-between items-start relative z-10">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<img alt="Mastercard" class="h-4 object-contain opacity-40" data-alt="mastercard logo on clean white background with minimal styling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-I2J9AhQxNZV01BwQcVEiWbawap2yGqubEGcA1OqMO2kpBLkzth5iVXKg7guxsIBMF9uvCOeNVjgNZLTq6i5zjM5IHrExrCMz-xb2-lv-VGIYoqKYFKS7fIi8LTPVcCzwJoq4P28bWE1n22XwBhJPjQ9_wrvX4gVikqWnQX8sgm5vLEMRdhruoRf1HE3DygKqqCEdEZc5aLE064RFEbwhrIyXXmEq5bT0PaNNWAqSMsQMbv3bWdixbP2lfetI-v1kAZcQfOBOhlBc"/>
+</div>
+<div class="relative z-10">
+<p class="text-xs font-mono text-on-surface-variant tracking-wider">**** **** **** 8821</p>
+<p class="text-[10px] font-bold text-primary mt-1 uppercase">ALDO MAHESA</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Payment Method Action -->
+<button class="w-full py-4 border-2 border-dashed border-outline-variant rounded-2xl flex items-center justify-center gap-3 text-on-surface-variant hover:text-primary hover:border-primary hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined group-hover:rotate-90 transition-transform">add</span>
+<span class="font-semibold text-sm">Add New Payment Method</span>
+</button>
+<!-- Transaction Tip Banner -->
+<div class="bg-tertiary-container/10 p-5 rounded-2xl border-l-4 border-tertiary flex gap-4">
+<span class="material-symbols-outlined text-tertiary">security</span>
+<div>
+<p class="text-sm font-bold text-tertiary">Secure Transactions</p>
+<p class="text-xs text-on-surface-variant mt-0.5">Your payment information is encrypted with bank-grade security protocols through the ParkITB Gateway.</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-t border-[#c4c6d0]/15 shadow-[0_-8px_32px_rgba(0,38,83,0.06)] rounded-t-3xl">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Home</span>
+</a>
+<!-- Parking -->
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Parking</span>
+</a>
+<!-- Wallet -->
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Wallet</span>
+</a>
+<!-- Settings (Active) -->
+<a class="flex flex-col items-center justify-center bg-[#1A3C6E] text-white rounded-2xl p-2 px-4 shadow-lg scale-100 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

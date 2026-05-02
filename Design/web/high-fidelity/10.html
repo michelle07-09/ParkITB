@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB Developer Console — Revenue Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#004080",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#d5ecf8",
+                        "tertiary": "#00295d",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-bright": "#f3faff",
+                        "outline": "#737781",
+                        "on-primary-container": "#83aef5",
+                        "on-secondary-container": "#6c5000",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#071e27",
+                        "on-surface-variant": "#424750",
+                        "secondary": "#785900",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c3c6d2",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "surface": "#f3faff",
+                        "surface-container-low": "#e6f6ff",
+                        "inverse-on-surface": "#dff4ff",
+                        "surface-dim": "#c7dde9",
+                        "primary": "#002a58",
+                        "surface-container-highest": "#cfe6f2",
+                        "tertiary-container": "#003e87",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f3faff",
+                        "on-primary-fixed-variant": "#0e4686",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-variant": "#cfe6f2",
+                        "inverse-surface": "#1e333c",
+                        "tertiary-fixed-dim": "#adc7ff",
+                        "secondary-fixed": "#ffdf9e",
+                        "on-secondary-fixed": "#261a00",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "surface-tint": "#305ea0",
+                        "secondary-container": "#fdc003",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "surface-container": "#dbf1fe",
+                        "secondary-fixed-dim": "#fabd00",
+                        "on-background": "#071e27",
+                        "primary-fixed": "#d6e3ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#001a41"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- SIDEBAR (SideNavBar Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-100 dark:bg-slate-900 border-r border-slate-200/50 dark:border-slate-800/50 flex flex-col p-4 gap-2 font-['Inter'] text-sm font-medium z-40">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-bold text-blue-900 dark:text-blue-50">Developer Console</h1>
+<p class="text-xs text-on-surface-variant font-normal">System Administrator</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span>Vehicles</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Transactions</span>
+</div>
+<!-- ACTIVE TAB: Revenue -->
+<div class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-slate-800 text-blue-900 dark:text-blue-200 rounded-lg shadow-sm font-semibold cursor-pointer">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span>Revenue</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span>System</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span>Reports</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</div>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200/50 dark:border-slate-800/50 space-y-1">
+<button class="w-full mb-4 py-2 px-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-xl font-semibold shadow-sm text-xs transition-opacity hover:opacity-90">
+                Export System Logs
+            </button>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Help Center</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-error hover:bg-error/5 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</div>
+</div>
+</aside>
+<!-- MAIN CONTENT -->
+<main class="ml-64 flex-1 p-8 pb-16">
+<!-- HEADER & DATE RANGE -->
+<header class="flex justify-between items-end mb-10">
+<div>
+<span class="text-secondary font-bold text-xs tracking-widest uppercase">Institutional Intelligence</span>
+<h2 class="text-4xl font-black tracking-tight text-primary mt-1">Revenue Dashboard</h2>
+<p class="text-on-surface-variant mt-1">Detailed financial performance and gate traffic analysis.</p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-low p-2 rounded-xl">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm font-medium">Oct 01, 2023 - Oct 31, 2023</span>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 hover:bg-surface-container-highest transition-colors rounded-lg text-sm font-semibold">
+<span class="material-symbols-outlined text-primary" data-icon="filter_list">filter_list</span>
+                    Custom Range
+                </button>
+</div>
+</header>
+<!-- KPI CARDS (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
+<!-- Total Revenue -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] flex flex-col justify-between">
+<div>
+<span class="text-on-surface-variant text-xs font-bold tracking-widest uppercase mb-2 block">Total Revenue</span>
+<h3 class="text-2xl font-black text-primary">Rp 482.5M</h3>
+</div>
+<div class="mt-4 flex items-center gap-1 text-green-600 text-xs font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span>12.4% vs last month</span>
+</div>
+</div>
+<!-- Avg/Day -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] flex flex-col justify-between">
+<div>
+<span class="text-on-surface-variant text-xs font-bold tracking-widest uppercase mb-2 block">Avg. Daily Revenue</span>
+<h3 class="text-2xl font-black text-primary">Rp 15.6M</h3>
+</div>
+<div class="mt-4 flex items-center gap-1 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span>Consistent flow</span>
+</div>
+</div>
+<!-- Busiest Hour -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] flex flex-col justify-between">
+<div>
+<span class="text-on-surface-variant text-xs font-bold tracking-widest uppercase mb-2 block">Busiest Hour</span>
+<h3 class="text-2xl font-black text-primary">08:00 — 10:00</h3>
+</div>
+<div class="mt-4 flex items-center gap-1 text-secondary-container bg-on-secondary-container/10 px-2 py-0.5 rounded-full text-[10px] font-bold w-fit">
+                    PEAK TRAFFIC
+                </div>
+</div>
+<!-- Top Method -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] flex flex-col justify-between">
+<div>
+<span class="text-on-surface-variant text-xs font-bold tracking-widest uppercase mb-2 block">Top Method</span>
+<h3 class="text-2xl font-black text-primary">QRIS (64%)</h3>
+</div>
+<div class="mt-4 flex items-center gap-1 text-primary-container text-xs font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="qr_code_2">qr_code_2</span>
+<span>Digital preferred</span>
+</div>
+</div>
+<!-- Members -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] flex flex-col justify-between">
+<div>
+<span class="text-on-surface-variant text-xs font-bold tracking-widest uppercase mb-2 block">Active Members</span>
+<h3 class="text-2xl font-black text-primary">1,240</h3>
+</div>
+<div class="mt-4 flex items-center gap-1 text-secondary font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+<span>+48 new this week</span>
+</div>
+</div>
+</section>
+<!-- LARGE CHARTS SECTION -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+<!-- Revenue Trend (Large Area Chart) -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] relative overflow-hidden">
+<div class="flex justify-between items-center mb-8">
+<h4 class="text-xl font-bold text-primary">Revenue Trend</h4>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary text-white text-[10px] font-bold rounded-full">DAILY</span>
+<span class="px-3 py-1 bg-surface-container text-primary text-[10px] font-bold rounded-full">WEEKLY</span>
+</div>
+</div>
+<!-- Visualizing a trend line using SVG -->
+<div class="h-64 w-full relative">
+<svg class="w-full h-full preserve-3d" viewbox="0 0 1000 200">
+<defs>
+<lineargradient id="gradient-area" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#002a58" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#002a58" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,180 Q100,160 200,140 T400,100 T600,130 T800,70 T1000,90 V200 H0 Z" fill="url(#gradient-area)"></path>
+<path d="M0,180 Q100,160 200,140 T400,100 T600,130 T800,70 T1000,90" fill="none" stroke="#002a58" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<!-- Y-Axis Labels -->
+<div class="absolute top-0 left-0 h-full flex flex-col justify-between text-[10px] text-on-surface-variant font-bold">
+<span>20M</span>
+<span>15M</span>
+<span>10M</span>
+<span>5M</span>
+<span>0</span>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] text-on-surface-variant font-bold px-8">
+<span>OCT 01</span><span>OCT 07</span><span>OCT 14</span><span>OCT 21</span><span>OCT 31</span>
+</div>
+</div>
+<!-- Payment Method Donut -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] flex flex-col">
+<h4 class="text-xl font-bold text-primary mb-8">Payment Methods</h4>
+<div class="flex-1 flex flex-col items-center justify-center">
+<div class="relative w-48 h-48 rounded-full border-[16px] border-primary-container/10 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border-[16px] border-primary border-r-transparent border-b-transparent rotate-45"></div>
+<div class="text-center">
+<span class="text-3xl font-black text-primary">64%</span>
+<span class="block text-[10px] text-on-surface-variant font-bold tracking-widest">QRIS</span>
+</div>
+</div>
+<div class="mt-8 w-full space-y-3">
+<div class="flex items-center justify-between text-xs font-medium">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span>QRIS (Gopay/OVO)</span>
+</div>
+<span class="font-bold">Rp 308.8M</span>
+</div>
+<div class="flex items-center justify-between text-xs font-medium">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+<span>E-Money (Mandiri/BNI)</span>
+</div>
+<span class="font-bold">Rp 125.4M</span>
+</div>
+<div class="flex items-center justify-between text-xs font-medium">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-surface-dim"></div>
+<span>Cash / Manual</span>
+</div>
+<span class="font-bold">Rp 48.3M</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HEATMAP & SUMMARY TABLE -->
+<section class="grid grid-cols-1 xl:grid-cols-3 gap-8 items-start">
+<!-- Heatmap (7x24 Grid) -->
+<div class="xl:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)]">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-xl font-bold text-primary">Revenue Density (7x24)</h4>
+<div class="flex items-center gap-2 text-[10px] font-bold text-on-surface-variant">
+<span>Min</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 bg-blue-50 rounded-sm"></div>
+<div class="w-3 h-3 bg-blue-200 rounded-sm"></div>
+<div class="w-3 h-3 bg-blue-400 rounded-sm"></div>
+<div class="w-3 h-3 bg-blue-600 rounded-sm"></div>
+<div class="w-3 h-3 bg-blue-900 rounded-sm"></div>
+</div>
+<span>Max</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<div class="min-w-[600px]">
+<div class="flex mb-2">
+<div class="w-8"></div>
+<div class="flex-1 flex justify-between px-2 text-[9px] font-bold text-on-surface-variant">
+<span>00</span><span>02</span><span>04</span><span>06</span><span>08</span><span>10</span><span>12</span><span>14</span><span>16</span><span>18</span><span>20</span><span>22</span>
+</div>
+</div>
+<!-- Generating Grid Rows -->
+<div class="space-y-1">
+<!-- Mon -->
+<div class="flex items-center gap-2">
+<span class="w-8 text-[10px] font-bold text-on-surface-variant">MON</span>
+<div class="flex-1 grid grid-cols-24 gap-1">
+<!-- Simplified 24 column mock -->
+<script>
+                                        for(let i=0; i<24; i++) {
+                                            const intensity = Math.floor(Math.random() * 5);
+                                            const colors = ['bg-blue-50', 'bg-blue-100', 'bg-blue-300', 'bg-blue-600', 'bg-blue-900'];
+                                            document.write(`<div class="h-6 w-full ${colors[intensity]} rounded-sm opacity-80"></div>`);
+                                        }
+                                    </script>
+</div>
+</div>
+<!-- Tue -->
+<div class="flex items-center gap-2">
+<span class="w-8 text-[10px] font-bold text-on-surface-variant">TUE</span>
+<div class="flex-1 grid grid-cols-24 gap-1">
+<script>
+                                        for(let i=0; i<24; i++) {
+                                            const intensity = Math.floor(Math.random() * 5);
+                                            const colors = ['bg-blue-50', 'bg-blue-100', 'bg-blue-300', 'bg-blue-600', 'bg-blue-900'];
+                                            document.write(`<div class="h-6 w-full ${colors[intensity]} rounded-sm opacity-80"></div>`);
+                                        }
+                                    </script>
+</div>
+</div>
+<!-- Wed -->
+<div class="flex items-center gap-2">
+<span class="w-8 text-[10px] font-bold text-on-surface-variant">WED</span>
+<div class="flex-1 grid grid-cols-24 gap-1">
+<script>
+                                        for(let i=0; i<24; i++) {
+                                            const intensity = Math.floor(Math.random() * 5);
+                                            const colors = ['bg-blue-50', 'bg-blue-100', 'bg-blue-300', 'bg-blue-600', 'bg-blue-900'];
+                                            document.write(`<div class="h-6 w-full ${colors[intensity]} rounded-sm opacity-80"></div>`);
+                                        }
+                                    </script>
+</div>
+</div>
+<!-- Thu -->
+<div class="flex items-center gap-2">
+<span class="w-8 text-[10px] font-bold text-on-surface-variant">THU</span>
+<div class="flex-1 grid grid-cols-24 gap-1">
+<script>
+                                        for(let i=0; i<24; i++) {
+                                            const intensity = Math.floor(Math.random() * 5);
+                                            const colors = ['bg-blue-50', 'bg-blue-100', 'bg-blue-300', 'bg-blue-600', 'bg-blue-900'];
+                                            document.write(`<div class="h-6 w-full ${colors[intensity]} rounded-sm opacity-80"></div>`);
+                                        }
+                                    </script>
+</div>
+</div>
+<!-- Fri -->
+<div class="flex items-center gap-2">
+<span class="w-8 text-[10px] font-bold text-on-surface-variant">FRI</span>
+<div class="flex-1 grid grid-cols-24 gap-1">
+<script>
+                                        for(let i=0; i<24; i++) {
+                                            const intensity = Math.floor(Math.random() * 5);
+                                            const colors = ['bg-blue-50', 'bg-blue-100', 'bg-blue-300', 'bg-blue-600', 'bg-blue-900'];
+                                            document.write(`<div class="h-6 w-full ${colors[intensity]} rounded-sm opacity-80"></div>`);
+                                        }
+                                    </script>
+</div>
+</div>
+<!-- Sat -->
+<div class="flex items-center gap-2">
+<span class="w-8 text-[10px] font-bold text-on-surface-variant">SAT</span>
+<div class="flex-1 grid grid-cols-24 gap-1">
+<script>
+                                        for(let i=0; i<24; i++) {
+                                            const intensity = Math.floor(Math.random() * 5);
+                                            const colors = ['bg-blue-50', 'bg-blue-100', 'bg-blue-300', 'bg-blue-600', 'bg-blue-900'];
+                                            document.write(`<div class="h-6 w-full ${colors[intensity]} rounded-sm opacity-80"></div>`);
+                                        }
+                                    </script>
+</div>
+</div>
+<!-- Sun -->
+<div class="flex items-center gap-2">
+<span class="w-8 text-[10px] font-bold text-on-surface-variant">SUN</span>
+<div class="flex-1 grid grid-cols-24 gap-1">
+<script>
+                                        for(let i=0; i<24; i++) {
+                                            const intensity = Math.floor(Math.random() * 5);
+                                            const colors = ['bg-blue-50', 'bg-blue-100', 'bg-blue-300', 'bg-blue-600', 'bg-blue-900'];
+                                            document.write(`<div class="h-6 w-full ${colors[intensity]} rounded-sm opacity-80"></div>`);
+                                        }
+                                    </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary Table per Gate -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)]">
+<h4 class="text-xl font-bold text-primary mb-6">Gate Performance</h4>
+<div class="space-y-4">
+<!-- Gate Item -->
+<div class="p-4 bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container text-white flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined" data-icon="gate">gate</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-primary">Main Gate A</h5>
+<span class="text-[10px] text-on-surface-variant font-medium">8,245 Entries</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-black text-primary">Rp 212M</div>
+<div class="text-[9px] text-green-600 font-bold">44% Weight</div>
+</div>
+</div>
+<!-- Gate Item -->
+<div class="p-4 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest text-primary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined" data-icon="gate">gate</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-primary">North Gate B</h5>
+<span class="text-[10px] text-on-surface-variant font-medium">5,120 Entries</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-black text-primary">Rp 148M</div>
+<div class="text-[9px] text-on-surface-variant font-bold">31% Weight</div>
+</div>
+</div>
+<!-- Gate Item -->
+<div class="p-4 bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest text-primary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined" data-icon="gate">gate</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-primary">South Gate C</h5>
+<span class="text-[10px] text-on-surface-variant font-medium">3,980 Entries</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-black text-primary">Rp 92M</div>
+<div class="text-[9px] text-on-surface-variant font-bold">19% Weight</div>
+</div>
+</div>
+<!-- Gate Item -->
+<div class="p-4 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest text-primary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined" data-icon="gate">gate</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-primary">Staff Entry D</h5>
+<span class="text-[10px] text-on-surface-variant font-medium">1,120 Entries</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-black text-primary">Rp 30.5M</div>
+<div class="text-[9px] text-on-surface-variant font-bold">6% Weight</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TOP BAR (Shared Component Hidden in Mobile, Fixed Top) -->
+<div class="fixed top-0 left-64 right-0 h-16 glass-nav bg-slate-50/80 dark:bg-slate-950/80 px-8 flex justify-between items-center z-30 shadow-sm">
+<div class="flex items-center gap-6">
+<div class="text-blue-900 dark:text-blue-100 text-xl font-black tracking-tighter">ParkITB</div>
+<div class="hidden md:flex items-center gap-8 text-sm">
+<a class="text-slate-500 font-medium hover:text-blue-700 transition-colors" href="#">Monitoring</a>
+<a class="text-slate-500 font-medium hover:text-blue-700 transition-colors" href="#">Gates</a>
+<a class="text-slate-500 font-medium hover:text-blue-700 transition-colors" href="#">Live Feed</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-blue-700 transition-transform active:opacity-80 scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-blue-700 transition-transform active:opacity-80 scale-95">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="portrait of a professional male system administrator in a minimal studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmWYS-n_2qqSUweD69leR1VBjmeLk1NFzt4LDAVAvmPRILTKKifigcjPwrdnXf9a64a0_bubO_CHdHGGUAVhFQ-0duGNCpq3Hnu6U0dVeMKxpwV0-rzqqfuBkbMT0x2F1V2ctiTQaNlcY3hgHucsXOL-qOueE6BzFm4S-J58M60LMZ7hKVrwhy2HblfCtBNfQnpVdetvT9FPhBv2a92yfuZbT2TI02Mei2mFeQLDs3346SkmP2CZv4iAF3nZKsthU7mhuHiNlvuuY"/>
+</div>
+</div>
+</div>
+</main>
+<!-- FLOATING ACTION (Only context-relevant) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-primary to-primary-container text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<style>
+/* Custom grid for 24 hours */
+.grid-cols-24 {
+    grid-template-columns: repeat(24, minmax(0, 1fr));
+}
+</style></body></html>

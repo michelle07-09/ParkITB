@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#acabab",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary": "#3a3c3c",
+                    "surface-variant": "#e2e2e2",
+                    "on-error-container": "#410002",
+                    "outline": "#777777",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#e3e2e2",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed": "#5d5e5f",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#474747",
+                    "tertiary-container": "#747575",
+                    "primary-fixed-dim": "#474746",
+                    "on-secondary-container": "#1b1c1c",
+                    "primary-container": "#3c3b3b",
+                    "secondary-container": "#d5d4d4",
+                    "primary": "#000000",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5f5e5e",
+                    "secondary": "#5e5e5e",
+                    "outline-variant": "#c6c6c6",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eeeeee",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3b3b3c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e3e2e2",
+                    "on-primary-fixed-variant": "#e5e2e1",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-surface": "#1a1c1c",
+                    "on-primary-fixed": "#ffffff",
+                    "tertiary-fixed-dim": "#464747",
+                    "on-tertiary-container": "#ffffff",
+                    "secondary-fixed": "#c7c6c6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#e5e2e1",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<div class="flex min-h-screen">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="bg-black dark:bg-zinc-950 text-white h-screen w-64 fixed left-0 top-0 flex flex-col h-full py-8 px-4 font-['Inter'] text-sm tracking-wide uppercase font-semibold transition-transform">
+<div class="mb-12 flex flex-col items-center">
+<div class="w-12 h-12 bg-white flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-black text-3xl">terminal</span>
+</div>
+<h1 class="text-2xl font-black text-white italic tracking-tighter">ParkITB</h1>
+<p class="text-[10px] text-zinc-500 mt-1 tracking-widest uppercase">Developer Portal</p>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">directions_car</span> Vehicles
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">receipt_long</span> Transactions
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">analytics</span> Analytics
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-zinc-800 text-white border-l-4 border-white transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                </a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 p-12 max-w-[1400px]">
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex justify-between items-end">
+<div>
+<span class="text-xs font-black tracking-widest uppercase text-secondary">SYSTEM CONFIGURATION</span>
+<h2 class="text-5xl font-black tracking-tighter mt-2">SETTINGS</h2>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-container hover:bg-surface-variant px-6 py-2 font-bold text-xs uppercase transition-colors">Discard</button>
+<button class="bg-primary hover:bg-primary-container text-white px-8 py-2 font-bold text-xs uppercase transition-colors">Apply Changes</button>
+</div>
+</div>
+</header>
+<!-- Tabs Section (Interior Navigation) -->
+<nav class="flex space-x-8 mb-10 border-b border-outline-variant border-opacity-20">
+<button class="pb-4 text-xs font-black uppercase tracking-widest border-b-4 border-primary">Tarif Parkir</button>
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Gate Config</button>
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Notification Rules</button>
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Membership Tiers</button>
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors">API Keys</button>
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Audit Log</button>
+</nav>
+<!-- Bento Grid Layout for Settings Modules -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Tarif Section (Large Card) -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-black tracking-tight uppercase">Base Fare Matrix</h3>
+<button class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase bg-surface-container px-3 py-1">
+<span class="material-symbols-outlined text-sm">add</span> New Rule
+                        </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="border-b-2 border-primary">
+<tr>
+<th class="py-4 text-[10px] font-black uppercase tracking-widest text-secondary">Vehicle Type</th>
+<th class="py-4 text-[10px] font-black uppercase tracking-widest text-secondary">Membership</th>
+<th class="py-4 text-[10px] font-black uppercase tracking-widest text-secondary">Initial (1h)</th>
+<th class="py-4 text-[10px] font-black uppercase tracking-widest text-secondary">Flat Rate</th>
+<th class="py-4 text-[10px] font-black uppercase tracking-widest text-secondary">Max/Day</th>
+<th class="py-4 text-right text-[10px] font-black uppercase tracking-widest text-secondary">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant divide-opacity-20">
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="py-6 font-bold text-sm">Motorcycle</td>
+<td class="py-6 text-sm">Regular</td>
+<td class="py-6 font-mono text-sm">Rp 2.000</td>
+<td class="py-6 font-mono text-sm">Rp 1.000</td>
+<td class="py-6 font-mono text-sm">Rp 10.000</td>
+<td class="py-6 text-right">
+<button class="material-symbols-outlined text-lg opacity-40 group-hover:opacity-100 transition-opacity">edit_square</button>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="py-6 font-bold text-sm">Car</td>
+<td class="py-6 text-sm">Regular</td>
+<td class="py-6 font-mono text-sm">Rp 5.000</td>
+<td class="py-6 font-mono text-sm">Rp 3.000</td>
+<td class="py-6 font-mono text-sm">Rp 25.000</td>
+<td class="py-6 text-right">
+<button class="material-symbols-outlined text-lg opacity-40 group-hover:opacity-100 transition-opacity">edit_square</button>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="py-6 font-bold text-sm">Car</td>
+<td class="py-6 text-sm text-primary font-black italic">Platinum</td>
+<td class="py-6 font-mono text-sm">Rp 0</td>
+<td class="py-6 font-mono text-sm">Rp 0</td>
+<td class="py-6 font-mono text-sm">Rp 0</td>
+<td class="py-6 text-right">
+<button class="material-symbols-outlined text-lg opacity-40 group-hover:opacity-100 transition-opacity">edit_square</button>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="py-6 font-bold text-sm">Truck/Bus</td>
+<td class="py-6 text-sm">Industrial</td>
+<td class="py-6 font-mono text-sm">Rp 15.000</td>
+<td class="py-6 font-mono text-sm">Rp 10.000</td>
+<td class="py-6 font-mono text-sm">Rp 80.000</td>
+<td class="py-6 text-right">
+<button class="material-symbols-outlined text-lg opacity-40 group-hover:opacity-100 transition-opacity">edit_square</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Gate Config Section (Sidebar Module) -->
+<section class="col-span-12 lg:col-span-4 flex flex-col gap-8">
+<!-- Gate Maintenance Toggle -->
+<div class="bg-surface-container-low p-8 border-l-8 border-primary">
+<h3 class="text-xs font-black tracking-widest uppercase mb-6 flex items-center justify-between">
+                            Gate Status
+                            <span class="bg-primary text-white text-[9px] px-2 py-0.5">LIVE</span>
+</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold">Main Entrance (Gate A)</span>
+<div class="w-12 h-6 bg-primary p-1 flex justify-end transition-all">
+<div class="w-4 h-4 bg-white"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold text-secondary">Secondary (Gate B)</span>
+<div class="w-12 h-6 bg-outline-variant p-1 flex justify-start transition-all">
+<div class="w-4 h-4 bg-white"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Camera Sensitivity Slider -->
+<div class="bg-surface-container-lowest p-8">
+<h3 class="text-xs font-black tracking-widest uppercase mb-6">OCR Camera Sensitivity</h3>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between mb-2">
+<label class="text-[10px] font-bold uppercase tracking-wider text-secondary">Trigger Threshold</label>
+<span class="text-[10px] font-mono font-bold">85%</span>
+</div>
+<div class="h-1 bg-surface-container relative">
+<div class="absolute h-1 bg-primary w-[85%]"></div>
+<div class="absolute w-4 h-4 bg-primary -top-1.5 left-[85%] -translate-x-1/2"></div>
+</div>
+<p class="mt-4 text-[10px] text-on-surface-variant leading-relaxed">Lower sensitivity reduces false positives from rain or debris but may miss fast-moving vehicles.</p>
+</div>
+<div class="pt-4 border-t border-surface-container">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">videocam</span>
+</div>
+<div>
+<p class="text-[10px] font-black uppercase">Last Calibration</p>
+<p class="text-[10px] font-mono text-secondary">2023-10-24 08:44:12</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Placeholder Map/Location Visual -->
+<div class="flex-grow bg-surface-container relative overflow-hidden group">
+<div class="absolute inset-0 flex items-center justify-center opacity-10">
+<span class="material-symbols-outlined text-[120px]">map</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+<div class="p-6 relative h-full flex flex-col justify-end">
+<span class="text-[10px] font-black uppercase text-white tracking-widest">Topology View</span>
+<h4 class="text-white font-bold text-sm">IP-Range: 192.168.1.*</h4>
+</div>
+</div>
+</section>
+<!-- Small Info Blocks -->
+<div class="col-span-12 lg:col-span-4 bg-primary text-white p-8">
+<h3 class="text-[10px] font-black tracking-widest uppercase mb-4 opacity-70">Audit Log Preview</h3>
+<div class="space-y-4">
+<div class="flex gap-4 items-start">
+<span class="text-[9px] font-mono opacity-50 pt-1">12:02</span>
+<p class="text-[11px] leading-tight"><span class="font-bold">DEV_ROOT</span> changed Gate B sensitivity from 70% to 85%</p>
+</div>
+<div class="flex gap-4 items-start">
+<span class="text-[9px] font-mono opacity-50 pt-1">11:45</span>
+<p class="text-[11px] leading-tight"><span class="font-bold">SYSTEM</span> automated sync with API Tier 2</p>
+</div>
+<div class="flex gap-4 items-start">
+<span class="text-[9px] font-mono opacity-50 pt-1">10:20</span>
+<p class="text-[11px] leading-tight"><span class="font-bold">ADMIN_01</span> updated Tarif: Motorcycle Regular</p>
+</div>
+</div>
+<button class="mt-8 text-[10px] font-bold uppercase tracking-widest border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">View All Logs</button>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-surface-container-high p-8 flex flex-col justify-center">
+<span class="text-[10px] font-black tracking-widest uppercase text-secondary">ACTIVE API KEYS</span>
+<div class="mt-4 flex items-end gap-2">
+<span class="text-4xl font-black">12</span>
+<span class="text-xs font-bold text-secondary mb-1">Endpoints active</span>
+</div>
+<div class="mt-6 flex -space-x-2">
+<div class="w-8 h-8 bg-black border-2 border-surface-container-high"></div>
+<div class="w-8 h-8 bg-zinc-600 border-2 border-surface-container-high"></div>
+<div class="w-8 h-8 bg-zinc-400 border-2 border-surface-container-high"></div>
+<div class="w-8 h-8 bg-zinc-200 border-2 border-surface-container-high flex items-center justify-center text-[8px] font-bold">+9</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-8 border border-outline-variant border-opacity-30">
+<div class="flex items-start justify-between mb-6">
+<h3 class="text-xs font-black tracking-widest uppercase">System Health</h3>
+<span class="material-symbols-outlined text-sm text-secondary">monitor_heart</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] uppercase font-bold">
+<span>Storage</span>
+<span>44%</span>
+</div>
+<div class="h-1 bg-surface-container">
+<div class="h-1 bg-black w-[44%]"></div>
+</div>
+</div>
+<div class="space-y-2 mt-6">
+<div class="flex justify-between text-[10px] uppercase font-bold">
+<span>Latency</span>
+<span>12ms</span>
+</div>
+<div class="h-1 bg-surface-container">
+<div class="h-1 bg-black w-[12%]"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Background Pattern/Detailing -->
+<div class="fixed top-0 right-0 p-12 pointer-events-none opacity-5">
+<span class="text-[200px] font-black tracking-tighter leading-none select-none">CONF</span>
+</div>
+</body></html>

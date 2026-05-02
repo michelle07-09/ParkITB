@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB Developer Portal | System Health</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#acabab",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary": "#3a3c3c",
+                    "surface-variant": "#e2e2e2",
+                    "on-error-container": "#410002",
+                    "outline": "#777777",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#e3e2e2",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed": "#5d5e5f",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#474747",
+                    "tertiary-container": "#747575",
+                    "primary-fixed-dim": "#474746",
+                    "on-secondary-container": "#1b1c1c",
+                    "primary-container": "#3c3b3b",
+                    "secondary-container": "#d5d4d4",
+                    "primary": "#000000",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5f5e5e",
+                    "secondary": "#5e5e5e",
+                    "outline-variant": "#c6c6c6",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eeeeee",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3b3b3c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e3e2e2",
+                    "on-primary-fixed-variant": "#e5e2e1",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-surface": "#1a1c1c",
+                    "on-primary-fixed": "#ffffff",
+                    "tertiary-fixed-dim": "#464747",
+                    "on-tertiary-container": "#ffffff",
+                    "secondary-fixed": "#c7c6c6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#e5e2e1",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #000; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<aside class="bg-black dark:bg-zinc-950 text-white font-['Inter'] text-sm tracking-wide uppercase font-semibold h-screen w-64 fixed left-0 top-0 flex flex-col h-full py-8 px-4 z-50">
+<div class="mb-12 px-2">
+<h1 class="text-2xl font-black text-white italic tracking-tighter">ParkITB</h1>
+<p class="text-[10px] text-zinc-500 tracking-[0.2em] mt-1">Developer Portal</p>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+                Vehicles
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                Transactions
+            </a>
+<a class="bg-zinc-800 text-white border-l-4 border-white flex items-center gap-3 px-4 py-3 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto pt-8">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<main class="ml-64 p-8 min-h-screen">
+<header class="mb-12 flex justify-between items-end">
+<div>
+<h2 class="text-4xl font-black tracking-tighter uppercase leading-none">System Health</h2>
+<p class="text-on-surface-variant mt-2 text-sm uppercase tracking-widest font-medium">Real-time Infrastructure Monitoring</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-high px-4 py-2 flex items-center gap-3">
+<span class="w-2 h-2 bg-black"></span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">System Status: Nominal</span>
+</div>
+<div class="bg-primary text-white px-6 py-2 text-[10px] font-bold uppercase tracking-tighter flex items-center gap-2 cursor-pointer hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+                    Force Sync
+                </div>
+</div>
+</header>
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold uppercase tracking-tight">Gate Infrastructure</h3>
+<span class="text-[10px] font-medium text-outline">8 Nodes Online / 0 Faults</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
+<!-- Gate Card 1 -->
+<div class="bg-surface-container-lowest p-6 border-l-4 border-primary">
+<div class="flex justify-between items-start mb-6">
+<h4 class="font-black text-lg tracking-tighter">GATE_NORTH_01</h4>
+<span class="bg-primary text-white text-[9px] px-2 py-0.5 font-bold">ONLINE</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-[11px] uppercase tracking-tighter border-b border-surface-container pb-1">
+<span class="text-outline">Uptime</span>
+<span class="font-bold">99.98%</span>
+</div>
+<div class="flex justify-between text-[11px] uppercase tracking-tighter border-b border-surface-container pb-1">
+<span class="text-outline">Device ID</span>
+<span class="font-bold">ID-8821-X</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-4">
+<div class="bg-surface-container-low p-2">
+<p class="text-[9px] text-outline mb-1">CAMERA</p>
+<p class="text-[10px] font-bold">STABLE</p>
+</div>
+<div class="bg-surface-container-low p-2">
+<p class="text-[9px] text-outline mb-1">SERVO</p>
+<p class="text-[10px] font-bold">READY</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Gate Card 2 -->
+<div class="bg-surface-container-lowest p-6 border-l-4 border-primary">
+<div class="flex justify-between items-start mb-6">
+<h4 class="font-black text-lg tracking-tighter">GATE_NORTH_02</h4>
+<span class="bg-primary text-white text-[9px] px-2 py-0.5 font-bold">ONLINE</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-[11px] uppercase tracking-tighter border-b border-surface-container pb-1">
+<span class="text-outline">Uptime</span>
+<span class="font-bold">99.94%</span>
+</div>
+<div class="flex justify-between text-[11px] uppercase tracking-tighter border-b border-surface-container pb-1">
+<span class="text-outline">Device ID</span>
+<span class="font-bold">ID-8822-X</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-4">
+<div class="bg-surface-container-low p-2">
+<p class="text-[9px] text-outline mb-1">CAMERA</p>
+<p class="text-[10px] font-bold">STABLE</p>
+</div>
+<div class="bg-surface-container-low p-2">
+<p class="text-[9px] text-outline mb-1">SERVO</p>
+<p class="text-[10px] font-bold">READY</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Gate Card 3 (Warning) -->
+<div class="bg-surface-container-lowest p-6 border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-6">
+<h4 class="font-black text-lg tracking-tighter">GATE_SOUTH_01</h4>
+<span class="bg-secondary text-white text-[9px] px-2 py-0.5 font-bold uppercase">Peringatan</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-[11px] uppercase tracking-tighter border-b border-surface-container pb-1">
+<span class="text-outline">Uptime</span>
+<span class="font-bold">92.10%</span>
+</div>
+<div class="flex justify-between text-[11px] uppercase tracking-tighter border-b border-surface-container pb-1">
+<span class="text-outline">Device ID</span>
+<span class="font-bold">ID-8901-Z</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-4">
+<div class="bg-surface-container-high p-2">
+<p class="text-[9px] text-outline mb-1">CAMERA</p>
+<p class="text-[10px] font-bold text-error">RETRYING</p>
+</div>
+<div class="bg-surface-container-low p-2">
+<p class="text-[9px] text-outline mb-1">SERVO</p>
+<p class="text-[10px] font-bold">READY</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Gate Card 4 -->
+<div class="bg-surface-container-lowest p-6 border-l-4 border-primary">
+<div class="flex justify-between items-start mb-6">
+<h4 class="font-black text-lg tracking-tighter">GATE_SOUTH_02</h4>
+<span class="bg-primary text-white text-[9px] px-2 py-0.5 font-bold uppercase">ONLINE</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-[11px] uppercase tracking-tighter border-b border-surface-container pb-1">
+<span class="text-outline">Uptime</span>
+<span class="font-bold">99.99%</span>
+</div>
+<div class="flex justify-between text-[11px] uppercase tracking-tighter border-b border-surface-container pb-1">
+<span class="text-outline">Device ID</span>
+<span class="font-bold">ID-8902-Z</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-4">
+<div class="bg-surface-container-low p-2">
+<p class="text-[9px] text-outline mb-1">CAMERA</p>
+<p class="text-[10px] font-bold">STABLE</p>
+</div>
+<div class="bg-surface-container-low p-2">
+<p class="text-[9px] text-outline mb-1">SERVO</p>
+<p class="text-[10px] font-bold">READY</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Server Metrics Panel -->
+<div class="lg:col-span-2 space-y-8">
+<div class="bg-surface-container-low p-8">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-bold uppercase tracking-tight">Core Infrastructure</h3>
+<div class="flex gap-4">
+<div class="text-right">
+<p class="text-[9px] text-outline uppercase font-bold">Backend Uptime</p>
+<p class="text-sm font-black">14d 02h 12m</p>
+</div>
+<div class="text-right">
+<p class="text-[9px] text-outline uppercase font-bold">DB Pool</p>
+<p class="text-sm font-black">42/100</p>
+</div>
+</div>
+</div>
+<div class="mb-10">
+<div class="flex justify-between items-end mb-2">
+<p class="text-[10px] font-bold uppercase tracking-widest text-outline">API Response Latency (ms)</p>
+<p class="text-[10px] font-bold">AVG: 24ms</p>
+</div>
+<div class="h-40 flex items-end gap-1">
+<div class="flex-grow bg-primary-container h-[40%]" title="20ms"></div>
+<div class="flex-grow bg-primary-container h-[45%]" title="22ms"></div>
+<div class="flex-grow bg-primary h-[90%]" title="45ms"></div>
+<div class="flex-grow bg-primary-container h-[35%]" title="18ms"></div>
+<div class="flex-grow bg-primary-container h-[42%]" title="21ms"></div>
+<div class="flex-grow bg-primary-container h-[38%]" title="19ms"></div>
+<div class="flex-grow bg-primary-container h-[48%]" title="24ms"></div>
+<div class="flex-grow bg-primary h-[85%]" title="42ms"></div>
+<div class="flex-grow bg-primary-container h-[30%]" title="15ms"></div>
+<div class="flex-grow bg-primary-container h-[40%]" title="20ms"></div>
+<div class="flex-grow bg-primary-container h-[45%]" title="22ms"></div>
+<div class="flex-grow bg-primary-container h-[42%]" title="21ms"></div>
+<div class="flex-grow bg-primary-container h-[35%]" title="18ms"></div>
+<div class="flex-grow bg-primary-container h-[32%]" title="16ms"></div>
+<div class="flex-grow bg-primary-container h-[38%]" title="19ms"></div>
+</div>
+</div>
+<div>
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-outline mb-4">Recent Error Logs</h4>
+<div class="space-y-1">
+<div class="bg-surface-container p-3 flex justify-between items-center text-[11px]">
+<code class="font-mono text-primary">[14:22:01] 500 ERR: DB_CONN_TIMEOUT at GATE_SOUTH_01</code>
+<span class="text-outline uppercase">Critical</span>
+</div>
+<div class="bg-surface-container p-3 flex justify-between items-center text-[11px]">
+<code class="font-mono text-primary">[14:18:55] 404 WARN: Missing asset "gate_icon.svg"</code>
+<span class="text-outline uppercase">Minor</span>
+</div>
+<div class="bg-surface-container p-3 flex justify-between items-center text-[11px]">
+<code class="font-mono text-primary">[13:45:12] 401 INFO: Auth Token expired for UID-992</code>
+<span class="text-outline uppercase">Trace</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Configuration Side Panel -->
+<div class="space-y-8">
+<div class="bg-black text-white p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-black uppercase tracking-tighter">Alert Thresholds</h3>
+<span class="material-symbols-outlined text-sm cursor-pointer" data-icon="expand_less">expand_less</span>
+</div>
+<div class="space-y-6">
+<div>
+<label class="text-[9px] uppercase font-bold tracking-[0.2em] block mb-2 text-zinc-400">Latency Trigger (ms)</label>
+<input class="w-full accent-white appearance-none h-[2px] bg-zinc-800" max="500" min="50" type="range" value="200"/>
+<div class="flex justify-between mt-1 text-[10px] font-mono text-zinc-500">
+<span>50ms</span>
+<span>200ms</span>
+</div>
+</div>
+<div>
+<label class="text-[9px] uppercase font-bold tracking-[0.2em] block mb-2 text-zinc-400">Error Rate Alert (%)</label>
+<div class="flex gap-2">
+<input class="bg-zinc-900 border-none border-b border-zinc-700 text-white text-xs w-full py-2 px-3 focus:ring-0 focus:border-white transition-all" type="text" value="0.5"/>
+<button class="bg-zinc-800 px-4 text-[10px] font-bold uppercase hover:bg-zinc-700">Set</button>
+</div>
+</div>
+<div class="pt-4 border-t border-zinc-800">
+<h4 class="text-[10px] font-bold uppercase mb-4 tracking-widest text-zinc-500">Notifications</h4>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs uppercase tracking-tighter">Email Alerts</span>
+<div class="w-8 h-4 bg-white relative">
+<div class="absolute right-0 top-0 bottom-0 w-4 bg-zinc-400"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs uppercase tracking-tighter">Slack Hook</span>
+<div class="w-8 h-4 bg-zinc-800 relative">
+<div class="absolute left-0 top-0 bottom-0 w-4 bg-zinc-600"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs uppercase tracking-tighter">SMS Critical</span>
+<div class="w-8 h-4 bg-white relative">
+<div class="absolute right-0 top-0 bottom-0 w-4 bg-zinc-400"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-8">
+<h3 class="text-sm font-bold uppercase mb-4 tracking-widest">System Snapshot</h3>
+<div class="relative w-full aspect-square bg-surface-container border border-outline-variant border-opacity-20 flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 opacity-10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[120px]" data-icon="hub">hub</span>
+</div>
+<div class="z-10 text-center">
+<p class="text-[10px] text-outline uppercase mb-1">Disk Usage</p>
+<p class="text-3xl font-black italic">68%</p>
+<div class="w-32 h-1 bg-surface-container-low mt-3">
+<div class="w-[68%] h-full bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

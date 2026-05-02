@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#abc7ff",
+                    "secondary-container": "#5fa6fd",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "on-surface": "#191c1e",
+                    "error": "#ba1a1a",
+                    "outline": "#747780",
+                    "surface-dim": "#d9dadc",
+                    "secondary-fixed-dim": "#a4c9ff",
+                    "on-tertiary-fixed": "#291800",
+                    "on-secondary-container": "#003a6d",
+                    "tertiary-fixed": "#ffddb4",
+                    "on-surface-variant": "#43474f",
+                    "primary": "#002653",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#8aa8e0",
+                    "background": "#f8f9fb",
+                    "on-secondary-fixed-variant": "#004884",
+                    "on-tertiary-container": "#e4980e",
+                    "primary-fixed": "#d7e3ff",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8f9fb",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#563600",
+                    "surface-variant": "#e1e2e4",
+                    "tertiary": "#392200",
+                    "primary-container": "#1a3c6e",
+                    "surface-tint": "#405e92",
+                    "secondary-fixed": "#d4e3ff",
+                    "inverse-primary": "#abc7ff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#001c39",
+                    "inverse-on-surface": "#f0f1f3",
+                    "surface-container-high": "#e7e8ea",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c4c6d0",
+                    "surface-container": "#edeef0",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "secondary": "#005fac",
+                    "on-primary-fixed": "#001b3f",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface": "#f8f9fb",
+                    "on-primary-fixed-variant": "#264679"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .qr-gradient-border {
+            background: linear-gradient(135deg, #002653 0%, #005fac 100%);
+            padding: 2px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 py-4 w-full bg-[#f8f9fb] dark:bg-slate-950 docked full-width top-0 sticky z-50 tonal-shift-no-borders">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#1A3C6E] dark:text-blue-400" data-icon="account_balance">account_balance</span>
+<h1 class="font-['Inter'] font-bold text-2xl tracking-tight text-[#1A3C6E] dark:text-blue-400">ParkITB</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400" data-icon="notifications">notifications</span>
+</div>
+</header>
+<main class="px-6 py-4 max-w-md mx-auto">
+<!-- Editorial Header -->
+<div class="mb-8 mt-2">
+<h2 class="text-[2.0rem] font-bold leading-[120%] tracking-tight text-primary">Tiket Parkir Digital</h2>
+<div class="mt-4 inline-flex items-center px-3 py-1 bg-surface-container-highest rounded-lg">
+<span class="text-on-surface-variant font-bold tracking-widest text-sm">D 1234 ABC</span>
+</div>
+</div>
+<!-- Ticket Card (Asymmetric Layout) -->
+<div class="relative mb-8">
+<!-- Background Decoration (Institutional Precision) -->
+<div class="absolute -top-4 -right-2 w-32 h-32 bg-primary-container opacity-5 rounded-full blur-3xl"></div>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_8px_32px_rgba(0,38,83,0.06)] relative overflow-hidden">
+<!-- Status Indicator -->
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="text-[0.75rem] font-medium uppercase tracking-wider text-outline mb-1">Durasi Parkir</span>
+<span class="text-2xl font-bold tabular-nums text-primary">00:47:12</span>
+</div>
+<div class="bg-secondary-container/10 px-3 py-1 rounded-full flex items-center gap-2">
+<span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+<span class="text-secondary font-semibold text-xs">Aktif</span>
+</div>
+</div>
+<!-- Info Grid -->
+<div class="grid grid-cols-2 gap-6 mb-8">
+<div>
+<span class="text-[0.75rem] font-medium uppercase tracking-wider text-outline block mb-1">Waktu Masuk</span>
+<span class="text-sm font-semibold text-on-surface">08:42 WIB</span>
+</div>
+<div>
+<span class="text-[0.75rem] font-medium uppercase tracking-wider text-outline block mb-1">Lokasi</span>
+<span class="text-sm font-semibold text-on-surface">Gedung Labtek V</span>
+</div>
+</div>
+<!-- QR Section -->
+<div class="flex flex-col items-center justify-center py-4 border-y border-dashed border-outline-variant">
+<div class="qr-gradient-border rounded-xl mb-3">
+<div class="bg-white p-3 rounded-[10px]">
+<img alt="QR Code for Exit" class="w-40 h-40" data-alt="a clean black and white minimalist QR code on a white background, isolated and professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxEUbt1qWu697tEws6lac2YO8q6VbO6m_ccvHQbdfck8JK_ZiYBD8PpZv3ZDNAERSSnH3ZMKpnn33s38R3O8GYZkyr8XrIaV16pyFtb8psw9yZ0Zk6AlFfa8Yalh75EXMjDgVPvPxy3TE34T8S9R2y2qSf4D8YIt1fVhUousaFbcZxxxrxzXG01BCW-PR4sKYCS3a5cPDR2nNqF3OUEg0y-O_ehU_8wGHJ8EG5Y2kaqLlM0fMbZsod9u64PkEcczFGT_B-ULP0EtJN"/>
+</div>
+</div>
+<span class="text-[0.75rem] font-bold text-primary uppercase tracking-[0.1em]">QR Keluar</span>
+</div>
+<!-- Fee Card (The "Lifted" Element) -->
+<div class="mt-6 bg-surface-container-low p-4 rounded-lg flex justify-between items-center">
+<span class="text-sm font-medium text-on-surface-variant">Estimasi Biaya</span>
+<span class="text-lg font-bold text-primary">~Rp 3.000</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-3">
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-xl" data-icon="payments">payments</span>
+                Bayar Sekarang
+            </button>
+<button class="w-full py-4 border-2 border-primary/10 text-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="history_toggle_off">history_toggle_off</span>
+                Perpanjang
+            </button>
+</div>
+<!-- Instructional Microcopy -->
+<p class="mt-6 text-center text-xs text-outline leading-relaxed px-8">
+            Scan QR Code di atas pada gate keluar. Pastikan saldo dompet digital Anda mencukupi untuk pembayaran otomatis.
+        </p>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pt-3 pb-safe bg-white dark:bg-slate-900 rounded-t-3xl shadow-[0_-8px_32px_rgba(0,38,83,0.06)]">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Home</span>
+</a>
+<!-- Parking (Active) -->
+<a class="flex flex-col items-center justify-center text-[#1A3C6E] dark:text-blue-400 font-bold" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="local_parking" style="font-variation-settings: 'FILL' 1;">local_parking</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Parking</span>
+</a>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="history">history</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">History</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Profile</span>
+</a>
+</nav>
+</body></html>

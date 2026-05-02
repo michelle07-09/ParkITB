@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB - System Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#004080",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#d5ecf8",
+                        "tertiary": "#00295d",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-bright": "#f3faff",
+                        "outline": "#737781",
+                        "on-primary-container": "#83aef5",
+                        "on-secondary-container": "#6c5000",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#071e27",
+                        "on-surface-variant": "#424750",
+                        "secondary": "#785900",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c3c6d2",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "surface": "#f3faff",
+                        "surface-container-low": "#e6f6ff",
+                        "inverse-on-surface": "#dff4ff",
+                        "surface-dim": "#c7dde9",
+                        "primary": "#002a58",
+                        "surface-container-highest": "#cfe6f2",
+                        "tertiary-container": "#003e87",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f3faff",
+                        "on-primary-fixed-variant": "#0e4686",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-variant": "#cfe6f2",
+                        "inverse-surface": "#1e333c",
+                        "tertiary-fixed-dim": "#adc7ff",
+                        "secondary-fixed": "#ffdf9e",
+                        "on-secondary-fixed": "#261a00",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "surface-tint": "#305ea0",
+                        "secondary-container": "#fdc003",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "surface-container": "#dbf1fe",
+                        "secondary-fixed-dim": "#fabd00",
+                        "on-background": "#071e27",
+                        "primary-fixed": "#d6e3ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#001a41"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3faff; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cfe6f2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-100 dark:bg-slate-900 border-r border-slate-200/50 dark:border-slate-800/50 flex flex-col p-4 gap-2 z-50">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-bold text-blue-900 dark:text-blue-50 font-headline">Developer Console</h1>
+<p class="text-xs text-on-surface-variant font-medium">System Administrator</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Navigation Items mapped from JSON -->
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">directions_car</span>
+<span>Vehicles</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">receipt_long</span>
+<span>Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">payments</span>
+<span>Revenue</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">group</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">settings_input_component</span>
+<span>System</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200 font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">assessment</span>
+<span>Reports</span>
+</a>
+<!-- Active State for Settings -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-white dark:bg-slate-800 text-blue-900 dark:text-blue-200 rounded-lg shadow-sm font-semibold transition-all duration-200 text-sm" href="#">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 space-y-4">
+<button class="w-full py-2.5 px-4 bg-gradient-to-br from-primary to-primary-container text-white text-xs font-bold rounded-xl shadow-md hover:opacity-90 transition-opacity">
+                Export System Logs
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-primary transition-colors text-xs font-medium" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+<span>Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-error hover:opacity-80 transition-opacity text-xs font-medium" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-8 bg-surface">
+<!-- Header & Breadcrumbs -->
+<header class="mb-10 flex justify-between items-end">
+<div>
+<h2 class="text-4xl font-extrabold font-headline tracking-tight text-primary mb-2">System Settings</h2>
+<nav class="flex gap-4 text-sm font-medium">
+<a class="text-primary-fixed-dim border-b-2 border-secondary px-1 pb-1" href="#">Rates</a>
+<a class="text-on-surface-variant hover:text-primary transition-all px-1" href="#">Gate Config</a>
+<a class="text-on-surface-variant hover:text-primary transition-all px-1" href="#">Rules</a>
+<a class="text-on-surface-variant hover:text-primary transition-all px-1" href="#">Membership</a>
+<a class="text-on-surface-variant hover:text-primary transition-all px-1" href="#">API</a>
+<a class="text-on-surface-variant hover:text-primary transition-all px-1" href="#">Audit</a>
+</nav>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high text-on-primary-fixed-variant font-semibold px-5 py-2.5 rounded-xl text-sm">Discard Changes</button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white font-bold px-6 py-2.5 rounded-xl shadow-lg text-sm">Deploy Config</button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Rates Section: Large Card -->
+<section class="col-span-12 lg:col-span-8 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm transition-all border border-transparent hover:border-outline-variant/10">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-bold font-headline text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">payments</span>
+                            Dynamic Tariffs &amp; Rates
+                        </h3>
+<button class="text-primary-fixed-dim text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-base">add_circle</span>
+                            Add Tier
+                        </button>
+</div>
+<div class="overflow-hidden">
+<table class="w-full text-left">
+<thead>
+<tr class="text-[0.6875rem] uppercase tracking-widest text-on-surface-variant font-bold border-b border-surface-container-low">
+<th class="py-4 px-2">Vehicle Type</th>
+<th class="py-4 px-2">Base (1h)</th>
+<th class="py-4 px-2">Incremental</th>
+<th class="py-4 px-2">Daily Max</th>
+<th class="py-4 px-2">Status</th>
+<th class="py-4 px-2"></th>
+</tr>
+</thead>
+<tbody class="text-sm font-medium">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">directions_car</span>
+                                        Passenger Car
+                                    </td>
+<td class="py-4 px-2"><input class="bg-transparent border-none p-0 focus:ring-0 w-24 text-primary font-bold" type="text" value="IDR 5,000"/></td>
+<td class="py-4 px-2"><input class="bg-transparent border-none p-0 focus:ring-0 w-24" type="text" value="IDR 3,000"/></td>
+<td class="py-4 px-2"><input class="bg-transparent border-none p-0 focus:ring-0 w-24" type="text" value="IDR 45,000"/></td>
+<td class="py-4 px-2"><span class="px-3 py-1 bg-surface-container-high text-on-primary-fixed-variant rounded-full text-xs">Active</span></td>
+<td class="py-4 px-2 text-right"><span class="material-symbols-outlined opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity">edit_square</span></td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">motorcycle</span>
+                                        Motorcycle
+                                    </td>
+<td class="py-4 px-2"><input class="bg-transparent border-none p-0 focus:ring-0 w-24 text-primary font-bold" type="text" value="IDR 2,000"/></td>
+<td class="py-4 px-2"><input class="bg-transparent border-none p-0 focus:ring-0 w-24" type="text" value="IDR 1,000"/></td>
+<td class="py-4 px-2"><input class="bg-transparent border-none p-0 focus:ring-0 w-24" type="text" value="IDR 15,000"/></td>
+<td class="py-4 px-2"><span class="px-3 py-1 bg-surface-container-high text-on-primary-fixed-variant rounded-full text-xs">Active</span></td>
+<td class="py-4 px-2 text-right"><span class="material-symbols-outlined opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity">edit_square</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">local_shipping</span>
+                                        Logistics/Truck
+                                    </td>
+<td class="py-4 px-2"><input class="bg-transparent border-none p-0 focus:ring-0 w-24 text-primary font-bold" type="text" value="IDR 12,000"/></td>
+<td class="py-4 px-2"><input class="bg-transparent border-none p-0 focus:ring-0 w-24" type="text" value="IDR 6,000"/></td>
+<td class="py-4 px-2"><input class="bg-transparent border-none p-0 focus:ring-0 w-24" type="text" value="IDR 120,000"/></td>
+<td class="py-4 px-2"><span class="px-3 py-1 bg-surface-container-high text-on-primary-fixed-variant rounded-full text-xs">Active</span></td>
+<td class="py-4 px-2 text-right"><span class="material-symbols-outlined opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity">edit_square</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Gate Configuration: Detailed Grid -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined text-3xl">gate</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<h4 class="text-lg font-bold font-headline mb-1">Gate North #01</h4>
+<p class="text-xs text-on-surface-variant font-medium mb-6">Main Entrance - Labtek VII</p>
+</div>
+<div class="space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">
+<span>Sensor Sensitivity</span>
+<span>85%</span>
+</div>
+<input class="w-full h-1.5 bg-white rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 text-xs font-bold bg-white text-primary rounded-lg border border-transparent hover:border-primary-fixed transition-all">Self-Test</button>
+<button class="flex-1 py-2 text-xs font-bold bg-white text-primary rounded-lg border border-transparent hover:border-primary-fixed transition-all">Calibrate</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col justify-between opacity-70 grayscale-[0.5]">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-3xl">construction</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<h4 class="text-lg font-bold font-headline mb-1">Gate South #04</h4>
+<p class="text-xs text-on-surface-variant font-medium mb-6">Secondary Exit - GKU East</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-2 text-error font-bold text-xs">
+<span class="material-symbols-outlined text-sm">warning</span>
+                                Maintenance Mode Active
+                            </div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 text-xs font-bold bg-white text-primary rounded-lg">View Logs</button>
+<button class="flex-1 py-2 text-xs font-bold bg-primary text-white rounded-lg">Reactivate</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar Info/Rules Column -->
+<aside class="col-span-12 lg:col-span-4 space-y-6">
+<!-- System Health Card -->
+<div class="bg-primary text-white rounded-xl p-6 shadow-xl relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[8rem]">settings_suggest</span>
+</div>
+<h3 class="text-sm font-bold opacity-80 uppercase tracking-widest mb-4">Core Engine Health</h3>
+<div class="flex items-end gap-2 mb-2">
+<span class="text-4xl font-extrabold font-headline">99.98%</span>
+<span class="text-xs font-bold text-secondary-container mb-1.5 flex items-center">
+<span class="material-symbols-outlined text-sm">trending_up</span> UP
+                        </span>
+</div>
+<p class="text-xs font-medium opacity-70 mb-6">Last sync: 2 mins ago across 14 nodes</p>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-xs">
+<span class="opacity-70">API Latency</span>
+<span class="font-bold">24ms</span>
+</div>
+<div class="w-full h-1.5 bg-white/20 rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-secondary-container rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Validation Rules List -->
+<div class="bg-surface-container-highest rounded-xl p-6">
+<h3 class="text-base font-bold font-headline mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">gavel</span>
+                        Policy Overrides
+                    </h3>
+<div class="space-y-4">
+<div class="p-3 bg-white/50 rounded-lg border border-outline-variant/10">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold">Grace Period</span>
+<span class="text-[10px] bg-primary-fixed text-primary px-2 py-0.5 rounded uppercase">Default</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mb-2">Vehicles leaving within 10 mins are not charged.</p>
+<input class="w-full text-xs font-bold border-none bg-surface p-2 rounded focus:ring-1 ring-primary-container" type="text" value="10 min"/>
+</div>
+<div class="p-3 bg-white/50 rounded-lg border border-outline-variant/10">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold">Lost Ticket Fine</span>
+<span class="text-[10px] bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded uppercase">Warning</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mb-2">Manual entry required for verification.</p>
+<input class="w-full text-xs font-bold border-none bg-surface p-2 rounded focus:ring-1 ring-primary-container" type="text" value="IDR 50,000"/>
+</div>
+<div class="p-3 bg-white/50 rounded-lg border border-outline-variant/10">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold">Overnight Parking</span>
+<span class="text-[10px] bg-error-container text-on-error-container px-2 py-0.5 rounded uppercase">Strict</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mb-2">Automatic security alert after 02:00 AM.</p>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold">BLOCK</span>
+<label class="relative inline-flex items-center cursor-pointer scale-75">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-error"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Visual System Overview -->
+<div class="bg-surface-container-low rounded-xl p-1 overflow-hidden">
+<img class="w-full h-32 object-cover rounded-lg" data-alt="blueprint-style schematic diagram of a campus parking network with connected server nodes and camera icons in deep navy and architectural gold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3IRgkJh-32AIytIn57VjhkGqyp0vfbsr2U4ONGGTN_uOswf0OGvF2yzVxOXEzJUiINvFkrrf2KbYsbj4k-OxKMC5p60srs4OWFxlLNG4PmtRZsC-7kooBGJY-su88dxmSqqHVp2DbX0jHEZ3ZP2gbchrlxDCuzGs0JonP7xgpsVHja5nmxCNTHn8LzYHsoiXRqAjbfRE81I_lOwtfUNGHiHzUWRYcLKV-lJ1RkRf-N5anCPRBL4LdWOwdQwRTRBcafN_ELuvrGxQ"/>
+<div class="p-3">
+<span class="text-[10px] font-bold text-primary-container uppercase tracking-tighter">Cluster Topology: Cluster-Alpha</span>
+</div>
+</div>
+</aside>
+</div>
+<!-- Footer Audit Hint -->
+<footer class="mt-12 flex justify-between items-center text-[11px] text-on-surface-variant/60 font-medium px-2">
+<div class="flex gap-4">
+<span>API Version: 2.4.1-stable</span>
+<span>DB Schema: v122</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 bg-green-500 rounded-full"></span> All systems operational</span>
+</div>
+<p>© 2024 ParkITB Institutional Intelligence Dashboard. Unauthorized access is logged.</p>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2f3131",
+                        "secondary-fixed-dim": "#acabab",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-on-surface": "#f1f1f1",
+                        "tertiary": "#3a3c3c",
+                        "surface-variant": "#e2e2e2",
+                        "on-error-container": "#410002",
+                        "outline": "#777777",
+                        "surface-dim": "#dadada",
+                        "on-tertiary": "#e3e2e2",
+                        "surface": "#f9f9f9",
+                        "tertiary-fixed": "#5d5e5f",
+                        "surface-container-high": "#e8e8e8",
+                        "on-surface-variant": "#474747",
+                        "tertiary-container": "#747575",
+                        "primary-fixed-dim": "#474746",
+                        "on-secondary-container": "#1b1c1c",
+                        "primary-container": "#3c3b3b",
+                        "secondary-container": "#d5d4d4",
+                        "primary": "#000000",
+                        "background": "#f9f9f9",
+                        "surface-tint": "#5f5e5e",
+                        "secondary": "#5e5e5e",
+                        "outline-variant": "#c6c6c6",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eeeeee",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3b3b3c",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#e3e2e2",
+                        "on-primary-fixed-variant": "#e5e2e1",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-surface": "#1a1c1c",
+                        "on-primary-fixed": "#ffffff",
+                        "tertiary-fixed-dim": "#464747",
+                        "on-tertiary-container": "#ffffff",
+                        "secondary-fixed": "#c7c6c6",
+                        "surface-container-highest": "#e2e2e2",
+                        "primary-fixed": "#5f5e5e",
+                        "on-primary-container": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#e5e2e1",
+                        "surface-container-low": "#f3f3f3",
+                        "on-secondary-fixed": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #1a1c1c; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for brutalist feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f3f3f3; }
+        ::-webkit-scrollbar-thumb { background: #000; }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- Sidebar Navigation (Developer Role) -->
+<aside class="bg-black dark:bg-zinc-950 text-white font-['Inter'] text-sm tracking-wide uppercase font-semibold h-screen w-64 fixed left-0 top-0 flex flex-col h-full py-8 px-4 z-50">
+<div class="mb-12 px-2">
+<h1 class="text-2xl font-black text-white italic tracking-tighter">ParkITB</h1>
+<p class="text-[10px] text-zinc-500 mt-1 uppercase tracking-[0.2em]">Developer Portal</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span>Vehicles</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-zinc-800 text-white border-l-4 border-white transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen bg-background">
+<!-- Header / Top Bar -->
+<header class="h-16 flex justify-between items-center px-8 bg-surface-container-low border-b border-outline-variant/10">
+<div>
+<h2 class="text-xl font-bold uppercase tracking-tight font-headline">User Management</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="help_outline">help_outline</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold leading-none">Dev_Admin_01</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">System Administrator</p>
+</div>
+<div class="w-8 h-8 bg-primary text-white flex items-center justify-center font-bold text-xs">DA</div>
+</div>
+</div>
+</header>
+<!-- Content Body -->
+<section class="p-8 space-y-8">
+<!-- Filters and Search Bento-ish Header -->
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-6 flex flex-col justify-between border-b-2 border-primary">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 bg-primary text-white text-[10px] font-bold uppercase tracking-widest">Semua</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface text-[10px] font-bold uppercase tracking-widest hover:bg-surface-container-highest transition-colors">Student</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface text-[10px] font-bold uppercase tracking-widest hover:bg-surface-container-highest transition-colors">Staff</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface text-[10px] font-bold uppercase tracking-widest hover:bg-surface-container-highest transition-colors">Faculty</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface text-[10px] font-bold uppercase tracking-widest hover:bg-surface-container-highest transition-colors">Guest</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface text-[10px] font-bold uppercase tracking-widest hover:bg-surface-container-highest transition-colors">Member</button>
+</div>
+<div class="relative min-w-[280px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-b border-primary focus:border-b-4 focus:ring-0 text-[11px] font-medium transition-all placeholder:text-outline/50 uppercase tracking-wider" placeholder="CARI NAMA / NIM / NIP..." type="text"/>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-primary text-white p-6 flex flex-col justify-center items-center">
+<p class="text-[10px] uppercase tracking-[0.3em] opacity-60 mb-1">Total Users</p>
+<h3 class="text-4xl font-black italic tracking-tighter">1,248</h3>
+<p class="text-[10px] mt-2 bg-white/20 px-2 py-0.5">+12 This Week</p>
+</div>
+</div>
+<!-- Table Section -->
+<div class="bg-surface-container-lowest overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-surface-container-high text-left">
+<th class="p-4 text-[10px] font-black uppercase tracking-widest text-secondary">No</th>
+<th class="p-4 text-[10px] font-black uppercase tracking-widest text-secondary">Nama</th>
+<th class="p-4 text-[10px] font-black uppercase tracking-widest text-secondary">NIM/NIP</th>
+<th class="p-4 text-[10px] font-black uppercase tracking-widest text-secondary">Plate No</th>
+<th class="p-4 text-[10px] font-black uppercase tracking-widest text-secondary">Account Type</th>
+<th class="p-4 text-[10px] font-black uppercase tracking-widest text-secondary">Balance</th>
+<th class="p-4 text-[10px] font-black uppercase tracking-widest text-secondary">Membership</th>
+<th class="p-4 text-[10px] font-black uppercase tracking-widest text-secondary">Last Active</th>
+<th class="p-4 text-[10px] font-black uppercase tracking-widest text-secondary text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10 text-xs">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-4 font-mono text-on-surface-variant">01</td>
+<td class="p-4 font-bold">ADITYA PRATAMA</td>
+<td class="p-4 font-mono">13520001</td>
+<td class="p-4 font-mono">D 1234 ABC</td>
+<td class="p-4">
+<span class="bg-surface-container px-2 py-1 uppercase text-[9px] font-bold">Student</span>
+</td>
+<td class="p-4 font-bold">Rp 150.000</td>
+<td class="p-4">
+<span class="bg-primary text-white px-2 py-1 uppercase text-[9px] font-bold">ACTIVE</span>
+</td>
+<td class="p-4 text-on-surface-variant">2023-11-20 14:20</td>
+<td class="p-4 text-right space-x-2">
+<button class="bg-surface-container-highest px-3 py-1 uppercase text-[9px] font-black hover:bg-primary hover:text-white transition-colors">Detail</button>
+<button class="bg-error/10 text-error px-3 py-1 uppercase text-[9px] font-black hover:bg-error hover:text-white transition-colors">Suspend</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-4 font-mono text-on-surface-variant">02</td>
+<td class="p-4 font-bold">DR. BUDI SANTOSO</td>
+<td class="p-4 font-mono">19850320</td>
+<td class="p-4 font-mono">B 9999 PRO</td>
+<td class="p-4">
+<span class="bg-surface-container px-2 py-1 uppercase text-[9px] font-bold">Faculty</span>
+</td>
+<td class="p-4 font-bold">Rp 2.450.000</td>
+<td class="p-4">
+<span class="bg-primary text-white px-2 py-1 uppercase text-[9px] font-bold">ACTIVE</span>
+</td>
+<td class="p-4 text-on-surface-variant">2023-11-20 12:45</td>
+<td class="p-4 text-right space-x-2">
+<button class="bg-surface-container-highest px-3 py-1 uppercase text-[9px] font-black hover:bg-primary hover:text-white transition-colors">Detail</button>
+<button class="bg-error/10 text-error px-3 py-1 uppercase text-[9px] font-black hover:bg-error hover:text-white transition-colors">Suspend</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-4 font-mono text-on-surface-variant">03</td>
+<td class="p-4 font-bold">SITI NURHALIZA</td>
+<td class="p-4 font-mono">G-98721</td>
+<td class="p-4 font-mono">Z 4455 MK</td>
+<td class="p-4">
+<span class="bg-surface-container px-2 py-1 uppercase text-[9px] font-bold">Guest</span>
+</td>
+<td class="p-4 font-bold">Rp 12.500</td>
+<td class="p-4">
+<span class="bg-secondary text-white px-2 py-1 uppercase text-[9px] font-bold">EXPIRED</span>
+</td>
+<td class="p-4 text-on-surface-variant">2023-10-15 09:12</td>
+<td class="p-4 text-right space-x-2">
+<button class="bg-surface-container-highest px-3 py-1 uppercase text-[9px] font-black hover:bg-primary hover:text-white transition-colors">Detail</button>
+<button class="bg-error/10 text-error px-3 py-1 uppercase text-[9px] font-black hover:bg-error hover:text-white transition-colors">Suspend</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-4 font-mono text-on-surface-variant">04</td>
+<td class="p-4 font-bold">RIZKY DARMAWAN</td>
+<td class="p-4 font-mono">13221045</td>
+<td class="p-4 font-mono">D 8080 JET</td>
+<td class="p-4">
+<span class="bg-surface-container px-2 py-1 uppercase text-[9px] font-bold">Student</span>
+</td>
+<td class="p-4 font-bold">Rp 0</td>
+<td class="p-4">
+<span class="bg-primary text-white px-2 py-1 uppercase text-[9px] font-bold">ACTIVE</span>
+</td>
+<td class="p-4 text-on-surface-variant">2023-11-19 23:55</td>
+<td class="p-4 text-right space-x-2">
+<button class="bg-surface-container-highest px-3 py-1 uppercase text-[9px] font-black hover:bg-primary hover:text-white transition-colors">Detail</button>
+<button class="bg-error/10 text-error px-3 py-1 uppercase text-[9px] font-black hover:bg-error hover:text-white transition-colors">Suspend</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="bg-error/5 hover:bg-error/10 transition-colors group">
+<td class="p-4 font-mono text-error">05</td>
+<td class="p-4 font-bold text-error">UNKNOWN USER</td>
+<td class="p-4 font-mono text-error">M-00921</td>
+<td class="p-4 font-mono text-error">B 6666 BAD</td>
+<td class="p-4">
+<span class="bg-error text-white px-2 py-1 uppercase text-[9px] font-bold">SUSPENDED</span>
+</td>
+<td class="p-4 font-bold text-error">Rp -45.000</td>
+<td class="p-4">
+<span class="bg-primary text-white px-2 py-1 uppercase text-[9px] font-bold">LOCKED</span>
+</td>
+<td class="p-4 text-on-surface-variant">2023-11-01 10:00</td>
+<td class="p-4 text-right space-x-2">
+<button class="bg-surface-container-highest px-3 py-1 uppercase text-[9px] font-black hover:bg-primary hover:text-white transition-colors">Detail</button>
+<button class="bg-primary text-white px-3 py-1 uppercase text-[9px] font-black hover:bg-secondary transition-colors">Unsuspend</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 bg-surface-container-low flex justify-between items-center border-t border-outline-variant/20">
+<p class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Showing 1-10 of 1,248 Users</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-white text-[10px] font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container hover:bg-primary hover:text-white transition-colors text-[10px] font-bold">2</button>
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container hover:bg-primary hover:text-white transition-colors text-[10px] font-bold">3</button>
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Detail Modal Placeholder (Overlayed) -->
+<div class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-6 hidden">
+<!-- Modal Container (To show/hide manually, just toggle 'hidden' class) -->
+<div class="bg-surface-container-lowest w-full max-w-4xl max-h-[921px] overflow-hidden flex flex-col relative border-t-8 border-primary shadow-2xl">
+<button class="absolute top-4 right-4 text-primary hover:scale-125 transition-transform">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="grid grid-cols-12 h-full">
+<!-- Left: Profile Info -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-low p-8 flex flex-col items-center text-center">
+<div class="w-32 h-32 bg-primary-container relative mb-6">
+<img alt="Profile Image" class="w-full h-full object-cover grayscale brightness-90" data-alt="sharp headshot of a student in academic setting, minimalist photography, high contrast grayscale lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV4vcWE04wv2dLwZjYG5GsswPADXeFWTItn2piBImFKCPVsUJqly_xCKAS1ZHyxu4X0y9vpqwZGcWux7PuYup3V-atkqWCrPGhe1V_qNp270qQGTYCTK4KcQLtOCf1oPA87Ti_wDUEDRlQbc6-RI8Yqc91zyH36oBmfSmLgYwS0PQbkN1Y_sbZUlNOefxowDQHd0joKd56fIRD8ak_t_LLmRV7XB700pMe_JWsTJRAK6b-1qzPnTdgW_nuC2vxcZxJ5EvoSJCz12VB"/>
+<div class="absolute inset-0 border-2 border-primary/20 pointer-events-none"></div>
+</div>
+<h4 class="text-xl font-black italic tracking-tighter uppercase">Aditya Pratama</h4>
+<p class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mt-1">Student / Informatics</p>
+<div class="mt-10 w-full space-y-4 text-left">
+<div>
+<p class="text-[9px] uppercase font-black text-secondary tracking-widest">Phone Number</p>
+<p class="text-xs font-mono font-bold">+62 812-3456-7890</p>
+</div>
+<div>
+<p class="text-[9px] uppercase font-black text-secondary tracking-widest">Email Address</p>
+<p class="text-xs font-mono font-bold">aditya.p@itb.ac.id</p>
+</div>
+<div>
+<p class="text-[9px] uppercase font-black text-secondary tracking-widest">Join Date</p>
+<p class="text-xs font-mono font-bold">August 12, 2021</p>
+</div>
+</div>
+</div>
+<!-- Right: Registration & Vehicle Info -->
+<div class="col-span-12 md:col-span-8 p-8 overflow-y-auto">
+<h5 class="text-[11px] font-black uppercase tracking-[0.4em] mb-6 border-b-2 border-primary inline-block pb-1">Registration Details</h5>
+<div class="grid grid-cols-2 gap-8 mb-10">
+<div>
+<p class="text-[9px] uppercase font-black text-secondary tracking-widest mb-1">Account ID</p>
+<p class="text-lg font-black font-mono">ACC-2021-9981</p>
+</div>
+<div>
+<p class="text-[9px] uppercase font-black text-secondary tracking-widest mb-1">RFID Serial</p>
+<p class="text-lg font-black font-mono">88:A1:C2:55</p>
+</div>
+<div>
+<p class="text-[9px] uppercase font-black text-secondary tracking-widest mb-1">Status</p>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-primary"></div>
+<p class="text-xs font-bold uppercase tracking-widest">Verified User</p>
+</div>
+</div>
+<div>
+<p class="text-[9px] uppercase font-black text-secondary tracking-widest mb-1">Tier</p>
+<p class="text-xs font-bold uppercase tracking-widest">Platinum Member</p>
+</div>
+</div>
+<h5 class="text-[11px] font-black uppercase tracking-[0.4em] mb-6 border-b-2 border-primary inline-block pb-1">Registered Vehicles</h5>
+<div class="space-y-4">
+<div class="bg-surface-container-low p-4 flex justify-between items-center border-l-4 border-primary">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl" data-icon="directions_car">directions_car</span>
+<div>
+<p class="text-lg font-black font-mono">D 1234 ABC</p>
+<p class="text-[9px] uppercase font-bold text-secondary">Honda Civic Type R - White</p>
+</div>
+</div>
+<span class="text-[9px] font-black uppercase bg-primary text-white px-2 py-1">Primary</span>
+</div>
+<div class="bg-surface-container p-4 flex justify-between items-center opacity-60">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl" data-icon="motorcycle">motorcycle</span>
+<div>
+<p class="text-lg font-black font-mono">B 5678 XYZ</p>
+<p class="text-[9px] uppercase font-bold text-secondary">Vespa Primavera - Grey</p>
+</div>
+</div>
+<span class="text-[9px] font-black uppercase bg-secondary text-white px-2 py-1">Secondary</span>
+</div>
+</div>
+<div class="mt-12 flex gap-4">
+<button class="flex-1 py-4 bg-primary text-white font-black uppercase tracking-[0.2em] text-xs hover:bg-primary-container transition-colors">Edit Profile</button>
+<button class="flex-1 py-4 border-2 border-primary text-primary font-black uppercase tracking-[0.2em] text-xs hover:bg-primary hover:text-white transition-colors">Export Logs</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for Action (Contextual: User Creation) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-black text-white flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shadow-2xl z-40 group">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="absolute right-full mr-4 bg-black text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Add New User</span>
+</button>
+</body></html>

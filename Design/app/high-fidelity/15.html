@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bantuan - Digital Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed-variant": "#004884",
+                        "on-surface-variant": "#43474f",
+                        "surface": "#f8f9fb",
+                        "primary-fixed-dim": "#abc7ff",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#405e92",
+                        "tertiary": "#392200",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-container": "#563600",
+                        "outline": "#747780",
+                        "secondary-fixed": "#d4e3ff",
+                        "inverse-primary": "#abc7ff",
+                        "error-container": "#ffdad6",
+                        "primary": "#002653",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-container": "#003a6d",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed": "#d7e3ff",
+                        "on-tertiary-container": "#e4980e",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#5fa6fd",
+                        "outline-variant": "#c4c6d0",
+                        "surface-dim": "#d9dadc",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "background": "#f8f9fb",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-container": "#1a3c6e",
+                        "on-secondary-fixed": "#001c39",
+                        "secondary": "#005fac",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#264679",
+                        "surface-container-highest": "#e1e2e4",
+                        "tertiary-fixed": "#ffddb4",
+                        "on-primary-fixed": "#001b3f",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#291800",
+                        "on-surface": "#191c1e",
+                        "surface-container": "#edeef0",
+                        "surface-variant": "#e1e2e4",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#8aa8e0",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "secondary-fixed-dim": "#a4c9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-background min-h-screen pb-24">
+<!-- TopAppBar from JSON Logic -->
+<header class="flex items-center justify-between px-6 h-16 w-full fixed top-0 z-50 bg-[#f8f9fb] dark:bg-slate-950">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1A3C6E] dark:text-blue-400 cursor-pointer p-2 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors rounded-full">arrow_back</span>
+<h1 class="font-['Inter'] font-bold text-2xl tracking-tight text-[#1A3C6E] dark:text-blue-400">Settings</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#1A3C6E] dark:text-blue-400 p-2">help_outline</span>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Hero Section & Search -->
+<section class="mb-10">
+<div class="mb-6">
+<h2 class="text-primary text-[2.25rem] font-bold leading-[110%] tracking-tight mb-2">Ada yang bisa kami bantu?</h2>
+<p class="text-on-surface-variant body-md max-w-xs">Cari jawaban instan untuk kendala parkir dan akun Anda.</p>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-low border-none rounded-xl text-on-surface focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" placeholder="Cari masalah (misal: Lupa Password)" type="text"/>
+</div>
+</section>
+<!-- Category Bento Grid -->
+<section class="mb-10">
+<h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+<span class="w-1 h-6 bg-secondary rounded-full"></span>
+                Kategori Populer
+            </h3>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<!-- Card 1: Akun -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-[0_8px_32px_rgba(0,38,83,0.04)] border border-outline-variant/10 hover:bg-surface transition-colors cursor-pointer group">
+<div class="w-10 h-10 bg-primary-fixed rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">manage_accounts</span>
+</div>
+<span class="font-semibold title-sm block leading-tight">Akun &amp; Keamanan</span>
+</div>
+<!-- Card 2: Pembayaran -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-[0_8px_32px_rgba(0,38,83,0.04)] border border-outline-variant/10 hover:bg-surface transition-colors cursor-pointer group">
+<div class="w-10 h-10 bg-secondary-fixed rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary">payments</span>
+</div>
+<span class="font-semibold title-sm block leading-tight">Pembayaran</span>
+</div>
+<!-- Card 3: Parkir -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-[0_8px_32px_rgba(0,38,83,0.04)] border border-outline-variant/10 hover:bg-surface transition-colors cursor-pointer group">
+<div class="w-10 h-10 bg-tertiary-fixed rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-tertiary-fixed">local_parking</span>
+</div>
+<span class="font-semibold title-sm block leading-tight">Layanan Parkir</span>
+</div>
+<!-- Card 4: Membership -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-[0_8px_32px_rgba(0,38,83,0.04)] border border-outline-variant/10 hover:bg-surface transition-colors cursor-pointer group">
+<div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary-container">card_membership</span>
+</div>
+<span class="font-semibold title-sm block leading-tight">Langganan</span>
+</div>
+<!-- Card 5: Promosi -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-[0_8px_32px_rgba(0,38,83,0.04)] border border-outline-variant/10 hover:bg-surface transition-colors cursor-pointer group col-span-1">
+<div class="w-10 h-10 bg-error-container rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-error">sell</span>
+</div>
+<span class="font-semibold title-sm block leading-tight">Promo &amp; Voucher</span>
+</div>
+</div>
+</section>
+<!-- FAQ List -->
+<section class="mb-12">
+<div class="flex justify-between items-end mb-4">
+<h3 class="font-semibold text-lg">Pertanyaan Sering Diajukan</h3>
+<span class="text-secondary text-sm font-medium cursor-pointer">Lihat Semua</span>
+</div>
+<div class="space-y-3">
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-on-surface font-medium body-md">Bagaimana cara top-up saldo wallet?</span>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-on-surface font-medium body-md">Lupa scan keluar, apa yang harus dilakukan?</span>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-on-surface font-medium body-md">Cara mengganti nomor telepon akun?</span>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Contact Support CTA -->
+<section class="relative overflow-hidden bg-primary p-8 rounded-[2rem] text-white">
+<!-- Decorative Grain/Pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDVjXAnaX-qHwQw6h9BKOWQ96X8UVkxRc5M9ICj8pC9XoYLi0siXvnMiyT0J9Ad0zUHf058jN38YJhCPBOvItwu2rO-xaLAApjsWpCYJY1dUkr7Z9WvnrQ7EAof3mVYoLKATUk6os2sLBrkxuPK4cSRqxwaDLok96cjcGw8YqQefL4hvCrDftzLtMBj8lotUmujOYxVftCgiwSydOkvAK5q_jb2iF1NDb3xZ4yU33TA32tomA8HUUwchmH92viRR-FMmvy2jdh2cbLK');"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-4">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-primary" data-alt="portrait of a smiling female customer support specialist in professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAOYiX2FuhB_vT41TdeyYNWf2qLQ7dvcjRIGpKv4T6ncSIBvtXM0DNE4wINU_RqSiGy-mCcUnFxuf-7XL0pKHLNcbP-UaDnAzAF-yO8HfrjwVLajaz2hpQ6YGnjWv8zG02PKAwIPyodG8N4LQBQ_lx-3IbVByUdeNDnOgdf58EYcMcNiSoP_hfi75RieKenTIx9Hh_hIDzAejnPG7N7Yd45MzQdbbdZfgaXg1If86CPR4X1f-n1eIcr3Xz_AeiWUPUPXpn0Cz83MEP"/>
+<img class="w-8 h-8 rounded-full border-2 border-primary" data-alt="professional male support representative with friendly expression in office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJQEYAKCSFtloBp8heDemBLXepeiOqhNtUK2HKXGrjgEbGNCVeyk9XXpzrSm9_3CF8Luv9LyUoqwRaVTICy4XC9pAnl5j0P5EF5R0_WOmm2Ks9XOyOH_tuASVeRcFaNuy6qQRxx983JAtKdC5GhmRNJ4q4YiFQI9Ynm_yUs0_Zy_lX9byQjS3_Cwl9bhbi_IMGYw_PJaqH1ExhH4CzRKOkVax4WzTEZFBLgyzEW_DpOvJMQ1H9bqm1CgJPmOUE5qUtgckWxRkNvD-u"/>
+</div>
+<span class="text-sm font-medium opacity-90">Tim kami siap membantu 24/7</span>
+</div>
+<h4 class="text-2xl font-bold mb-2">Masalah belum selesai?</h4>
+<p class="text-blue-100/70 text-sm mb-6 leading-relaxed">Hubungi layanan pelanggan kami melalui saluran resmi di bawah ini.</p>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-[#25D366] hover:brightness-110 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                        WhatsApp Kami
+                    </button>
+<button class="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all active:scale-95 border border-white/10">
+<span class="material-symbols-outlined">mail</span>
+                        Kirim Email
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar from JSON Logic -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-t border-[#c4c6d0]/15 shadow-[0_-8px_32px_rgba(0,38,83,0.06)] rounded-t-3xl">
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Parking</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1e] dark:text-slate-400 p-2 hover:text-[#F5A623] transition-colors" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1A3C6E] text-white rounded-2xl p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

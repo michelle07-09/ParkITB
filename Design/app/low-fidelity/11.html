@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB Notifications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;700;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#5f5e5e",
+                        "on-primary-container": "#ffffff",
+                        "secondary-fixed": "#c6c6c6",
+                        "inverse-on-surface": "#f1f1f1",
+                        "tertiary-fixed": "#5d5f5f",
+                        "on-surface-variant": "#474747",
+                        "surface-container": "#eeeeee",
+                        "secondary": "#5d5e5f",
+                        "surface-dim": "#dadada",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#3a3c3c",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-primary": "#c8c6c6",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-primary": "#e4e2e1",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-low": "#f3f3f3",
+                        "on-primary-fixed-variant": "#e4e2e1",
+                        "outline-variant": "#c6c6c6",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-tint": "#5f5e5e",
+                        "primary-container": "#3b3b3b",
+                        "on-secondary-fixed-variant": "#3a3c3c",
+                        "on-error-container": "#410002",
+                        "on-secondary-container": "#1a1c1c",
+                        "tertiary-container": "#737575",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-fixed": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#e2e2e2",
+                        "surface": "#f9f9f9",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#d4d4d4",
+                        "outline": "#777777",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#474747",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2f3131",
+                        "background": "#f9f9f9",
+                        "on-tertiary": "#e2e2e2",
+                        "tertiary-fixed-dim": "#454747",
+                        "secondary-fixed-dim": "#ababab",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-container-highest": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+            font-family: 'Inter', sans-serif;
+        }
+        .canvas {
+            width: 390px;
+            height: 844px;
+            margin: 0 auto;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: #f9f9f9;
+        }
+        /* Custom scrollbar for clean look */
+        .canvas::-webkit-scrollbar {
+            width: 4px;
+        }
+        .canvas::-webkit-scrollbar-thumb {
+            background: #e2e2e2;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface">
+<div class="canvas shadow-2xl">
+<!-- TopAppBar (JSON Mapping) -->
+<header class="bg-[#F9F9F9] dark:bg-[#1A1C1C] text-[#000000] dark:text-[#FFFFFF] rounded-none w-full sticky top-0 z-50 flex justify-between items-center w-full px-4 h-16">
+<div class="flex items-center gap-2 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-2xl" data-icon="local_parking">local_parking</span>
+<h1 class="font-['Inter'] font-bold text-xl uppercase tracking-tighter">ParkITB</h1>
+</div>
+<button class="active:opacity-80 transition-opacity p-2 hover:bg-[#EEEEEE] dark:hover:bg-[#2A2A2A] transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<div class="bg-[#EEEEEE] dark:bg-[#2A2A2A] h-[1px] w-full"></div>
+<!-- Notification Content Area -->
+<main class="flex-1 px-4 py-6 flex flex-col gap-8">
+<!-- Hero Heading Section -->
+<div class="flex flex-col gap-1">
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest text-outline">Recent Activity</span>
+<h2 class="text-3xl font-black uppercase tracking-tighter leading-none">Notifications</h2>
+</div>
+<!-- Bento/Grid Layout for Notifications -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Notification Item: Entry Confirmed -->
+<div class="bg-surface-container-lowest p-6 flex flex-col gap-4 relative overflow-hidden group hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-primary text-on-primary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-outline">10:42 AM</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-lg font-bold uppercase leading-tight">Entry Confirmed</h3>
+<p class="text-sm text-on-surface-variant leading-snug">Your vehicle B-1234-ITB has successfully entered Zone A. Your clock is now running.</p>
+</div>
+<!-- Diagonal Wireframe Design Detail -->
+<div class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-8xl" data-icon="sensor_door">sensor_door</span>
+</div>
+</div>
+<!-- Notification Item: Exit Confirmed -->
+<div class="bg-surface-container p-6 flex flex-col gap-4 relative overflow-hidden hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-secondary text-on-secondary">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-outline">08:15 AM</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-lg font-bold uppercase leading-tight">Exit Confirmed</h3>
+<p class="text-sm text-on-surface-variant leading-snug">Session ended at Parking Lot 4. Total duration: 2h 15m. Payment processed.</p>
+</div>
+</div>
+<!-- Notification Item: Low Balance (Urgent/Asymmetric) -->
+<div class="bg-surface-container-highest p-6 flex flex-col gap-4 border-l-4 border-primary">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h3 class="text-lg font-black uppercase tracking-tighter">Low Balance</h3>
+</div>
+<p class="text-sm font-medium">Your current balance is IDR 5.000. Top up now to avoid session interruptions during your next visit.</p>
+<button class="bg-primary text-on-primary py-3 text-xs font-bold uppercase tracking-widest w-full mt-2">
+                        [Top Up Now]
+                    </button>
+</div>
+<!-- Notification Item: Expiry -->
+<div class="bg-surface-container-lowest p-6 flex items-start gap-4">
+<div class="shrink-0 pt-1">
+<span class="material-symbols-outlined text-outline" data-icon="timer">timer</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center w-full">
+<h3 class="text-sm font-bold uppercase tracking-wide">Expiry</h3>
+<span class="text-[9px] font-medium uppercase text-outline">Yesterday</span>
+</div>
+<p class="text-xs text-on-surface-variant italic">Your monthly permit for Zone B expired 24 hours ago. Renewals available in settings.</p>
+</div>
+</div>
+</div>
+<!-- Decorative Architectural Image Placeholder -->
+<div class="w-full h-40 bg-surface-container-highest flex items-center justify-center relative border border-[#BDBDBD]/20">
+<img alt="Minimalist architectural photograph of a brutalist concrete parking structure with dramatic shadows" class="w-full h-full object-cover grayscale opacity-20" data-alt="Minimalist architectural photograph of a brutalist concrete parking structure with sharp dramatic shadows and clean geometric lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Hoi_yGKKQFas59Di37nrlmF4BZ05G8BUwdCnJ2RMEUZYqUgUqiyxobD0l01h3SJxTGJ7EiWjp9edgq6h4FVJyW_6mF2HDu532uBRvpjUZ_HU78AULH9M5yFjRSnk8vR6jwxZvO5Lgk1RGHkd5rIqOLJVEJw6M2N3NG-8ZgENEXu-dNwQirvwUlUFbL00Ido4jj8H1zZ2_sw91TarfDDgA1oqvC0mtJ03S9QDqC5Z2dFSxNLtGEFnO2Sj8O_dO1rRpFWM0oyzDxWk"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-full h-full relative">
+<div class="absolute top-0 left-0 w-full h-full border-[0.5px] border-outline/30"></div>
+<div class="absolute top-1/2 left-0 w-full h-[0.5px] bg-outline/20"></div>
+<div class="absolute top-0 left-1/2 h-full w-[0.5px] bg-outline/20"></div>
+</div>
+</div>
+<span class="absolute text-[10px] uppercase font-bold tracking-[0.2em] bg-surface-container-lowest px-2 py-1">[Data Visualization Archive]</span>
+</div>
+<!-- Spacing for bottom nav -->
+<div class="h-24"></div>
+</main>
+<!-- BottomNavBar (JSON Mapping) -->
+<nav class="fixed bottom-0 w-full z-50 border-t-0 bg-[#FFFFFF] dark:bg-[#121212] shadow-[0_-4px_24px_rgba(26,28,28,0.04)] flex justify-around items-center px-4 py-3 pb-safe">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] transition-colors duration-100 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest mt-1">Home</span>
+</a>
+<!-- Parking -->
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] transition-colors duration-100 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest mt-1">Parking</span>
+</a>
+<!-- History (Inactive for this view, but could be related) -->
+<a class="flex flex-col items-center justify-center text-[#BDBDBD] dark:text-[#8E8E8E] hover:bg-[#F3F3F3] dark:hover:bg-[#1E1E1E] transition-colors duration-100 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest mt-1">History</span>
+</a>
+<!-- Profile (Mapping Notifications to Profile/User context) -->
+<a class="flex flex-col items-center justify-center text-[#000000] dark:text-[#FFFFFF] font-bold scale-95 duration-100 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Inter'] text-[11px] font-medium uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+<!-- Separation Logic Line (Bottom) -->
+<div class="fixed bottom-[72px] left-0 w-full border-t border-[#EEEEEE] dark:border-[#2A2A2A] z-40"></div>
+</div>
+</body></html>

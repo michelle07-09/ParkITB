@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#acabab",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary": "#3a3c3c",
+                    "surface-variant": "#e2e2e2",
+                    "on-error-container": "#410002",
+                    "outline": "#777777",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#e3e2e2",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed": "#5d5e5f",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#474747",
+                    "tertiary-container": "#747575",
+                    "primary-fixed-dim": "#474746",
+                    "on-secondary-container": "#1b1c1c",
+                    "primary-container": "#3c3b3b",
+                    "secondary-container": "#d5d4d4",
+                    "primary": "#000000",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5f5e5e",
+                    "secondary": "#5e5e5e",
+                    "outline-variant": "#c6c6c6",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eeeeee",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3b3b3c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e3e2e2",
+                    "on-primary-fixed-variant": "#e5e2e1",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-surface": "#1a1c1c",
+                    "on-primary-fixed": "#ffffff",
+                    "tertiary-fixed-dim": "#464747",
+                    "on-tertiary-container": "#ffffff",
+                    "secondary-fixed": "#c7c6c6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#e5e2e1",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c6c6c6; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex overflow-hidden">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="bg-black dark:bg-zinc-950 text-white font-['Inter'] text-sm tracking-wide uppercase font-semibold h-screen w-64 fixed left-0 top-0 flex flex-col h-full py-8 px-4 z-50">
+<div class="mb-12 px-2">
+<div class="text-2xl font-black text-white italic tracking-tighter">ParkITB</div>
+<div class="text-[10px] text-zinc-500 mt-1">Developer Portal</div>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Analytics maps to Revenue Dashboard Intent -->
+<a class="flex items-center gap-3 px-4 py-3 bg-zinc-800 text-white border-l-4 border-white transition-transform scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span>Vehicles</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-zinc-800">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 flex-1 h-screen overflow-y-auto custom-scrollbar bg-background">
+<!-- Header / Date Selector Area -->
+<header class="sticky top-0 z-40 bg-background/80 backdrop-blur-md flex justify-between items-end px-12 py-8">
+<div>
+<h1 class="text-4xl font-black tracking-tighter uppercase">Revenue Dashboard</h1>
+<p class="text-on-surface-variant text-sm mt-1 uppercase tracking-widest font-medium">Financial performance &amp; flow analytics</p>
+</div>
+<div class="flex gap-1 bg-surface-container p-1">
+<button class="px-4 py-2 text-xs font-bold uppercase bg-primary text-white">Hari Ini</button>
+<button class="px-4 py-2 text-xs font-bold uppercase hover:bg-surface-variant transition-colors">Minggu Ini</button>
+<button class="px-4 py-2 text-xs font-bold uppercase hover:bg-surface-variant transition-colors">Bulan Ini</button>
+<button class="px-4 py-2 text-xs font-bold uppercase hover:bg-surface-variant transition-colors">Kustom</button>
+</div>
+</header>
+<div class="px-12 pb-20 space-y-8">
+<!-- KPI Row -->
+<section class="grid grid-cols-5 gap-0 border-y border-outline-variant/20">
+<div class="py-8 pr-8 border-r border-outline-variant/20">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-2">Total Revenue</span>
+<div class="text-3xl font-black tabular-nums">Rp 42.8M</div>
+<div class="text-[10px] font-bold text-primary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'wght' 700;">trending_up</span>
+                        +12.4% vs L.P.
+                    </div>
+</div>
+<div class="py-8 px-8 border-r border-outline-variant/20">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-2">Avg/Day</span>
+<div class="text-3xl font-black tabular-nums">Rp 1.4M</div>
+<div class="text-[10px] font-bold text-on-surface-variant mt-1">Based on 30 days</div>
+</div>
+<div class="py-8 px-8 border-r border-outline-variant/20">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-2">Peak Hour</span>
+<div class="text-3xl font-black uppercase">17:00</div>
+<div class="text-[10px] font-bold text-on-surface-variant mt-1">Afternoon Rush</div>
+</div>
+<div class="py-8 px-8 border-r border-outline-variant/20">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-2">Popular Method</span>
+<div class="text-3xl font-black uppercase">QRIS</div>
+<div class="text-[10px] font-bold text-on-surface-variant mt-1">64% of total volume</div>
+</div>
+<div class="py-8 pl-8">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-2">Active Members</span>
+<div class="text-3xl font-black tabular-nums">1,204</div>
+<div class="text-[10px] font-bold text-primary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'wght' 700;">add</span>
+                        42 this week
+                    </div>
+</div>
+</section>
+<!-- Revenue Trend & Breakdown -->
+<section class="flex gap-8 h-[450px]">
+<!-- Trend Chart -->
+<div class="w-[70%] bg-surface-container-lowest p-8 flex flex-col">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="text-lg font-black uppercase tracking-tight">Revenue Trend</h3>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Gross earnings over time</p>
+</div>
+<div class="flex gap-4 border-b-2 border-surface-container-highest">
+<button class="pb-2 px-2 text-[10px] font-black uppercase border-b-2 border-primary -mb-[2px]">Daily</button>
+<button class="pb-2 px-2 text-[10px] font-black uppercase text-on-surface-variant -mb-[2px]">Weekly</button>
+</div>
+</div>
+<div class="flex-1 flex items-end gap-1 relative">
+<!-- Horizontal Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="border-t border-outline-variant/10 w-full"></div>
+<div class="border-t border-outline-variant/10 w-full"></div>
+<div class="border-t border-outline-variant/10 w-full"></div>
+<div class="border-t border-outline-variant/10 w-full"></div>
+<div class="border-t border-outline-variant/10 w-full"></div>
+</div>
+<!-- Mock Area/Line Chart using CSS Grayscale blocks -->
+<div class="flex-1 bg-primary h-[30%]" title="Mon"></div>
+<div class="flex-1 bg-primary-container h-[45%]" title="Tue"></div>
+<div class="flex-1 bg-primary h-[60%]" title="Wed"></div>
+<div class="flex-1 bg-primary-container h-[55%]" title="Thu"></div>
+<div class="flex-1 bg-primary h-[85%]" title="Fri"></div>
+<div class="flex-1 bg-secondary h-[70%]" title="Sat"></div>
+<div class="flex-1 bg-outline-variant h-[40%]" title="Sun"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold uppercase text-on-surface-variant">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<!-- Breakdown Donut -->
+<div class="w-[30%] bg-surface-container-lowest p-8 flex flex-col">
+<h3 class="text-lg font-black uppercase tracking-tight mb-8">Method Split</h3>
+<div class="flex-1 flex items-center justify-center relative">
+<!-- Simulated Donut Chart using concentric circles and strokes -->
+<div class="w-48 h-48 rounded-full border-[24px] border-primary flex items-center justify-center">
+<div class="w-full h-full rounded-full border-[24px] border-secondary absolute rotate-45 border-t-transparent border-l-transparent"></div>
+<div class="text-center">
+<span class="text-2xl font-black">64%</span>
+<span class="block text-[8px] font-bold uppercase text-on-surface-variant">QRIS Lead</span>
+</div>
+</div>
+</div>
+<div class="mt-8 space-y-2">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-primary"></div>
+<span class="text-[10px] font-bold uppercase">QRIS</span>
+</div>
+<span class="text-[10px] font-black">Rp 27.4M</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-secondary"></div>
+<span class="text-[10px] font-bold uppercase">E-Wallet</span>
+</div>
+<span class="text-[10px] font-black">Rp 9.2M</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-outline-variant"></div>
+<span class="text-[10px] font-bold uppercase">Manual/Cash</span>
+</div>
+<span class="text-[10px] font-black">Rp 6.2M</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Revenue by Gate (Bar Chart Full Width) -->
+<section class="bg-surface-container-lowest p-8">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="text-lg font-black uppercase tracking-tight">Revenue by Gate</h3>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Efficiency performance per terminal</p>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer" data-icon="more_vert">more_vert</span>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-black uppercase">
+<span>Main Entrance A (Fast Track)</span>
+<span>Rp 12.4M</span>
+</div>
+<div class="w-full h-8 bg-surface-container">
+<div class="h-full bg-primary" style="width: 85%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-black uppercase">
+<span>South Exit (Secondary)</span>
+<span>Rp 8.1M</span>
+</div>
+<div class="w-full h-8 bg-surface-container">
+<div class="h-full bg-secondary" style="width: 55%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-black uppercase">
+<span>West Loading Dock</span>
+<span>Rp 3.2M</span>
+</div>
+<div class="w-full h-8 bg-surface-container">
+<div class="h-full bg-outline-variant" style="width: 22%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Heatmap Placeholder -->
+<section class="bg-surface-container-lowest p-8">
+<h3 class="text-lg font-black uppercase tracking-tight mb-8">Revenue Density Heatmap (7x24)</h3>
+<div class="grid grid-cols-[auto_1fr] gap-4">
+<div class="flex flex-col justify-between text-[10px] font-bold text-on-surface-variant uppercase py-1">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+<div class="space-y-1">
+<!-- Heatmap Rows -->
+<div class="grid grid-cols-24 gap-1 h-6">
+<div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div>
+</div>
+<!-- Repeat Rows for each day -->
+<div class="grid grid-cols-24 gap-1 h-6">
+<div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div>
+</div>
+<div class="grid grid-cols-24 gap-1 h-6">
+<div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div>
+</div>
+<div class="grid grid-cols-24 gap-1 h-6">
+<div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div>
+</div>
+<div class="grid grid-cols-24 gap-1 h-6">
+<div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary-container"></div><div class="bg-primary-container"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div>
+</div>
+<div class="grid grid-cols-24 gap-1 h-6">
+<div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div>
+</div>
+<div class="grid grid-cols-24 gap-1 h-6">
+<div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-outline-variant"></div><div class="bg-secondary"></div><div class="bg-primary"></div><div class="bg-secondary"></div><div class="bg-outline-variant"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div><div class="bg-surface-container"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 ml-12 text-[8px] font-bold uppercase text-on-surface-variant">
+<span>00:00</span><span>04:00</span><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span><span>23:59</span>
+</div>
+</section>
+<!-- Summary Table -->
+<section class="bg-surface-container-lowest p-0">
+<div class="p-8 border-b border-outline-variant/20">
+<h3 class="text-lg font-black uppercase tracking-tight">Performance Summary</h3>
+</div>
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant/40">
+<tr>
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest">Gate/Terminal</th>
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-right">Total Vehicles</th>
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-right">Revenue</th>
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-right">Avg Duration</th>
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-center">Failed Trans.</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-8 py-6 font-bold uppercase text-sm">North Entrance A</td>
+<td class="px-8 py-6 text-right tabular-nums">4,201</td>
+<td class="px-8 py-6 text-right tabular-nums font-bold">Rp 12,402,000</td>
+<td class="px-8 py-6 text-right text-on-surface-variant">142 Min</td>
+<td class="px-8 py-6 text-center">
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold">0.2%</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-8 py-6 font-bold uppercase text-sm">North Entrance B</td>
+<td class="px-8 py-6 text-right tabular-nums">3,850</td>
+<td class="px-8 py-6 text-right tabular-nums font-bold">Rp 10,210,000</td>
+<td class="px-8 py-6 text-right text-on-surface-variant">158 Min</td>
+<td class="px-8 py-6 text-center">
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold">0.4%</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-8 py-6 font-bold uppercase text-sm">South VIP Wing</td>
+<td class="px-8 py-6 text-right tabular-nums">1,020</td>
+<td class="px-8 py-6 text-right tabular-nums font-bold">Rp 8,450,000</td>
+<td class="px-8 py-6 text-right text-on-surface-variant">240 Min</td>
+<td class="px-8 py-6 text-center">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold">1.8%</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-8 py-6 font-bold uppercase text-sm">West Gate Loading</td>
+<td class="px-8 py-6 text-right tabular-nums">842</td>
+<td class="px-8 py-6 text-right tabular-nums font-bold">Rp 3,210,000</td>
+<td class="px-8 py-6 text-right text-on-surface-variant">45 Min</td>
+<td class="px-8 py-6 text-center">
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold">0.1%</span>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</main>
+</body></html>

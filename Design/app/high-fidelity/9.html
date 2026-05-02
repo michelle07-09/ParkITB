@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transaction History - ParkITB</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#abc7ff",
+                    "secondary-container": "#5fa6fd",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "on-surface": "#191c1e",
+                    "error": "#ba1a1a",
+                    "outline": "#747780",
+                    "surface-dim": "#d9dadc",
+                    "secondary-fixed-dim": "#a4c9ff",
+                    "on-tertiary-fixed": "#291800",
+                    "on-secondary-container": "#003a6d",
+                    "tertiary-fixed": "#ffddb4",
+                    "on-surface-variant": "#43474f",
+                    "primary": "#002653",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#8aa8e0",
+                    "background": "#f8f9fb",
+                    "on-secondary-fixed-variant": "#004884",
+                    "on-tertiary-container": "#e4980e",
+                    "primary-fixed": "#d7e3ff",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8f9fb",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#563600",
+                    "surface-variant": "#e1e2e4",
+                    "tertiary": "#392200",
+                    "primary-container": "#1a3c6e",
+                    "surface-tint": "#405e92",
+                    "secondary-fixed": "#d4e3ff",
+                    "inverse-primary": "#abc7ff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#001c39",
+                    "inverse-on-surface": "#f0f1f3",
+                    "surface-container-high": "#e7e8ea",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c4c6d0",
+                    "surface-container": "#edeef0",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "secondary": "#005fac",
+                    "on-primary-fixed": "#001b3f",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface": "#f8f9fb",
+                    "on-primary-fixed-variant": "#264679"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed-dim min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#f8f9fb] dark:bg-slate-950 flex justify-between items-center px-6 py-4 w-full docked full-width top-0 sticky z-50 tonal-shift-no-borders">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#1A3C6E] dark:text-blue-400" data-icon="account_balance">account_balance</span>
+<h1 class="font-['Inter'] font-bold text-2xl tracking-tight text-[#1A3C6E] dark:text-blue-400">ParkITB</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity p-2 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</button>
+<button class="hover:opacity-80 transition-opacity p-2 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-xl mx-auto px-6 py-8">
+<!-- Editorial Header Section -->
+<div class="mb-10">
+<p class="font-label text-xs uppercase tracking-[0.2em] text-outline mb-2">ParkITB Activity</p>
+<h2 class="text-display-sm font-bold text-primary leading-[110%] tracking-tight">Riwayat Transaksi</h2>
+</div>
+<!-- Filter Chips - Asymmetric Scrolling Row -->
+<div class="flex gap-2 mb-10 overflow-x-auto no-scrollbar pb-2">
+<button class="px-5 py-2.5 rounded-full bg-primary text-on-primary font-label text-sm whitespace-nowrap">Semua</button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant font-label text-sm whitespace-nowrap hover:bg-surface-container-highest transition-colors">Parkir</button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant font-label text-sm whitespace-nowrap hover:bg-surface-container-highest transition-colors">Top-Up</button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant font-label text-sm whitespace-nowrap hover:bg-surface-container-highest transition-colors">Membership</button>
+</div>
+<!-- Grouped Transaction List -->
+<div class="space-y-10">
+<!-- Group: Hari ini -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-label font-semibold text-sm text-outline uppercase tracking-wider">Hari ini</h3>
+<div class="h-[1px] flex-grow ml-4 bg-outline-variant opacity-20"></div>
+</div>
+<div class="space-y-4">
+<!-- Transaction Item: Parking -->
+<div class="group flex items-center p-4 rounded-xl bg-surface-container-lowest transition-all hover:bg-white hover:shadow-lg hover:shadow-primary/5 cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mr-4 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="local_parking">local_parking</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-semibold text-on-surface text-base">Gedung Labtek V</h4>
+<p class="text-xs text-on-surface-variant">14:20 • Parkir Motor</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">- Rp 5.000</p>
+<span class="text-[10px] font-medium text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Selesai</span>
+</div>
+</div>
+<!-- Transaction Item: Top-Up -->
+<div class="group flex items-center p-4 rounded-xl bg-surface-container-lowest transition-all hover:bg-white hover:shadow-lg hover:shadow-primary/5 cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mr-4 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-semibold text-on-surface text-base">Top-Up Saldo</h4>
+<p class="text-xs text-on-surface-variant">09:15 • Bank Transfer</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-[#2E7D32]"> + Rp 100.000</p>
+<span class="text-[10px] font-medium text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Berhasil</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Group: Kemarin -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-label font-semibold text-sm text-outline uppercase tracking-wider">Kemarin</h3>
+<div class="h-[1px] flex-grow ml-4 bg-outline-variant opacity-20"></div>
+</div>
+<div class="space-y-4">
+<!-- Transaction Item: Membership -->
+<div class="group flex items-center p-4 rounded-xl bg-surface-container-lowest transition-all hover:bg-white hover:shadow-lg hover:shadow-primary/5 cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mr-4 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="card_membership">card_membership</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-semibold text-on-surface text-base">Perpanjang Membership</h4>
+<p class="text-xs text-on-surface-variant">18:45 • Gold Pass (1 Bulan)</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">- Rp 50.000</p>
+<span class="text-[10px] font-medium text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Selesai</span>
+</div>
+</div>
+<!-- Transaction Item: Parking -->
+<div class="group flex items-center p-4 rounded-xl bg-surface-container-lowest transition-all hover:bg-white hover:shadow-lg hover:shadow-primary/5 cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mr-4 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="local_parking">local_parking</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-semibold text-on-surface text-base">Gedung CAD</h4>
+<p class="text-xs text-on-surface-variant">10:05 • Parkir Mobil</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">- Rp 10.000</p>
+<span class="text-[10px] font-medium text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Selesai</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pt-3 pb-safe bg-white dark:bg-slate-900 shadow-[0_-8px_32px_rgba(0,38,83,0.06)] rounded-t-3xl">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined" data-icon="local_parking">local_parking</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Parking</span>
+</a>
+<!-- ACTIVE TAB: History -->
+<a class="flex flex-col items-center justify-center text-[#1A3C6E] dark:text-blue-400 font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 hover:text-[#1A3C6E] dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Profile</span>
+</a>
+</nav>
+</body></html>

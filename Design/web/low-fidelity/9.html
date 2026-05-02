@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#acabab",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary": "#3a3c3c",
+                    "surface-variant": "#e2e2e2",
+                    "on-error-container": "#410002",
+                    "outline": "#777777",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#e3e2e2",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed": "#5d5e5f",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#474747",
+                    "tertiary-container": "#747575",
+                    "primary-fixed-dim": "#474746",
+                    "on-secondary-container": "#1b1c1c",
+                    "primary-container": "#3c3b3b",
+                    "secondary-container": "#d5d4d4",
+                    "primary": "#000000",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5f5e5e",
+                    "secondary": "#5e5e5e",
+                    "outline-variant": "#c6c6c6",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eeeeee",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3b3b3c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e3e2e2",
+                    "on-primary-fixed-variant": "#e5e2e1",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-surface": "#1a1c1c",
+                    "on-primary-fixed": "#ffffff",
+                    "tertiary-fixed-dim": "#464747",
+                    "on-tertiary-container": "#ffffff",
+                    "secondary-fixed": "#c7c6c6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#e5e2e1",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #f9f9f9; }
+        ::-webkit-scrollbar-thumb { background: #000; }
+    </style>
+</head>
+<body class="bg-background text-on-surface overflow-hidden">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-black dark:bg-zinc-950 text-white font-['Inter'] text-sm tracking-wide uppercase font-semibold h-screen w-64 fixed left-0 top-0 flex flex-col h-full py-8 px-4 z-50">
+<div class="mb-12 px-4">
+<h1 class="text-2xl font-black text-white italic tracking-tighter">ParkITB</h1>
+<p class="text-[10px] opacity-50 tracking-[0.2em] mt-1">Developer Portal</p>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Active Tab: Vehicles -->
+<a class="flex items-center gap-3 px-4 py-3 bg-zinc-800 text-white border-l-4 border-white transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span>Vehicles</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-zinc-800 pt-6">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 h-screen overflow-y-auto bg-background">
+<!-- Header Section -->
+<header class="p-8 pb-4">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-4xl font-black tracking-tighter text-primary uppercase">Vehicle History</h2>
+<p class="text-on-surface-variant font-medium tracking-tight mt-1 uppercase text-xs">Architectural Logistics &amp; Access Audit</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-surface-container px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-surface-container-high transition-colors">
+                            CSV
+                        </button>
+<button class="bg-primary text-on-primary px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-primary-container transition-colors">
+                            PDF EXPORT
+                        </button>
+</div>
+</div>
+<!-- Summary Chips Grid -->
+<div class="grid grid-cols-4 gap-4 mb-8">
+<div class="bg-surface-container-lowest p-6 flex flex-col justify-between">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Total Vehicles</span>
+<span class="text-4xl font-black mt-2">1,284</span>
+</div>
+<div class="bg-surface-container-lowest p-6 flex flex-col justify-between">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Total Paid</span>
+<span class="text-4xl font-black mt-2 text-primary">Rp 12.4M</span>
+</div>
+<div class="bg-surface-container-lowest p-6 flex flex-col justify-between">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Unpaid</span>
+<span class="text-4xl font-black mt-2">42</span>
+</div>
+<div class="bg-surface-container-lowest p-6 flex flex-col justify-between">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Avg Duration</span>
+<span class="text-4xl font-black mt-2">02:15</span>
+</div>
+</div>
+<!-- Advanced Filter Bar -->
+<div class="bg-surface-container p-6 mb-8">
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<div class="space-y-1">
+<label class="text-[9px] font-bold uppercase text-outline">Date Range</label>
+<div class="relative bg-white h-10 flex items-center px-3 border-b border-black">
+<span class="text-xs font-medium">Oct 12 - Oct 19</span>
+<span class="material-symbols-outlined absolute right-2 text-sm" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[9px] font-bold uppercase text-outline">Gate</label>
+<select class="w-full h-10 bg-white border-none text-xs font-medium border-b border-black focus:ring-0">
+<option>ALL GATES</option>
+<option>NORTH PORTAL</option>
+<option>SOUTH PORTAL</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-[9px] font-bold uppercase text-outline">Payment Method</label>
+<select class="w-full h-10 bg-white border-none text-xs font-medium border-b border-black focus:ring-0">
+<option>ALL METHODS</option>
+<option>E-WALLET</option>
+<option>MEMBERSHIP</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-[9px] font-bold uppercase text-outline">Membership</label>
+<select class="w-full h-10 bg-white border-none text-xs font-medium border-b border-black focus:ring-0">
+<option>ALL TYPES</option>
+<option>PLATINUM</option>
+<option>REGULAR</option>
+</select>
+</div>
+<div class="lg:col-span-2 space-y-1">
+<label class="text-[9px] font-bold uppercase text-outline">Search Plate</label>
+<div class="relative bg-white h-10 flex items-center border-b border-black">
+<input class="w-full bg-transparent border-none text-xs font-medium focus:ring-0 px-3 placeholder:text-outline-variant" placeholder="ENTER PLATE NUMBER..." type="text"/>
+<span class="material-symbols-outlined absolute right-2 text-sm" data-icon="search">search</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Table Section -->
+<section class="px-8 pb-12">
+<div class="bg-surface-container-lowest overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant">
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest">No</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Tanggal</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Plat</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Tipe</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Gate In/Out</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Durasi</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Method</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Amount</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5 text-xs font-mono text-outline">001</td>
+<td class="px-6 py-5 text-xs font-bold uppercase">19 Oct 2023, 14:20</td>
+<td class="px-6 py-5 text-sm font-black tracking-tighter">B 1234 ABC</td>
+<td class="px-6 py-5 text-xs uppercase font-medium">SUV</td>
+<td class="px-6 py-5 text-xs uppercase">North / West</td>
+<td class="px-6 py-5 text-xs font-mono">01:45:12</td>
+<td class="px-6 py-5 text-xs font-bold">QRIS</td>
+<td class="px-6 py-5 text-xs font-black tracking-tighter">Rp 12.000</td>
+<td class="px-6 py-5">
+<span class="inline-block px-3 py-1 bg-primary text-white text-[9px] font-black uppercase">PAID</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5 text-xs font-mono text-outline">002</td>
+<td class="px-6 py-5 text-xs font-bold uppercase">19 Oct 2023, 13:55</td>
+<td class="px-6 py-5 text-sm font-black tracking-tighter">D 9999 XYZ</td>
+<td class="px-6 py-5 text-xs uppercase font-medium">Sedan</td>
+<td class="px-6 py-5 text-xs uppercase">South / South</td>
+<td class="px-6 py-5 text-xs font-mono">00:30:00</td>
+<td class="px-6 py-5 text-xs font-bold">Membership</td>
+<td class="px-6 py-5 text-xs font-black tracking-tighter">Rp 0</td>
+<td class="px-6 py-5">
+<span class="inline-block px-3 py-1 bg-outline-variant text-black text-[9px] font-black uppercase">MEMBER</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5 text-xs font-mono text-outline">003</td>
+<td class="px-6 py-5 text-xs font-bold uppercase">19 Oct 2023, 12:10</td>
+<td class="px-6 py-5 text-sm font-black tracking-tighter">F 4567 DEF</td>
+<td class="px-6 py-5 text-xs uppercase font-medium">Truck</td>
+<td class="px-6 py-5 text-xs uppercase">East / -</td>
+<td class="px-6 py-5 text-xs font-mono">--:--:--</td>
+<td class="px-6 py-5 text-xs font-bold">-</td>
+<td class="px-6 py-5 text-xs font-black tracking-tighter">Rp 0</td>
+<td class="px-6 py-5">
+<span class="inline-block px-3 py-1 bg-secondary text-white text-[9px] font-black uppercase">PENDING</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5 text-xs font-mono text-outline">004</td>
+<td class="px-6 py-5 text-xs font-bold uppercase">19 Oct 2023, 11:30</td>
+<td class="px-6 py-5 text-sm font-black tracking-tighter">B 8888 JKL</td>
+<td class="px-6 py-5 text-xs uppercase font-medium">Crossover</td>
+<td class="px-6 py-5 text-xs uppercase">North / North</td>
+<td class="px-6 py-5 text-xs font-mono">03:15:22</td>
+<td class="px-6 py-5 text-xs font-bold">E-Card</td>
+<td class="px-6 py-5 text-xs font-black tracking-tighter">Rp 25.000</td>
+<td class="px-6 py-5">
+<span class="inline-block px-3 py-1 bg-primary text-white text-[9px] font-black uppercase">PAID</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5 text-xs font-mono text-outline">005</td>
+<td class="px-6 py-5 text-xs font-bold uppercase">19 Oct 2023, 10:05</td>
+<td class="px-6 py-5 text-sm font-black tracking-tighter">L 2211 GG</td>
+<td class="px-6 py-5 text-xs uppercase font-medium">Bike</td>
+<td class="px-6 py-5 text-xs uppercase">West / West</td>
+<td class="px-6 py-5 text-xs font-mono">00:45:00</td>
+<td class="px-6 py-5 text-xs font-bold">Cash</td>
+<td class="px-6 py-5 text-xs font-black tracking-tighter">Rp 5.000</td>
+<td class="px-6 py-5">
+<span class="inline-block px-3 py-1 bg-primary text-white text-[9px] font-black uppercase">PAID</span>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Controls -->
+<div class="flex items-center justify-between p-6 border-t border-surface-container">
+<div class="text-[10px] font-bold uppercase tracking-widest text-outline">
+                            Showing 1-10 of 1,284 entries
+                        </div>
+<div class="flex gap-1">
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-primary text-white font-bold text-xs transition-colors">
+                                1
+                            </button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container hover:bg-surface-container-high font-bold text-xs transition-colors">
+                                2
+                            </button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container hover:bg-surface-container-high font-bold text-xs transition-colors">
+                                3
+                            </button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

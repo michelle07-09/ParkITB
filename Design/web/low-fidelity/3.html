@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#acabab",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary": "#3a3c3c",
+                    "surface-variant": "#e2e2e2",
+                    "on-error-container": "#410002",
+                    "outline": "#777777",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#e3e2e2",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed": "#5d5e5f",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#474747",
+                    "tertiary-container": "#747575",
+                    "primary-fixed-dim": "#474746",
+                    "on-secondary-container": "#1b1c1c",
+                    "primary-container": "#3c3b3b",
+                    "secondary-container": "#d5d4d4",
+                    "primary": "#000000",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5f5e5e",
+                    "secondary": "#5e5e5e",
+                    "outline-variant": "#c6c6c6",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eeeeee",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3b3b3c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e3e2e2",
+                    "on-primary-fixed-variant": "#e5e2e1",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-surface": "#1a1c1c",
+                    "on-primary-fixed": "#ffffff",
+                    "tertiary-fixed-dim": "#464747",
+                    "on-tertiary-container": "#ffffff",
+                    "secondary-fixed": "#c7c6c6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#e5e2e1",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        /* Architectural Brutalism: No rounded corners */
+        * { border-radius: 0 !important; }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- Top Navigation Bar (Satpam Role per JSON) -->
+<nav class="bg-[#e2e2e2] dark:bg-zinc-800 flex justify-between items-center w-full px-6 h-16 fixed top-0 z-50">
+<div class="text-xl font-black text-black dark:text-white tracking-tighter uppercase">ParkITB</div>
+<div class="hidden md:flex items-center space-x-8 h-full">
+<a class="font-['Inter'] font-bold tracking-tight uppercase transition-colors duration-150 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700 h-full flex items-center px-4" href="#">Dashboard</a>
+<!-- Vehicles is active if we consider Gate Detail a sub-part of vehicle entry management -->
+<a class="font-['Inter'] font-bold tracking-tight uppercase transition-colors duration-150 border-b-4 border-black dark:border-white text-black dark:text-white h-full flex items-center px-4" href="#">Vehicles</a>
+<a class="font-['Inter'] font-bold tracking-tight uppercase transition-colors duration-150 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700 h-full flex items-center px-4" href="#">Transactions</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-black dark:text-white p-2 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors">notifications</button>
+<button class="material-symbols-outlined text-black dark:text-white p-2 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors">schedule</button>
+<div class="w-8 h-8 bg-zinc-400">
+<img alt="Satpam Profile" data-alt="close-up portrait of a security guard in a professional uniform with a neutral expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFMRUbB0zSuyhp6hrwXZ7pz-xrDRP24itOAfvNPimZFIiKXOLesq9iaPrFEuUO_QcAJdtmJHFNqa0YYOHymijpm_tJO6CpXidigOyftEixG2drncFETD0FAfPvD0ymfEcHsvqXAHosgdilDVUdqZ5EPCHquGaRQ5WkcEBJmQR6z6SUyghnB6B6-8yXTpbWtLA_Bnks_UaiMnSmVnQp9e-JMXQmTsvcJPOJCgHMB9vt2zP1rfLoUCsAp9nLHwxW905Gxtw-PNcFmAdp"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-6 max-w-7xl mx-auto">
+<!-- Header: Gate Name + Status -->
+<header class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<span class="text-label-sm font-bold uppercase tracking-widest text-outline mb-2 block">Control Panel</span>
+<h1 class="text-5xl font-black tracking-tighter uppercase leading-none">GATE UTAMA - SELATAN</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary text-on-primary px-6 py-2 flex items-center gap-2">
+<span class="w-2 h-2 bg-white animate-pulse"></span>
+<span class="font-bold tracking-widest uppercase text-sm">AKTIF</span>
+</div>
+<div class="bg-surface-container-high px-6 py-2">
+<span class="font-bold tracking-widest uppercase text-sm text-on-surface">ONLINE</span>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Camera Feed & Controls (8/12) -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Live Camera Feed Placeholder -->
+<div class="relative aspect-video bg-surface-container-lowest border-2 border-outline-variant group overflow-hidden">
+<!-- The Architectural "X" Placeholder -->
+<div class="absolute inset-0 flex items-center justify-center opacity-10">
+<svg class="w-full h-full" preserveaspectratio="none">
+<line stroke="currentColor" stroke-width="2" x1="0" x2="100%" y1="0" y2="100%"></line>
+<line stroke="currentColor" stroke-width="2" x1="100%" x2="0" y1="0" y2="100%"></line>
+</svg>
+</div>
+<div class="absolute top-6 left-6 flex items-center gap-3">
+<div class="bg-error text-white px-3 py-1 text-xs font-black tracking-tighter flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>
+                            LIVE
+                        </div>
+<div class="bg-black/80 text-white px-3 py-1 text-xs font-bold tracking-tighter">
+                            CAM_04_SOUTH_GATE
+                        </div>
+</div>
+<div class="absolute bottom-6 right-6 bg-black/80 text-white px-4 py-2 font-mono text-sm">
+                        2023-10-27 14:32:05 UTC+7
+                    </div>
+<!-- Overlay for "Kendaraan menunggu" -->
+<div class="absolute bottom-6 left-6 bg-surface-container-lowest p-4 border-l-8 border-primary shadow-xl">
+<div class="text-xs font-bold text-outline uppercase tracking-widest mb-1">Kendaraan menunggu</div>
+<div class="text-4xl font-black tracking-tighter">3 UNIT</div>
+</div>
+</div>
+<!-- Emergency Actions Panel -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<button class="bg-primary text-white py-8 px-6 group transition-all active:scale-95 flex flex-col items-center justify-center gap-4 border-4 border-transparent hover:border-error">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+<span class="font-black text-center leading-tight tracking-tighter uppercase">BUKA PAKSA<br/>PALANG</span>
+</button>
+<button class="bg-secondary text-white py-8 px-6 group transition-all active:scale-95 flex flex-col items-center justify-center gap-4">
+<span class="material-symbols-outlined text-4xl">lock</span>
+<span class="font-black text-center leading-tight tracking-tighter uppercase">KUNCI<br/>PALANG</span>
+</button>
+<button class="bg-surface-container-high text-on-surface py-8 px-6 group transition-all active:scale-95 flex flex-col items-center justify-center gap-4 hover:bg-surface-variant">
+<span class="material-symbols-outlined text-4xl">contact_support</span>
+<span class="font-black text-center leading-tight tracking-tighter uppercase">HUBUNGI<br/>DEVELOPER</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Incident Log & Notes (4/12) -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Incident Log Section -->
+<section class="bg-surface-container-low p-6 flex-grow flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-black tracking-tighter uppercase">Incident Log</h2>
+<span class="material-symbols-outlined text-outline">history</span>
+</div>
+<div class="space-y-4 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+<!-- Log Item 1 -->
+<div class="bg-surface-container-lowest p-4 border-l-4 border-primary">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] font-bold text-outline uppercase">14:28:45</span>
+<span class="text-[10px] bg-outline-variant px-1 font-bold">INFO</span>
+</div>
+<p class="text-sm font-semibold tracking-tight">Gate opened: B 1234 XYZ</p>
+</div>
+<!-- Log Item 2 -->
+<div class="bg-surface-container-lowest p-4 border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] font-bold text-outline uppercase">14:15:20</span>
+<span class="text-[10px] bg-primary text-white px-1 font-bold">KRITIS</span>
+</div>
+<p class="text-sm font-semibold tracking-tight">Manual override triggered by Satpam_02</p>
+</div>
+<!-- Log Item 3 -->
+<div class="bg-surface-container-lowest p-4 border-l-4 border-outline-variant">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] font-bold text-outline uppercase">14:02:11</span>
+<span class="text-[10px] bg-outline-variant px-1 font-bold">INFO</span>
+</div>
+<p class="text-sm font-semibold tracking-tight">Vehicle detected: D 9901 AB</p>
+</div>
+<!-- Repeat/Filler for 10 entries -->
+<div class="bg-surface-container-lowest p-4 border-l-4 border-outline-variant opacity-60">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] font-bold text-outline uppercase">13:55:00</span>
+<span class="text-[10px] bg-outline-variant px-1 font-bold">INFO</span>
+</div>
+<p class="text-sm font-semibold tracking-tight">System heartbeat check: OK</p>
+</div>
+<div class="bg-surface-container-lowest p-4 border-l-4 border-outline-variant opacity-50">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] font-bold text-outline uppercase">13:42:15</span>
+<span class="text-[10px] bg-outline-variant px-1 font-bold">INFO</span>
+</div>
+<p class="text-sm font-semibold tracking-tight">Gate closed: F 4452 CC</p>
+</div>
+</div>
+</section>
+<!-- Notes Input Section -->
+<section class="bg-surface-container-high p-6">
+<h2 class="text-xl font-black tracking-tighter uppercase mb-4">Catatan insiden</h2>
+<div class="space-y-4">
+<textarea class="w-full bg-surface-container-lowest border-b-2 border-primary p-4 text-sm font-medium focus:outline-none focus:border-b-4 transition-all resize-none h-32" placeholder="Input detail insiden di sini..."></textarea>
+<button class="w-full bg-primary text-white py-4 font-black tracking-widest uppercase hover:bg-primary-container transition-colors">
+                            KIRIM LAPORAN
+                        </button>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation Shell -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-highest flex items-center justify-around h-16 z-50">
+<button class="flex flex-col items-center justify-center flex-1 text-zinc-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold uppercase">Dash</span>
+</button>
+<button class="flex flex-col items-center justify-center flex-1 text-black">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+<span class="text-[10px] font-bold uppercase">Gate</span>
+</button>
+<button class="flex flex-col items-center justify-center flex-1 text-zinc-400">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-bold uppercase">Trans</span>
+</button>
+</div>
+</body></html>

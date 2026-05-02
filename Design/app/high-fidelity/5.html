@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB - Pembayaran Parkir</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#abc7ff",
+                    "secondary-container": "#5fa6fd",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "on-surface": "#191c1e",
+                    "error": "#ba1a1a",
+                    "outline": "#747780",
+                    "surface-dim": "#d9dadc",
+                    "secondary-fixed-dim": "#a4c9ff",
+                    "on-tertiary-fixed": "#291800",
+                    "on-secondary-container": "#003a6d",
+                    "tertiary-fixed": "#ffddb4",
+                    "on-surface-variant": "#43474f",
+                    "primary": "#002653",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#8aa8e0",
+                    "background": "#f8f9fb",
+                    "on-secondary-fixed-variant": "#004884",
+                    "on-tertiary-container": "#e4980e",
+                    "primary-fixed": "#d7e3ff",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8f9fb",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#563600",
+                    "surface-variant": "#e1e2e4",
+                    "tertiary": "#392200",
+                    "primary-container": "#1a3c6e",
+                    "surface-tint": "#405e92",
+                    "secondary-fixed": "#d4e3ff",
+                    "inverse-primary": "#abc7ff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#001c39",
+                    "inverse-on-surface": "#f0f1f3",
+                    "surface-container-high": "#e7e8ea",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c4c6d0",
+                    "surface-container": "#edeef0",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "secondary": "#005fac",
+                    "on-primary-fixed": "#001b3f",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface": "#f8f9fb",
+                    "on-primary-fixed-variant": "#264679"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .qris-corner {
+            border-color: #002653; /* primary */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- Top Navigation Header -->
+<header class="flex justify-between items-center px-6 py-4 w-full bg-[#f2f4f6] dark:bg-slate-900 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline font-bold text-2xl tracking-tight text-[#1A3C6E] dark:text-blue-400">Pembayaran Parkir</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance">account_balance</span>
+</div>
+</header>
+<main class="max-w-md mx-auto px-6 py-8 space-y-8">
+<!-- Payment Methods Tabs (Segmented Control) -->
+<nav class="bg-surface-container-low p-1.5 rounded-xl flex items-center shadow-inner">
+<button class="flex-1 py-2 text-center text-sm font-semibold bg-surface-container-lowest text-primary rounded-lg shadow-sm">
+                QRIS
+            </button>
+<button class="flex-1 py-2 text-center text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">
+                E-Money
+            </button>
+<button class="flex-1 py-2 text-center text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">
+                Saldo
+            </button>
+</nav>
+<!-- QRIS Payment Canvas -->
+<section class="bg-surface-container-lowest rounded-[2rem] p-8 relative flex flex-col items-center shadow-[0_8px_32px_rgba(0,38,83,0.06)]">
+<!-- QRIS Brand Header -->
+<div class="mb-6 flex flex-col items-center">
+<div class="bg-primary px-3 py-1 rounded-md mb-2">
+<span class="text-white font-bold text-xs tracking-[0.2em]">QRIS</span>
+</div>
+<p class="text-label-md font-medium text-on-surface-variant uppercase tracking-wider">Quick Response Code Indonesian Standard</p>
+</div>
+<!-- QR Code Container with Frame -->
+<div class="relative p-6 bg-white rounded-2xl mb-6 group">
+<!-- Decorative Corners -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 qris-corner rounded-tl-xl"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 qris-corner rounded-tr-xl"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 qris-corner rounded-bl-xl"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 qris-corner rounded-br-xl"></div>
+<img alt="QRIS Code for Payment" class="w-48 h-48 block" data-alt="sharp and clean minimalist QR code on a pure white background with crisp edges and high contrast professional look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfeIH2RsX4OfqhtI-WlGhs6jCNSrl26cPrwZ0zKhqc9kgOaPolOJ9jp103IAHVZZe3t1uvsBY6ww3uAsKhzjxlgKXXOZmf3_CUWy5B4mV9l3LwVhc1qdXrMHpPrc_W8ZyeRRsXnAizS_L7zh-ToIQBIUh7WTLtGab9h_FsuNoDqjZRLWqf7_hqUJYoE3DOsQDwaFrBBPtwywyWaUTvPLRSkyARtSbSegMxOnJvoaiq6KGhDuHyN_DQzrNi6z1lF5icHw_AMTSyWSoS"/>
+</div>
+<!-- Timer Badge -->
+<div class="bg-tertiary-fixed px-4 py-2 rounded-full flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-lg">timer</span>
+<span class="text-on-tertiary-fixed font-semibold text-sm">QR berlaku: 04:58</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-8">Silakan scan kode di atas melalui aplikasi pembayaran Anda.</p>
+<!-- Supported Wallets Footer -->
+<div class="w-full flex justify-between items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-300 px-2">
+<img alt="GoPay" class="h-4 grayscale" data-alt="gopay logo minimalist clean flat design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgXoPMuHhIGlGkhzjhwOknhCKN7NOkjwuzfIw46km5_08i0Acs6aAhaHyJ4WLdarU-DaV34vltFDFmF80SWptq4ICPCnC7CqkTMuqaPi12h9NDg3shvR0p6P-3qcyZ0eK0Su8W4rr-kNuIT45vOP_R5L1JUBzy7CKFivUIjZ2MdSxv6JsSw7bpnJ4J5RON0_6Ehxf31DXCWP9bBBYGUk54twyn_nJR_5ZlPk8Pp4lLe3ui1QZuHoHAJMIZsce71Xd2LmpVs1ekcKcs"/>
+<img alt="OVO" class="h-4 grayscale" data-alt="ovo logo minimalist clean flat design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJVJTHmkbB8bLebH9a0suIOMH-0Q3Ts8xvyLf-ycymUbNqmFlYmKmlYLvp2gzyxs4_12c_SVABuCyjKtQp-CeM4E7u3zcRtl55BodsHFFmonk9ZBMjM9g2KBSNrCZT9GdoFhVs7Eko1wtfQ-hBVSbSQStB7A3dUev5gbA4qZF4ZHko5Nf6Qqc8RpvIThjtyopoNsuts-lFYNjLIZvNOpMP90ITL-Kg4mSSd56Iek8mCy1kNmE6X93Jn7h_fQt9L8sOEai7rTAZDPHc"/>
+<img alt="Dana" class="h-4 grayscale" data-alt="dana logo minimalist clean flat design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvY5HtnRMPu6dIAsMkf4SdcnzrxapOKw8odWsULMWSSaw1LQPr9dpNbKyaz7Jokv2SkaHERlnVB9Y8kJW_JUCZuEp0QzZ6u51lzEA5VFywolWWqgLaaOk37ePWDTtzOQhc8CemQ_ouzKlNUVRQvGLxrYnoEC9FrAlplCkFQDMQ2L4Sw-pArfZ7vP9_oEIBWEoUQ1U7wfjiaQnLCBTBD25mIzndLrcOOW-JtS9fqjqXglVh7nPR95ADdwyc8Jkucf8BOekuEUzmNA_1"/>
+<img alt="ShopeePay" class="h-4 grayscale" data-alt="shopeepay logo minimalist clean flat design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcoFyMqst42fCQARubcmzVu2wfs7LmsymEpYjv6XxaU-7QdtPGN_Hh6QDwFqkeuleODlUEGAVKypj6XCibyDjCORfgAuE5Bc_rTuD0UxNvj5_7T2wzpvMHKZl1XYiADALeWjT_gyEKrZIhlcUZcsGMRDyVtca4k5VGBPlE8K4zo8yGZbrJIuCaQwGnfiPQAAKPoqFu5p2YmMAjxnc5bzj2fyyNslmraWTHlhfYMC-jvwwNVP5gIjMn9wvB3Vv5qzdJ0svP6fDPY189"/>
+</div>
+</section>
+<!-- Fee Summary Bento Card -->
+<section class="bg-surface-container-low rounded-3xl overflow-hidden shadow-sm">
+<div class="p-6 border-b border-outline-variant/10">
+<h2 class="text-title-sm text-primary mb-1 uppercase tracking-widest font-bold">Ringkasan Biaya</h2>
+<p class="text-xs text-on-surface-variant">Detail transaksi parkir Anda</p>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant font-medium uppercase tracking-tighter">Durasi Parkir</span>
+<span class="text-lg font-bold text-primary">02 Jam 15 Menit</span>
+</div>
+<div class="text-right">
+<span class="text-xs text-on-surface-variant font-medium uppercase tracking-tighter">No. Kendaraan</span>
+<span class="block text-lg font-bold text-primary">D 1234 ITB</span>
+</div>
+</div>
+<div class="bg-white/50 rounded-2xl p-4 flex justify-between items-end border border-white">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.1em]">Total Pembayaran</span>
+<div class="text-[2.25rem] font-bold leading-none text-primary mt-1">Rp 12.000</div>
+</div>
+<div class="bg-secondary-container/20 px-3 py-1 rounded-lg">
+<span class="text-secondary font-bold text-xs">Premium Slot</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Help Link -->
+<div class="text-center py-4">
+<button class="text-secondary font-semibold text-sm flex items-center justify-center gap-1 mx-auto hover:opacity-80 transition-opacity">
+                Butuh bantuan dengan pembayaran?
+                <span class="material-symbols-outlined text-base">help</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Hidden for Focus) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pt-3 pb-8 bg-white dark:bg-slate-900 rounded-t-3xl shadow-[0_-8px_32px_rgba(0,38,83,0.06)] md:hidden">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#1A3C6E] dark:text-blue-400 font-bold">
+<span class="material-symbols-outlined" data-icon="local_parking" style="font-variation-settings: 'FILL' 1;">local_parking</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Parking</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

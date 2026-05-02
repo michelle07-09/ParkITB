@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Keamanan - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#eeeeee",
+                    "tertiary-fixed": "#5d5f5f",
+                    "on-primary-fixed": "#ffffff",
+                    "on-tertiary": "#e2e2e2",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "tertiary-fixed-dim": "#454747",
+                    "secondary-fixed-dim": "#ababab",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#ffffff",
+                    "on-error": "#ffffff",
+                    "background": "#f9f9f9",
+                    "on-error-container": "#410002",
+                    "inverse-on-surface": "#f1f1f1",
+                    "surface-dim": "#dadada",
+                    "on-tertiary-fixed-variant": "#e2e2e2",
+                    "on-primary": "#e4e2e1",
+                    "on-primary-fixed-variant": "#e4e2e1",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-high": "#e8e8e8",
+                    "primary-container": "#3b3b3b",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "secondary": "#5d5e5f",
+                    "primary": "#000000",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-container": "#1a1c1c",
+                    "surface-bright": "#f9f9f9",
+                    "primary-fixed": "#5f5e5e",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#d4d4d4",
+                    "outline-variant": "#c6c6c6",
+                    "on-tertiary-container": "#ffffff",
+                    "on-surface-variant": "#474747",
+                    "surface": "#f9f9f9",
+                    "on-background": "#1a1c1c",
+                    "on-secondary-fixed-variant": "#3a3c3c",
+                    "secondary-fixed": "#c6c6c6",
+                    "inverse-primary": "#c8c6c6",
+                    "primary-fixed-dim": "#474747",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#5f5e5e",
+                    "tertiary": "#3a3c3c",
+                    "inverse-surface": "#2f3131",
+                    "tertiary-container": "#737575",
+                    "outline": "#777777"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .wireframe-placeholder {
+            position: relative;
+            background: #f3f3f3;
+            overflow: hidden;
+        }
+        .wireframe-placeholder::after, .wireframe-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: 1px solid #BDBDBD;
+            pointer-events: none;
+        }
+        .wireframe-placeholder::after {
+            background: linear-gradient(to top right, transparent calc(50% - 0.5px), #BDBDBD 50%, transparent calc(50% + 0.5px));
+        }
+        .wireframe-placeholder::before {
+            background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), #BDBDBD 50%, transparent calc(50% + 0.5px));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 h-16 bg-[#F9F9F9] dark:bg-zinc-900 flex items-center px-4 transition-colors duration-200">
+<div class="flex items-center w-full h-16">
+<button class="p-2 hover:bg-[#EEEEEE] dark:hover:bg-zinc-800 transition-colors duration-200">
+<span class="material-symbols-outlined text-black dark:text-white" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Inter'] font-medium text-lg text-black dark:text-white ml-2">Settings</h1>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-24 pb-32 px-4 max-w-lg mx-auto space-y-8">
+<!-- Page Headline -->
+<div class="space-y-1">
+<p class="text-[0.75rem] font-medium tracking-widest text-secondary">[KEAMANAN]</p>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">Security Settings</h2>
+</div>
+<!-- Hero Status Card (Precision Brutalism) -->
+<section class="bg-surface-container-lowest p-6 border-l-4 border-primary">
+<div class="flex items-start justify-between">
+<div class="space-y-2">
+<h3 class="text-lg font-bold">[SECURITY_STATUS]</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Your account is partially protected. Complete the setup below to ensure maximum safety of your digital assets.</p>
+</div>
+<div class="w-12 h-12 wireframe-placeholder" data-icon="shield"></div>
+</div>
+</section>
+<!-- Setting Sections -->
+<div class="space-y-12">
+<!-- Category: Authentication -->
+<section class="space-y-4">
+<div class="flex items-baseline space-x-2">
+<span class="text-[0.6875rem] font-bold text-outline uppercase">[AUTHENTICATION]</span>
+<div class="flex-grow h-[1px] bg-surface-container-highest"></div>
+</div>
+<div class="space-y-2">
+<!-- CHANGE PASSWORD -->
+<button class="w-full flex items-center justify-between p-4 bg-surface-container hover:bg-surface-container-high transition-colors text-left group">
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-secondary" data-icon="key">key</span>
+<span class="text-base font-medium tracking-tight">[CHANGE PASSWORD]</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- BIOMETRICS TOGGLE -->
+<div class="w-full flex items-center justify-between p-4 bg-surface-container transition-colors">
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-secondary" data-icon="fingerprint">fingerprint</span>
+<div class="flex flex-col">
+<span class="text-base font-medium tracking-tight">[BIOMETRICS TOGGLE]</span>
+<span class="text-[0.6875rem] text-on-surface-variant">Use FaceID or Fingerprint for login</span>
+</div>
+</div>
+<!-- Toggle Switch UI -->
+<div class="w-12 h-6 bg-primary flex items-center px-1">
+<div class="w-4 h-4 bg-on-primary"></div>
+</div>
+</div>
+<!-- 2FA SETTINGS -->
+<button class="w-full flex items-center justify-between p-4 bg-surface-container hover:bg-surface-container-high transition-colors text-left group">
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user">verified_user</span>
+<div class="flex flex-col">
+<span class="text-base font-medium tracking-tight">[2FA SETTINGS]</span>
+<span class="text-[0.6875rem] text-on-surface-variant">Setup app-based or SMS authentication</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Category: Devices -->
+<section class="space-y-4">
+<div class="flex items-baseline space-x-2">
+<span class="text-[0.6875rem] font-bold text-outline uppercase">[ACTIVE SESSIONS]</span>
+<div class="flex-grow h-[1px] bg-surface-container-highest"></div>
+</div>
+<div class="bg-surface-container-lowest p-4 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 wireframe-placeholder"></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold tracking-tight">iPhone 14 Pro</span>
+<span class="text-[0.6875rem] text-on-surface-variant">Jakarta, Indonesia • Active now</span>
+</div>
+</div>
+<span class="text-[0.6875rem] font-bold text-primary">[THIS DEVICE]</span>
+</div>
+<div class="h-[1px] bg-surface-container-low"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3 opacity-60">
+<div class="w-10 h-10 wireframe-placeholder"></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold tracking-tight">MacBook Pro 16"</span>
+<span class="text-[0.6875rem] text-on-surface-variant">Last active 2 days ago</span>
+</div>
+</div>
+<button class="text-[0.6875rem] font-bold text-error uppercase hover:underline">[REVOKE]</button>
+</div>
+</div>
+</section>
+<!-- Dangerous Area -->
+<section class="pt-8">
+<button class="w-full p-4 border border-outline-variant text-center hover:bg-error/5 transition-colors">
+<span class="text-sm font-extrabold tracking-widest text-error">[TERMINATE ALL OTHER SESSIONS]</span>
+</button>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 bg-[#FFFFFF] dark:bg-zinc-950 z-50 border-t-0 shadow-[0_-4px_24px_0_rgba(26,28,28,0.04)]">
+<!-- Find -->
+<a class="flex flex-col items-center justify-center text-zinc-500 p-2 scale-95 transition-transform hover:bg-[#F3F3F3] dark:hover:bg-zinc-900" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-tighter mt-1">Find</span>
+</a>
+<!-- Bookings -->
+<a class="flex flex-col items-center justify-center text-zinc-500 p-2 scale-95 transition-transform hover:bg-[#F3F3F3] dark:hover:bg-zinc-900" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-tighter mt-1">Bookings</span>
+</a>
+<!-- Saved -->
+<a class="flex flex-col items-center justify-center text-zinc-500 p-2 scale-95 transition-transform hover:bg-[#F3F3F3] dark:hover:bg-zinc-900" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-tighter mt-1">Saved</span>
+</a>
+<!-- Settings (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-black text-white dark:bg-white dark:text-black p-2 scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-tighter mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

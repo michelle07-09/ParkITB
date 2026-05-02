@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Submit Support Ticket - ParkITB Help Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono-data { font-family: 'JetBrains+Mono', monospace; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-x {
+            position: relative;
+        }
+        .blueprint-x::before, .blueprint-x::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1px solid #c6c6c6;
+            pointer-events: none;
+        }
+        .blueprint-x::before {
+            background: linear-gradient(to top right, transparent calc(50% - 1px), #c6c6c6, transparent calc(50% + 1px));
+        }
+        .blueprint-x::after {
+            background: linear-gradient(to bottom right, transparent calc(50% - 1px), #c6c6c6, transparent calc(50% + 1px));
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#e3e2e2",
+                        "secondary-fixed-dim": "#acabab",
+                        "inverse-surface": "#2f3131",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#e5e2e1",
+                        "surface": "#f9f9f9",
+                        "surface-dim": "#dadada",
+                        "tertiary-fixed-dim": "#464747",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary": "#e3e2e2",
+                        "on-surface": "#1a1c1c",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary": "#3a3c3c",
+                        "on-primary-fixed": "#ffffff",
+                        "inverse-on-surface": "#f1f1f1",
+                        "tertiary-container": "#747575",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#474747",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#5e5e5e",
+                        "background": "#f9f9f9",
+                        "secondary-container": "#d5d4d4",
+                        "primary-fixed": "#5f5e5e",
+                        "on-primary": "#e5e2e1",
+                        "outline-variant": "#c6c6c6",
+                        "outline": "#777777",
+                        "on-primary-container": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-secondary-container": "#1b1c1c",
+                        "tertiary-fixed": "#5d5e5f",
+                        "primary": "#000000",
+                        "on-tertiary-fixed": "#ffffff",
+                        "surface-container-low": "#f3f3f3",
+                        "primary-fixed-dim": "#474746",
+                        "on-tertiary-container": "#ffffff",
+                        "on-secondary-fixed-variant": "#3b3b3c",
+                        "inverse-primary": "#c8c6c5",
+                        "on-error-container": "#410002",
+                        "secondary-fixed": "#c7c6c6",
+                        "on-background": "#1a1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "primary-container": "#3c3b3b",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Persistent SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-black text-white flex flex-col space-y-2 z-50 overflow-y-auto">
+<div class="text-2xl font-black text-white px-4 py-8 mb-4">Admin Panel</div>
+<nav class="flex-grow space-y-1 px-2">
+<a class="flex items-center space-x-3 px-4 py-3 text-neutral-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Inter'] font-bold tracking-tight uppercase text-sm">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-neutral-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="local_parking">local_parking</span>
+<span class="font-['Inter'] font-bold tracking-tight uppercase text-sm">Parking Lots</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-neutral-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Inter'] font-bold tracking-tight uppercase text-sm">Transactions</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-neutral-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-['Inter'] font-bold tracking-tight uppercase text-sm">Analytics</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 bg-neutral-800 text-white font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-['Inter'] font-bold tracking-tight uppercase text-sm">Help Center</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-neutral-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Inter'] font-bold tracking-tight uppercase text-sm">Settings</span>
+</a>
+</nav>
+<div class="p-4 bg-neutral-900 mt-auto">
+<div class="flex items-center space-x-3 mb-4">
+<div class="w-8 h-8 bg-surface-container-highest blueprint-x"></div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">Admin Panel</p>
+<p class="text-[10px] text-neutral-500">Developer Access</p>
+</div>
+</div>
+<div class="text-[10px] text-neutral-400 mb-4 tracking-widest uppercase">SYSTEM STATUS: OK</div>
+<a class="flex items-center space-x-3 text-neutral-400 hover:text-white transition-colors text-xs font-bold uppercase tracking-tighter" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="ml-64 min-h-screen pb-12">
+<!-- TopNavBar -->
+<header class="w-[calc(100%-16rem)] ml-0 h-16 sticky top-0 bg-surface-container-lowest z-40 flex items-center justify-between px-8">
+<div class="flex items-center space-x-6">
+<span class="text-lg font-black text-black uppercase">Help Center</span>
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-neutral-500 font-['Inter'] text-sm font-medium hover:text-black transition-colors" href="#">Guides</a>
+<a class="text-neutral-500 font-['Inter'] text-sm font-medium hover:text-black transition-colors" href="#">API Docs</a>
+<a class="text-black border-b-2 border-black pb-1 font-['Inter'] text-sm font-medium" href="#">Ticket History</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</button>
+</div>
+</header>
+<!-- Breadcrumb & Header -->
+<div class="px-8 py-6">
+<nav class="flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-4">
+<a class="hover:text-black" href="#">Dashboard</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-black" href="#">Help Center</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-black">Kirim Tiket</span>
+</nav>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column (60%) -->
+<div class="col-span-12 lg:col-span-7 space-y-8">
+<div class="bg-surface-container-lowest p-8 border-l-4 border-black">
+<h1 class="text-4xl font-black uppercase tracking-tight mb-8">Kirim Tiket Support</h1>
+<form class="space-y-6">
+<!-- [REST API] POST /api/tickets/create -->
+<div class="space-y-2">
+<label class="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Subject</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-black focus:ring-0 px-0 py-3 text-sm placeholder:text-neutral-400 transition-all" placeholder="Singkat dan jelas mengenai kendala Anda" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Category</label>
+<select class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-black focus:ring-0 px-0 py-3 text-sm">
+<option>Integrasi API</option>
+<option>Hardware Parkir</option>
+<option>Penagihan / Billing</option>
+<option>Akses Akun</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Priority</label>
+<div class="flex border border-outline-variant">
+<button class="flex-1 py-3 text-[10px] font-bold uppercase border-r border-outline-variant hover:bg-surface-container-high" type="button">Low</button>
+<button class="flex-1 py-3 text-[10px] font-bold uppercase border-r border-outline-variant hover:bg-surface-container-high bg-surface-container-high" type="button">Medium</button>
+<button class="flex-1 py-3 text-[10px] font-bold uppercase border-r border-outline-variant hover:bg-surface-container-high" type="button">High</button>
+<button class="flex-1 py-3 text-[10px] font-bold uppercase bg-black text-white" type="button">Critical</button>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Description</label>
+<textarea class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-black focus:ring-0 px-0 py-3 text-sm placeholder:text-neutral-400 transition-all" placeholder="Detail langkah reproduksi masalah..." rows="6"></textarea>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Attachments</label>
+<div class="border-2 border-dashed border-outline-variant p-8 flex flex-col items-center justify-center text-on-surface-variant bg-surface-container-low">
+<span class="material-symbols-outlined text-4xl mb-2" data-icon="upload_file">upload_file</span>
+<p class="text-xs font-bold uppercase tracking-tighter">Drag &amp; Drop file atau klik untuk upload</p>
+<p class="text-[10px] mt-1">PNG, JPG, PDF, LOG (Max 10MB)</p>
+</div>
+</div>
+<div class="flex items-center space-x-3 py-4">
+<input checked="" class="w-4 h-4 text-black border-black focus:ring-black" type="checkbox"/>
+<label class="text-xs font-medium">Sertakan info sistem otomatis (Env, Node Version, Browser)</label>
+</div>
+<button class="w-full bg-black text-white py-4 font-black uppercase tracking-widest text-sm hover:bg-neutral-800 transition-all" type="submit">
+                                Kirim Tiket
+                            </button>
+</form>
+</div>
+</div>
+<!-- Right Column (40%) -->
+<div class="col-span-12 lg:col-span-5 space-y-6">
+<!-- Tips Tiket Cepat -->
+<section class="bg-surface-container p-6">
+<h2 class="text-sm font-black uppercase tracking-widest mb-4 flex items-center">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="lightbulb">lightbulb</span>
+                            Tips Tiket Cepat
+                        </h2>
+<ul class="space-y-3 text-xs leading-relaxed text-on-surface-variant">
+<li class="flex items-start">
+<span class="mr-2 font-bold">•</span>
+<span>Gunakan judul yang deskriptif dan unik.</span>
+</li>
+<li class="flex items-start">
+<span class="mr-2 font-bold">•</span>
+<span>Lampirkan screenshot atau log error jika ada.</span>
+</li>
+<li class="flex items-start">
+<span class="mr-2 font-bold">•</span>
+<span>Tentukan prioritas sesuai dengan dampak bisnis.</span>
+</li>
+</ul>
+</section>
+<!-- Tiket Aktif (3) -->
+<section class="bg-surface-container-low p-6">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-sm font-black uppercase tracking-widest">Tiket Aktif (3)</h2>
+<!-- [Supabase query] SELECT * FROM tickets WHERE status != 'CLOSED' -->
+<span class="mono-data text-[10px] font-bold text-neutral-400">DB_REF: TICK_ACT_03</span>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-3 flex justify-between items-center group cursor-pointer hover:bg-neutral-100 transition-colors">
+<div>
+<p class="text-[10px] font-black uppercase mb-1">ERR_505_PARKING_GATE</p>
+<p class="mono-data text-[9px] text-neutral-500">ID: #88219</p>
+</div>
+<span class="bg-primary text-white text-[9px] px-2 py-1 font-bold">DIPROSES</span>
+</div>
+<div class="bg-surface-container-lowest p-3 flex justify-between items-center group cursor-pointer hover:bg-neutral-100 transition-colors">
+<div>
+<p class="text-[10px] font-black uppercase mb-1">API_LATENCY_REPORT</p>
+<p class="mono-data text-[9px] text-neutral-500">ID: #88190</p>
+</div>
+<span class="bg-secondary text-white text-[9px] px-2 py-1 font-bold">ANALISIS</span>
+</div>
+<div class="bg-surface-container-lowest p-3 flex justify-between items-center group cursor-pointer hover:bg-neutral-100 transition-colors">
+<div>
+<p class="text-[10px] font-black uppercase mb-1">WEBHOOK_NOT_FIRING</p>
+<p class="mono-data text-[9px] text-neutral-500">ID: #88155</p>
+</div>
+<span class="bg-outline-variant text-black text-[9px] px-2 py-1 font-bold">SELESAI</span>
+</div>
+</div>
+</section>
+<!-- Estimasi Respons -->
+<section class="bg-surface-container-highest p-6">
+<h2 class="text-sm font-black uppercase tracking-widest mb-4">SLA: Estimasi Respons</h2>
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="py-2 text-[10px] font-black uppercase">Priority</th>
+<th class="py-2 text-[10px] font-black uppercase">Timeframe</th>
+</tr>
+</thead>
+<tbody class="text-xs">
+<tr class="border-b border-outline-variant/30">
+<td class="py-3 font-bold uppercase text-red-700">Kritis</td>
+<td class="py-3 mono-data">30 Menit</td>
+</tr>
+<tr class="border-b border-outline-variant/30">
+<td class="py-3 font-bold uppercase">High</td>
+<td class="py-3 mono-data">2 Jam</td>
+</tr>
+<tr class="border-b border-outline-variant/30">
+<td class="py-3 font-bold uppercase">Medium</td>
+<td class="py-3 mono-data">6 Jam</td>
+</tr>
+<tr>
+<td class="py-3 font-bold uppercase">Low</td>
+<td class="py-3 mono-data">1 Hari Kerja</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Bantuan Darurat -->
+<section class="bg-black text-white p-8 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="emergency">emergency</span>
+<h2 class="text-xs font-black uppercase tracking-[0.2em] mb-2">Butuh Bantuan Darurat?</h2>
+<p class="text-[10px] text-neutral-400 mb-6 uppercase tracking-widest">Siaga 24/7 untuk Kendala Lapangan</p>
+<div class="mono-data text-2xl font-bold border-t border-b border-neutral-700 py-4 w-full">
+                            +62 800 1234 567
+                        </div>
+<p class="text-[8px] mt-4 uppercase text-neutral-500">Khusus untuk kendala operasional gerbang &amp; akses</p>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual System Status Overlay (Bottom Left) -->
+<div class="fixed bottom-4 left-68 bg-surface-container-lowest p-3 border-l-2 border-black z-30 shadow-sm flex items-center space-x-3">
+<div class="w-2 h-2 bg-black animate-pulse"></div>
+<div class="text-[10px] font-bold uppercase tracking-tighter">
+            System Agent Active
+            <span class="text-neutral-400 ml-2 mono-data">V2.4.1-STABLE</span>
+</div>
+</div>
+</body></html>

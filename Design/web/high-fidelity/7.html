@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB Developer Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#004080",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#d5ecf8",
+                        "tertiary": "#00295d",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-bright": "#f3faff",
+                        "outline": "#737781",
+                        "on-primary-container": "#83aef5",
+                        "on-secondary-container": "#6c5000",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#071e27",
+                        "on-surface-variant": "#424750",
+                        "secondary": "#785900",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c3c6d2",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "surface": "#f3faff",
+                        "surface-container-low": "#e6f6ff",
+                        "inverse-on-surface": "#dff4ff",
+                        "surface-dim": "#c7dde9",
+                        "primary": "#002a58",
+                        "surface-container-highest": "#cfe6f2",
+                        "tertiary-container": "#003e87",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f3faff",
+                        "on-primary-fixed-variant": "#0e4686",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-variant": "#cfe6f2",
+                        "inverse-surface": "#1e333c",
+                        "tertiary-fixed-dim": "#adc7ff",
+                        "secondary-fixed": "#ffdf9e",
+                        "on-secondary-fixed": "#261a00",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "surface-tint": "#305ea0",
+                        "secondary-container": "#fdc003",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "surface-container": "#dbf1fe",
+                        "secondary-fixed-dim": "#fabd00",
+                        "on-background": "#071e27",
+                        "primary-fixed": "#d6e3ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#001a41"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-100 dark:bg-slate-900 border-r border-slate-200/50 dark:border-slate-800/50 flex flex-col p-4 gap-2 z-40">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-bold text-blue-900 dark:text-blue-50 font-headline tracking-tighter">ParkITB</h1>
+<p class="text-xs text-on-surface-variant font-medium opacity-70">Developer Console</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<!-- Active: Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-white dark:bg-slate-800 text-blue-900 dark:text-blue-200 rounded-lg shadow-sm font-semibold transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span>Vehicles</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Revenue</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span>System</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span>Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 hover:translate-x-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-4 border-t border-slate-200/50 pt-4">
+<button class="w-full py-2.5 px-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-xl font-semibold shadow-lg text-sm hover:opacity-90 transition-opacity">
+                Export System Logs
+            </button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 transition-all text-sm" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+<span>Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-error hover:bg-error-container/20 transition-all text-sm" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 p-8 min-h-screen">
+<!-- Top Bar / Dashboard Header -->
+<header class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-4xl font-headline font-extrabold text-primary tracking-tight">Analytics Overview</h2>
+<p class="text-on-surface-variant font-medium">Real-time system health and performance monitoring</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full border border-outline-variant/10">
+<span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">System Live</span>
+</div>
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="professional portrait of a system administrator in a clean modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4ohJcsSW4exN4ty1bL0yKEM6gXUALx7t7Q0fy9xZePiI0YZ57y3koIgcNMo0WGmIdbqa1yKEKQ5LDYFSYy-nqdCtHJseFY5poKLUdoc-bM6s66Kgp-ldqtW6rwNoBrayWtABB50fS24sfkolkH1ApOeTU7aTeNcMgHXedpkn49_eooyYYw_2uNcx4V7cNnsietVhIuIS1DQ0R7Tnc694N2_bPrhrvmQ4Rvs24OCfD_V6crOZpPQukzsuRgu-4vFXe5Pd8rBy1fB4"/>
+</div>
+</div>
+</header>
+<!-- KPI Grid -->
+<section class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] border-l-4 border-primary">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Total Vehicles</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-2xl font-headline font-bold text-on-surface">12,842</h3>
+<span class="text-xs font-bold text-emerald-600">+12%</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] border-l-4 border-primary-container">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Success Trans.</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-2xl font-headline font-bold text-on-surface">99.8%</h3>
+<span class="text-xs font-bold text-emerald-600">Stable</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] border-l-4 border-secondary-container">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Revenue</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-2xl font-headline font-bold text-on-surface">$42.5k</h3>
+<span class="text-xs font-bold text-emerald-600">+5.4%</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] border-l-4 border-surface-tint">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Slot %</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-2xl font-headline font-bold text-on-surface">78.2%</h3>
+<span class="text-xs font-bold text-secondary">High</span>
+</div>
+</div>
+<!-- KPI 5 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] border-l-4 border-error">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Active Incidents</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-2xl font-headline font-bold text-on-surface">2</h3>
+<span class="text-xs font-bold text-error">Critical</span>
+</div>
+</div>
+</section>
+<!-- Charts Layout -->
+<section class="flex gap-6 mb-8">
+<!-- Revenue Line Chart (70%) -->
+<div class="w-[70%] bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<div>
+<h4 class="text-xl font-headline font-bold text-primary">Revenue Streams</h4>
+<p class="text-xs font-medium text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="sync">sync</span> 
+                            Labeled 'Supabase Realtime' • Live update every 5s
+                        </p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs font-bold rounded-full bg-surface-container text-primary">Day</button>
+<button class="px-3 py-1 text-xs font-bold rounded-full bg-primary text-white">Week</button>
+<button class="px-3 py-1 text-xs font-bold rounded-full bg-surface-container text-primary">Month</button>
+</div>
+</div>
+<!-- Line Chart Visualization (Mockup) -->
+<div class="h-64 w-full relative flex items-end justify-between px-2 gap-1">
+<div class="absolute inset-0 flex flex-col justify-between opacity-5">
+<div class="border-b border-on-surface w-full h-0"></div>
+<div class="border-b border-on-surface w-full h-0"></div>
+<div class="border-b border-on-surface w-full h-0"></div>
+<div class="border-b border-on-surface w-full h-0"></div>
+</div>
+<!-- Mock Line path with dots -->
+<div class="flex-1 flex items-end justify-between relative z-10 h-full py-4">
+<div class="h-[40%] w-2 bg-primary rounded-full opacity-20"></div>
+<div class="h-[55%] w-2 bg-primary rounded-full opacity-30"></div>
+<div class="h-[45%] w-2 bg-primary rounded-full opacity-40"></div>
+<div class="h-[75%] w-2 bg-primary rounded-full opacity-50"></div>
+<div class="h-[65%] w-2 bg-primary rounded-full opacity-60"></div>
+<div class="h-[85%] w-2 bg-primary rounded-full opacity-70"></div>
+<div class="h-[95%] w-2 bg-primary rounded-full"></div>
+</div>
+<svg class="absolute inset-0 w-full h-64 pointer-events-none" preserveaspectratio="none">
+<path class="text-primary" d="M0,200 Q150,150 300,180 T600,100 T900,50" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<circle class="text-primary" cx="900" cy="50" fill="white" r="4" stroke="currentColor" stroke-width="2"></circle>
+</svg>
+</div>
+</div>
+<!-- Vehicle In/Out Bar Chart (30%) -->
+<div class="w-[30%] bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)]">
+<h4 class="text-xl font-headline font-bold text-primary mb-6">Traffic Volume</h4>
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+<span>Inbound</span>
+<span>842 vehicles</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[75%] rounded-full"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+<span>Outbound</span>
+<span>612 vehicles</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[55%] rounded-full"></div>
+</div>
+</div>
+<div class="mt-4 p-4 bg-surface-container-low rounded-xl">
+<p class="text-xs font-medium text-on-surface-variant italic leading-relaxed">
+                            "Morning peak hour detected. Automated gate calibration in progress."
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Lower Grid: Table and Mini Panel -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Recent Transactions Table -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] overflow-hidden">
+<div class="p-8 pb-4">
+<h4 class="text-xl font-headline font-bold text-primary">Recent Transactions</h4>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface text-on-surface-variant uppercase text-[10px] font-bold tracking-[0.1em]">
+<tr>
+<th class="px-8 py-4">Vehicle ID</th>
+<th class="px-8 py-4">Entry Point</th>
+<th class="px-8 py-4">Duration</th>
+<th class="px-8 py-4">Amount</th>
+<th class="px-8 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-5 text-sm font-semibold">B 1234 ITB</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Gate North-1</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">2h 14m</td>
+<td class="px-8 py-5 text-sm font-bold">$12.00</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold uppercase">Success</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-5 text-sm font-semibold">D 4567 ABC</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Gate South-3</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">0h 45m</td>
+<td class="px-8 py-5 text-sm font-bold">$4.50</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold uppercase">Success</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-5 text-sm font-semibold">F 8901 XYZ</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Gate East-2</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">4h 02m</td>
+<td class="px-8 py-5 text-sm font-bold">$24.00</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] font-bold uppercase">Pending</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- System Health Mini-Panel -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(0,42,88,0.04)] flex flex-col gap-6">
+<h4 class="text-xl font-headline font-bold text-primary">System Health</h4>
+<div class="flex flex-col gap-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="dns">dns</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold">API Gateway</span>
+<span class="text-[10px] font-bold text-emerald-600">99.9%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full">
+<div class="h-full bg-emerald-500 w-[99.9%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="storage">storage</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold">PostgreSQL Cluster</span>
+<span class="text-[10px] font-bold text-emerald-600">Active</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full">
+<div class="h-full bg-emerald-500 w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-error-container/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="videocam_off">videocam_off</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold">CCTV Node E-2</span>
+<span class="text-[10px] font-bold text-error">Offline</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full">
+<div class="h-full bg-error w-[15%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto border-t border-surface pt-6">
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">Recent Logs</p>
+<div class="flex flex-col gap-2">
+<div class="text-[11px] font-mono bg-surface p-2 rounded border-l-2 border-primary-container text-primary flex items-start gap-2">
+<span class="opacity-50">14:22:15</span>
+<span>AUTH_SUCCESS [USR_492]</span>
+</div>
+<div class="text-[11px] font-mono bg-surface p-2 rounded border-l-2 border-error text-error flex items-start gap-2">
+<span class="opacity-50">14:20:01</span>
+<span>GATE_TIMEOUT [NODE_E2]</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Global Layout Decorative Background Elements -->
+<div class="fixed bottom-0 right-0 w-96 h-96 bg-primary opacity-[0.02] blur-[120px] pointer-events-none -z-10"></div>
+<div class="fixed top-20 left-64 w-64 h-64 bg-secondary-container opacity-[0.03] blur-[100px] pointer-events-none -z-10"></div>
+</body></html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#acabab",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary": "#3a3c3c",
+                    "surface-variant": "#e2e2e2",
+                    "on-error-container": "#410002",
+                    "outline": "#777777",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#e3e2e2",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed": "#5d5e5f",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#474747",
+                    "tertiary-container": "#747575",
+                    "primary-fixed-dim": "#474746",
+                    "on-secondary-container": "#1b1c1c",
+                    "primary-container": "#3c3b3b",
+                    "secondary-container": "#d5d4d4",
+                    "primary": "#000000",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5f5e5e",
+                    "secondary": "#5e5e5e",
+                    "outline-variant": "#c6c6c6",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eeeeee",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3b3b3c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e3e2e2",
+                    "on-primary-fixed-variant": "#e5e2e1",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-surface": "#1a1c1c",
+                    "on-primary-fixed": "#ffffff",
+                    "tertiary-fixed-dim": "#464747",
+                    "on-tertiary-container": "#ffffff",
+                    "secondary-fixed": "#c7c6c6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#e5e2e1",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; }
+        .material-symbols-outlined { font-size: 20px; vertical-align: middle; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Top Navigation Bar (Satpam Role Style) -->
+<header class="bg-surface-container-highest text-black font-['Inter'] font-bold tracking-tight uppercase flex justify-between items-center w-full px-6 h-16 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-black tracking-tighter">ParkITB</span>
+<div class="h-6 w-[2px] bg-outline-variant"></div>
+<span class="text-sm font-semibold tracking-widest text-secondary">LIVE MONITORING</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="border-b-4 border-black text-black pb-1 transition-colors duration-150" href="#">Dashboard</a>
+<a class="text-zinc-600 hover:bg-zinc-300 transition-colors duration-150" href="#">Vehicles</a>
+<a class="text-zinc-600 hover:bg-zinc-300 transition-colors duration-150" href="#">Transactions</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="text-right hidden sm:block">
+<p class="text-[10px] leading-none text-secondary">SYSTEM TIME</p>
+<p class="text-sm font-black tracking-tighter">14:32:05</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-bold">SATPAM UNIT 04</span>
+<img alt="Satpam Profile" class="w-8 h-8 bg-surface-container-low border border-outline-variant" data-alt="close-up portrait of a security officer in a grey uniform looking professional and alert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1irVXBhgaFp8B7u35nfkzBDdr0vYBbAILj_POu0azAdkqqnIpZ47u6ERnjUxKE_mNv2Ho78aw7EJTtyJV16Qd-kbnsmOWbsKTt1nHKwOexLVxaRp4yuNAS1vu7e4IU-WX5WQbu0cNzd38iVG0_OUzmnUUAbdvsu5IMhXh0fT742Z_7I7l7JhrGY4Azo_i_HycwOoNdkmteCr358rdkiEzsop8GAPKtH1MYnC-gg5fVCHdlFx48U_3pImpsHTpX8ycyOQiQ2TRSJAv"/>
+<button class="material-symbols-outlined text-black hover:bg-zinc-300 p-1">logout</button>
+</div>
+</div>
+</header>
+<main class="p-6 space-y-6 max-w-[1600px] mx-auto">
+<!-- Alert Banner Area -->
+<section class="bg-surface-container-low p-1 flex items-center justify-between">
+<div class="flex items-center gap-4 px-4 py-2 bg-primary text-white flex-1 mr-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="text-xs font-black uppercase tracking-widest">Active Alerts</span>
+<div class="flex gap-2 ml-4">
+<span class="bg-primary text-white px-3 py-1 text-[10px] font-bold border border-white">KRITIS: 0</span>
+<span class="bg-secondary text-white px-3 py-1 text-[10px] font-bold">PERINGATAN: 2</span>
+<span class="bg-outline-variant text-black px-3 py-1 text-[10px] font-bold">INFO: 5</span>
+</div>
+</div>
+<div class="px-4 text-xs font-medium text-secondary italic">
+                Scanning system protocols... All gateways synchronized.
+            </div>
+</section>
+<!-- Gate Status Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Gate Barat -->
+<div class="bg-surface-container-lowest p-5 border-l-4 border-black">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-[10px] font-black uppercase text-secondary tracking-widest mb-1">Gateway ID</h3>
+<p class="text-lg font-black tracking-tighter">GATE BARAT</p>
+</div>
+<span class="bg-outline-variant text-black px-2 py-0.5 text-[10px] font-bold">ONLINE</span>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Last Activity</span>
+<span class="font-bold">2 mins ago</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Vehicle Count</span>
+<span class="font-bold">142</span>
+</div>
+</div>
+<button class="w-full bg-surface-container text-black py-2 text-[10px] font-black uppercase tracking-tighter hover:bg-primary hover:text-white transition-colors duration-150">Manual Override</button>
+</div>
+<!-- Gate Timur -->
+<div class="bg-surface-container-lowest p-5 border-l-4 border-black">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-[10px] font-black uppercase text-secondary tracking-widest mb-1">Gateway ID</h3>
+<p class="text-lg font-black tracking-tighter">GATE TIMUR</p>
+</div>
+<span class="bg-outline-variant text-black px-2 py-0.5 text-[10px] font-bold">ONLINE</span>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Last Activity</span>
+<span class="font-bold">Just now</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Vehicle Count</span>
+<span class="font-bold">89</span>
+</div>
+</div>
+<button class="w-full bg-surface-container text-black py-2 text-[10px] font-black uppercase tracking-tighter hover:bg-primary hover:text-white transition-colors duration-150">Manual Override</button>
+</div>
+<!-- Gate Selatan -->
+<div class="bg-surface-container-lowest p-5 border-l-4 border-primary">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-[10px] font-black uppercase text-secondary tracking-widest mb-1">Gateway ID</h3>
+<p class="text-lg font-black tracking-tighter">GATE SELATAN</p>
+</div>
+<span class="bg-primary text-white px-2 py-0.5 text-[10px] font-bold">OFFLINE</span>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Last Activity</span>
+<span class="font-bold">14 mins ago</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Vehicle Count</span>
+<span class="font-bold">--</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-2 text-[10px] font-black uppercase tracking-tighter hover:bg-primary-container transition-colors duration-150">Re-Initialize</button>
+</div>
+<!-- Gate Utara -->
+<div class="bg-surface-container-lowest p-5 border-l-4 border-black">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-[10px] font-black uppercase text-secondary tracking-widest mb-1">Gateway ID</h3>
+<p class="text-lg font-black tracking-tighter">GATE UTARA</p>
+</div>
+<span class="bg-outline-variant text-black px-2 py-0.5 text-[10px] font-bold">ONLINE</span>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Last Activity</span>
+<span class="font-bold">5 mins ago</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Vehicle Count</span>
+<span class="font-bold">210</span>
+</div>
+</div>
+<button class="w-full bg-surface-container text-black py-2 text-[10px] font-black uppercase tracking-tighter hover:bg-primary hover:text-white transition-colors duration-150">Manual Override</button>
+</div>
+</section>
+<!-- Main Dashboard Content -->
+<div class="flex flex-col lg:flex-row gap-6">
+<!-- Left: Incident Feed (60%) -->
+<div class="lg:w-3/5 bg-surface-container-lowest p-6">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-2xl font-black tracking-tighter uppercase leading-none">Live Incident Feed</h2>
+<p class="text-[10px] font-bold tracking-[0.2em] text-secondary mt-1">REAL-TIME TELEMETRY DATA</p>
+</div>
+<button class="text-[10px] font-bold border-b-2 border-black pb-1 hover:text-outline transition-colors">EXPORT LOGS</button>
+</div>
+<div class="overflow-y-auto max-h-[600px] pr-4 space-y-4">
+<!-- Feed Item 1 -->
+<div class="group flex items-center gap-4 p-4 hover:bg-surface-container transition-colors duration-150">
+<div class="w-12 text-center">
+<p class="text-[10px] font-black leading-tight">14:28</p>
+<p class="text-[8px] text-secondary">SEC</p>
+</div>
+<div class="h-10 w-[2px] bg-secondary group-hover:bg-primary transition-colors"></div>
+<div class="flex-1">
+<p class="text-[10px] font-bold uppercase text-secondary">GATE TIMUR • UNAUTHORIZED ATTEMPT</p>
+<p class="text-sm font-bold">License Plate D 1234 ABC - Rejected</p>
+</div>
+<span class="bg-secondary text-white px-2 py-1 text-[10px] font-bold">PERINGATAN</span>
+</div>
+<!-- Feed Item 2 -->
+<div class="group flex items-center gap-4 p-4 hover:bg-surface-container transition-colors duration-150">
+<div class="w-12 text-center">
+<p class="text-[10px] font-black leading-tight">14:25</p>
+<p class="text-[8px] text-secondary">SEC</p>
+</div>
+<div class="h-10 w-[2px] bg-outline-variant group-hover:bg-primary transition-colors"></div>
+<div class="flex-1">
+<p class="text-[10px] font-bold uppercase text-secondary">GATE BARAT • ENTRY SUCCESS</p>
+<p class="text-sm font-bold">Staff Vehicle B 99 XX - Cleared</p>
+</div>
+<span class="bg-outline-variant text-black px-2 py-1 text-[10px] font-bold">INFO</span>
+</div>
+<!-- Feed Item 3 -->
+<div class="group flex items-center gap-4 p-4 hover:bg-surface-container transition-colors duration-150">
+<div class="w-12 text-center">
+<p class="text-[10px] font-black leading-tight">14:22</p>
+<p class="text-[8px] text-secondary">SEC</p>
+</div>
+<div class="h-10 w-[2px] bg-outline-variant group-hover:bg-primary transition-colors"></div>
+<div class="flex-1">
+<p class="text-[10px] font-bold uppercase text-secondary">GATE TIMUR • EXIT SUCCESS</p>
+<p class="text-sm font-bold">Visitor Z 4567 TY - Payment Verified</p>
+</div>
+<span class="bg-outline-variant text-black px-2 py-1 text-[10px] font-bold">INFO</span>
+</div>
+<!-- Feed Item 4 -->
+<div class="group flex items-center gap-4 p-4 hover:bg-surface-container transition-colors duration-150 bg-surface-container-low">
+<div class="w-12 text-center">
+<p class="text-[10px] font-black leading-tight">14:18</p>
+<p class="text-[8px] text-secondary">SEC</p>
+</div>
+<div class="h-10 w-[2px] bg-secondary group-hover:bg-primary transition-colors"></div>
+<div class="flex-1">
+<p class="text-[10px] font-bold uppercase text-secondary">GATE SELATAN • SYSTEM TIMEOUT</p>
+<p class="text-sm font-bold">Controller Board #04 Unresponsive</p>
+</div>
+<span class="bg-secondary text-white px-2 py-1 text-[10px] font-bold">PERINGATAN</span>
+</div>
+<!-- Feed Item 5 -->
+<div class="group flex items-center gap-4 p-4 hover:bg-surface-container transition-colors duration-150">
+<div class="w-12 text-center">
+<p class="text-[10px] font-black leading-tight">14:15</p>
+<p class="text-[8px] text-secondary">SEC</p>
+</div>
+<div class="h-10 w-[2px] bg-outline-variant group-hover:bg-primary transition-colors"></div>
+<div class="flex-1">
+<p class="text-[10px] font-bold uppercase text-secondary">GATE UTARA • ENTRY SUCCESS</p>
+<p class="text-sm font-bold">Student Vehicle D 5678 FG - Cleared</p>
+</div>
+<span class="bg-outline-variant text-black px-2 py-1 text-[10px] font-bold">INFO</span>
+</div>
+</div>
+</div>
+<!-- Right: Zone Map (40%) -->
+<div class="lg:w-2/5 space-y-6">
+<div class="bg-surface-container-lowest p-6 h-full">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="text-xl font-black tracking-tighter uppercase leading-none">Parking Grid</h2>
+<p class="text-[10px] font-bold tracking-[0.2em] text-secondary mt-1">CAPACITY: 850 SLOTS</p>
+</div>
+<div class="flex gap-2">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 bg-primary"></div>
+<span class="text-[8px] font-bold">FULL</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 bg-secondary"></div>
+<span class="text-[8px] font-bold">BUSY</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 bg-outline-variant"></div>
+<span class="text-[8px] font-bold">OPEN</span>
+</div>
+</div>
+</div>
+<!-- Simplified Map Grid -->
+<div class="grid grid-cols-4 gap-2 aspect-square md:aspect-auto md:h-[450px]">
+<!-- Zone A -->
+<div class="col-span-2 row-span-2 bg-surface-container-high relative p-4 group">
+<p class="text-[10px] font-black">ZONE A</p>
+<p class="text-2xl font-black mt-2">12/80</p>
+<div class="absolute bottom-4 right-4 w-4 h-4 bg-outline-variant"></div>
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-black pointer-events-none"></div>
+</div>
+<!-- Zone B -->
+<div class="col-span-2 bg-primary text-white relative p-4 group">
+<p class="text-[10px] font-black">ZONE B</p>
+<p class="text-lg font-black mt-1">FULL</p>
+<div class="absolute bottom-2 right-2 w-2 h-2 bg-white"></div>
+</div>
+<!-- Zone C -->
+<div class="bg-surface-container relative p-2 border border-outline-variant/20">
+<p class="text-[8px] font-bold">C1</p>
+<div class="mt-1 h-1 bg-primary w-full"></div>
+</div>
+<!-- Zone D -->
+<div class="bg-surface-container relative p-2 border border-outline-variant/20">
+<p class="text-[8px] font-bold">C2</p>
+<div class="mt-1 h-1 bg-outline-variant w-full"></div>
+</div>
+<!-- Map Image Placeholder -->
+<div class="col-span-4 row-span-2 relative bg-surface-container-high border-2 border-outline-variant/20 flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<div class="w-full h-full" style="background-image: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
+</div>
+<div class="z-10 text-center">
+<span class="material-symbols-outlined text-4xl mb-2">map</span>
+<p class="text-[10px] font-black tracking-widest uppercase">Center Hub Detail</p>
+</div>
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-multiply" data-alt="architectural site plan of a University parking lot with clean lines and schematic grid overlays in black and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe-0S0m4yG4hAQyuNCshUKO0ZNGOn1uQ0dlqCCyAm6YtflvnS_pnxIDzHYAy_-uMTw-uCDeDAaSO1empT9wu2gKVTuGRNdvRRb87x5nx8I7XhsnumUfaaL8NvwyiGJY8P-n5IpZ5UGoJifVHEHxpI7eLzE0pMdHfXvLnuOXxrKGUnqDBBuHgIX-kzn84lVVIwpCKM943BZsucnXLVIcdBpf81PB86Uj72mWNDeydsPib0scUbki_NTXCRHrpOgwJ3a18gd9s14tIAt"/>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-outline-variant/30 flex justify-between items-center">
+<div class="text-xs font-bold">Total Occupancy</div>
+<div class="flex items-center gap-4">
+<div class="text-right">
+<span class="text-2xl font-black">74%</span>
+</div>
+<div class="w-32 h-4 bg-surface-container">
+<div class="bg-primary h-full w-[74%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden on this transactional/monitoring view per guidelines) -->
+<!-- Footer Branding -->
+<footer class="p-8 mt-12 bg-black text-white">
+<div class="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
+<div>
+<p class="text-3xl font-black italic tracking-tighter">ParkITB</p>
+<p class="text-[10px] font-bold tracking-[0.4em] uppercase text-zinc-500 mt-2">Institutional Parking Infrastructure</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase">Gateway Status</p>
+<ul class="text-xs space-y-2 font-bold">
+<li>System Mesh: Operational</li>
+<li>Sync Delay: 14ms</li>
+<li>Nodes Active: 42/42</li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase">Quick Actions</p>
+<ul class="text-xs space-y-2 font-bold">
+<li>Emergency Lock</li>
+<li>Broadcat Alert</li>
+<li>Clear Logs</li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase">Support</p>
+<ul class="text-xs space-y-2 font-bold">
+<li>IT Helpdesk</li>
+<li>System Docs</li>
+<li>Report Bug</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-[1600px] mx-auto border-t border-zinc-800 mt-12 pt-8 flex justify-between text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
+<span>© 2024 ITB Infrastructure Division</span>
+<span>Version 2.4.0-Stable</span>
+</div>
+</footer>
+</body></html>

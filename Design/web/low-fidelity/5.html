@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#acabab",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary": "#3a3c3c",
+                    "surface-variant": "#e2e2e2",
+                    "on-error-container": "#410002",
+                    "outline": "#777777",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#e3e2e2",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed": "#5d5e5f",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#474747",
+                    "tertiary-container": "#747575",
+                    "primary-fixed-dim": "#474746",
+                    "on-secondary-container": "#1b1c1c",
+                    "primary-container": "#3c3b3b",
+                    "secondary-container": "#d5d4d4",
+                    "primary": "#000000",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5f5e5e",
+                    "secondary": "#5e5e5e",
+                    "outline-variant": "#c6c6c6",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eeeeee",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3b3b3c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#e3e2e2",
+                    "on-primary-fixed-variant": "#e5e2e1",
+                    "on-tertiary-fixed": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-surface": "#1a1c1c",
+                    "on-primary-fixed": "#ffffff",
+                    "tertiary-fixed-dim": "#464747",
+                    "on-tertiary-container": "#ffffff",
+                    "secondary-fixed": "#c7c6c6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary-fixed": "#5f5e5e",
+                    "on-primary-container": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#e5e2e1",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased">
+<!-- TopNavBar (Satpam Role) -->
+<header class="bg-[#e2e2e2] dark:bg-zinc-800 text-black dark:text-white font-['Inter'] font-bold tracking-tight uppercase docked full-width top-0 flex justify-between items-center w-full px-6 h-16 transition-colors duration-150">
+<div class="text-xl font-black text-black dark:text-white tracking-tighter">ParkITB</div>
+<nav class="hidden md:flex items-center space-x-8 h-full">
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors duration-150 h-full flex items-center px-2" href="#">Dashboard</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors duration-150 h-full flex items-center px-2" href="#">Vehicles</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors duration-150 h-full flex items-center px-2" href="#">Transactions</a>
+<!-- Manual Override Active -->
+<a class="border-b-4 border-black dark:border-white text-black dark:text-white pb-1 h-full flex items-center px-2" href="#">Manual Override</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-black dark:text-white">notifications</button>
+<button class="material-symbols-outlined text-black dark:text-white">schedule</button>
+<img alt="Satpam Profile" class="w-8 h-8 bg-surface-container-highest" data-alt="Close up of a professional security guard in a crisp uniform looking authoritative but approachable" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn0Ri1-QHsde_AebyCK3-dYvgIXwZeSDAjP8tVeryNwOm6DzHhDJN_7v1S_qeLC65XMf0ghdlwp2gJH7vsUy-ogiyqVsiX5U_BY3fzquikwoxS8TbmZadDcWldqZWEt-hZkcciEZKUJ3TqeQFj2mz3WGCHg07_u-FUxNU3I1g2VanNc-dpBJdIjKJMzDXuGVKCvDpe-7mtGH2RV-RGXY5YMQI9Owrtza1vr37kfrOfT6ID8qAX96CNclG6kibyTyjYnWX62LNGmGj_"/>
+</div>
+</header>
+<main class="max-w-[1400px] mx-auto p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Manual Override Form -->
+<section class="lg:col-span-7 bg-surface-container-lowest p-10">
+<header class="mb-10">
+<h1 class="text-4xl font-black tracking-tighter uppercase mb-2">Manual Vehicle Override</h1>
+<p class="text-on-surface-variant text-sm tracking-wide">AUTHORIZATION PROTOCOL FOR UNREGISTERED OR SYSTEM-FAILURE VEHICLES</p>
+</header>
+<form class="space-y-8">
+<!-- Plate Number: Massive Input -->
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Plate Number</label>
+<input class="w-full text-6xl font-black bg-surface-container-low border-0 border-b-2 border-primary focus:border-b-[4px] focus:ring-0 uppercase placeholder:text-surface-variant p-4 transition-all" placeholder="B 1234 ABC" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<!-- Vehicle Type Selection -->
+<div class="space-y-4">
+<label class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Vehicle Type</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-primary text-white py-4 flex flex-col items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="text-[10px] font-bold uppercase">Mobil</span>
+</button>
+<button class="bg-surface-container-high text-on-surface py-4 flex flex-col items-center justify-center gap-2 hover:bg-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="moped">moped</span>
+<span class="text-[10px] font-bold uppercase">Motor</span>
+</button>
+</div>
+</div>
+<!-- Entry/Exit Selector -->
+<div class="space-y-4">
+<label class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Flow Direction</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-surface-container-high text-on-surface py-4 flex flex-col items-center justify-center gap-2 hover:bg-surface-variant transition-colors border-2 border-transparent focus:border-primary" type="button">
+<span class="material-symbols-outlined" data-icon="login">login</span>
+<span class="text-[10px] font-bold uppercase">Entry</span>
+</button>
+<button class="bg-surface-container-high text-on-surface py-4 flex flex-col items-center justify-center gap-2 hover:bg-surface-variant transition-colors border-2 border-transparent focus:border-primary" type="button">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-[10px] font-bold uppercase">Exit</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<!-- Gate Selector -->
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Gate Assignment</label>
+<select class="w-full bg-surface-container text-sm font-bold border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 p-3 appearance-none">
+<option>GATE 01 - NORTH ENTRANCE</option>
+<option>GATE 02 - NORTH EXIT</option>
+<option>GATE 03 - SOUTH ENTRANCE</option>
+<option>GATE 04 - SOUTH EXIT</option>
+</select>
+</div>
+<!-- Reason Dropdown -->
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Override Reason</label>
+<select class="w-full bg-surface-container text-sm font-bold border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 p-3 appearance-none">
+<option>CAMERA FAILURE</option>
+<option>CARD NOT READABLE</option>
+<option>VIP ACCESS</option>
+<option>EMERGENCY VEHICLE</option>
+<option>OTHER</option>
+</select>
+</div>
+</div>
+<!-- Notes Textarea -->
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">Additional Notes</label>
+<textarea class="w-full bg-surface-container text-sm border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 p-4 resize-none" placeholder="PROVIDE CONTEXT FOR AUDIT PURPOSES..." rows="3"></textarea>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary text-white py-6 text-lg font-black uppercase tracking-widest hover:bg-primary-container active:scale-[0.99] transition-all" type="submit">
+                    Izinkan Masuk/Keluar
+                </button>
+</form>
+</section>
+<!-- Right Column: Recent Overrides & Camera Feed -->
+<aside class="lg:col-span-5 space-y-8">
+<!-- Live Camera Placeholder -->
+<div class="bg-primary aspect-video flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<div class="w-2 h-2 bg-error animate-pulse"></div>
+<span class="text-[10px] text-white font-bold uppercase tracking-widest">LIVE - GATE 01</span>
+</div>
+<span class="material-symbols-outlined text-white/20 text-6xl" data-icon="videocam">videocam</span>
+<div class="absolute inset-0 border-[16px] border-white/5 pointer-events-none"></div>
+<img alt="Gate Monitor" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="CCTV perspective of a parking entrance gate with concrete pillars and a black metal barrier arm under harsh overhead lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV0RKfdKh48HTsjtBO8zySd00bgw9M9LVLb5oUEa8nM9KxlNMABgvDiKi4qQJGAsg6VlE7MSuBAGaUwZVXuC_7tetJAQOq3AcjPtJpYzr4KbbJhUGgpZEUgS4etAhow4_ffaAHxBz1FX8xko1qFYkoTzxV0xVrIecXJGTdq8UTFl0GfR-drB282akU5hzio58TGhFPNXWIPhAK-xNg9YVwCkRs5HbDpCnfKKJNsWrfdqTxFjOjuKJsAeP8VXVPNbKXfxlLBFTnpSR_"/>
+</div>
+<!-- Recent Overrides Table -->
+<div class="bg-surface-container-lowest p-8 border-t-8 border-primary">
+<div class="flex justify-between items-end mb-6">
+<h2 class="text-xl font-black uppercase tracking-tight">Recent Activity</h2>
+<span class="text-[10px] font-bold text-outline uppercase tracking-widest">Last 5 Manual Entries</span>
+</div>
+<div class="space-y-4">
+<!-- Entry 1 -->
+<div class="group border-b border-outline-variant/20 pb-4 flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="bg-primary text-white text-[8px] px-1 font-bold">MOBIL</span>
+<span class="text-lg font-black tracking-tight">D 1945 ITB</span>
+</div>
+<p class="text-[10px] text-on-surface-variant font-medium">CAM_FAIL • GATE 01 • 14:22</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="receipt_long">receipt_long</span>
+</div>
+<!-- Entry 2 -->
+<div class="group border-b border-outline-variant/20 pb-4 flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="bg-secondary text-white text-[8px] px-1 font-bold">MOTOR</span>
+<span class="text-lg font-black tracking-tight">B 8888 SSS</span>
+</div>
+<p class="text-[10px] text-on-surface-variant font-medium">VIP_ACC • GATE 03 • 14:05</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="receipt_long">receipt_long</span>
+</div>
+<!-- Entry 3 -->
+<div class="group border-b border-outline-variant/20 pb-4 flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="bg-primary text-white text-[8px] px-1 font-bold">MOBIL</span>
+<span class="text-lg font-black tracking-tight">F 123 XY</span>
+</div>
+<p class="text-[10px] text-on-surface-variant font-medium">CARD_ERR • GATE 01 • 13:50</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="receipt_long">receipt_long</span>
+</div>
+<!-- Entry 4 -->
+<div class="group border-b border-outline-variant/20 pb-4 flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="bg-primary text-white text-[8px] px-1 font-bold">MOBIL</span>
+<span class="text-lg font-black tracking-tight">B 404 NF</span>
+</div>
+<p class="text-[10px] text-on-surface-variant font-medium">OTHER • GATE 04 • 13:12</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="receipt_long">receipt_long</span>
+</div>
+<!-- Entry 5 -->
+<div class="group border-b border-outline-variant/20 pb-4 flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="bg-secondary text-white text-[8px] px-1 font-bold">MOTOR</span>
+<span class="text-lg font-black tracking-tight">D 2024 PRK</span>
+</div>
+<p class="text-[10px] text-on-surface-variant font-medium">CARD_ERR • GATE 02 • 12:45</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="receipt_long">receipt_long</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-[10px] font-bold uppercase border border-outline-variant hover:bg-surface-container transition-colors tracking-[0.2em]">View Full Audit Log</button>
+</div>
+<!-- Emergency Protocol Card -->
+<div class="bg-error text-white p-6 flex items-start gap-4">
+<span class="material-symbols-outlined text-3xl" data-icon="warning">warning</span>
+<div>
+<h3 class="text-sm font-black uppercase tracking-tighter mb-1">Emergency Lockdown</h3>
+<p class="text-[10px] leading-relaxed opacity-80 uppercase font-bold">Use only if the physical barrier is non-responsive. All manual overrides are logged and synchronized with the central cloud database in real-time.</p>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer Status Bar -->
+<footer class="fixed bottom-0 w-full bg-primary text-white h-8 flex items-center px-6 justify-between text-[9px] font-bold uppercase tracking-widest">
+<div class="flex gap-4">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> System Online</span>
+<span class="opacity-50">v4.0.2-arch</span>
+</div>
+<div class="flex gap-4">
+<span>Terminal: GATE_01_SRV</span>
+<span>Uptime: 142h 22m</span>
+</div>
+</footer>
+</body></html>

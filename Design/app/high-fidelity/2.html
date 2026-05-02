@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB - Masuk Ke Akun Anda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Floating Label Logic */
+        .input-group:focus-within label,
+        .input-group input:not(:placeholder-shown) + label {
+            transform: translateY(-1.5rem) scale(0.85);
+            color: #002653;
+            background-color: #ffffff;
+            padding: 0 0.25rem;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#abc7ff",
+                        "secondary-container": "#5fa6fd",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "outline": "#747780",
+                        "surface-dim": "#d9dadc",
+                        "secondary-fixed-dim": "#a4c9ff",
+                        "on-tertiary-fixed": "#291800",
+                        "on-secondary-container": "#003a6d",
+                        "tertiary-fixed": "#ffddb4",
+                        "on-surface-variant": "#43474f",
+                        "primary": "#002653",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#8aa8e0",
+                        "background": "#f8f9fb",
+                        "on-secondary-fixed-variant": "#004884",
+                        "on-tertiary-container": "#e4980e",
+                        "primary-fixed": "#d7e3ff",
+                        "inverse-surface": "#2e3132",
+                        "surface-bright": "#f8f9fb",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#563600",
+                        "surface-variant": "#e1e2e4",
+                        "tertiary": "#392200",
+                        "primary-container": "#1a3c6e",
+                        "surface-tint": "#405e92",
+                        "secondary-fixed": "#d4e3ff",
+                        "inverse-primary": "#abc7ff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#001c39",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-container-high": "#e7e8ea",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c4c6d0",
+                        "surface-container": "#edeef0",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "secondary": "#005fac",
+                        "on-primary-fixed": "#001b3f",
+                        "surface-container-highest": "#e1e2e4",
+                        "surface": "#f8f9fb",
+                        "on-primary-fixed-variant": "#264679"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-background min-h-screen flex flex-col justify-between antialiased">
+<!-- Suppressed Shell: Linear Transactional Page -->
+<main class="flex-grow flex items-center justify-center px-6 py-12">
+<div class="w-full max-w-md space-y-10">
+<!-- Brand Anchor -->
+<header class="flex flex-col items-center text-center space-y-4">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-primary-container text-white">
+<span class="material-symbols-outlined text-4xl" data-icon="account_balance">account_balance</span>
+</div>
+<div class="space-y-1">
+<h1 class="font-headline font-bold text-3xl tracking-tight text-primary">ParkITB</h1>
+<p class="text-on-surface-variant font-body text-sm tracking-wide">Sistem Parkir Institusi Terpadu</p>
+</div>
+</header>
+<!-- Login Form Section -->
+<section class="bg-surface-container-lowest p-8 rounded-[1.5rem] shadow-[0_8px_32px_rgba(0,38,83,0.04)] space-y-8">
+<div class="space-y-2">
+<h2 class="text-xl font-headline font-bold text-primary">Selamat Datang Kembali</h2>
+<p class="text-on-surface-variant text-sm">Masuk untuk mengelola parkir Anda</p>
+</div>
+<form class="space-y-6">
+<!-- Email Field -->
+<div class="relative input-group">
+<input class="peer w-full h-14 px-4 pt-2 border border-outline-variant rounded-xl text-on-surface font-body transition-all focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-transparent" id="email" placeholder=" " type="email"/>
+<label class="absolute left-4 top-4 text-on-surface-variant transition-all duration-200 pointer-events-none font-body origin-left" for="email">
+                            Email
+                        </label>
+</div>
+<!-- Password Field -->
+<div class="relative input-group">
+<input class="peer w-full h-14 px-4 pt-2 border border-outline-variant rounded-xl text-on-surface font-body transition-all focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-transparent" id="password" placeholder=" " type="password"/>
+<label class="absolute left-4 top-4 text-on-surface-variant transition-all duration-200 pointer-events-none font-body origin-left" for="password">
+                            Kata Sandi
+                        </label>
+</div>
+<div class="flex justify-end">
+<a class="text-secondary font-medium text-sm hover:underline" href="#">Lupa kata sandi?</a>
+</div>
+<!-- CTA Button -->
+<button class="w-full h-14 bg-primary text-white font-headline font-bold rounded-xl shadow-lg shadow-primary/10 hover:opacity-90 active:scale-[0.98] transition-all duration-150">
+                        Masuk
+                    </button>
+</form>
+<!-- Divider -->
+<div class="flex items-center gap-4">
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+<span class="text-xs text-on-surface-variant font-label uppercase tracking-widest">Atau</span>
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+</div>
+<!-- SSO Placeholder (Institutional feel) -->
+<button class="w-full h-12 flex items-center justify-center gap-3 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors duration-200">
+<span class="material-symbols-outlined text-xl" data-icon="school">school</span>
+<span class="text-on-surface font-semibold text-sm">Masuk dengan SSO ITB</span>
+</button>
+</section>
+<!-- Institutional Footer Info -->
+<footer class="text-center space-y-6">
+<p class="text-sm text-on-surface-variant">
+                    Belum punya akun? 
+                    <a class="text-secondary font-bold hover:underline" href="#">Daftar sekarang</a>
+</p>
+<div class="pt-8">
+<div class="flex justify-center items-center gap-8 grayscale opacity-40">
+<div class="h-8 w-24 bg-surface-container rounded flex items-center justify-center text-[10px] font-bold uppercase tracking-tighter overflow-hidden">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="verified_user">verified_user</span> Security
+                        </div>
+<div class="h-8 w-24 bg-surface-container rounded flex items-center justify-center text-[10px] font-bold uppercase tracking-tighter overflow-hidden">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="cloud_done">cloud_done</span> Encrypted
+                        </div>
+</div>
+</div>
+</footer>
+</div>
+</main>
+<!-- Decoration element: Abstract subtle gradient background -->
+<div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+<div class="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-secondary/5 blur-[120px]"></div>
+</div>
+</body></html>

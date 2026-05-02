@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB — Notifications &amp; Alerts Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#004080",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#d5ecf8",
+                        "tertiary": "#00295d",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-bright": "#f3faff",
+                        "outline": "#737781",
+                        "on-primary-container": "#83aef5",
+                        "on-secondary-container": "#6c5000",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#071e27",
+                        "on-tertiary-container": "#82acff",
+                        "on-surface-variant": "#424750",
+                        "secondary": "#785900",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c3c6d2",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "surface": "#f3faff",
+                        "surface-container-low": "#e6f6ff",
+                        "inverse-on-surface": "#dff4ff",
+                        "surface-dim": "#c7dde9",
+                        "primary": "#002a58",
+                        "surface-container-highest": "#cfe6f2",
+                        "tertiary-container": "#003e87",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f3faff",
+                        "on-primary-fixed-variant": "#0e4686",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-variant": "#cfe6f2",
+                        "inverse-surface": "#1e333c",
+                        "tertiary-fixed-dim": "#adc7ff",
+                        "secondary-fixed": "#ffdf9e",
+                        "on-secondary-fixed": "#261a00",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "surface-tint": "#305ea0",
+                        "secondary-container": "#fdc003",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "surface-container": "#dbf1fe",
+                        "secondary-fixed-dim": "#fabd00",
+                        "on-background": "#071e27",
+                        "primary-fixed": "#d6e3ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#001a41"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3faff; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 h-16 glass-nav bg-slate-50/80 flex justify-between items-center px-8 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black tracking-tighter text-blue-900">ParkITB</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 font-medium hover:text-blue-700 transition-colors" href="#">Monitoring</a>
+<a class="text-slate-500 font-medium hover:text-blue-700 transition-colors" href="#">Gates</a>
+<a class="text-slate-500 font-medium hover:text-blue-700 transition-colors" href="#">Live Feed</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-blue-900 rounded-full hover:bg-surface-container-high transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined p-2 text-blue-900 rounded-full hover:bg-surface-container-high transition-colors" data-icon="schedule">schedule</button>
+<div class="flex items-center gap-2 pl-4 border-l border-slate-200">
+<span class="material-symbols-outlined text-blue-900" data-icon="account_circle">account_circle</span>
+<span class="text-sm font-bold text-blue-900">Satpam Utama</span>
+</div>
+</div>
+</nav>
+<div class="flex min-h-screen pt-16">
+<!-- Side Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-100 flex flex-col p-4 gap-2 border-r border-slate-200/50 pt-20">
+<div class="mb-6 px-2">
+<h2 class="text-lg font-bold text-blue-900 leading-tight">Developer Console</h2>
+<p class="text-xs text-slate-500 font-medium">System Administrator</p>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 p-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-white text-blue-900 rounded-lg shadow-sm font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-sm">Notifikasi</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="text-sm">Vehicles</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="text-sm">Transactions</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="text-sm">Reports</span>
+</a>
+</div>
+<div class="mt-auto pt-4 space-y-1">
+<a class="flex items-center gap-3 p-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-sm">Help Center</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-error hover:bg-error-container/30 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 w-full p-8 max-w-6xl mx-auto">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+<div>
+<h1 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface">Pusat Notifikasi</h1>
+<p class="text-on-surface-variant font-medium mt-1">Kelola peringatan sistem dan aktivitas gerbang masuk.</p>
+</div>
+<button class="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:opacity-90 transition-all shadow-md">
+<span class="material-symbols-outlined" data-icon="done_all">done_all</span>
+                    Tandai semua selesai
+                </button>
+</header>
+<!-- Notifications Feed -->
+<div class="space-y-12">
+<!-- Today Section -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant">Hari ini</h3>
+<div class="h-px flex-1 bg-outline-variant opacity-15"></div>
+</div>
+<div class="space-y-4">
+<!-- Critical Alert Card -->
+<div class="group relative flex items-start gap-6 p-6 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error rounded-l-xl"></div>
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-error mb-1 block">Kritis — Gate 04</span>
+<h4 class="text-lg font-bold text-on-surface leading-tight">Percobaan Akses Paksa</h4>
+</div>
+<span class="text-sm font-medium text-on-surface-variant">09:42</span>
+</div>
+<p class="mt-2 text-on-surface-variant leading-relaxed">Kendaraan dengan plat nomor <strong>B 1234 ABC</strong> mencoba melewati palang tanpa otentikasi RFID yang valid. Sistem mengunci otomatis.</p>
+<div class="mt-4 flex gap-3">
+<button class="bg-primary px-4 py-2 rounded-lg text-sm font-bold text-white hover:bg-primary-container transition-colors">Tandai selesai</button>
+<button class="bg-surface-container-high px-4 py-2 rounded-lg text-sm font-bold text-on-primary-fixed-variant hover:bg-surface-container-highest transition-colors">Lihat CCTV</button>
+</div>
+</div>
+</div>
+<!-- Warning Alert Card -->
+<div class="group relative flex items-start gap-6 p-6 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l-xl"></div>
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="emergency_home" style="font-variation-settings: 'FILL' 1;">emergency_home</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-secondary mb-1 block">Peringatan — Gate 01</span>
+<h4 class="text-lg font-bold text-on-surface leading-tight">Kapasitas Mendekati Penuh</h4>
+</div>
+<span class="text-sm font-medium text-on-surface-variant">08:15</span>
+</div>
+<p class="mt-2 text-on-surface-variant leading-relaxed">Area Parkir Timur hanya menyisakan 5 slot kosong. Mohon persiapkan pengalihan arus ke Area Parkir Barat.</p>
+<div class="mt-4 flex gap-3">
+<button class="bg-primary px-4 py-2 rounded-lg text-sm font-bold text-white hover:bg-primary-container transition-colors">Tandai selesai</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Yesterday Section -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant">Kemarin</h3>
+<div class="h-px flex-1 bg-outline-variant opacity-15"></div>
+</div>
+<div class="space-y-4">
+<!-- Info Alert Card -->
+<div class="group relative flex items-start gap-6 p-6 bg-surface-container-low/50 rounded-xl transition-all">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-1 block">Info — System</span>
+<h4 class="text-lg font-bold text-on-surface leading-tight opacity-60">Pembaruan Database Selesai</h4>
+</div>
+<span class="text-sm font-medium text-on-surface-variant">Kemarin, 22:00</span>
+</div>
+<p class="mt-2 text-on-surface-variant leading-relaxed opacity-60">Pemeliharaan rutin mingguan untuk database transaksi gerbang telah berhasil diselesaikan tanpa kendala.</p>
+<div class="mt-4">
+<span class="inline-flex items-center gap-1 text-sm font-bold text-primary-fixed-dim">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                                        Selesai oleh Admin
+                                    </span>
+</div>
+</div>
+</div>
+<!-- Technical Card -->
+<div class="group relative flex items-start gap-6 p-6 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-xl"></div>
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-primary mb-1 block">Teknis — Gate 03</span>
+<h4 class="text-lg font-bold text-on-surface leading-tight">Sensor LPR Tidak Responsif</h4>
+</div>
+<span class="text-sm font-medium text-on-surface-variant">Kemarin, 14:30</span>
+</div>
+<p class="mt-2 text-on-surface-variant leading-relaxed">Kamera pengenal plat nomor pada gerbang keluar 03 mengalami gangguan koneksi intermiten. Teknisi telah dijadwalkan.</p>
+<div class="mt-4 flex gap-3">
+<button class="bg-primary px-4 py-2 rounded-lg text-sm font-bold text-white hover:bg-primary-container transition-colors">Tandai selesai</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Dashboard Visual Insight (Bento Pattern) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+<div class="col-span-1 md:col-span-2 bg-surface-container-low rounded-xl p-8 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline text-2xl font-bold mb-4">Analisis Keamanan</h3>
+<p class="text-on-surface-variant max-w-md mb-6">Tren peringatan menurun sebesar 12% dibandingkan minggu lalu. Sistem otomatisasi gerbang bekerja secara optimal.</p>
+<div class="flex gap-4">
+<div class="bg-white p-4 rounded-xl flex-1 shadow-sm">
+<span class="text-xs font-bold text-on-surface-variant uppercase">Peringatan Hari Ini</span>
+<div class="text-3xl font-black text-primary mt-1">14</div>
+</div>
+<div class="bg-white p-4 rounded-xl flex-1 shadow-sm">
+<span class="text-xs font-bold text-on-surface-variant uppercase">Waktu Respon Rata-rata</span>
+<div class="text-3xl font-black text-primary mt-1">2.4m</div>
+</div>
+</div>
+</div>
+<div class="absolute -right-12 -bottom-12 w-64 h-64 bg-primary opacity-5 rounded-full blur-3xl"></div>
+</div>
+<div class="bg-primary-container rounded-xl p-8 text-white flex flex-col justify-between">
+<div class="material-symbols-outlined text-4xl text-on-primary-container" data-icon="shield_person">shield_person</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Protokol Keamanan</h3>
+<p class="text-sm text-on-primary-container">Pastikan setiap tindakan "Selesai" disertai dengan verifikasi visual melalui live feed CCTV terdekat.</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Data Veil (Ghost Overlay for context awareness as per DS) -->
+<div class="hidden fixed inset-0 z-[100] bg-surface-container/60 backdrop-blur-xl flex items-center justify-center p-6" id="data-veil">
+<div class="bg-white max-w-2xl w-full rounded-2xl shadow-2xl overflow-hidden border border-outline-variant/20">
+<div class="aspect-video w-full relative">
+<img class="w-full h-full object-cover" data-alt="Security monitoring screen displaying real-time video feed from a parking gate with license plate recognition overlays and emergency indicators" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz5VPUb12gLgffAnv1e7xBEt26dMN7kpsO2IRFZh1eQ6c9cUd3MwFf5UH9Gt0BIdfTT2Td3YY-XP3SORLTwtywduR9hA8DSvSK92ZDOr_tfuNh0TGIBwSM3vMZvMwMWpKdMWMrWYgbhPwLiCJVeczT0_OOBE5vwx21nnCOneCxGS-qtcYJKPdfVIFR2OWPqEjvIDFdA1bILKeQV74GxWcHwq3gKMwwfeRFDpLREDONfE_ogplOGwt8baoY9PmYaTcUuVkPXGOzYyQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+<div class="text-white">
+<span class="px-2 py-1 bg-error text-[10px] font-bold rounded uppercase mb-2 inline-block">Live Feed — Gate 04</span>
+<h5 class="text-xl font-bold">Identifikasi Kendaraan Kritis</h5>
+</div>
+</div>
+</div>
+<div class="p-8">
+<h6 class="text-sm font-bold text-on-surface-variant uppercase mb-4">Langkah Respon Cepat</h6>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">1</span>
+<p class="text-sm font-medium">Verifikasi manual plat nomor melalui tangkapan gambar sistem.</p>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">2</span>
+<p class="text-sm font-medium">Hubungi petugas patroli sektor Timur untuk pengecekan lokasi.</p>
+</div>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="flex-1 py-3 bg-primary text-white rounded-xl font-bold" onclick="document.getElementById('data-veil').classList.add('hidden')">Konfirmasi &amp; Tutup</button>
+<button class="flex-1 py-3 bg-error-container text-on-error-container rounded-xl font-bold">Eskalasi Insiden</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

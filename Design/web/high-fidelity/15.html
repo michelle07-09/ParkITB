@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#82acff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#d5ecf8",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "surface-tint": "#305ea0",
+                        "error": "#ba1a1a",
+                        "surface": "#f3faff",
+                        "secondary-container": "#fdc003",
+                        "inverse-primary": "#a9c7ff",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#e6f6ff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#00295d",
+                        "surface-container-highest": "#cfe6f2",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "on-secondary-container": "#6c5000",
+                        "tertiary-fixed-dim": "#adc7ff",
+                        "on-background": "#071e27",
+                        "surface-variant": "#cfe6f2",
+                        "surface-bright": "#f3faff",
+                        "on-tertiary-fixed": "#001a41",
+                        "inverse-surface": "#1e333c",
+                        "on-primary-fixed": "#001b3d",
+                        "on-surface-variant": "#424750",
+                        "secondary-fixed": "#ffdf9e",
+                        "primary": "#002a58",
+                        "tertiary-fixed": "#d8e2ff",
+                        "secondary": "#785900",
+                        "secondary-fixed-dim": "#fabd00",
+                        "surface-container": "#dbf1fe",
+                        "outline": "#737781",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#071e27",
+                        "on-primary-fixed-variant": "#0e4686",
+                        "on-primary-container": "#83aef5",
+                        "surface-dim": "#c7dde9",
+                        "background": "#f3faff",
+                        "tertiary-container": "#003e87",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#dff4ff",
+                        "outline-variant": "#c3c6d2",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-secondary-fixed": "#261a00",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d6e3ff",
+                        "primary-container": "#004080"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-100 dark:bg-slate-900 border-r border-slate-200/50 dark:border-slate-800/50 flex flex-col p-4 gap-2 z-50">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-bold text-blue-900 dark:text-blue-50">Developer Console</h1>
+<p class="text-xs text-slate-500">System Administrator</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="font-medium text-sm">Vehicles</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-medium text-sm">Transactions</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-medium text-sm">Revenue</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-medium text-sm">Users</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-medium text-sm">System</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-medium text-sm">Reports</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</div>
+</nav>
+<div class="mt-auto border-t border-slate-200/50 dark:border-slate-800/50 pt-4 flex flex-col gap-1">
+<div class="bg-white dark:bg-slate-800 text-blue-900 dark:text-blue-200 rounded-lg shadow-sm font-semibold flex items-center gap-3 px-4 py-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-sm">Help Center</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/30 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm">Logout</span>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-40 ml-64 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm h-16 flex justify-between items-center px-8 border-b border-transparent">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black tracking-tighter text-blue-900 dark:text-blue-100">ParkITB</span>
+<div class="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
+<nav class="flex gap-6">
+<a class="text-slate-500 font-medium hover:text-blue-700 transition-colors" href="#">Monitoring</a>
+<a class="text-slate-500 font-medium hover:text-blue-700 transition-colors" href="#">Gates</a>
+<a class="text-slate-500 font-medium hover:text-blue-700 transition-colors" href="#">Live Feed</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-blue-900 transition-transform scale-95 active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-blue-900 transition-transform scale-95 active:opacity-80">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</button>
+<div class="flex items-center gap-2 pl-2 cursor-pointer transition-transform scale-95 active:opacity-80">
+<span class="material-symbols-outlined text-blue-900 dark:text-blue-400" data-icon="account_circle">account_circle</span>
+<span class="text-sm font-bold text-blue-900 dark:text-blue-100">Satpam Utama</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 pb-12 px-12">
+<div class="max-w-7xl mx-auto">
+<header class="mb-10">
+<h1 class="text-3xl font-extrabold text-primary tracking-tight mb-2">Kirim Tiket Support</h1>
+<p class="text-on-surface-variant max-w-2xl">Bantu kami meningkatkan kualitas layanan ParkITB. Laporkan bug, kendala gerbang, atau permintaan fitur melalui formulir di bawah ini.</p>
+</header>
+<div class="flex flex-col lg:flex-row gap-8 items-start">
+<!-- Left Column: Form -->
+<div class="w-full lg:w-[62%] flex flex-col gap-6">
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<form class="space-y-6">
+<!-- Subject -->
+<div class="space-y-2">
+<label class="text-sm font-semibold uppercase tracking-wider text-on-surface-variant block">Subjek Masalah</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary-container text-on-surface placeholder:text-outline-variant" placeholder="Contoh: Kamera gerbang utara tidak terdeteksi" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Category -->
+<div class="space-y-2">
+<label class="text-sm font-semibold uppercase tracking-wider text-on-surface-variant block">Kategori</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary-container text-on-surface">
+<option>Pilih Kategori</option>
+<option>Hardware (Kamera/Lidar)</option>
+<option>Software (Dashboard/Data)</option>
+<option>Security (Akses/Otorisasi)</option>
+<option>Lainnya</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Priority -->
+<div class="space-y-2">
+<label class="text-sm font-semibold uppercase tracking-wider text-on-surface-variant block">Prioritas</label>
+<div class="flex flex-wrap gap-2">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="priority" type="radio"/>
+<span class="px-4 py-2 rounded-full text-xs font-bold border border-emerald-200 text-emerald-700 bg-emerald-50 peer-checked:bg-emerald-500 peer-checked:text-white transition-all">Rendah</span>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="priority" type="radio"/>
+<span class="px-4 py-2 rounded-full text-xs font-bold border border-amber-200 text-amber-700 bg-amber-50 peer-checked:bg-amber-500 peer-checked:text-white transition-all">Sedang</span>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="priority" type="radio"/>
+<span class="px-4 py-2 rounded-full text-xs font-bold border border-orange-200 text-orange-700 bg-orange-50 peer-checked:bg-orange-500 peer-checked:text-white transition-all">Tinggi</span>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="priority" type="radio"/>
+<span class="px-4 py-2 rounded-full text-xs font-bold border border-rose-200 text-rose-700 bg-rose-50 peer-checked:bg-rose-500 peer-checked:text-white transition-all text-nowrap">Kritis</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Description -->
+<div class="space-y-2">
+<label class="text-sm font-semibold uppercase tracking-wider text-on-surface-variant block">Deskripsi Detail</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-primary-container text-on-surface placeholder:text-outline-variant resize-none" placeholder="Jelaskan langkah-langkah untuk mereproduksi masalah..." rows="6"></textarea>
+</div>
+<!-- File Upload -->
+<div class="space-y-2">
+<label class="text-sm font-semibold uppercase tracking-wider text-on-surface-variant block">Lampiran (Opsional)</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center gap-2 bg-surface hover:bg-surface-container-high transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-outline-variant group-hover:text-primary transition-colors" data-icon="cloud_upload">cloud_upload</span>
+<p class="text-sm font-medium text-on-surface">Klik atau seret file gambar/log ke sini</p>
+<p class="text-xs text-on-surface-variant">Max 10MB per file</p>
+</div>
+</div>
+<!-- System Info Toggle -->
+<div class="bg-surface-container-high/50 rounded-xl p-4 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<span class="text-sm font-bold text-primary">Sertakan Informasi Sistem Otomatis</span>
+</div>
+<div class="w-12 h-6 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full translate-x-6"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest/50 rounded-lg p-3 text-[10px] font-mono text-on-surface-variant grid grid-cols-2 gap-2">
+<div>APP_VER: 2.4.1-STABLE</div>
+<div>NODE_ID: GATE_S_004</div>
+<div>OS: Ubuntu 22.04 LTS</div>
+<div>LAT: -6.8915, LONG: 107.6107</div>
+</div>
+</div>
+<!-- Submit Action -->
+<div class="pt-4">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-90 active:scale-[0.98] transition-all text-lg" type="submit">
+                                    Kirim Tiket Sekarang
+                                </button>
+<p class="text-center text-xs text-on-surface-variant mt-4">Estimasi waktu balasan: <span class="font-bold">Kurang dari 2 jam</span></p>
+</div>
+</form>
+</section>
+</div>
+<!-- Right Column: Sidebar -->
+<div class="w-full lg:w-[38%] flex flex-col gap-6">
+<!-- Tips Ticket -->
+<section class="bg-primary text-white rounded-xl p-6 shadow-md overflow-hidden relative">
+<div class="relative z-10">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container" data-icon="lightbulb">lightbulb</span>
+                                Tips Tiket Cepat
+                            </h3>
+<ul class="space-y-4 text-sm opacity-90">
+<li class="flex gap-3">
+<span class="w-5 h-5 flex items-center justify-center rounded-full bg-white/20 font-bold shrink-0">1</span>
+<p>Sertakan <span class="font-bold text-secondary-container">nomor gerbang</span> yang spesifik jika masalah terkait perangkat keras.</p>
+</li>
+<li class="flex gap-3">
+<span class="w-5 h-5 flex items-center justify-center rounded-full bg-white/20 font-bold shrink-0">2</span>
+<p>Unggah <span class="font-bold text-secondary-container">tangkapan layar</span> dari kode error yang muncul di monitor.</p>
+</li>
+<li class="flex gap-3">
+<span class="w-5 h-5 flex items-center justify-center rounded-full bg-white/20 font-bold shrink-0">3</span>
+<p>Gunakan prioritas <span class="font-bold text-rose-300 uppercase text-[10px]">Kritis</span> hanya jika gerbang lumpuh total.</p>
+</li>
+</ul>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="support_agent">support_agent</span>
+</div>
+</section>
+<!-- Active Tickets -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-primary">Tiket Aktif (3)</h3>
+<a class="text-xs font-bold text-primary-container hover:underline" href="#">Lihat Semua</a>
+</div>
+<div class="space-y-3">
+<div class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold text-on-surface truncate pr-4">Lampu indikator Gate 2 redup</span>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase shrink-0">Diproses</span>
+</div>
+<div class="flex items-center gap-2 text-[10px] text-on-surface-variant">
+<span>#TKT-20344</span>
+<span>•</span>
+<span>2 jam yang lalu</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold text-on-surface truncate pr-4">Sync data cloud tertunda</span>
+<span class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 text-[10px] font-bold uppercase shrink-0">Analisis</span>
+</div>
+<div class="flex items-center gap-2 text-[10px] text-on-surface-variant">
+<span>#TKT-20341</span>
+<span>•</span>
+<span>Kemarin, 14:20</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold text-on-surface truncate pr-4">Request penambahan Admin ID</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase shrink-0">Selesai</span>
+</div>
+<div class="flex items-center gap-2 text-[10px] text-on-surface-variant">
+<span>#TKT-20320</span>
+<span>•</span>
+<span>2 hari yang lalu</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Estimation Table -->
+<section class="bg-surface-container-low rounded-xl p-6 shadow-sm overflow-hidden border border-outline-variant/10">
+<h3 class="font-bold text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
+                            Estimasi Respons
+                        </h3>
+<div class="space-y-0 text-sm">
+<div class="flex justify-between py-3 border-b border-outline-variant/15">
+<span class="font-medium text-on-surface-variant">Kritis</span>
+<span class="font-bold text-rose-600">30 Menit</span>
+</div>
+<div class="flex justify-between py-3 border-b border-outline-variant/15">
+<span class="font-medium text-on-surface-variant">Tinggi</span>
+<span class="font-bold text-on-surface">2 Jam</span>
+</div>
+<div class="flex justify-between py-3 border-b border-outline-variant/15">
+<span class="font-medium text-on-surface-variant">Sedang</span>
+<span class="font-bold text-on-surface">6 Jam</span>
+</div>
+<div class="flex justify-between py-3">
+<span class="font-medium text-on-surface-variant">Rendah</span>
+<span class="font-bold text-on-surface">24 Jam</span>
+</div>
+</div>
+</section>
+<!-- Contact Card -->
+<div class="bg-secondary-container rounded-xl p-6 text-on-secondary-container flex items-center gap-4">
+<div class="bg-white/20 p-3 rounded-full">
+<span class="material-symbols-outlined text-3xl" data-icon="headset_mic" style="font-variation-settings: 'FILL' 1;">headset_mic</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest opacity-70">Butuh Bantuan Darurat?</p>
+<p class="text-xl font-extrabold">+62 21 555 9800</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Space -->
+<footer class="ml-64 px-12 py-8 bg-surface-container">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-on-surface-variant">
+<p>© 2024 ParkITB. Hak Cipta Dilindungi.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary" href="#">Kebijakan Privasi</a>
+<a class="hover:text-primary" href="#">Syarat &amp; Ketentuan</a>
+<a class="hover:text-primary" href="#">Status API</a>
+</div>
+</div>
+</footer>
+</body></html>
