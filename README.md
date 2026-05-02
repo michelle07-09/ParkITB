@@ -1,50 +1,66 @@
-# Welcome to your Expo app 👋
+# ParkITB Repository Overview
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This repository contains two related applications:
 
-## Get started
+- **Mobile / Expo app**: located in the `app/` directory and powered by Expo Router.
+- **Web dashboard**: located in the `web/` directory and powered by Vite + React.
 
-1. Install dependencies
+## Why root-level config remains outside `app/`
 
-   ```bash
-   npm install
-   ```
+The Expo project uses `app.json`, `package.json`, `tsconfig.json`, and other root files to configure the Expo app at the repository root. These files are not part of the `app/` source folder and need to remain at the repository root so Expo can start and build the project correctly.
 
-2. Start the app
+While the `app/` directory contains the app's screens, routes, and UI, the root files define the project and build configuration.
 
-   ```bash
-   npx expo start
-   ```
+## Project structure
 
-In the output, you'll find options to open the app in a
+- `app/` – Expo app source code and file-based routes
+- `assets/` – shared assets used by the Expo app
+- `web/` – separate React/Vite web dashboard project
+- `package.json` – root Expo app scripts and dependencies
+- `app.json` – Expo project configuration
+- `tsconfig.json` – TypeScript configuration for Expo
+- `web/package.json` – web app scripts and dependencies
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Running the Expo app
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+From the repository root:
 
 ```bash
-npm run reset-project
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Then choose one of the available targets:
+
+- Android emulator or device
+- iOS simulator or device
+- Web browser via Expo Web
+
+The Expo app uses `expo-router`, so the `app/` directory is the main entrypoint for navigation and screens.
+
+## Running the web dashboard
+
+From the `web` folder:
+
+```bash
+cd web
+npm install
+npm run dev
+```
+
+Then open the local Vite URL shown in the terminal.
+
+## Notes for developers
+
+- The `app/` folder is the source code for the Expo app.
+- The `web/` folder is a separate website/dashboard project.
+- Do not move `app.json` or the root `package.json` into `app/`; Expo expects these files at the repository root.
+
+If you want a cleaner workspace later, a true monorepo workspace layout is possible, but it requires additional configuration and is not necessary for the current setup.
 
 ## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo documentation](https://expo.dev)
+- [Expo Router docs](https://docs.expo.dev/router/introduction/)
+- [Vite documentation](https://vitejs.dev)
+- [React documentation](https://react.dev)
