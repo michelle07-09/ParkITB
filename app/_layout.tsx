@@ -1,8 +1,8 @@
 import {
-  Inter_400Regular,
-  Inter_600SemiBold,
-  Inter_700Bold,
-  useFonts,
+     Inter_400Regular,
+     Inter_600SemiBold,
+     Inter_700Bold,
+     useFonts,
 } from "@expo-google-fonts/inter";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -14,7 +14,6 @@ import AuthProvider from "./_providers/auth-provider";
 SplashScreen.preventAutoHideAsync();
 
 export function RootLayout() {
-     console.log("le");
      const { isLoggedIn } = useAuthContext();
 
      const [loaded] = useFonts({
@@ -32,8 +31,6 @@ export function RootLayout() {
      if (!loaded) {
           return null;
      }
-
-     console.log(isLoggedIn);
 
      return (
           <Stack screenOptions={{ headerShown: false }}>

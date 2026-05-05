@@ -3,7 +3,6 @@ import { PropsWithChildren, useEffect, useState } from "react";
 import { AuthContext } from "../_hooks/use-auth-context";
 
 export default function AuthProvider({ children }: PropsWithChildren) {
-     console.log("kdeligfiye");
      const [claims, setClaims] = useState<
           Record<string, any> | undefined | null
      >();
@@ -24,10 +23,15 @@ export default function AuthProvider({ children }: PropsWithChildren) {
           const {
                data: { subscription },
           } = supabase.auth.onAuthStateChange(async (_event, _session) => {
-               console.log("ASIH");
                console.log("Auth state changed:", { event: _event });
-               const { data } = await supabase.auth.getClaims();
-               setClaims(data?.claims ?? null);
+               setTimeout(async () => {
+                    const { data, error } = await supabase.auth.getClaims();
+                    console.log("kontol");
+                    setClaims(data?.claims ?? null);
+               }, 0);
+
+               // console.log(error);
+               // console.log("dih", data?.claims);
           });
           // Cleanup subscription on unmount
           return () => {
@@ -44,6 +48,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                          .select("*")
                          .eq("id", claims.sub)
                          .single();
+                    // console.log(data);
                     setProfile(data);
                } else {
                     setProfile(null);
@@ -53,13 +58,15 @@ export default function AuthProvider({ children }: PropsWithChildren) {
           fetchProfile();
      }, [claims]);
 
+     // console.log("Claims", claims);
+     // console.log("Profile", profile);
      return (
           <AuthContext.Provider
                value={{
                     claims,
                     isLoading,
                     profile,
-                    isLoggedIn: claims != undefined,
+                    isLoggedIn: claims != null,
                }}
           >
                {children}

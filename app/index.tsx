@@ -1,12 +1,12 @@
 import { useRouter } from "expo-router";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import { Colors, Radius, Spacing, Typography } from "./_constants/theme";
 
 export default function SplashScreen() {
      console.log("inex");
      const router = useRouter();
 
-     return <Text>Ali</Text>;
+     return;
 
      //  return (
      //       // <SafeAreaView style={styles.container}>
