@@ -1,17 +1,50 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Colors, Typography, Spacing, Radius } from '../_constants/theme';
 import { MapPin } from 'lucide-react-native';
+import React, { useState } from 'react';
+import { Alert, KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Colors, Radius, Spacing, Typography } from '../_constants/theme';
 
 export default function LoginScreen() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = () => {
-    // Basic mock authentication
-    router.replace('/(tabs)');
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleLogin = async () => {
+    // Validate inputs
+    if (!email.trim()) {
+      Alert.alert('Error', 'Email tidak boleh kosong');
+      return;
+    }
+    if (!validateEmail(email)) {
+      Alert.alert('Error', 'Format email tidak valid');
+      return;
+    }
+    if (!password.trim()) {
+      Alert.alert('Error', 'Password tidak boleh kosong');
+      return;
+    }
+    if (password.length < 8) {
+      Alert.alert('Error', 'Password minimal 8 karakter');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Mock authentication success
+      router.replace('/(tabs)');
+    } catch (error) {
+      Alert.alert('Error', 'Terjadi kesalahan saat login. Silakan coba lagi.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -57,8 +90,14 @@ export default function LoginScreen() {
               <Text style={styles.forgotPasswordText}>Lupa Password?</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-              <Text style={styles.loginButtonText}>Masuk</Text>
+            <TouchableOpacity 
+              style={[styles.loginButton, loading && styles.loginButtonDisabled]} 
+              onPress={handleLogin}
+              disabled={loading}
+            >
+              <Text style={styles.loginButtonText}>
+                {loading ? 'Memproses...' : 'Masuk'}
+              </Text>
             </TouchableOpacity>
 
             <View style={styles.dividerContainer}>
@@ -69,7 +108,7 @@ export default function LoginScreen() {
 
             <View style={styles.registerContainer}>
               <Text style={styles.registerText}>Belum punya akun? </Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => router.push('/(auth)/register')}>
                 <Text style={styles.registerLink}>Daftar sekarang</Text>
               </TouchableOpacity>
             </View>
@@ -139,6 +178,9 @@ const styles = StyleSheet.create({
     borderRadius: Radius.full,
     alignItems: 'center',
     marginTop: Spacing.m,
+  },
+  loginButtonDisabled: {
+    opacity: 0.6,
   },
   loginButtonText: {
     ...Typography.button,

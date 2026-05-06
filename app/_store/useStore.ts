@@ -29,6 +29,8 @@ export interface StoreState {
   slotAvailability: SlotAvailability;
   
   // Actions
+  setUser: (user: Partial<User>) => void;
+  addPlate: (plate: string) => void;
   topUp: (amount: number) => void;
   setVirtualKeyLocked: (locked: boolean) => void;
   startParking: (entryTime: string) => void;
@@ -58,6 +60,14 @@ export const useStore = create<StoreState>((set, get) => ({
     east: 35,
     south: 15,
   },
+
+  setUser: (userData) => set((state) => ({
+    user: { ...state.user, ...userData }
+  })),
+
+  addPlate: (plate) => set((state) => ({
+    user: { ...state.user, plates: [...state.user.plates, plate] }
+  })),
 
   topUp: (amount) => set((state) => ({
     user: { ...state.user, balance: state.user.balance + amount }
