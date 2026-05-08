@@ -24,11 +24,16 @@ import {
 import { useAuthContext } from "../_hooks/use-auth-context";
 import { useStore } from "../_store/useStore";
 
+type HomeDashboardProps = {
+     activePark: any | null;
+};
+
 export default function HomeDashboard() {
      const { profile } = useAuthContext();
      const router = useRouter();
 
      const [activePark, setActivePark] = useState<any | null>();
+     const [refresh, setRefresh] = useState(0);
 
      useEffect(() => {
           async function fetchData() {
@@ -40,7 +45,7 @@ export default function HomeDashboard() {
           }
 
           fetchData();
-     }, []);
+     }, [refresh]);
 
      const {
           user,
@@ -127,11 +132,7 @@ export default function HomeDashboard() {
                                    </Text>
                                    <TouchableOpacity
                                         onPress={() =>
-                                             useStore
-                                                  .getState()
-                                                  .startParking(
-                                                       new Date().toISOString(),
-                                                  )
+                                             setRefresh((r) => (r + 1) % 10)
                                         }
                                         style={{ marginTop: 10 }}
                                    >
@@ -141,7 +142,7 @@ export default function HomeDashboard() {
                                                   color: Colors.secondary,
                                              }}
                                         >
-                                             Simulate Entry (Dev)
+                                             Refresh
                                         </Text>
                                    </TouchableOpacity>
                               </View>

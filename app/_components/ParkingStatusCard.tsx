@@ -2,11 +2,11 @@ import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {
-  Colors,
-  Radius,
-  Shadows,
-  Spacing,
-  Typography,
+     Colors,
+     Radius,
+     Shadows,
+     Spacing,
+     Typography,
 } from "../_constants/theme";
 
 type ParkingCardProps = {
@@ -14,7 +14,6 @@ type ParkingCardProps = {
 };
 
 export const ParkingStatusCard = (props: ParkingCardProps) => {
-     console.log("HAI", props.activePark);
      const router = useRouter();
      //  const { activeParking, updateParkingDuration } = useStore();
      const [liveDuration, setLiveDuration] = useState("00:00:00");

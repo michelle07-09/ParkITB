@@ -8,6 +8,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
      >();
      const [profile, setProfile] = useState<any>();
      const [isLoading, setIsLoading] = useState<boolean>(true);
+     const [activePark, setActivePark] = useState<any>();
 
      useEffect(() => {
           const fetchClaims = async () => {
@@ -20,19 +21,17 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                setIsLoading(false);
           };
           fetchClaims();
+
           const {
                data: { subscription },
           } = supabase.auth.onAuthStateChange(async (_event, _session) => {
                console.log("Auth state changed:", { event: _event });
                setTimeout(async () => {
                     const { data, error } = await supabase.auth.getClaims();
-                    console.log("kontol");
                     setClaims(data?.claims ?? null);
                }, 0);
-
-               // console.log(error);
-               // console.log("dih", data?.claims);
           });
+
           // Cleanup subscription on unmount
           return () => {
                subscription.unsubscribe();

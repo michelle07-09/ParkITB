@@ -5,6 +5,7 @@ export type AuthData = {
      profile?: any | null;
      isLoading: boolean;
      isLoggedIn: boolean;
+     activePark?: any | null;
 };
 
 export const AuthContext = createContext<AuthData>({
@@ -12,6 +13,7 @@ export const AuthContext = createContext<AuthData>({
      profile: undefined,
      isLoading: true,
      isLoggedIn: false,
+     activePark: undefined,
 });
 
 export const useAuthContext = () => useContext(AuthContext);
