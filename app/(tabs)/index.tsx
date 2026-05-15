@@ -24,10 +24,6 @@ import {
 import { useAuthContext } from "../_hooks/use-auth-context";
 import { useStore } from "../_store/useStore";
 
-type HomeDashboardProps = {
-     activePark: any | null;
-};
-
 export default function HomeDashboard() {
      const { profile } = useAuthContext();
      const router = useRouter();
@@ -47,13 +43,8 @@ export default function HomeDashboard() {
           fetchData();
      }, [refresh]);
 
-     const {
-          user,
-          virtualKeyLocked,
-          setVirtualKeyLocked,
-          activeParking,
-          slotAvailability,
-     } = useStore();
+     const { user, virtualKeyLocked, setVirtualKeyLocked, slotAvailability } =
+          useStore();
 
      const formattedDate = new Date().toLocaleDateString("id-ID", {
           weekday: "long",
