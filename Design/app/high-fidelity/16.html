@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkITB - Daftar Akun Baru</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "error": "#ba1a1a",
+                  "secondary-fixed": "#d4e3ff",
+                  "surface-container-low": "#f2f4f6",
+                  "on-tertiary-container": "#e4980e",
+                  "on-surface": "#191c1e",
+                  "inverse-surface": "#2e3132",
+                  "tertiary-fixed-dim": "#ffb955",
+                  "secondary": "#005fac",
+                  "background": "#f8f9fb",
+                  "on-secondary-fixed-variant": "#004884",
+                  "on-primary-fixed": "#001b3f",
+                  "inverse-on-surface": "#f0f1f3",
+                  "tertiary-container": "#563600",
+                  "primary-fixed": "#d7e3ff",
+                  "on-tertiary": "#ffffff",
+                  "surface": "#f8f9fb",
+                  "on-primary": "#ffffff",
+                  "on-secondary-container": "#003a6d",
+                  "secondary-container": "#5fa6fd",
+                  "tertiary-fixed": "#ffddb4",
+                  "surface-tint": "#405e92",
+                  "surface-container-highest": "#e1e2e4",
+                  "surface-container-high": "#e7e8ea",
+                  "surface-container": "#edeef0",
+                  "outline-variant": "#c4c6d0",
+                  "secondary-fixed-dim": "#a4c9ff",
+                  "primary-fixed-dim": "#abc7ff",
+                  "inverse-primary": "#abc7ff",
+                  "error-container": "#ffdad6",
+                  "on-tertiary-fixed": "#291800",
+                  "on-primary-container": "#8aa8e0",
+                  "primary-container": "#1a3c6e",
+                  "on-primary-fixed-variant": "#264679",
+                  "surface-bright": "#f8f9fb",
+                  "on-error-container": "#93000a",
+                  "outline": "#747780",
+                  "on-background": "#191c1e",
+                  "primary": "#002653",
+                  "on-secondary": "#ffffff",
+                  "on-tertiary-fixed-variant": "#633f00",
+                  "surface-container-lowest": "#ffffff",
+                  "surface-variant": "#e1e2e4",
+                  "on-surface-variant": "#43474f",
+                  "tertiary": "#392200",
+                  "on-error": "#ffffff",
+                  "on-secondary-fixed": "#001c39",
+                  "surface-dim": "#d9dadc"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "fontFamily": {
+                  "headline": ["Inter"],
+                  "display": ["Inter"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+    }
+    /* Hide scrollbar */
+    ::-webkit-scrollbar { display: none; }
+    body { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-start overflow-x-hidden">
+<!-- Suppression Rule: TopAppBar and Navigation suppressed as this is a transactional/focused screen -->
+<main class="w-full max-w-md px-6 pt-8 pb-12 flex flex-col min-h-screen">
+<!-- Top Bar: Back & Logo -->
+<header class="flex flex-col items-center text-center space-y-4 mb-10">
+<div class="flex items-center justify-center w-16 h-16 rounded-xl bg-primary-container text-white">
+<span class="material-symbols-outlined text-4xl" data-icon="account_balance">account_balance</span>
+</div>
+<div class="space-y-1">
+<h1 class="font-headline font-bold text-3xl tracking-tight text-primary">ParkITB</h1>
+<p class="text-on-surface-variant font-body text-sm tracking-wide">Sistem Parkir Institusi Terpadu</p>
+</div>
+</header>
+<!-- Header Section -->
+<div class="mb-10 text-center">
+<h1 class="font-headline text-headline-lg font-bold text-primary tracking-tight mb-2">Daftar Akun Baru</h1>
+<p class="font-body text-body-md text-outline leading-relaxed">Lengkapi data diri Anda untuk mulai menggunakan ParkITB.</p>
+</div>
+<!-- Registration Form -->
+<form class="flex-grow space-y-6">
+<!-- Input: Full Name -->
+<div class="space-y-2">
+<label class="font-label text-label-md font-semibold text-primary ml-1" for="full-name">Nama Lengkap</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-secondary transition-colors" data-icon="person">person</span>
+</div>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-none rounded-xl text-on-surface placeholder:text-outline/60 focus:ring-2 focus:ring-primary/10 transition-all shadow-sm" id="full-name" placeholder="Contoh: Ganesha Putera" type="text"/>
+</div>
+</div>
+<!-- Input: Email -->
+<div class="space-y-2">
+<label class="font-label text-label-md font-semibold text-primary ml-1" for="email">Alamat Email</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-secondary transition-colors" data-icon="alternate_email">alternate_email</span>
+</div>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-none rounded-xl text-on-surface placeholder:text-outline/60 focus:ring-2 focus:ring-primary/10 transition-all shadow-sm" id="email" placeholder="ganesha@itb.ac.id" type="email"/>
+</div>
+</div>
+<!-- Input: Password -->
+<div class="space-y-2">
+<label class="font-label text-label-md font-semibold text-primary ml-1" for="password">Kata Sandi</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-secondary transition-colors" data-icon="lock">lock</span>
+</div>
+<input class="w-full pl-12 pr-12 py-4 bg-surface-container-lowest border-none rounded-xl text-on-surface placeholder:text-outline/60 focus:ring-2 focus:ring-primary/10 transition-all shadow-sm" id="password" placeholder="Min. 8 karakter" type="password"/>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+<span class="material-symbols-outlined text-outline cursor-pointer" data-icon="visibility">visibility</span>
+</div>
+</div>
+</div>
+<!-- Input: Vehicle Plate + Type Toggle -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="font-label text-label-md font-semibold text-primary" for="plate">Nomor Plat Kendaraan</label>
+<!-- Type Toggle Pill -->
+<div class="flex bg-surface-container rounded-full p-1 h-8 items-center">
+<button class="px-3 h-full flex items-center justify-center rounded-full bg-surface-container-lowest text-primary shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="directions_car">directions_car</span>
+</button>
+<button class="px-3 h-full flex items-center justify-center rounded-full text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="moped">moped</span>
+</button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-secondary transition-colors" data-icon="pin">pin</span>
+</div>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-none rounded-xl text-on-surface placeholder:text-outline/60 focus:ring-2 focus:ring-primary/10 transition-all shadow-sm font-mono tracking-wider" id="plate" placeholder="D 1234 ABC" type="text"/>
+</div>
+</div>
+<!-- CTA Button -->
+<div class="pt-6">
+<button class="w-full text-white py-5 rounded-xl font-headline font-bold text-title-sm shadow-xl shadow-primary/20 active:scale-95 transition-transform flex items-center justify-center gap-2 group" style="background-color: #1A3C6E;" type="submit">
+<span>Daftar Sekarang</span>
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Footer: Secondary Action -->
+<div class="mt-12 text-center pb-8">
+<p class="font-body text-body-md text-outline">
+        Sudah punya akun? 
+        <a class="text-primary font-bold hover:underline underline-offset-4 ml-1" href="#">Masuk</a>
+</p>
+</div>
+</main>
+<!-- Background Decorative Element (Subtle Gradient Tonal Transition) -->
+<div class="fixed top-0 right-0 -z-10 w-64 h-64 bg-primary-container/10 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-80 h-80 bg-secondary-container/10 rounded-full blur-[100px] -ml-40 -mb-40"></div>
+</body></html>

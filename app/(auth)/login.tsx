@@ -2,17 +2,7 @@ import { supabase } from "@/lib/supabase";
 import { useRouter } from "expo-router";
 import { MapPin } from "lucide-react-native";
 import React, { useState } from "react";
-
-import {
-     KeyboardAvoidingView,
-     Platform,
-     SafeAreaView,
-     StyleSheet,
-     Text,
-     TextInput,
-     TouchableOpacity,
-     View,
-} from "react-native";
+import { Alert, KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Colors, Radius, Spacing, Typography } from "../_constants/theme";
 
 export default function LoginScreen() {
@@ -22,6 +12,28 @@ export default function LoginScreen() {
 
      const handleLogin = async () => {
           console.log("dagv");
+       
+          const validateEmail = (email: string) => {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+          };
+       
+          // Validate inputs
+          if (!email.trim()) {
+            Alert.alert('Error', 'Email tidak boleh kosong');
+            return;
+          }
+          if (!validateEmail(email)) {
+            Alert.alert('Error', 'Format email tidak valid');
+            return;
+          }
+          if (!password.trim()) {
+            Alert.alert('Error', 'Password tidak boleh kosong');
+            return;
+          }
+          if (password.length < 8) {
+            Alert.alert('Error', 'Password minimal 8 karakter');
+            return;
+          }
 
           // // Basic mock authentication
           const { data, error } = await supabase.auth.signInWithPassword({
@@ -30,7 +42,7 @@ export default function LoginScreen() {
           });
 
           if (error) {
-               alert(error.message);
+               Alert.alert(error.message);
           }
      };
 
@@ -96,112 +108,111 @@ export default function LoginScreen() {
                                    <View style={styles.divider} />
                               </View>
 
-                              <View style={styles.registerContainer}>
-                                   <Text style={styles.registerText}>
-                                        Belum punya akun?{" "}
-                                   </Text>
-                                   <TouchableOpacity>
-                                        <Text style={styles.registerLink}>
-                                             Daftar sekarang
-                                        </Text>
-                                   </TouchableOpacity>
-                              </View>
-                         </View>
-                    </View>
-               </KeyboardAvoidingView>
-          </SafeAreaView>
-     );
+            <View style={styles.registerContainer}>
+              <Text style={styles.registerText}>Belum punya akun? </Text>
+              <TouchableOpacity onPress={() => router.push('/(auth)/register')}>
+                <Text style={styles.registerLink}>Daftar sekarang</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
-     container: {
-          flex: 1,
-          backgroundColor: Colors.background,
-     },
-     keyboardView: {
-          flex: 1,
-     },
-     content: {
-          flex: 1,
-          padding: Spacing.xl,
-          justifyContent: "center",
-     },
-     header: {
-          alignItems: "center",
-          marginBottom: Spacing.xxl,
-     },
-     title: {
-          ...Typography.h1,
-          marginTop: Spacing.m,
-          marginBottom: Spacing.xs,
-     },
-     subtitle: {
-          ...Typography.body,
-          color: Colors.textMuted,
-     },
-     form: {
-          gap: Spacing.m,
-     },
-     inputContainer: {
-          gap: Spacing.xs,
-     },
-     label: {
-          ...Typography.caption,
-          color: Colors.textDark,
-          fontWeight: "600",
-     },
-     input: {
-          backgroundColor: Colors.surface,
-          borderWidth: 1,
-          borderColor: Colors.divider,
-          borderRadius: Radius.input,
-          padding: Spacing.m,
-          ...Typography.body,
-     },
-     forgotPassword: {
-          alignSelf: "flex-end",
-     },
-     forgotPasswordText: {
-          ...Typography.caption,
-          color: Colors.secondary,
-          fontWeight: "600",
-     },
-     loginButton: {
-          backgroundColor: Colors.primary,
-          paddingVertical: Spacing.m,
-          borderRadius: Radius.full,
-          alignItems: "center",
-          marginTop: Spacing.m,
-     },
-     loginButtonText: {
-          ...Typography.button,
-     },
-     dividerContainer: {
-          flexDirection: "row",
-          alignItems: "center",
-          marginVertical: Spacing.l,
-     },
-     divider: {
-          flex: 1,
-          height: 1,
-          backgroundColor: Colors.divider,
-     },
-     dividerText: {
-          ...Typography.caption,
-          color: Colors.textMuted,
-          paddingHorizontal: Spacing.m,
-     },
-     registerContainer: {
-          flexDirection: "row",
-          justifyContent: "center",
-     },
-     registerText: {
-          ...Typography.body,
-          color: Colors.textMuted,
-     },
-     registerLink: {
-          ...Typography.body,
-          color: Colors.secondary,
-          fontWeight: "600",
-     },
+  container: {
+    flex: 1,
+    backgroundColor: Colors.background,
+  },
+  keyboardView: {
+    flex: 1,
+  },
+  content: {
+    flex: 1,
+    padding: Spacing.xl,
+    justifyContent: 'center',
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: Spacing.xxl,
+  },
+  title: {
+    ...Typography.h1,
+    marginTop: Spacing.m,
+    marginBottom: Spacing.xs,
+  },
+  subtitle: {
+    ...Typography.body,
+    color: Colors.textMuted,
+  },
+  form: {
+    gap: Spacing.m,
+  },
+  inputContainer: {
+    gap: Spacing.xs,
+  },
+  label: {
+    ...Typography.caption,
+    color: Colors.textDark,
+    fontWeight: '600',
+  },
+  input: {
+    backgroundColor: Colors.surface,
+    borderWidth: 1,
+    borderColor: Colors.divider,
+    borderRadius: Radius.input,
+    padding: Spacing.m,
+    ...Typography.body,
+  },
+  forgotPassword: {
+    alignSelf: 'flex-end',
+  },
+  forgotPasswordText: {
+    ...Typography.caption,
+    color: Colors.secondary,
+    fontWeight: '600',
+  },
+  loginButton: {
+    backgroundColor: Colors.primary,
+    paddingVertical: Spacing.m,
+    borderRadius: Radius.full,
+    alignItems: 'center',
+    marginTop: Spacing.m,
+  },
+  loginButtonDisabled: {
+    opacity: 0.6,
+  },
+  loginButtonText: {
+    ...Typography.button,
+  },
+  dividerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: Spacing.l,
+  },
+  divider: {
+    flex: 1,
+    height: 1,
+    backgroundColor: Colors.divider,
+  },
+  dividerText: {
+    ...Typography.caption,
+    color: Colors.textMuted,
+    paddingHorizontal: Spacing.m,
+  },
+  registerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  registerText: {
+    ...Typography.body,
+    color: Colors.textMuted,
+  },
+  registerLink: {
+    ...Typography.body,
+    color: Colors.secondary,
+    fontWeight: '600',
+  },
 });
