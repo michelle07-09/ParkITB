@@ -36,6 +36,8 @@ export default function RootLayout() {
       <Stack.Screen name="membership" />
       <Stack.Screen name="top-up" options={{ presentation: 'modal' }} />
       <Stack.Screen name="notifications" />
+      <Stack.Screen name="vehicles" />
+      <Stack.Screen name="payment-methods" />
     </Stack>
   );
 }

@@ -2,12 +2,13 @@ import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import { Colors, Typography, Spacing, Radius } from '../_constants/theme';
 import { useStore } from '../_store/useStore';
-import { ChevronRight, CreditCard, Shield, HelpCircle, Info, Car } from 'lucide-react-native';
+import { ChevronRight, CreditCard, Shield, HelpCircle, Info, Car, Award } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 
 const MENU_ITEMS = [
   { icon: <Car size={20} color={Colors.textDark} />, title: 'Kendaraan Saya', id: 'vehicles' },
   { icon: <CreditCard size={20} color={Colors.textDark} />, title: 'Metode Pembayaran', id: 'payment' },
+  { icon: <Award size={20} color={Colors.textDark} />, title: 'Membership', id: 'membership' },
   { icon: <Shield size={20} color={Colors.textDark} />, title: 'Keamanan', id: 'security' },
   { icon: <HelpCircle size={20} color={Colors.textDark} />, title: 'Bantuan', id: 'help' },
   { icon: <Info size={20} color={Colors.textDark} />, title: 'Tentang Aplikasi', id: 'about' },
@@ -52,7 +53,15 @@ export default function ProfileScreen() {
 
         <View style={styles.menuSection}>
           {MENU_ITEMS.map((item, index) => (
-            <TouchableOpacity key={item.id} style={styles.menuItem}>
+            <TouchableOpacity
+              key={item.id}
+              style={styles.menuItem}
+              onPress={() => {
+                if (item.id === 'vehicles') router.push('/vehicles');
+                else if (item.id === 'payment') router.push('/payment-methods');
+                else if (item.id === 'membership') router.push('/membership');
+              }}
+            >
               <View style={styles.menuLeft}>
                 {item.icon}
                 <Text style={styles.menuTitle}>{item.title}</Text>
