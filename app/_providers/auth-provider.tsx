@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase";
-import { PropsWithChildren, useEffect, useState } from "react";
+import { RealtimeChannel } from "@supabase/supabase-js";
+import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../_hooks/use-auth-context";
 
 export default function AuthProvider({ children }: PropsWithChildren) {
@@ -9,6 +10,8 @@ export default function AuthProvider({ children }: PropsWithChildren) {
      const [profile, setProfile] = useState<any>();
      const [isLoading, setIsLoading] = useState<boolean>(true);
      const [activePark, setActivePark] = useState<any>();
+
+     let profile_changes_listener = useRef<RealtimeChannel>(undefined);
 
      useEffect(() => {
           const fetchClaims = async () => {
@@ -29,12 +32,15 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                setTimeout(async () => {
                     const { data, error } = await supabase.auth.getClaims();
                     setClaims(data?.claims ?? null);
+                    await supabase.realtime.setAuth();
                }, 0);
           });
 
           // Cleanup subscription on unmount
           return () => {
                subscription.unsubscribe();
+               if (profile_changes_listener.current)
+                    profile_changes_listener.current.unsubscribe();
           };
      }, []);
 
@@ -49,7 +55,24 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                          .single();
                     // console.log(data);
                     setProfile(data);
+
+                    if (profile_changes_listener.current)
+                         profile_changes_listener.current.unsubscribe();
+                    profile_changes_listener.current = supabase
+                         .channel(`topic:${claims.sub}`, {
+                              config: { private: true },
+                         })
+                         .on("broadcast", { event: "UPDATE" }, (payload) => {
+                              console.log(payload.payload.record);
+                              if (payload.payload.record) {
+                                   console.log("executed");
+                                   setProfile(payload.payload.record);
+                              }
+                         })
+                         .subscribe();
                } else {
+                    if (profile_changes_listener.current)
+                         profile_changes_listener.current.unsubscribe();
                     setProfile(null);
                }
                setIsLoading(false);
