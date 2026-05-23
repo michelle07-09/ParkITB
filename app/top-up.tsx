@@ -30,7 +30,7 @@ const PAYMENT_METHODS = [
           icon: <QrCode color={Colors.primary} size={24} />,
      },
      {
-          id: "ewallet",
+          id: "e-wallet",
           name: "E-Wallet",
           icon: <Smartphone color={Colors.primary} size={24} />,
      },
@@ -67,6 +67,7 @@ export default function TopUpScreen() {
      };
 
      const handleBankTransfer = async () => {
+          console.log("hai");
           const { data, error } = await supabase.functions.invoke("top-up", {
                body: {
                     bank: "mandiri",
@@ -82,7 +83,40 @@ export default function TopUpScreen() {
           console.log(data);
      };
 
+     const handleQRIS = async () => {
+          const { data, error } = await supabase.functions.invoke("top-up", {
+               body: {
+                    bank: "qris",
+                    amount: amount,
+               },
+          });
+
+          if (error) {
+               console.log(error);
+               return;
+          }
+
+          console.log(data);
+     };
+
+     const handleEWallet = async () => {
+          const { data, error } = await supabase.functions.invoke("top-up", {
+               body: {
+                    bank: "e-wallet",
+                    amount: amount,
+               },
+          });
+
+          if (error) {
+               console.log(error);
+               return;
+          }
+
+          console.log(data);
+     };
+
      const handleContinue = async () => {
+          console.log(`amount=${amount}, method=${selectedMethod}`);
           if (amount) {
                // Simulate top-up success
                switch (selectedMethod) {
@@ -90,8 +124,10 @@ export default function TopUpScreen() {
                          handleBankTransfer();
                          break;
                     case "qris":
+                         handleQRIS();
                          break;
                     case "e-wallet":
+                         handleEWallet();
                          break;
                }
 

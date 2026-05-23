@@ -55,6 +55,7 @@ export function RootLayout() {
                </Stack.Protected>
                <Stack.Protected guard={!isLoggedIn}>
                     <Stack.Screen name="(auth)/login" />
+                    <Stack.Screen name="(auth)/register" />
                </Stack.Protected>
           </Stack>
      );
