@@ -1,34 +1,74 @@
-import { BalanceCard } from "@/components/BalanceCard";
-import { ParkingStatusCard } from "@/components/ParkingStatusCard";
-import { SlotAvailabilityBar } from "@/components/SlotAvailabilityBar";
-import { VirtualKeyToggle } from "@/components/VirtualKeyToggle";
-import {
-    Colors,
-    Radius,
-    Shadows,
-    Spacing,
-    Typography,
-} from "@/constants/theme";
-import { useAuthContext } from "@/hooks/use-auth-context";
-import { useStore } from "@/store/useStore";
+import { Tables } from "@/lib/park-type";
+import { supabase } from "@/lib/supabase";
 import { useRouter } from "expo-router";
 import { Bell, Image as ImageIcon } from "lucide-react-native";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+     SafeAreaView,
+     ScrollView,
+     StyleSheet,
+     Text,
+     TouchableOpacity,
+     View,
 } from "react-native";
+import { BalanceCard } from "../_components/BalanceCard";
+import { ParkingStatusCard } from "../_components/ParkingStatusCard";
+import { SlotAvailabilityBar } from "../_components/SlotAvailabilityBar";
+import { VirtualKeyToggle } from "../_components/VirtualKeyToggle";
+import {
+     Colors,
+     Radius,
+     Shadows,
+     Spacing,
+     Typography,
+} from "../_constants/theme";
+import { useAuthContext } from "../_hooks/use-auth-context";
+import { useStore } from "../_store/useStore";
+
 
 export default function HomeDashboard() {
      const { profile, activePark } = useAuthContext();
      const router = useRouter();
 
-     const { user, virtualKeyLocked, setVirtualKeyLocked, slotAvailability } =
-          useStore();
+     const [activePark, setActivePark] = useState<Tables<'active_transaction'> & {type: string, campus: string} | null>(null);
+     const [refresh, setRefresh] = useState(0);
+
+     const [virtualKeyLocked, setVirtualKeyLocked] = useState<boolean | null>(null);
+
+     useEffect(() => {
+          async function fetchData() {
+               const { data, error } = await supabase.rpc(
+                    "get_active_transaction",
+               ).overrideTypes<Tables<'active_transaction'> & {type: string, campus: string}, {merge: false}>();
+
+               console.log("Parking Data:", data);
+
+               setActivePark(data);
+          }
+
+          fetchData();
+     }, [refresh]);
+
+     const firstRender = useRef(true);
+
+     useEffect(() => {
+          if(virtualKeyLocked === null) {
+               activePark && setVirtualKeyLocked(!activePark.virtual_key);
+               return;
+          }
+
+
+
+          const logDawg = setTimeout(async () => {
+               const {data, error} = await supabase.from('active_transaction')
+                                             .update({ virtual_key: virtualKeyLocked})
+
+          }, 300);
+
+          return () => clearTimeout(logDawg);
+     }, [virtualKeyLocked, activePark]);
+
+     const { slotAvailability } = useStore();
 
      const formattedDate = new Date().toLocaleDateString("id-ID", {
           weekday: "long",
@@ -65,31 +105,32 @@ export default function HomeDashboard() {
                <View style={styles.content}>
                     {/* Balance Card overlaps the header slightly */}
                     <View style={styles.overlapCard}>
-                         <BalanceCard balance={user.balance} />
+                         <BalanceCard balance={profile?.saldo} />
                     </View>
 
-                    {/* Virtual Key Toggle Card */}
-                    <View style={styles.virtualKeyCard}>
-                         <Text style={styles.sectionTitle}>Virtual Key</Text>
-                         <View style={styles.virtualKeyContent}>
-                              <VirtualKeyToggle
-                                   isLocked={virtualKeyLocked}
-                                   onToggle={() =>
-                                        setVirtualKeyLocked(!virtualKeyLocked)
-                                   }
-                              />
-                              <View style={styles.virtualKeyText}>
-                                   <Text style={styles.vkTitle}>
-                                        Akses Gerbang
-                                   </Text>
-                                   <Text style={styles.vkDesc}>
-                                        {virtualKeyLocked
-                                             ? "Ketuk untuk membuka gerbang."
-                                             : "Gerbang dapat dilalui."}
-                                   </Text>
+                    {activePark && 
+                         <View style={styles.virtualKeyCard}>
+                              <Text style={styles.sectionTitle}>Virtual Key</Text>
+                              <View style={styles.virtualKeyContent}>
+                                   <VirtualKeyToggle
+                                        isLocked={virtualKeyLocked ?? false}
+                                        onToggle={() =>
+                                             setVirtualKeyLocked(!virtualKeyLocked)
+                                        }
+                                   />
+                                   <View style={styles.virtualKeyText}>
+                                        <Text style={styles.vkTitle}>
+                                             Akses Gerbang
+                                        </Text>
+                                        <Text style={styles.vkDesc}>
+                                             {virtualKeyLocked
+                                                  ? "Ketuk untuk membuka gerbang."
+                                                  : "Gerbang dapat dilalui."}
+                                        </Text>
+                                   </View>
                               </View>
                          </View>
-                    </View>
+                    }
 
                     {/* Active Parking Section */}
                     <View style={styles.section}>

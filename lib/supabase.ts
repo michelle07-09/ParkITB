@@ -2,11 +2,12 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient, processLock } from "@supabase/supabase-js";
 import { AppState, Platform } from "react-native";
 import "react-native-url-polyfill/auto";
+import { Database } from "./park-type";
 
 const supabaseUrl = "https://xfrsjvaewbcukazxcwvv.supabase.co";
 const supabasePublishableKey = "sb_publishable_P3Wzj3G_5kEyhMlEUrosCQ_5mi_wINe";
 
-export const supabase = createClient(supabaseUrl, supabasePublishableKey, {
+export const supabase = createClient<Database>(supabaseUrl, supabasePublishableKey, {
      auth: {
           ...(Platform.OS !== "web" ? { storage: AsyncStorage } : {}),
           autoRefreshToken: true,

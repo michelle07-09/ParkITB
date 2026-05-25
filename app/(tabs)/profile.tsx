@@ -1,25 +1,25 @@
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "expo-router";
 import {
-  Award,
-  Car,
-  ChevronRight,
-  CreditCard,
-  HelpCircle,
-  Info,
-  Shield,
+     Award,
+     Car,
+     ChevronRight,
+     CreditCard,
+     HelpCircle,
+     Info,
+     Shield,
 } from "lucide-react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
+     SafeAreaView,
+     ScrollView,
+     StyleSheet,
+     Text,
+     TouchableOpacity,
+     View,
 } from "react-native";
-import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
-import { useStore } from "@/store/useStore";
+import { Colors, Radius, Spacing, Typography } from "../_constants/theme";
+import { useAuthContext } from "../_hooks/use-auth-context";
 
 const MENU_ITEMS = [
      {
@@ -56,7 +56,29 @@ const MENU_ITEMS = [
 
 export default function ProfileScreen() {
      const router = useRouter();
-     const { user } = useStore();
+     const { profile } = useAuthContext();
+
+     const [plates, setPlates] = useState<any[]>([]);
+
+     useEffect(() => {
+          const fetchPlates = async () => {
+               const { data, error } = await supabase.from("vehicles").select();
+
+               if (error) {
+                    console.log(error.toJSON());
+               }
+
+               console.log(
+                    "With the marrow of three tungs in my hand, behold the sahur falls.",
+               );
+               console.log(data);
+               setPlates(data ?? []);
+          };
+
+          fetchPlates();
+     }, []);
+
+     // const { user } = useStore();
 
      const getInitials = (name: string) => {
           return name.substring(0, 2).toUpperCase();
@@ -83,17 +105,17 @@ export default function ProfileScreen() {
                     <View style={styles.profileSection}>
                          <View style={styles.avatar}>
                               <Text style={styles.avatarText}>
-                                   {getInitials(user.name)}
+                                   {getInitials(profile?.nama ?? "")}
                               </Text>
                          </View>
-                         <Text style={styles.name}>{user.name}</Text>
-                         <Text style={styles.studentId}>{user.studentId}</Text>
+                         <Text style={styles.name}>{profile?.nama ?? ""}</Text>
+                         {/* <Text style={styles.studentId}>{user.studentId}</Text> */}
 
                          <View style={styles.platesContainer}>
-                              {user.plates.map((plate) => (
+                              {plates.map((plate) => (
                                    <View key={plate} style={styles.plateChip}>
                                         <Text style={styles.plateText}>
-                                             {plate}
+                                             {plate.plat_nomor}
                                         </Text>
                                    </View>
                               ))}
