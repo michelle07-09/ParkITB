@@ -113,7 +113,7 @@ export default function ProfileScreen() {
                                         } else if (item.id === "membership") {
                                              router.push("/membership");
                                         } else {
-                                             router.push(`/${item.id}`);
+                                             router.push(`/${item.id}` as any);
                                         }
                                    }}
                               >
