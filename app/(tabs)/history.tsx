@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
-import { Colors, Typography, Spacing, Radius } from "@/constants/theme";
-import { TransactionListItem, TransactionType } from "@/components/TransactionListItem";
+import { Colors, Typography, Spacing, Radius } from '../_constants/theme';
+import { TransactionListItem, TransactionType } from '../_components/TransactionListItem';
 
 const MOCK_TRANSACTIONS = [
   { id: '1', dateGroup: 'Hari ini', type: 'parking', title: 'Parkir Barat ITB', time: '14:30 WIB', amount: 3000 },

@@ -1,51 +1,37 @@
 import { useRouter } from "expo-router";
-import React, { useEffect } from "react";
-import { ActivityIndicator, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { MapPin } from "lucide-react-native";
-import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
-import { useAuthContext } from "@/hooks/use-auth-context";
+import { StyleSheet } from "react-native";
+import { Colors, Radius, Spacing, Typography } from "./_constants/theme";
 
 export default function SplashScreen() {
      console.log("inex");
      const router = useRouter();
-     const { isLoggedIn, isLoading } = useAuthContext();
 
-     useEffect(() => {
-          if (!isLoading) {
-               if (isLoggedIn) {
-                    router.replace("/(tabs)");
-               }
-          }
-     }, [isLoggedIn, isLoading]);
+     return;
 
-     if (isLoading) {
-          return (
-               <SafeAreaView style={[styles.container, { justifyContent: "center", alignItems: "center" }]}>
-                    <ActivityIndicator size="large" color={Colors.surface} />
-               </SafeAreaView>
-          );
-     }
+     //  return (
+     //       // <SafeAreaView style={styles.container}>
+     //            {/* <View style={styles.content}>
+     //     <View style={styles.logoContainer}>
+     //       <MapPin color={Colors.accent} size={64} />
+     //       <Text style={styles.wordmark}>ParkITB</Text>
+     //     </View>
+     //     <Text style={styles.tagline}>Parkir cerdas, kampus lancar.</Text>
+     //   </View>
 
-     return (
-          <SafeAreaView style={styles.container}>
-               <View style={styles.content}>
-                    <View style={styles.logoContainer}>
-                         <MapPin color={Colors.accent} size={64} />
-                         <Text style={styles.wordmark}>ParkITB</Text>
-                    </View>
-                    <Text style={styles.tagline}>Parkir cerdas, kampus lancar.</Text>
-               </View>
+     //   <View style={styles.footer}>
+     //     <TouchableOpacity
+     //       style={styles.button}
+     //       onPress={() => router.push('/(auth)/login')}
+     //     >
+     //       <Text style={styles.buttonText}>Mulai Sekarang</Text>
+     //     </TouchableOpacity>
+     //   </View> */}
 
-               <View style={styles.footer}>
-                    <TouchableOpacity
-                         style={styles.button}
-                         onPress={() => router.push("/(auth)/login")}
-                    >
-                         <Text style={styles.buttonText}>Mulai Sekarang</Text>
-                    </TouchableOpacity>
-               </View>
-          </SafeAreaView>
-     );
+     //            {/* <AuthProvider>
+     //                 <RootLayout />
+     //            </AuthProvider> */}
+     //       // </SafeAreaView>
+     //  );
 }
 
 const styles = StyleSheet.create({

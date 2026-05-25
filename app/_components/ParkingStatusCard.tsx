@@ -1,15 +1,15 @@
+import { Tables } from "@/lib/park-type";
+import axios from "axios";
+import { useRouter } from "expo-router";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {
      Colors,
      Radius,
      Shadows,
      Spacing,
      Typography,
-} from "@/constants/theme";
-import { Tables } from "@/lib/park-type";
-import axios from "axios";
-import { useRouter } from "expo-router";
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+} from "../_constants/theme";
 
 const URL_TARIF = 'https://xfrsjvaewbcukazxcwvv.supabase.co/functions/v1/tarif';
 type ParkingCardProps = {
@@ -63,7 +63,7 @@ export const ParkingStatusCard = ({activePark}: ParkingCardProps) => {
      }, [activePark]);
 
      useEffect(() => {
-          if (!props.activePark?.entry_time) return;
+          // if (!activeParking.isParking || !activeParking.entryTime) return;
 
           // Simulate duration counter
           const entryDate = new Date(activePark.entry_time);

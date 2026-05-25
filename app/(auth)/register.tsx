@@ -7,7 +7,6 @@ import {
      EyeOff,
      Lock,
      Mail,
-     MapPin,
      PinIcon,
      User,
 } from "lucide-react-native";
@@ -24,8 +23,8 @@ import {
      TouchableOpacity,
      View,
 } from "react-native";
-import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
-import { useStore } from "@/store/useStore";
+import { Colors, Radius, Spacing, Typography } from "../_constants/theme";
+import { useStore } from "../_store/useStore";
 
 export default function RegisterScreen() {
      const router = useRouter();
@@ -100,42 +99,28 @@ export default function RegisterScreen() {
           return hcount + mcount + tcount === text.length;
      };
 
-     const showAlert = (title: string, message: string, buttons?: any[]) => {
-          if (Platform.OS === "web") {
-               alert(`${title}: ${message}`);
-               if (buttons && buttons.length > 0) {
-                    const defaultBtn = buttons.find((b: any) => b.style === "default") || buttons[0];
-                    if (defaultBtn && defaultBtn.onPress) {
-                         defaultBtn.onPress();
-                    }
-               }
-          } else {
-               Alert.alert(title, message, buttons);
-          }
-     };
-
      const validateForm = () => {
           if (!fullName.trim()) {
-               showAlert(
+               Alert.alert(
                     "Validation Error",
                     "Nama lengkap tidak boleh kosong",
                );
                return false;
           }
           if (!email.trim() || !email.includes("@")) {
-               showAlert("Validation Error", "Email tidak valid");
+               Alert.alert("Validation Error", "Email tidak valid");
                return false;
           }
           if (password.length < 8) {
-               showAlert("Validation Error", "Password minimal 8 karakter");
+               Alert.alert("Validation Error", "Password minimal 8 karakter");
                return false;
           }
           if (password !== confirmPassword) {
-               showAlert("Validation Error", "Password tidak cocok");
+               Alert.alert("Validation Error", "Password tidak cocok");
                return false;
           }
           if (!vehiclePlate.trim()) {
-               showAlert(
+               Alert.alert(
                     "Validation Error",
                     "Nomor plat kendaraan tidak boleh kosong",
                );
@@ -143,7 +128,7 @@ export default function RegisterScreen() {
           }
 
           if (!isPlatNomor(vehiclePlate)) {
-               showAlert("Validation Error", "Plat Nomor tidak valid");
+               Alert.alert("Validation Error", "Plat Nomor tidak valid");
                return false;
           }
           return true;
@@ -171,35 +156,37 @@ export default function RegisterScreen() {
           if (error) {
                setLoading(false);
                console.log(error.toJSON());
-               return showAlert("Sign up error", error.message);
+               return Alert.alert("Sign up error", error.message);
           }
 
-          setLoading(false);
+          // // Simulate API call
+          // await new Promise(resolve => setTimeout(resolve, 1500));
 
-          // Save user data to store
-          const newPlate = vehiclePlate.toUpperCase().trim();
-          setUser({
-               name: fullName,
-          });
+          // // Save user data to store
+          // const newPlate = vehiclePlate.toUpperCase().trim();
 
-          // Check if plate doesn't already exist before adding
-          const userState = useStore.getState();
-          if (!userState.user.plates.includes(newPlate)) {
-               addPlate(newPlate);
-          }
+          // setUser({
+          //   name: fullName,
+          // });
 
-          // Show success message and navigate to home tabs
-          showAlert(
-               "Pendaftaran Berhasil!",
-               "Akun Anda telah dibuat. Selamat menggunakan ParkITB!",
-               [
-                    {
-                         text: "Mulai Sekarang",
-                         onPress: () => router.replace("/(tabs)"),
-                         style: "default",
-                    },
-               ],
-          );
+          // // Check if plate doesn't already exist before adding
+          // const userState = useStore.getState();
+          // if (!userState.user.plates.includes(newPlate)) {
+          //   addPlate(newPlate);
+          // }
+
+          // Show success message and navigate to login
+          // Alert.alert(
+          //      "Pendaftaran Berhasil! ✅",
+          //      "Akun Anda telah dibuat. Silakan login dengan email dan password Anda.",
+          //      [
+          //           {
+          //                text: "Login Sekarang",
+          //                onPress: () => router.replace("/(auth)/login"),
+          //                style: "default",
+          //           },
+          //      ],
+          // );
      };
 
      return (
@@ -213,7 +200,7 @@ export default function RegisterScreen() {
                          showsVerticalScrollIndicator={false}
                     >
                          <View style={styles.header}>
-                              <MapPin color={Colors.primary} size={48} style={{ marginBottom: Spacing.s }} />
+                              <Text style={styles.headerIcon}>🅿️</Text>
                               <Text style={styles.appTitle}>ParkITB</Text>
                               <Text style={styles.appSubtitle}>
                                    Sistem Parkir Institusi Terpadu

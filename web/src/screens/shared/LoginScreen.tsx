@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useParkStore } from "../../store/useParkStore";
-import { supabase } from "../../lib/supabase";
 
 export function LoginScreen() {
      const navigate = useNavigate();
@@ -9,87 +8,24 @@ export function LoginScreen() {
      const [role, setRole] = useState<"petugas" | "developer">("petugas");
      const [email, setEmail] = useState("");
      const [password, setPassword] = useState("");
-     const [showPassword, setShowPassword] = useState(false);
-     const [loading, setLoading] = useState(false);
-     
-     // Custom Toast state
-     const [toast, setToast] = useState<{ message: string; isSuccess: boolean; visible: boolean }>({
-          message: "",
-          isSuccess: true,
-          visible: false,
-     });
-
-     const showToast = (message: string, isSuccess = true) => {
-          setToast({ message, isSuccess, visible: true });
-          setTimeout(() => {
-               setToast((prev) => ({ ...prev, visible: false }));
-          }, 4000);
-     };
 
      const handleLogin = async (e: React.FormEvent) => {
           e.preventDefault();
-
-          if (!email.trim()) {
-               return showToast("Email tidak boleh kosong", false);
-          }
-          if (!password.trim()) {
-               return showToast("Kata sandi tidak boleh kosong", false);
-          }
-
-          setLoading(true);
-
-          try {
-               const { data, error } = await supabase.auth.signInWithPassword({
-                    email: email,
-                    password: password,
-               });
-
-               if (error) {
-                    throw error;
-               }
-
-               // Extract user metadata role if present, otherwise use selected role
-               const userRole = data.user?.user_metadata?.role || role;
-               
-               showToast("Login Berhasil! Mengalihkan ke dashboard...", true);
-               
-               // Save role to store
-               login(userRole);
-
-               setTimeout(() => {
-                    if (userRole === "petugas") {
-                         navigate("/petugas");
-                    } else {
-                         navigate("/developer");
-                    }
-               }, 1500);
-
-          } catch (err: any) {
-               console.error(err);
-               showToast(err.message || "Login Gagal. Harap periksa email dan kata sandi Anda.", false);
-          } finally {
-               setLoading(false);
+          login(role);
+          if (role === "petugas") {
+               navigate("/petugas");
+          } else {
+               navigate("/developer");
           }
      };
 
      return (
-          <div className="bg-background min-h-screen flex items-center justify-center p-6 bg-login-gradient text-on-surface">
-               {/* Toast Notification Banner */}
-               <div
-                    className={`fixed top-6 right-6 z-50 transform transition-all duration-300 flex items-center gap-3 p-4 rounded-xl shadow-2xl backdrop-blur-md border border-white/20 text-white font-medium max-w-sm ${
-                         toast.visible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0 pointer-events-none"
-                    } ${toast.isSuccess ? "bg-emerald-600/90" : "bg-red-600/90"}`}
-               >
-                    <span className="material-symbols-outlined text-2xl">
-                         {toast.isSuccess ? "check_circle" : "error"}
-                    </span>
-                    <span className="text-sm">{toast.message}</span>
-               </div>
-
+          <div className="bg-background min-h-screen flex items-center justify-center p-6 bg-login-gradient">
                <main className="w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-2 bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden min-h-[700px]">
                     {/* Left: Branding & Visuals */}
                     <section className="hidden md:flex flex-col justify-between p-12 bg-primary relative overflow-hidden">
                          <div className="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+                              {/* The image is removed for brevity, or we can use a placeholder gradient */}
                               <div className="w-full h-full bg-gradient-to-br from-white/20 to-transparent"></div>
                          </div>
                          <div className="relative z-10">
@@ -183,7 +119,6 @@ export function LoginScreen() {
                                                   id="email"
                                                   type="email"
                                                   required
-                                                  disabled={loading}
                                                   value={email}
                                                   onChange={(e) =>
                                                        setEmail(e.target.value)
@@ -215,9 +150,8 @@ export function LoginScreen() {
                                              </span>
                                              <input
                                                   id="password"
-                                                  type={showPassword ? "text" : "password"}
+                                                  type="password"
                                                   required
-                                                  disabled={loading}
                                                   value={password}
                                                   onChange={(e) =>
                                                        setPassword(
@@ -225,17 +159,11 @@ export function LoginScreen() {
                                                        )
                                                   }
                                                   placeholder="••••••••"
-                                                  className="w-full pl-12 pr-12 py-4 bg-surface rounded-xl border-none ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-primary focus:bg-white transition-all outline-none text-on-surface font-medium"
+                                                  className="w-full pl-12 pr-4 py-4 bg-surface rounded-xl border-none ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-primary focus:bg-white transition-all outline-none text-on-surface font-medium"
                                              />
-                                             <button
-                                                  type="button"
-                                                  onClick={() => setShowPassword(!showPassword)}
-                                                  className="absolute inset-y-0 right-4 flex items-center text-outline hover:text-primary transition-colors focus:outline-none"
-                                             >
-                                                  <span className="material-symbols-outlined">
-                                                       {showPassword ? "visibility_off" : "visibility"}
-                                                  </span>
-                                             </button>
+                                             <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline cursor-pointer hover:text-primary transition-colors">
+                                                  visibility
+                                             </span>
                                         </div>
                                    </div>
 
@@ -243,7 +171,6 @@ export function LoginScreen() {
                                         <input
                                              id="remember"
                                              type="checkbox"
-                                             disabled={loading}
                                              className="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all"
                                         />
                                         <label
@@ -256,33 +183,14 @@ export function LoginScreen() {
 
                                    <button
                                         type="submit"
-                                        disabled={loading}
-                                        className="w-full bg-gradient-to-br from-primary to-primary-container text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group disabled:opacity-60"
+                                        className="w-full bg-gradient-to-br from-primary to-primary-container text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group"
                                    >
-                                        {!loading ? (
-                                             <span className="flex items-center gap-2">
-                                                  Masuk ke Dashboard
-                                                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-                                                       arrow_forward
-                                                  </span>
-                                             </span>
-                                        ) : (
-                                             <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
-                                        )}
+                                        Masuk ke Dashboard
+                                        <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
+                                             arrow_forward
+                                        </span>
                                    </button>
                               </form>
-
-                              <div className="text-center mt-4">
-                                   <p className="text-sm text-on-surface-variant font-medium">
-                                        Belum punya akun?{" "}
-                                        <Link
-                                             className="text-primary font-bold hover:text-primary-container transition-colors"
-                                             to="/register"
-                                        >
-                                             Daftar di sini
-                                        </Link>
-                                   </p>
-                              </div>
 
                               <footer className="mt-12 pt-8 border-t border-outline-variant/20">
                                    <div className="flex flex-col items-center gap-4">
@@ -292,7 +200,7 @@ export function LoginScreen() {
                                         <div className="flex gap-4 w-full">
                                              <div
                                                   onClick={() =>
-                                                       !loading && setRole("petugas")
+                                                       setRole("petugas")
                                                   }
                                                   className={`flex-1 p-3 rounded-lg border flex flex-col items-center gap-1 cursor-pointer transition-colors ${role === "petugas" ? "bg-surface-container-high border-primary ring-1 ring-primary" : "bg-surface-container-low border-outline-variant/10 hover:bg-surface-container-high"}`}
                                              >
@@ -305,7 +213,7 @@ export function LoginScreen() {
                                              </div>
                                              <div
                                                   onClick={() =>
-                                                       !loading && setRole("developer")
+                                                       setRole("developer")
                                                   }
                                                   className={`flex-1 p-3 rounded-lg border flex flex-col items-center gap-1 cursor-pointer transition-colors ${role === "developer" ? "bg-surface-container-high border-primary ring-1 ring-primary" : "bg-surface-container-low border-outline-variant/10 hover:bg-surface-container-high"}`}
                                              >

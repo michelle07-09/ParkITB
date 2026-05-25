@@ -13,9 +13,9 @@ import {
      TouchableOpacity,
      View,
 } from "react-native";
-import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
-import { useAuthContext } from "@/hooks/use-auth-context";
-import { useStore } from "@/store/useStore";
+import { Colors, Radius, Spacing, Typography } from "./_constants/theme";
+import { useAuthContext } from "./_hooks/use-auth-context";
+import { useStore } from "./_store/useStore";
 
 const QUICK_AMOUNTS = [10000, 25000, 50000, 100000];
 const PAYMENT_METHODS = [
@@ -159,7 +159,7 @@ export default function TopUpScreen() {
                                    Saldo Saat Ini
                               </Text>
                               <Text style={styles.balanceValue}>
-                                   {formatCurrency(profile?.saldo ?? 0)}
+                                   {formatCurrency(profile.saldo)}
                               </Text>
                          </View>
 

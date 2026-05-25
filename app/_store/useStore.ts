@@ -1,24 +1,5 @@
 import { create } from 'zustand';
 
-export interface Vehicle {
-  id: string;
-  name: string;
-  plate: string;
-  type: 'car' | 'motorcycle';
-  isPrimary: boolean;
-  isVerified: boolean;
-  lastUsed: string;
-}
-
-export interface PaymentMethod {
-  id: string;
-  type: 'bank' | 'card' | 'qris' | 'ewallet';
-  name: string;
-  lastFour: string;
-  brandColor: string;
-  isDefault: boolean;
-}
-
 export interface User {
   name: string;
   studentId: string;
@@ -26,8 +7,6 @@ export interface User {
   membershipActive: boolean;
   membershipExpiry: string;
   plates: string[];
-  vehicle: Vehicle | null;
-  paymentMethods: PaymentMethod[];
 }
 
 export interface ActiveParking {
@@ -58,27 +37,16 @@ export interface StoreState {
   endParking: () => void;
   updateParkingDuration: (duration: number, fee: number) => void;
   payParking: (amount: number) => boolean; // returns true if successful
-
-  // Vehicle actions
-  setVehicle: (vehicle: Omit<Vehicle, 'id'>) => void;
-  clearVehicle: () => void;
-
-  // Payment method actions
-  addPaymentMethod: (method: Omit<PaymentMethod, 'id'>) => void;
-  removePaymentMethod: (id: string) => void;
-  setDefaultPaymentMethod: (id: string) => void;
 }
 
 export const useStore = create<StoreState>((set, get) => ({
   user: {
     name: 'Michelle',
     studentId: '13521000',
-    balance: 450000,
-    membershipActive: false,
-    membershipExpiry: '',
-    plates: [],
-    vehicle: null,
-    paymentMethods: [],
+    balance: 85000,
+    membershipActive: true,
+    membershipExpiry: '31 Juli 2025',
+    plates: ['D 1234 ABC', 'B 9999 XYZ'],
   },
   activeParking: {
     isParking: false,
@@ -128,55 +96,5 @@ export const useStore = create<StoreState>((set, get) => ({
       return true;
     }
     return false;
-  },
-
-  // Vehicle actions
-  setVehicle: (vehicle) => set((state) => {
-    const id = 'v' + Date.now();
-    const newVehicle: Vehicle = { ...vehicle, id };
-    return {
-      user: {
-        ...state.user,
-        vehicle: newVehicle,
-        plates: [vehicle.plate],
-      },
-    };
-  }),
-
-  clearVehicle: () => set((state) => ({
-    user: {
-      ...state.user,
-      vehicle: null,
-      plates: [],
-    },
-  })),
-
-  // Payment method actions
-  addPaymentMethod: (method) => set((state) => {
-    const id = 'pm' + Date.now();
-    const newMethod: PaymentMethod = { ...method, id };
-    return {
-      user: {
-        ...state.user,
-        paymentMethods: [...state.user.paymentMethods, newMethod],
-      },
-    };
-  }),
-
-  removePaymentMethod: (id) => set((state) => ({
-    user: {
-      ...state.user,
-      paymentMethods: state.user.paymentMethods.filter((m) => m.id !== id),
-    },
-  })),
-
-  setDefaultPaymentMethod: (id) => set((state) => ({
-    user: {
-      ...state.user,
-      paymentMethods: state.user.paymentMethods.map((m) => ({
-        ...m,
-        isDefault: m.id === id,
-      })),
-    },
-  })),
+  }
 }));

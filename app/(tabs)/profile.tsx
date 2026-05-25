@@ -1,7 +1,6 @@
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "expo-router";
 import {
-     Award,
      Car,
      ChevronRight,
      CreditCard,
@@ -31,11 +30,6 @@ const MENU_ITEMS = [
           icon: <CreditCard size={20} color={Colors.textDark} />,
           title: "Metode Pembayaran",
           id: "payment",
-     },
-     {
-          icon: <Award size={20} color={Colors.textDark} />,
-          title: "Membership",
-          id: "membership",
      },
      {
           icon: <Shield size={20} color={Colors.textDark} />,
@@ -123,21 +117,10 @@ export default function ProfileScreen() {
                     </View>
 
                     <View style={styles.menuSection}>
-                         {MENU_ITEMS.map((item) => (
+                         {MENU_ITEMS.map((item, index) => (
                               <TouchableOpacity
                                    key={item.id}
                                    style={styles.menuItem}
-                                   onPress={() => {
-                                        if (item.id === "vehicles") {
-                                             router.push("/vehicles");
-                                        } else if (item.id === "payment") {
-                                             router.push("/payment-methods");
-                                        } else if (item.id === "membership") {
-                                             router.push("/membership");
-                                        } else {
-                                             router.push(`/${item.id}`);
-                                        }
-                                   }}
                               >
                                    <View style={styles.menuLeft}>
                                         {item.icon}

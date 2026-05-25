@@ -1,10 +1,10 @@
-import { MembershipBadge } from "@/components/MembershipBadge";
-import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
-import { useStore } from "@/store/useStore";
+import React from 'react';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Colors, Typography, Spacing, Radius } from './_constants/theme';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react-native';
-import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { MembershipBadge } from './_components/MembershipBadge';
+import { useStore } from './_store/useStore';
 
 const BENEFITS = [
   'Akses gerbang otomatis (Frictionless Exit)',
@@ -22,7 +22,6 @@ const TIERS = [
 export default function MembershipScreen() {
   const router = useRouter();
   const { user } = useStore();
-  const [selectedTierIndex, setSelectedTierIndex] = useState<number>(1);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -58,13 +57,7 @@ export default function MembershipScreen() {
           {TIERS.map((tier, idx) => (
             <TouchableOpacity 
               key={idx} 
-              style={[
-                styles.tierCard,
-                tier.highlight && styles.tierCardHighlight,
-                selectedTierIndex === idx && styles.tierCardSelected,
-              ]}
-              activeOpacity={0.8}
-              onPress={() => setSelectedTierIndex(idx)}
+              style={[styles.tierCard, tier.highlight && styles.tierCardHighlight]}
             >
               {tier.highlight && (
                 <View style={styles.highlightBadge}>
@@ -80,10 +73,8 @@ export default function MembershipScreen() {
           ))}
         </View>
 
-        <TouchableOpacity style={styles.primaryButton} activeOpacity={0.8}>
-          <Text style={styles.primaryButtonText}>
-            {selectedTierIndex !== null ? `Perpanjang ${TIERS[selectedTierIndex].name}` : 'Pilih Paket Terlebih Dahulu'}
-          </Text>
+        <TouchableOpacity style={styles.primaryButton}>
+          <Text style={styles.primaryButtonText}>Perpanjang Membership</Text>
         </TouchableOpacity>
 
       </ScrollView>
@@ -147,10 +138,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.divider,
     position: 'relative',
-  },
-  tierCardSelected: {
-    borderColor: Colors.primary,
-    backgroundColor: '#EFF5FF',
   },
   tierCardHighlight: {
     borderColor: Colors.accent,

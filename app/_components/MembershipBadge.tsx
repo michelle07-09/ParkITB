@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Colors, Typography, Radius, Spacing } from "@/constants/theme";
+import { Colors, Typography, Radius, Spacing } from '../_constants/theme';
 import { Award } from 'lucide-react-native';
 
 interface MembershipBadgeProps {

@@ -1,9 +1,25 @@
-import { Colors } from "@/constants/theme";
+import { supabase } from "@/lib/supabase";
 import { Tabs } from "expo-router";
 import { Car, Home, Receipt, User } from "lucide-react-native";
+import { useEffect, useState } from "react";
 import { Text } from "react-native";
+import { Colors } from "../_constants/theme";
 
 export default function TabLayout() {
+     const [activePark, setActivePark] = useState<any | null>();
+
+     useEffect(() => {
+          async function fetchData() {
+               const { data, error } = await supabase
+                    .from("active_transaction")
+                    .select();
+
+               setActivePark(data != null ? data[0] : null);
+          }
+
+          fetchData();
+     }, []);
+
      return (
           <Tabs
                screenOptions={{

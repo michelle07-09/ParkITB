@@ -76,10 +76,6 @@ export const Shadows = {
     shadowOpacity: 0.07,
     shadowRadius: 12,
     elevation: 4,
-    // Web-compatible shadow using boxShadow
-    ...(typeof window !== 'undefined' ? {
-      boxShadow: 'rgba(0, 0, 0, 0.07) 0px 2px 12px'
-    } : {})
   },
 };
 

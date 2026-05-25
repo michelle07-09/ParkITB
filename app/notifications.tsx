@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Colors, Typography, Spacing, Radius, Shadows } from "@/constants/theme";
+import { Colors, Typography, Spacing, Radius, Shadows } from './_constants/theme';
 import { ArrowLeft, Car, Wallet, Bell, Award } from 'lucide-react-native';
 
 const NOTIFICATIONS = [

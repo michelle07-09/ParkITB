@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Lock, Unlock } from 'lucide-react-native';
-import { Colors, Typography, Spacing, Shadows } from "@/constants/theme";
+import { Colors, Typography, Spacing, Shadows } from '../_constants/theme';
 
 interface VirtualKeyToggleProps {
   isLocked: boolean;
