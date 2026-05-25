@@ -1,15 +1,15 @@
-import { LinearGradient } from "expo-linear-gradient";
-import { useRouter } from "expo-router";
-import { Landmark, PlusCircle } from "lucide-react-native";
-import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {
      Colors,
      Radius,
      Shadows,
      Spacing,
      Typography,
-} from "../_constants/theme";
+} from "@/constants/theme";
+import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
+import { Landmark, PlusCircle } from "lucide-react-native";
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface BalanceCardProps {
      balance: number;

@@ -13,12 +13,26 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Colors, Radius, Spacing, Typography } from "../_constants/theme";
+import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
 
 export default function LoginScreen() {
      const router = useRouter();
      const [email, setEmail] = useState("");
      const [password, setPassword] = useState("");
+
+     const showAlert = (title: string, message: string, buttons?: any[]) => {
+          if (Platform.OS === "web") {
+               alert(`${title}: ${message}`);
+               if (buttons && buttons.length > 0) {
+                    const defaultBtn = buttons.find((b: any) => b.style === "default") || buttons[0];
+                    if (defaultBtn && defaultBtn.onPress) {
+                         defaultBtn.onPress();
+                    }
+               }
+          } else {
+               Alert.alert(title, message, buttons);
+          }
+     };
 
      const handleLogin = async () => {
           console.log("dagv");
@@ -29,30 +43,32 @@ export default function LoginScreen() {
 
           // Validate inputs
           if (!email.trim()) {
-               Alert.alert("Error", "Email tidak boleh kosong");
+               showAlert("Error", "Email tidak boleh kosong");
                return;
           }
           if (!validateEmail(email)) {
-               Alert.alert("Error", "Format email tidak valid");
+               showAlert("Error", "Format email tidak valid");
                return;
           }
           if (!password.trim()) {
-               Alert.alert("Error", "Password tidak boleh kosong");
+               showAlert("Error", "Password tidak boleh kosong");
                return;
           }
           if (password.length < 8) {
-               Alert.alert("Error", "Password minimal 8 karakter");
+               showAlert("Error", "Password minimal 8 karakter");
                return;
           }
 
-          // // Basic mock authentication
+          // Basic authentication
           const { data, error } = await supabase.auth.signInWithPassword({
                email: email,
                password: password,
           });
 
           if (error) {
-               Alert.alert(error.message);
+               showAlert("Login Gagal", error.message);
+          } else {
+               router.replace("/(tabs)");
           }
      };
 

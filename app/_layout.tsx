@@ -7,8 +7,8 @@ import {
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-import { useAuthContext } from "./_hooks/use-auth-context";
-import AuthProvider from "./_providers/auth-provider";
+import { useAuthContext } from "@/hooks/use-auth-context";
+import AuthProvider from "@/providers/auth-provider";
 
 // Prevent auto hide
 SplashScreen.preventAutoHideAsync();
@@ -34,10 +34,12 @@ export function RootLayout() {
 
      return (
           <Stack screenOptions={{ headerShown: false }}>
+               {/* Index screen is always accessible - it handles its own auth redirects */}
+               <Stack.Screen name="index" />
+
+               {/* Protected screens - only accessible when logged in */}
                <Stack.Protected guard={isLoggedIn}>
-                    {/* <Stack.Screen name="index" /> */}
                     <Stack.Screen name="(tabs)" />
-                    {/* Modals and other screens */}
                     <Stack.Screen
                          name="payment"
                          options={{ presentation: "modal" }}
@@ -52,7 +54,11 @@ export function RootLayout() {
                          options={{ presentation: "modal" }}
                     />
                     <Stack.Screen name="notifications" />
+                    <Stack.Screen name="vehicles" />
+                    <Stack.Screen name="payment-methods" />
                </Stack.Protected>
+
+               {/* Auth screens - only accessible when NOT logged in */}
                <Stack.Protected guard={!isLoggedIn}>
                     <Stack.Screen name="(auth)/login" />
                     <Stack.Screen name="(auth)/register" />

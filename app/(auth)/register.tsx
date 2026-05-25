@@ -7,6 +7,7 @@ import {
      EyeOff,
      Lock,
      Mail,
+     MapPin,
      PinIcon,
      User,
 } from "lucide-react-native";
@@ -23,8 +24,8 @@ import {
      TouchableOpacity,
      View,
 } from "react-native";
-import { Colors, Radius, Spacing, Typography } from "../_constants/theme";
-import { useStore } from "../_store/useStore";
+import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
+import { useStore } from "@/store/useStore";
 
 export default function RegisterScreen() {
      const router = useRouter();
@@ -99,28 +100,42 @@ export default function RegisterScreen() {
           return hcount + mcount + tcount === text.length;
      };
 
+     const showAlert = (title: string, message: string, buttons?: any[]) => {
+          if (Platform.OS === "web") {
+               alert(`${title}: ${message}`);
+               if (buttons && buttons.length > 0) {
+                    const defaultBtn = buttons.find((b: any) => b.style === "default") || buttons[0];
+                    if (defaultBtn && defaultBtn.onPress) {
+                         defaultBtn.onPress();
+                    }
+               }
+          } else {
+               Alert.alert(title, message, buttons);
+          }
+     };
+
      const validateForm = () => {
           if (!fullName.trim()) {
-               Alert.alert(
+               showAlert(
                     "Validation Error",
                     "Nama lengkap tidak boleh kosong",
                );
                return false;
           }
           if (!email.trim() || !email.includes("@")) {
-               Alert.alert("Validation Error", "Email tidak valid");
+               showAlert("Validation Error", "Email tidak valid");
                return false;
           }
           if (password.length < 8) {
-               Alert.alert("Validation Error", "Password minimal 8 karakter");
+               showAlert("Validation Error", "Password minimal 8 karakter");
                return false;
           }
           if (password !== confirmPassword) {
-               Alert.alert("Validation Error", "Password tidak cocok");
+               showAlert("Validation Error", "Password tidak cocok");
                return false;
           }
           if (!vehiclePlate.trim()) {
-               Alert.alert(
+               showAlert(
                     "Validation Error",
                     "Nomor plat kendaraan tidak boleh kosong",
                );
@@ -128,7 +143,7 @@ export default function RegisterScreen() {
           }
 
           if (!isPlatNomor(vehiclePlate)) {
-               Alert.alert("Validation Error", "Plat Nomor tidak valid");
+               showAlert("Validation Error", "Plat Nomor tidak valid");
                return false;
           }
           return true;
@@ -156,37 +171,35 @@ export default function RegisterScreen() {
           if (error) {
                setLoading(false);
                console.log(error.toJSON());
-               return Alert.alert("Sign up error", error.message);
+               return showAlert("Sign up error", error.message);
           }
 
-          // // Simulate API call
-          // await new Promise(resolve => setTimeout(resolve, 1500));
+          setLoading(false);
 
-          // // Save user data to store
-          // const newPlate = vehiclePlate.toUpperCase().trim();
+          // Save user data to store
+          const newPlate = vehiclePlate.toUpperCase().trim();
+          setUser({
+               name: fullName,
+          });
 
-          // setUser({
-          //   name: fullName,
-          // });
+          // Check if plate doesn't already exist before adding
+          const userState = useStore.getState();
+          if (!userState.user.plates.includes(newPlate)) {
+               addPlate(newPlate);
+          }
 
-          // // Check if plate doesn't already exist before adding
-          // const userState = useStore.getState();
-          // if (!userState.user.plates.includes(newPlate)) {
-          //   addPlate(newPlate);
-          // }
-
-          // Show success message and navigate to login
-          // Alert.alert(
-          //      "Pendaftaran Berhasil! ✅",
-          //      "Akun Anda telah dibuat. Silakan login dengan email dan password Anda.",
-          //      [
-          //           {
-          //                text: "Login Sekarang",
-          //                onPress: () => router.replace("/(auth)/login"),
-          //                style: "default",
-          //           },
-          //      ],
-          // );
+          // Show success message and navigate to home tabs
+          showAlert(
+               "Pendaftaran Berhasil!",
+               "Akun Anda telah dibuat. Selamat menggunakan ParkITB!",
+               [
+                    {
+                         text: "Mulai Sekarang",
+                         onPress: () => router.replace("/(tabs)"),
+                         style: "default",
+                    },
+               ],
+          );
      };
 
      return (
@@ -200,7 +213,7 @@ export default function RegisterScreen() {
                          showsVerticalScrollIndicator={false}
                     >
                          <View style={styles.header}>
-                              <Text style={styles.headerIcon}>🅿️</Text>
+                              <MapPin color={Colors.primary} size={48} style={{ marginBottom: Spacing.s }} />
                               <Text style={styles.appTitle}>ParkITB</Text>
                               <Text style={styles.appSubtitle}>
                                    Sistem Parkir Institusi Terpadu

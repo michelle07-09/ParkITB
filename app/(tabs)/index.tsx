@@ -27,7 +27,7 @@ import { useStore } from "../_store/useStore";
 
 
 export default function HomeDashboard() {
-     const { profile } = useAuthContext();
+     const { profile, activePark } = useAuthContext();
      const router = useRouter();
 
      const [activePark, setActivePark] = useState<Tables<'active_transaction'> & {type: string, campus: string} | null>(null);
@@ -146,21 +146,6 @@ export default function HomeDashboard() {
                                    <Text style={styles.emptyStateText}>
                                         Belum ada parkir aktif
                                    </Text>
-                                   <TouchableOpacity
-                                        onPress={() =>
-                                             setRefresh((r) => (r + 1) % 10)
-                                        }
-                                        style={{ marginTop: 10 }}
-                                   >
-                                        <Text
-                                             style={{
-                                                  ...Typography.caption,
-                                                  color: Colors.secondary,
-                                             }}
-                                        >
-                                             Refresh
-                                        </Text>
-                                   </TouchableOpacity>
                               </View>
                          )}
                     </View>
