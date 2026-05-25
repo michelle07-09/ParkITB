@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Colors, Typography, Spacing, Radius, Shadows } from './_constants/theme';
+import { Colors, Spacing, Radius } from "@/constants/theme";
 import {
   ArrowLeft,
   Plus,
@@ -28,11 +28,11 @@ import {
   Landmark,
   Smartphone,
 } from 'lucide-react-native';
-import { useStore, PaymentMethod } from './_store/useStore';
+import { useStore } from "@/store/useStore";
 
 export default function PaymentMethodsScreen() {
   const router = useRouter();
-  const { user, addPaymentMethod, removePaymentMethod, setDefaultPaymentMethod } = useStore();
+  const { user, addPaymentMethod, setDefaultPaymentMethod } = useStore();
   const [showAddModal, setShowAddModal] = useState(false);
   const [newMethodType, setNewMethodType] = useState<'bank' | 'card' | 'ewallet'>('bank');
   const [newMethodName, setNewMethodName] = useState('');
@@ -44,6 +44,44 @@ export default function PaymentMethodsScreen() {
 
   const bankMethods = user.paymentMethods.filter((m) => m.type === 'bank');
   const cardMethods = user.paymentMethods.filter((m) => m.type === 'card');
+  const hasNoPaymentMethods = user.paymentMethods.length === 0;
+  const placeholderBanks = ['Bank Mandiri', 'Bank BRI', 'Bank BCA', 'Bank BTN'];
+
+  const linkedAccountItems = hasNoPaymentMethods
+    ? placeholderBanks.map((bank) => (
+        <View key={bank} style={styles.bankPlaceholderCard}>
+          <View style={styles.bankLogoPlaceholder} />
+          <View style={styles.bankInfoPlaceholder}>
+            <Text style={styles.bankNamePlaceholder}>{bank}</Text>
+            <Text style={styles.bankNumberPlaceholder}>Tambahkan metode pembayaran</Text>
+          </View>
+        </View>
+      ))
+    : bankMethods.map((method) => (
+        <TouchableOpacity
+          key={method.id}
+          style={styles.bankCard}
+          onPress={() => setDefaultPaymentMethod(method.id)}
+          activeOpacity={0.7}
+        >
+          <View style={[styles.bankLogo, { backgroundColor: method.brandColor }]}> 
+            <Text style={styles.bankLogoText}>
+              {method.name.split(' ')[0].substring(0, 3).toUpperCase()}
+            </Text>
+          </View>
+          <View style={styles.bankInfo}>
+            <Text style={styles.bankName}>{method.name}</Text>
+            <Text style={styles.bankNumber}>**** {method.lastFour}</Text>
+          </View>
+          {method.isDefault ? (
+            <View style={styles.checkCircle}>
+              <View style={styles.checkCircleInner} />
+            </View>
+          ) : (
+            <View style={styles.radioEmpty} />
+          )}
+        </TouchableOpacity>
+      ));
 
   const handleAddPaymentMethod = () => {
     if (!newMethodName.trim() || !newMethodNumber.trim()) {
@@ -153,31 +191,7 @@ export default function PaymentMethodsScreen() {
           {/* Linked Accounts */}
           <View style={styles.linkedSection}>
             <Text style={styles.subSectionLabel}>LINKED ACCOUNTS</Text>
-            {bankMethods.map((method) => (
-              <TouchableOpacity
-                key={method.id}
-                style={styles.bankCard}
-                onPress={() => setDefaultPaymentMethod(method.id)}
-                activeOpacity={0.7}
-              >
-                <View style={[styles.bankLogo, { backgroundColor: method.brandColor }]}>
-                  <Text style={styles.bankLogoText}>
-                    {method.name.split(' ')[0].substring(0, 3).toUpperCase()}
-                  </Text>
-                </View>
-                <View style={styles.bankInfo}>
-                  <Text style={styles.bankName}>{method.name}</Text>
-                  <Text style={styles.bankNumber}>**** {method.lastFour}</Text>
-                </View>
-                {method.isDefault ? (
-                  <View style={styles.checkCircle}>
-                    <View style={styles.checkCircleInner} />
-                  </View>
-                ) : (
-                  <View style={styles.radioEmpty} />
-                )}
-              </TouchableOpacity>
-            ))}
+            {linkedAccountItems}
           </View>
 
           {/* Cards */}
@@ -613,6 +627,35 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter-Regular',
     fontSize: 12,
     color: '#43474F',
+    marginTop: 2,
+  },
+  bankPlaceholderCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.m,
+    backgroundColor: '#F3F5F9',
+    padding: Spacing.m,
+    borderRadius: 16,
+    marginBottom: Spacing.m,
+  },
+  bankLogoPlaceholder: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    backgroundColor: '#D9DDE6',
+  },
+  bankInfoPlaceholder: {
+    flex: 1,
+  },
+  bankNamePlaceholder: {
+    fontFamily: 'Inter-Bold',
+    fontSize: 14,
+    color: '#6C7284',
+  },
+  bankNumberPlaceholder: {
+    fontFamily: 'Inter-Regular',
+    fontSize: 12,
+    color: '#9AA1B5',
     marginTop: 2,
   },
   checkCircle: {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Colors, Typography, Spacing, Radius } from './_constants/theme';
+import { Colors, Typography, Spacing, Radius } from "@/constants/theme";
 import { ArrowLeft, Info } from 'lucide-react-native';
-import { VirtualKeyToggle } from './_components/VirtualKeyToggle';
-import { useStore } from './_store/useStore';
+import { VirtualKeyToggle } from "@/components/VirtualKeyToggle";
+import { useStore } from "@/store/useStore";
 
 export default function VirtualKeyScreen() {
   const router = useRouter();

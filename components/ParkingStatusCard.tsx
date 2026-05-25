@@ -7,7 +7,7 @@ import {
      Shadows,
      Spacing,
      Typography,
-} from "../_constants/theme";
+} from "@/constants/theme";
 
 type ParkingCardProps = {
      activePark: any | null;
@@ -18,13 +18,14 @@ export const ParkingStatusCard = (props: ParkingCardProps) => {
      //  const { activeParking, updateParkingDuration } = useStore();
      const [liveDuration, setLiveDuration] = useState("00:00:00");
      const [duration, setDuration] = useState<number>(
-          new Date().getTime() -
-               new Date(props.activePark.entry_time).getTime(),
+          props.activePark?.entry_time
+               ? new Date().getTime() - new Date(props.activePark.entry_time).getTime()
+               : 0
      );
      const [fee, setFee] = useState<number>(3000);
 
      useEffect(() => {
-          // if (!activeParking.isParking || !activeParking.entryTime) return;
+          if (!props.activePark?.entry_time) return;
 
           // Simulate duration counter
           const entryDate = new Date(props.activePark.entry_time).getTime();
@@ -49,14 +50,12 @@ export const ParkingStatusCard = (props: ParkingCardProps) => {
                const feeHours = Math.max(1, Math.ceil(diffInSeconds / 3600));
                const newFee = 3000 + Math.max(0, feeHours - 1) * 2000;
 
-               // Update store less frequently in real app, but for demo we can just update it
-               //  updateParkingDuration(diffInSeconds, newFee);
-               setDuration((a) => a + diffInSeconds);
+               setDuration(diffInSeconds * 1000);
                setFee(newFee);
           }, 1000);
 
           return () => clearInterval(interval);
-     }, []);
+     }, [props.activePark?.entry_time]);
 
      if (!props.activePark) {
           return null; // Or empty state handled by parent

@@ -9,8 +9,8 @@ import {
   Shadows,
   Spacing,
   Typography,
-} from "../_constants/theme";
-import { useAuthContext } from "../_hooks/use-auth-context";
+} from "@/constants/theme";
+import { useAuthContext } from "@/hooks/use-auth-context";
 
 interface BalanceCardProps {
      balance: number;

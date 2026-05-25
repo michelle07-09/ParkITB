@@ -1,36 +1,21 @@
-import { supabase } from "@/lib/supabase";
+import { QRCodeDisplay } from "@/components/QRCodeDisplay";
+import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
+import { useAuthContext } from "@/hooks/use-auth-context";
 import { useRouter } from "expo-router";
 import { Car, X } from "lucide-react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
+    SafeAreaView,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from "react-native";
-import { QRCodeDisplay } from "../_components/QRCodeDisplay";
-import { Colors, Radius, Spacing, Typography } from "../_constants/theme";
-import { useAuthContext } from "../_hooks/use-auth-context";
 
 export default function ActiveParkingScreen() {
      const router = useRouter();
-     const { profile } = useAuthContext();
-
-     const [activePark, setActivePark] = useState<any | null>();
-
-     useEffect(() => {
-          async function fetchData() {
-               const { data, error } = await supabase
-                    .from("active_transaction")
-                    .select();
-
-               setActivePark(data != null ? data[0] : null);
-          }
-
-          fetchData();
-     }, []);
+     const { profile, activePark } = useAuthContext();
 
      // ANNOTATION: This component would typically subscribe to Supabase Realtime
      // to listen for 'parking_sessions' table updates on the current user's active session.

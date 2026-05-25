@@ -18,8 +18,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Colors, Radius, Spacing, Typography } from "../_constants/theme";
-import { useStore } from "../_store/useStore";
+import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
+import { useStore } from "@/store/useStore";
 
 const MENU_ITEMS = [
      {
@@ -101,7 +101,7 @@ export default function ProfileScreen() {
                     </View>
 
                     <View style={styles.menuSection}>
-                         {MENU_ITEMS.map((item, index) => (
+                         {MENU_ITEMS.map((item) => (
                               <TouchableOpacity
                                    key={item.id}
                                    style={styles.menuItem}
@@ -112,6 +112,8 @@ export default function ProfileScreen() {
                                              router.push("/payment-methods");
                                         } else if (item.id === "membership") {
                                              router.push("/membership");
+                                        } else {
+                                             router.push(`/${item.id}`);
                                         }
                                    }}
                               >

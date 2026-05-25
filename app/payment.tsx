@@ -10,9 +10,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { QRCodeDisplay } from "./_components/QRCodeDisplay";
-import { Colors, Radius, Spacing, Typography } from "./_constants/theme";
-import { useStore } from "./_store/useStore";
+import { QRCodeDisplay } from "@/components/QRCodeDisplay";
+import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
+import { useStore } from "@/store/useStore";
 
 export default function PaymentScreen() {
      const router = useRouter();

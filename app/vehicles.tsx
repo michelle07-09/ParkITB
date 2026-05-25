@@ -14,9 +14,9 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Colors, Typography, Spacing, Radius, Shadows } from './_constants/theme';
+import { Colors, Typography, Spacing, Radius, Shadows } from "@/constants/theme";
 import { ArrowLeft, Car, Bike, Plus, Edit2, CheckCircle, Info, X, RefreshCw } from 'lucide-react-native';
-import { useStore } from './_store/useStore';
+import { useStore } from "@/store/useStore";
 
 export default function VehiclesScreen() {
   const router = useRouter();

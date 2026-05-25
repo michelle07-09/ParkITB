@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Colors, Typography, Radius, Spacing } from '../_constants/theme';
+import { Colors, Typography, Radius, Spacing } from "@/constants/theme";
 import { Car, Wallet, Award } from 'lucide-react-native';
 
 export type TransactionType = 'parking' | 'topup' | 'membership';

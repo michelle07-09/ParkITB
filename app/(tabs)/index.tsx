@@ -1,47 +1,31 @@
-import { supabase } from "@/lib/supabase";
+import { BalanceCard } from "@/components/BalanceCard";
+import { ParkingStatusCard } from "@/components/ParkingStatusCard";
+import { SlotAvailabilityBar } from "@/components/SlotAvailabilityBar";
+import { VirtualKeyToggle } from "@/components/VirtualKeyToggle";
+import {
+    Colors,
+    Radius,
+    Shadows,
+    Spacing,
+    Typography,
+} from "@/constants/theme";
+import { useAuthContext } from "@/hooks/use-auth-context";
+import { useStore } from "@/store/useStore";
 import { useRouter } from "expo-router";
 import { Bell, Image as ImageIcon } from "lucide-react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
-     SafeAreaView,
-     ScrollView,
-     StyleSheet,
-     Text,
-     TouchableOpacity,
-     View,
+    SafeAreaView,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from "react-native";
-import { BalanceCard } from "../_components/BalanceCard";
-import { ParkingStatusCard } from "../_components/ParkingStatusCard";
-import { SlotAvailabilityBar } from "../_components/SlotAvailabilityBar";
-import { VirtualKeyToggle } from "../_components/VirtualKeyToggle";
-import {
-     Colors,
-     Radius,
-     Shadows,
-     Spacing,
-     Typography,
-} from "../_constants/theme";
-import { useAuthContext } from "../_hooks/use-auth-context";
-import { useStore } from "../_store/useStore";
 
 export default function HomeDashboard() {
-     const { profile } = useAuthContext();
+     const { profile, activePark } = useAuthContext();
      const router = useRouter();
-
-     const [activePark, setActivePark] = useState<any | null>();
-     const [refresh, setRefresh] = useState(0);
-
-     useEffect(() => {
-          async function fetchData() {
-               const { data, error } = await supabase
-                    .from("active_transaction")
-                    .select();
-
-               setActivePark(data != null ? data[0] : null);
-          }
-
-          fetchData();
-     }, [refresh]);
 
      const { user, virtualKeyLocked, setVirtualKeyLocked, slotAvailability } =
           useStore();
@@ -121,21 +105,6 @@ export default function HomeDashboard() {
                                    <Text style={styles.emptyStateText}>
                                         Belum ada parkir aktif
                                    </Text>
-                                   <TouchableOpacity
-                                        onPress={() =>
-                                             setRefresh((r) => (r + 1) % 10)
-                                        }
-                                        style={{ marginTop: 10 }}
-                                   >
-                                        <Text
-                                             style={{
-                                                  ...Typography.caption,
-                                                  color: Colors.secondary,
-                                             }}
-                                        >
-                                             Refresh
-                                        </Text>
-                                   </TouchableOpacity>
                               </View>
                          )}
                     </View>

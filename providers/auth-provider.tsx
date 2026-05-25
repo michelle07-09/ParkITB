@@ -1,7 +1,7 @@
+import { AuthContext } from "@/hooks/use-auth-context";
 import { supabase } from "@/lib/supabase";
 import { RealtimeChannel } from "@supabase/supabase-js";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
-import { AuthContext } from "../_hooks/use-auth-context";
 
 export default function AuthProvider({ children }: PropsWithChildren) {
      const [claims, setClaims] = useState<
@@ -12,6 +12,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
      const [activePark, setActivePark] = useState<any>();
 
      let profile_changes_listener = useRef<RealtimeChannel>(undefined);
+     let active_park_listener = useRef<RealtimeChannel>(undefined);
 
      useEffect(() => {
           const fetchClaims = async () => {
@@ -41,6 +42,8 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                subscription.unsubscribe();
                if (profile_changes_listener.current)
                     profile_changes_listener.current.unsubscribe();
+               if (active_park_listener.current)
+                    active_park_listener.current.unsubscribe();
           };
      }, []);
 
@@ -80,6 +83,44 @@ export default function AuthProvider({ children }: PropsWithChildren) {
           fetchProfile();
      }, [claims]);
 
+     // Fetch active parking session
+     useEffect(() => {
+          const fetchActivePark = async () => {
+               try {
+                    const { data, error } = await supabase
+                         .from("active_transaction")
+                         .select("*");
+                    if (error) {
+                         console.error("Error fetching active park:", error);
+                    }
+                    setActivePark(data && data.length > 0 ? data[0] : null);
+               } catch (err) {
+                    console.error("Error in fetchActivePark:", err);
+                    setActivePark(null);
+               }
+          };
+
+          if (claims) {
+               fetchActivePark();
+               // Set up listener for real-time updates
+               if (active_park_listener.current)
+                    active_park_listener.current.unsubscribe();
+               active_park_listener.current = supabase
+                    .channel("active_transaction_changes", {
+                         config: { private: true },
+                    })
+                    .on("postgres_changes", { event: "*", schema: "public", table: "active_transaction" }, (payload) => {
+                         console.log("Active park changed:", payload);
+                         fetchActivePark();
+                    })
+                    .subscribe();
+          } else {
+               setActivePark(null);
+               if (active_park_listener.current)
+                    active_park_listener.current.unsubscribe();
+          }
+     }, [claims]);
+
      // console.log("Claims", claims);
      // console.log("Profile", profile);
      return (
@@ -89,6 +130,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                     isLoading,
                     profile,
                     isLoggedIn: claims != null,
+                    activePark,
                }}
           >
                {children}

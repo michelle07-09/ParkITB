@@ -7,6 +7,7 @@ import { DeveloperLayout } from './layouts/DeveloperLayout';
 
 // Shared
 import { LoginScreen } from './screens/shared/LoginScreen';
+import { RegisterScreen } from './screens/shared/RegisterScreen';
 
 // Petugas Screens
 import { LiveMonitoring } from './screens/petugas/LiveMonitoring';
@@ -39,6 +40,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginScreen />} />
+        <Route path="/register" element={<RegisterScreen />} />
 
         {/* PETUGAS ROUTES */}
         <Route path="/petugas" element={<ProtectedRoute role="petugas"><PetugasLayout /></ProtectedRoute>}>
