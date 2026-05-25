@@ -1,3 +1,5 @@
+import { Tables } from "@/lib/park-type";
+import axios from "axios";
 import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
@@ -9,29 +11,84 @@ import {
      Typography,
 } from "../_constants/theme";
 
+const URL_TARIF = 'https://xfrsjvaewbcukazxcwvv.supabase.co/functions/v1/tarif';
 type ParkingCardProps = {
-     activePark: any | null;
+     activePark: Tables<'active_transaction'> & {type: string, campus: string};
 };
 
-export const ParkingStatusCard = (props: ParkingCardProps) => {
+type Tarif = {
+     // motor: {
+     base: number;
+     hourly: number;
+     max: number;
+     inap: number;
+     // };
+     // mobil: {
+     //      base: number;
+     //      hourly: number;
+     //      max: number;
+     //      inap: number;
+     // };
+};
+
+export const ParkingStatusCard = ({activePark}: ParkingCardProps) => {
      const router = useRouter();
      //  const { activeParking, updateParkingDuration } = useStore();
      const [liveDuration, setLiveDuration] = useState("00:00:00");
      const [duration, setDuration] = useState<number>(
           new Date().getTime() -
-               new Date(props.activePark.entry_time).getTime(),
+               new Date(activePark.entry_time).getTime(),
      );
      const [fee, setFee] = useState<number>(3000);
+     const [tarif, setTarif] = useState<Tarif>();
+
+     useEffect(() => {
+          const fetchTarif = async () => {
+               try {
+                    
+                    // return;
+                    const response = await axios.get<Tarif>(`${URL_TARIF}?campus=${activePark.campus}&tipe_kendaraan=${activePark.type}`)
+                    console.log(response.data);
+                    setTarif(response.data);
+               } catch (error) {
+                    if (axios.isAxiosError(error)) {
+                         console.log("Axios Error: ", error.toJSON());
+                    } else {
+                         console.log("Unexpected Error: ", error);
+                    }
+               }
+          };
+
+          fetchTarif();
+     }, [activePark]);
 
      useEffect(() => {
           // if (!activeParking.isParking || !activeParking.entryTime) return;
 
           // Simulate duration counter
-          const entryDate = new Date(props.activePark.entry_time).getTime();
+          const entryDate = new Date(activePark.entry_time);
+          console.log(entryDate);
+          const entryTime = entryDate.getTime();
+
+          const nextMidnight = new Date(entryDate);
+          nextMidnight.setDate(entryDate.getDate() + 1);
+          nextMidnight.setHours(0);
+          nextMidnight.setMinutes(0);
+          nextMidnight.setSeconds(0);
+
+          console.log("Entry date:",entryDate.toLocaleString('id-ID'));
+          console.log("Next Midnight:", nextMidnight.toLocaleString('id-ID'));
+
+          
+
+          const timeTillMidnight = Math.floor((nextMidnight.getTime() - entryTime) / 1000);
+          console.log("Time till midnight:", timeTillMidnight, "seconds");
+          
 
           const interval = setInterval(() => {
+               if (!tarif) return;
                const now = new Date().getTime();
-               const diffInSeconds = Math.floor((now - entryDate) / 1000);
+               const diffInSeconds = Math.floor((now - entryTime) / 1000);
 
                const hours = Math.floor(diffInSeconds / 3600);
                const minutes = Math.floor((diffInSeconds % 3600) / 60);
@@ -46,19 +103,34 @@ export const ParkingStatusCard = (props: ParkingCardProps) => {
                setLiveDuration(formatted);
 
                // Rough estimate: Rp 3000 first hour, Rp 2000 next hours
-               const feeHours = Math.max(1, Math.ceil(diffInSeconds / 3600));
-               const newFee = 3000 + Math.max(0, feeHours - 1) * 2000;
+               let feeTime = diffInSeconds;
+               console.log("Parking Duration:", feeTime, "seconds");
+               const midnightPassed = Math.max(Math.floor((feeTime - timeTillMidnight) / 86400) + 1, 0);
+               feeTime -= Math.max(timeTillMidnight + 86400 * (midnightPassed - 1), 0);
+
+               const feeBase = 2000;
+               const feeHourly = 2000;
+               const feeMax = 2000;
+               const feeHours = Math.max(1, Math.ceil(feeTime / 3600));
+               console.log("Remaining non-inap duration:", feeTime, 'seconds');
+               console.log("Remaining non-inap hours:", feeHours, 'hours');
+
+               console.log("Midnight passed:",midnightPassed);
+
+               // const tarifInap = feeDays * tarif.inap;
+               const newFee = midnightPassed * tarif.inap + Math.min(feeBase + feeHourly * (feeHours - 1), feeMax);
 
                // Update store less frequently in real app, but for demo we can just update it
                //  updateParkingDuration(diffInSeconds, newFee);
                setDuration((a) => a + diffInSeconds);
+
                setFee(newFee);
           }, 1000);
 
           return () => clearInterval(interval);
-     }, []);
+     }, [activePark.entry_time, tarif]);
 
-     if (!props.activePark) {
+     if (!activePark || !tarif) {
           return null; // Or empty state handled by parent
      }
 
@@ -68,8 +140,8 @@ export const ParkingStatusCard = (props: ParkingCardProps) => {
           );
      };
 
-     const formattedEntryTime = props.activePark.entry_time
-          ? new Date(props.activePark.entry_time).toLocaleTimeString("id-ID", {
+     const formattedEntryTime = activePark.entry_time
+          ? new Date(activePark.entry_time).toLocaleTimeString("id-ID", {
                  hour: "2-digit",
                  minute: "2-digit",
             }) + " WIB"

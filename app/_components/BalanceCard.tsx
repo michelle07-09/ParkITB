@@ -4,20 +4,18 @@ import { Landmark, PlusCircle } from "lucide-react-native";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {
-  Colors,
-  Radius,
-  Shadows,
-  Spacing,
-  Typography,
+     Colors,
+     Radius,
+     Shadows,
+     Spacing,
+     Typography,
 } from "../_constants/theme";
-import { useAuthContext } from "../_hooks/use-auth-context";
 
 interface BalanceCardProps {
      balance: number;
 }
 
 export const BalanceCard: React.FC<BalanceCardProps> = ({ balance }) => {
-     const { profile } = useAuthContext();
      const router = useRouter();
 
      const formatCurrency = (amount: number) => {
@@ -41,7 +39,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({ balance }) => {
                     <View>
                          <Text style={styles.label}>Saldo ParkITB</Text>
                          <Text style={styles.balance}>
-                              {formatCurrency(profile?.saldo ?? 0)}
+                              {formatCurrency(balance ?? 0)}
                          </Text>
                     </View>
 
