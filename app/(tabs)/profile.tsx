@@ -121,6 +121,17 @@ export default function ProfileScreen() {
                               <TouchableOpacity
                                    key={item.id}
                                    style={styles.menuItem}
+                                   onPress={() => {
+                                        if (item.id === "vehicles") {
+                                             router.push("/vehicles");
+                                        } else if (item.id === "payment") {
+                                             router.push("/payment-methods");
+                                        } else if (item.id === "membership") {
+                                             router.push("/membership");
+                                        } else {
+                                             router.push(`/${item.id}` as any);
+                                        }
+                                   }}
                               >
                                    <View style={styles.menuLeft}>
                                         {item.icon}

@@ -43,10 +43,12 @@ export const useStore = create<StoreState>((set, get) => ({
   user: {
     name: 'Michelle',
     studentId: '13521000',
-    balance: 85000,
+    balance: 450000,
     membershipActive: true,
     membershipExpiry: '31 Juli 2025',
-    plates: ['D 1234 ABC', 'B 9999 XYZ'],
+    plates: [],
+    vehicle: null,
+    paymentMethods: [],
   },
   activeParking: {
     isParking: false,

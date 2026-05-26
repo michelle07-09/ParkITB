@@ -47,6 +47,7 @@ export function RootLayout() {
                          options={{ presentation: "modal" }}
                     />
                     <Stack.Screen name="membership" />
+                    <Stack.Screen name="extend-membership" />
                     <Stack.Screen
                          name="top-up"
                          options={{ presentation: "modal" }}
