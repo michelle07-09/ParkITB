@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "expo-router";
 import {
+     Award,
      Car,
      ChevronRight,
      CreditCard,
@@ -46,6 +47,11 @@ const MENU_ITEMS = [
           title: "Tentang Aplikasi",
           id: "about",
      },
+     {
+          icon: <Award size={20} color={Colors.textDark} />,
+          title: "Membership",
+          id: 'membership'
+     }
 ];
 
 export default function ProfileScreen() {

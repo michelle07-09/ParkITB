@@ -1,9 +1,9 @@
-import { Colors, Radius, Spacing, Typography } from "@/constants/theme";
-import { useStore } from "@/store/useStore";
 import { useRouter } from "expo-router";
 import { ArrowLeft, CheckCircle2 } from "lucide-react-native";
 import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Colors, Radius, Spacing, Typography } from "./_constants/theme";
+import { useStore } from "./_store/useStore";
 
 const BENEFITS = [
   "Akses gerbang otomatis (Frictionless Exit)",

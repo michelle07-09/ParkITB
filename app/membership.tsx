@@ -1,5 +1,6 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import { ArrowLeft, CheckCircle2 } from 'lucide-react-native';
+import { ArrowLeft, CheckCircle2, Star } from 'lucide-react-native';
 import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Colors, Radius, Spacing, Typography } from './_constants/theme';
@@ -131,9 +132,9 @@ export default function MembershipScreen() {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.primaryButton}>
+        {/* <TouchableOpacity style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Perpanjang Membership</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
       </ScrollView>
     </SafeAreaView>
